@@ -36,6 +36,9 @@ Your prefab should now match the following:
 3. Create a new C# script which will load and run this system. 
 
 ```csharp title="SampleEntityTagComponent.cs"
+using SteeringAI.Core;
+using Unity.Entities;
+
 [UpdateInGroup(typeof(SteeringSystemsGroup))]
 public partial class SampleSteeringSystem : BaseSteeringSystem
 {
@@ -53,10 +56,18 @@ Make sure the path matches addressable address of the system, as shown in [img l
 5. Drag and drop your entity's prefab there. 
 6. In the *Main Tag* dropdown, select `SampleEntityTagComponent`.
 7. The editor lists which components are missing on the entity. Click plus next to `DesiredVelocityComponent` to add it to the prefab. 
-8. Select the `Single Behaviors` tab and add `GoForwardJobWrapper` from the dropdown. This behavior makes entities go in their forward direction.
+8. Select the *Single Behaviors* tab and add `GoForwardJobWrapper` from the dropdown. This behavior makes entities go in their forward direction.
 9. On the right, add `GoForwardComponent` to the entity. It is used to parametrize the behavior.
 
 ![Steering System Asset Set Up](./imgs/SteeringSystem.png)
+
+The contents of your folder should now look like this: 
+
+![Folder contents](./imgs/Project.png)
+
+Your prefab should look like this:
+
+![Entity prefab](./imgs/Prefab.png)
 
 ## Scene set up
 1. Drag and drop a few of these prefabs into the scene.
@@ -70,5 +81,3 @@ Dragging and dropping the prefab into a Scene will prompt you to create a new Su
 4. Hit play
 
 [video]
-
-// TODO PUT STEP TO CHECK COMBINER
