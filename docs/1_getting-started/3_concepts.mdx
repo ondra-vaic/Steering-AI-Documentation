@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 # Concepts
 This page will give you a basic introduction into most important concepts and terms.
@@ -28,26 +31,34 @@ In the example, the `SampleSteeringSystem` finds all entities which have a `Samp
 
 ### Neighbor Queries
 
-**Neighbor Queries** are used by **Neighbor Behaviors**. Given the results of two Entity Queries, A and B, a neighbor query finds a number of it's 'neighbors' which satisfy some conditions. Normally they find `k` nearest entities [link], but it's possible to add your own [link]. The neighbors are then passed into neighbor behaviors [link].
+**Neighbor Queries** are used by **Neighbor Behaviors**. Given the results of two Entity Queries, A and B, a neighbor query finds a number of it's 'neighbors' which satisfy some conditions. Normally they find `k` nearest entities [link], but it's possible to create your own query [link]. The neighbors are then passed into neighbor behaviors [link].
 
 For example:
 
-***Entity Query A*** - [*a1*, *a2*, *a3*]
+---
+*Entity Query* ***A*** - [*a1*, *a2*, *a3*]
 
-***Entity Query B*** - [*b1*, *b2*, *b3*, *b4*]
+*Entity Query* ***B*** - [*b1*, *b2*, *b3*, *b4*]
 
-***Neighbor Query AB***
+*Neighbor Query* ***AB***
     - *a1* -> [*b1*, *b3*]
     - *a2* -> [*b2*, *b3*]
     - *a3* -> [*b1*, *b4*]
 
 In this example the *a1*'s two closest neighbors are *b1* and *b2* etc.
 
-:::note
-DebugJobWrapper [link] can help you visualize the results of neighbor queries.
-:::
+---
 
-[img]
+
+<video controls width="600">
+  <source src="/videos/DebugJob.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+*In the video, the the queries A and B are the same, that is the most common usage.*
+
+:::tip
+`DebugJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
+:::
 
 ### Ray Queries
 
