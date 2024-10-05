@@ -31,9 +31,13 @@ The following diagram visualizes the `BaseSteeringSystem` job dependency graph. 
 
 First entities with the same **Main Tag** are queried with an **Entity Query**. This is passed to all **Simple-, Neighbor-, Raycast Behaviors**. All **Simple Behaviors** are simply ran in parallel and their results passed into the **Combiner**. For **Neighbor Behaviors** and **Raycast Behaviors** there are additional **Queries** done first. Also these behaviors can be in multiple groups based on the additional queries. After the **Combiner** receives results from all behaviors, it combines them into a single `Desired Velocity` for each entity, which is passed into the **Move System**.
 
+---
+
 ## Tags
 
 Tags are components with no properties. They take up no memory and in context of this framework they are used to mark which entity belongs to which Steering System. All the tags used with the framework should be marked with `[SteeringEntityTag]`.
+
+---
 
 ## Queries
 
@@ -44,8 +48,6 @@ There are three types of queries which you should understand. Queries collect en
 
     **Entity Queries** are part of Unity's ECS [link]. They find all entities in the scene which have some set of components on them.
     In the example, the `SampleSteeringSystem` finds all entities which have a `SampleEntityTagComponent` and `GoForwardComponent` (and components added by the `SteeringEntityAuthoring`). These entities are then passed to the `GoForwardJobWrapper`, which suggests which way each entity should go. This is the systems main entity query. 
-
-    ---
 
   </TabItem>
   <TabItem value="second" label="Neighbor Queries">
@@ -61,8 +63,6 @@ There are three types of queries which you should understand. Queries collect en
     :::tip
     `DebugJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
     :::
-    
-    ---
 
   </TabItem>
   <TabItem value="third" label="Ray Queries">
@@ -72,11 +72,11 @@ There are three types of queries which you should understand. Queries collect en
       Your browser does not support the video tag.
     </video>
     
-    ---
 
   </TabItem>
 </Tabs>
 
+---
 
 ## Behaviors
 
@@ -112,14 +112,22 @@ If you want your behaviors to return more information, you can implement your ow
   </TabItem>
 </Tabs>
 
+---
+
 ## Combiners
 
 **Combiners** tie all the `VelocityResult`s from behaviors together at the end. Each behavior says what the entity should do. Combiners take all of the entity's `VelocityResult`s and write to each entity's `DesiredVelocityComponent` [link].
+
+---
 
 ## Movement Systems
 
 **Movement System** (in the previous example `Movement2DSystem` [link]) takes a look the entity's current velocity `VelocityComponent` and `DesiredVelocityComponent` and calculates a new `VelocityComponent` which will move the entity. They are a separate system from implementations of `BaseSteeringSystem`.
 
+---
+
 ## Components
 
 **Components** are the *C* from the Unity's ECS. They are simply data attached to entities. Here, each behavior expects that there is a component of a certain type on the entities it works with. The components parametrize the behaviors, for example how strong their influence should be. This can be done per entity. In the previous example, you can for example change `Speed` on the `GoForwardComponent`, to speed up the entity.
+
+---
