@@ -24,47 +24,44 @@ A **Steering System** is a Unity `System` [link] which derives from `BaseSteerin
 
 There are three types of queries which you should understand. Queries collect entities or other information from the scene, and pass it to behaviors. 
 
-### Entity Queries
+<Tabs>
+  <TabItem value="first" label="Entity Queries">
 
-**Entity Queries** are part of Unity's ECS [link]. They find all entities in the scene which have some set of components on them.
-In the example, the `SampleSteeringSystem` finds all entities which have a `SampleEntityTagComponent` and `GoForwardComponent` (and components added by the `SteeringEntityAuthoring`). These entities are then passed to the `GoForwardJobWrapper`, which suggests which way each entity should go. This is the systems main entity query. 
+    **Entity Queries** are part of Unity's ECS [link]. They find all entities in the scene which have some set of components on them.
+    In the example, the `SampleSteeringSystem` finds all entities which have a `SampleEntityTagComponent` and `GoForwardComponent` (and components added by the `SteeringEntityAuthoring`). These entities are then passed to the `GoForwardJobWrapper`, which suggests which way each entity should go. This is the systems main entity query. 
 
-### Neighbor Queries
+    ---
 
-**Neighbor Queries** are used by **Neighbor Behaviors**. Given the results of two Entity Queries, A and B, a neighbor query finds a number of it's 'neighbors' which satisfy some conditions. Normally they find `k` nearest entities [link], but it's possible to create your own query [link]. The neighbors are then passed into neighbor behaviors [link].
+  </TabItem>
+  <TabItem value="second" label="Neighbor Queries">
+    
+    **Neighbor Queries** are used by **Neighbor Behaviors**. Given the results of two Entity Queries, A and B, a neighbor query finds a number of it's 'neighbors' which satisfy some conditions. Normally they find `k` nearest entities [link], but it's possible to create your own query [link]. The neighbors are then passed into neighbor behaviors [link].
 
-For example:
+    <video controls width="800">
+      <source src="/videos/DebugJob.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    In the video, you can see each entity finds two nearest neighbors in some radius around them. Here the queries A and B are the same, but they generally do not have to be. Tags specify which entities to look for.
 
----
-*Entity Query* ***A*** - [*a1*, *a2*, *a3*]
+    :::tip
+    `DebugJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
+    :::
+    
+    ---
 
-*Entity Query* ***B*** - [*b1*, *b2*, *b3*, *b4*]
+  </TabItem>
+  <TabItem value="third" label="Ray Queries">
+  **Ray Queries** are used by **Ray Behaviors**. Given the results of an Entity Query, a ray query casts a number of rays into the world per each entity. The results of these ray casts are then passed into ray behaviors [link].
+    <video controls width="800">
+      <source src="/videos/Raycasts.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    
+    ---
 
-*Neighbor Query* ***AB***
-    - *a1* -> [*b1*, *b3*]
-    - *a2* -> [*b2*, *b3*]
-    - *a3* -> [*b1*, *b4*]
+  </TabItem>
+</Tabs>
 
-In this example the *a1*'s two closest neighbors are *b1* and *b2* etc.
-
----
-
-
-<video controls width="600">
-  <source src="/videos/DebugJob.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-*In the video, the the queries A and B are the same, that is the most common usage.*
-
-:::tip
-`DebugJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
-:::
-
-### Ray Queries
-
-**Ray Queries** are used by **Ray Behaviors**. Given the results of an Entity Query, a ray query casts a number of rays into the world per each entity. The results of these ray casts are then passed into ray behaviors [link].
-
-[img]
 
 ## Behaviors
 
@@ -81,17 +78,24 @@ Normally they give results of type `VelocityResult` which contains the following
 If you want your behaviors to return more information, you can implement your own 'workflow' [link].
 :::
 
-### Simple Behaviors
 
-**Simple Behaviors** are the most basic type of behaviors. They only receive results of the main entity query, and return `VelocityResult` for each entity. This is for example the `GoForwardJobWrapper`[link] or a wandering behavior `WanderingJobWrapper` [link].
+<Tabs>
+  <TabItem value="first" label="Simple Behaviors">
 
-### Neighbor Behaviors
+    **Simple Behaviors** are the most basic type of behaviors. They only receive results of the main entity query, and return `VelocityResult` for each entity. This is for example the `GoForwardJobWrapper`[link] or a wandering behavior `WanderingJobWrapper` [link].
 
-**Neighbor Behaviors** let entities react to other entities. This is useful for example for group behaviors like flocking [link]. These behaviors receive the results of the main query and a neighbor query. Then for each entity they loop through all it's neighbors to determine a `VelocityResult`. 
+  </TabItem>
+  <TabItem value="second" label="Neighbor Behaviors">
+  
+    **Neighbor Behaviors** let entities react to other entities. This is useful for example for group behaviors like flocking [link]. These behaviors receive the results of the main query and a neighbor query. Then for each entity they loop through all it's neighbors to determine a `VelocityResult`. 
 
-### Ray Behaviors
+  </TabItem>
 
-**Ray Behaviors** let entities react to the physical environment. This is especially useful for example for collision avoidance [link]. These behaviors receive the results of the main query and a ray query. Then for each entity they loop through all it's raycasts to determine a `VelocityResult`. 
+  <TabItem value="third" label="Ray Behaviors">
+    **Ray Behaviors** let entities react to the physical environment. This is especially useful for example for collision avoidance [link]. These behaviors receive the results of the main query and a ray query. Then for each entity they loop through all it's raycasts to determine a `VelocityResult`. 
+
+  </TabItem>
+</Tabs>
 
 ## Combiners
 
@@ -99,7 +103,7 @@ If you want your behaviors to return more information, you can implement your ow
 
 ## Movement Systems
 
-**Movement System**, in the previous example `Movement2DSystem` [link], takes a look the entity's current velocity `VelocityComponent` and `DesiredVelocityComponent` and calculates a new `VelocityComponent` which will move the entity. They are a separate system from implementations of `BaseSteeringSystem`.
+**Movement System** (in the previous example `Movement2DSystem` [link]) takes a look the entity's current velocity `VelocityComponent` and `DesiredVelocityComponent` and calculates a new `VelocityComponent` which will move the entity. They are a separate system from implementations of `BaseSteeringSystem`.
 
 ## Components
 
