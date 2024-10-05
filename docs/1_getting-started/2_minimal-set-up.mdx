@@ -12,9 +12,10 @@ To set up a new system, you need two things.
 ## Entity Set Up 
 
 1. Create a new prefab and add `SteeringEntityAuthoring` [link] component to it.
-2. Add a `Movement2DAuthoring` [link] component for a `Movement2DSystem` [link].
-3. Create a new tag `SampleEntityTagComponent` for it. This tag tells the steering system which entities belong to it.
-4. In `SteeringEntityAuthoring`, select `SampleEntityTagComponent` from the dropdown and add it.
+2. Optionally, add some mesh as a child to visualize the entity.
+3. Add a `Movement2DAuthoring` [link] component for a `Movement2DSystem` [link].
+4. Create a new tag `SampleEntityTagComponent` for it. This tag tells the steering system which entities belong to it.
+5. In `SteeringEntityAuthoring`, select `SampleEntityTagComponent` from the dropdown and add it.
 
 ```csharp title="SampleEntityTag.cs"
 // highlight-next-line
@@ -70,14 +71,15 @@ Your prefab should look like this:
 ![Entity prefab](./imgs/Prefab.png)
 
 ## Scene set up
-1. Drag and drop a few of these prefabs into the scene.
+1. Unity's ECS requires working with subscenes [link] for now. Right click into the scene hierarchy, select `NewSubscene` and save it.
+2. Drag and drop a few of these prefabs into the subscene.
+3. By changing their `Speed` on `GoForwardComponent` you can change how fast they want to travel. 
+4. With parameters of `Movement2DAuthoring` [link], you can change their maximum speed, acceleration etc.
+5. Hit play
 
-:::note
-Dragging and dropping the prefab into a Scene will prompt you to create a new SubScene. Unfortunatelly as of now this is necessary when working with ECS. To learn more about SubScenes and working with entities, refer to the Unity documentation [link].
-:::
+<video controls width="800">
+  <source src="/videos/GoForwardVideo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
-2. By changing their `Speed` on `GoForwardComponent` you can change how fast they want to travel. 
-3. With parameters of `Movement2DAuthoring` [link], you can change their maximum speed, acceleration etc.
-4. Hit play
-
-[video]
+*The video shows a scene with three entities, each with different* `Speed` *on their* `GoForwardComponent`.
