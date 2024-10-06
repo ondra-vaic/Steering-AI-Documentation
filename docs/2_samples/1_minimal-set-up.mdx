@@ -2,4 +2,46 @@
 sidebar_position: 1
 ---
 
-# 1. Minimal Set Up
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 1. Minimal Setup
+
+<video controls width="800">
+  <source src="/videos/GoForwardVideo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+This sample shows a minimal setup of an *entity* and it's *steering system*. The scene contains three entities which go forward at different speeds. The sample contains the files you would get if you followed the *Minimal Setup* guide. 
+
+![Minimal Setup folder](/img/MinimalSetupFolder.png)
+
+<Tabs>
+  <TabItem value="third" label="Scene"> 
+    There are three copies of the *SteeringEntity* prefab in the scene. Each has a different value for `Speed` on the `GoForwardComponent`.
+    <img src="/img/MinimalSetupScene.png" alt="Description of the image"/>
+  </TabItem>
+  <TabItem value="first" label="Steering System Asset"> 
+
+    **SampleSteeringSystemAsset**:
+    - ***Main Tag*** - `SampleEntityTagComponent`
+    - ***Simple Behaviors*** - [`GoForwardJobWrapper`]
+    - ***Prefab*** - *SteeringEntity*
+
+    <img src="/img/MinimalSteeringSystem.png" alt="Description of the image"/>
+  </TabItem>
+  <TabItem value="second" label="Prefab"> 
+    
+    **Behavior Components**:
+    - `GoForwardAuthoring`
+
+    **Other Components**:
+    - `SteeringEntityAuthoring`
+    - `DesiredVelocityAuthoring`
+    - `Movement2DAuthoring`
+    :::note
+      Your entities will generally need to have `SteeringEntityAuthoring` and `DesiredVelocityAuthoring` on them. It will usually also be useful to add movement, in this case with `Movement2DAuthoring`.
+    :::
+    <img src="/img/MinimalSetupPrefab.png" alt="Description of the image"/>
+  </TabItem>
+</Tabs>

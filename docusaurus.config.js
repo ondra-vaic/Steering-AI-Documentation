@@ -54,11 +54,25 @@ const config = {
     ],
   ],
 
+  plugins: [require.resolve("docusaurus-plugin-image-zoom")],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+
+      zoom: {
+      selector: '.markdown :not(em) > img',
+      config: {
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+          }
+        }
+      },
+
       navbar: {
         title: 'My Site',
         logo: {

@@ -2,14 +2,14 @@
 sidebar_position: 1
 ---
 
-# Minimal Set Up
+# Minimal Setup
 
 To set up a new system, you need two things.
 
 - **Entity** - An entity controlled by the steering system
 - **Steering System** - The system which will controll this entity
 
-## Entity Set Up 
+## Entity Setup 
 
 1. Create a new prefab and add `SteeringEntityAuthoring` [link] component to it.
 2. Optionally, add some mesh as a child to visualize the entity.
@@ -27,7 +27,7 @@ Your prefab should now match the following:
 
 ![Minimal Steering Entity Prefab](./imgs/MinimalSteeringEntity.png)
 
-## Steering System Set Up
+## Steering System Setup
 
 1. Right click into your folder and select `Create/SteeringSystem`. 
 2. Rename the newly created asset to `SampleSteeringSystemAsset`, then select it and mark it as addressable. 
@@ -60,7 +60,7 @@ Make sure the path matches addressable address of the system, as shown in [img l
 8. Select the *Single Behaviors* tab and add `GoForwardJobWrapper` from the dropdown. This behavior makes entities go in their forward direction.
 9. On the right, add `GoForwardComponent` to the entity. It is used to parametrize the behavior.
 
-![Steering System Asset Set Up](./imgs/SteeringSystem.png)
+![Steering System Asset Set Up](/img/MinimalSteeringSystem.png)
 
 The contents of your folder should now look like this: 
 
@@ -70,7 +70,7 @@ Your prefab should look like this:
 
 ![Entity prefab](./imgs/Prefab.png)
 
-## Scene set up
+## Scene Setup
 1. Unity's ECS requires working with subscenes [link] for now. Right click into the scene hierarchy, select `NewSubscene` and save it.
 2. Drag and drop a few of these prefabs into the subscene.
 3. By changing their `Speed` on `GoForwardComponent` you can change how fast they want to travel. 
