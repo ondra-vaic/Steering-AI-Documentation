@@ -49,6 +49,11 @@ There are three types of queries which you should understand. Queries collect en
     **Entity Queries** are part of Unity's ECS [link]. They find all entities in the scene which have some set of components on them.
     In the example, the `SampleSteeringSystem` finds all entities which have a `SampleEntityTagComponent` and `GoForwardComponent` (and components added by the `SteeringEntityAuthoring`). These entities are then passed to the `GoForwardJobWrapper`, which suggests which way each entity should go. This is the systems main entity query. 
 
+    <video controls width="800">
+      <source src="/videos/SimpleDebugJob.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
   </TabItem>
   <TabItem value="second" label="Neighbor Queries">
     
@@ -133,6 +138,16 @@ If you want your behaviors to return more information, you can implement your ow
 
 **Combiners** tie all the `VelocityResult`s from behaviors together at the end. Each behavior says what the entity should do. Combiners take all of the entity's `VelocityResult`s and write to each entity's `DesiredVelocityComponent` [link].
 
+<div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start' }}>
+  
+  <video controls height="320">
+    <source src="/videos/Combiner.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div style={{ width: '15px' }}/>
+  <img src="/img/Combiner.png" alt="Description of the image" height="305" />
+
+</div>
 ---
 
 ## Movement Systems
