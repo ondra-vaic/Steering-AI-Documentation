@@ -2,4 +2,49 @@
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 2. 2D Movement
+
+<video controls width="800">
+  <source src="/videos/samples/2d/Video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+This sample shows different setups of the `Movement2DAuthoring` when using the `Move2DSystem`. There are multiple entities which follow path using the `FollowPathJobWrapper` behavior. The only difference between them are in the properties on `Movement2DAuthoring` like `MaxSpeed` or `MaxForwardAcceleration`. The yellow arrow shows what velocity the entity wants to have - `DesiredVelocityComponent`, the green arrow shows it's actual current velocity - `VelocityComponent`. 
+
+:::tip
+Compare the different entities in the scene to the default one named *BaseMovement* and observe the effect each changed property has. For example third entity in the video has high maximum speed, but low acceleration. That's why it stuggles to go through the points along the path. 
+:::
+
+![Minimal Setup folder](/img/samples/2d/Folder.png)
+
+<Tabs>
+  <TabItem value="first" label="Scene"> 
+    There are three copies of the *Movement2DEntity* prefab in the scene. Each entity has a different values changed on it's `Movement2DAuthoring` relative to the original.
+    <img src="/img/samples/2d/Scene.png" alt="Description of the image"/>
+  </TabItem>
+  <TabItem value="second" label="Steering System Asset"> 
+
+    **Movement2DSteeringAsset**:
+    - ***Main Tag*** - `_2_SampleTagComponent`
+    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
+    - ***Prefab*** - *Movement2DEntity*
+
+    <img src="/img/samples/2d/Asset.png" alt="Description of the image"/>
+  </TabItem>
+  <TabItem value="third" label="Prefab"> 
+    
+    **Behavior Components**:
+    - `FollowPathAuthoring`
+
+    **Other Components**:
+    - `SteeringEntityAuthoring`
+    - `DesiredVelocityAuthoring`
+    - `Movement2DAuthoring`
+    
+    <img src="/img/samples/2d/Prefab.png" alt="Description of the image"/>
+
+  </TabItem>
+</Tabs>
