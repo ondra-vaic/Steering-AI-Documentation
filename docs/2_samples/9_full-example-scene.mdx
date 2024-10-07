@@ -1,5 +1,52 @@
 ---
-sidebar_position: 9
+sidebar_position: 7
 ---
 
-# 9. Full Example Scene
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 9. Full Example
+
+<video controls width="800">
+  <source src="/videos/samples/full-example/Video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+{Description1}
+
+![Minimal Setup folder](/img/samples/full-example/Folder.png)
+
+<Tabs>
+  <TabItem value="first" label="Scene"> 
+
+    {Description2}
+
+    <img src="/img/samples/full-example/Scene.png" alt="Description of the image"/>
+    
+  </TabItem>
+  
+  <TabItem value="second" label="Steering System Asset"> 
+
+    **Movement2DSteeringAsset**:
+    - ***Main Tag*** - `_2_SampleTagComponent`
+    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
+    - ***Prefab*** - *Movement2DEntity*
+
+    <img src="/img/samples/full-example/Asset.png" alt="Description of the image"/>
+
+  </TabItem>
+  
+  <TabItem value="third" label="Prefab"> 
+    
+    **Behavior Components**:
+    - `FollowPathAuthoring`
+
+    **Other Components**:
+    - `SteeringEntityAuthoring`
+    - `DesiredVelocityAuthoring`
+    - `Movement2DAuthoring`
+    
+    <img src="/img/samples/full-example/Prefab.png" alt="Description of the image"/>
+
+  </TabItem>
+</Tabs>

@@ -2,4 +2,51 @@
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 4. Collisions
+
+<video controls width="800">
+  <source src="/videos/samples/collisions/Video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+{Description1}
+
+![Minimal Setup folder](/img/samples/collisions/Folder.png)
+
+<Tabs>
+  <TabItem value="first" label="Scene"> 
+
+    {Description2}
+
+    <img src="/img/samples/collisions/Scene.png" alt="Description of the image"/>
+    
+  </TabItem>
+  
+  <TabItem value="second" label="Steering System Asset"> 
+
+    **Movement2DSteeringAsset**:
+    - ***Main Tag*** - `_2_SampleTagComponent`
+    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
+    - ***Prefab*** - *Movement2DEntity*
+
+    <img src="/img/samples/collisions/Asset.png" alt="Description of the image"/>
+
+  </TabItem>
+  
+  <TabItem value="third" label="Prefab"> 
+    
+    **Behavior Components**:
+    - `FollowPathAuthoring`
+
+    **Other Components**:
+    - `SteeringEntityAuthoring`
+    - `DesiredVelocityAuthoring`
+    - `Movement2DAuthoring`
+    
+    <img src="/img/samples/collisions/Prefab.png" alt="Description of the image"/>
+
+  </TabItem>
+</Tabs>
