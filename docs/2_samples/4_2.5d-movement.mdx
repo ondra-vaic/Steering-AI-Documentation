@@ -12,6 +12,8 @@ import TabItem from '@theme/TabItem';
   Your browser does not support the video tag.
 </video>
 
+This sample shows usage of `Move25DSystem`. This system allows movement on ground. Paired with `CollideAndSlideSystem` it is similar to Unity's `CharacterController`. It handles steps and gradual speeding up and down depending on whether the entity travels up- or down-hill. The `CollideAndSlideSystem`[link] makes sure the entity does not travel through colliders. It can be used with other *Movement Systems*, it's usage is described in the next sample [link].
+
 -----
 ![Minimal Setup folder](/img/samples/25d/Folder.png)
 
@@ -19,16 +21,27 @@ import TabItem from '@theme/TabItem';
   <TabItem value="first" label="Scene"> 
 
 -----
+
+    ### Subscene 1
+    
+    This subscene contains a large number of test cases and is ideal to experiment with different configurations of `Movement25DAuthoring`. In the scene, a path is set up through the whole course which an entity follows. 
+
     <img src="/img/samples/25d/Scene.png" alt="Description of the image"/>
+
+    ### Subscene 2
+    
+    This subscene shows different settings for `MaxAngleToSlide` and `StepHeight`. You can observe that lower values can cause the entities to get stuck in extreme cases.
+
+    <img src="/img/samples/25d/Scene2.png" alt="Description of the image"/>
     
   </TabItem>
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **Movement2DSteeringAsset**:
-    - ***Main Tag*** - `_2_SampleTagComponent`
+    **Movement25DSteeringAsset**:
+    - ***Main Tag*** - `_5_SampleTagComponent`
     - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
-    - ***Prefab*** - *Movement2DEntity*
+    - ***Prefab*** - *Movement25DEntity*
 
     <img src="/img/samples/25d/Asset.png" alt="Description of the image"/>
 
@@ -42,7 +55,12 @@ import TabItem from '@theme/TabItem';
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - `Movement25DAuthoring`
+    - `KinematicBodyAuthoring`
+
+    :::note
+    Note the usage of `KinematicBodyAuthoring` this authoring is necessary to enable `CollideAndSlideSystem` [link]. The authoring allows you to customize `LayerMask` and `SkinWidth` used for collision resolution.
+    :::
     
     <img src="/img/samples/25d/Prefab.png" alt="Description of the image"/>
 
