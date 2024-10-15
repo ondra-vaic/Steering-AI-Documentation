@@ -25,18 +25,18 @@ Normally in Unity `CharacteController` handles both movement and collision resol
 <Tabs>
   <TabItem value="first" label="Scene"> 
 
------
+    There are two entities in the scene, both are trying to travel straight forward using the `GoForwardJobWrapper`. The `CollideAndSlideSystem` makes thes slide along the `Colliders`.
 
-    <img src="/img/samples/collisions/Scene.png" alt="Description of the image"/>
+   <img src="/img/samples/collisions/Scene.png" alt="Description of the image"/>
     
   </TabItem>
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **Movement2DSteeringAsset**:
-    - ***Main Tag*** - `_2_SampleTagComponent`
-    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
-    - ***Prefab*** - *Movement2DEntity*
+    **CollisionsSteeringAsset**:
+    - ***Main Tag*** - `_4_SampleTagComponent`
+    - ***Simple Behaviors*** - [`GoForwardJobWrapper`]
+    - ***Prefab*** - *CollisionsEntity*
 
     <img src="/img/samples/collisions/Asset.png" alt="Description of the image"/>
 
@@ -50,9 +50,11 @@ Normally in Unity `CharacteController` handles both movement and collision resol
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - `GoForwardAuthoring`
     
     <img src="/img/samples/collisions/Prefab.png" alt="Description of the image"/>
 
+ 
   </TabItem>
 </Tabs>
+-----
