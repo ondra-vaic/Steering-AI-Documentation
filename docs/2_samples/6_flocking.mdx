@@ -28,6 +28,8 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     ### 2D Movement
     
+    In this scene you can toggle multiple different subscenes which have different setups of `CohesionAuthoring`, `AlignmentAuthoring`, `SeparationAuthoring`. If the entities go over a border set on `BoxLimiterAuthoring`, the entity is teleported to the oposite side. 
+
     <video controls width="800">
       <source src="/videos/samples/flocking/2D.mp4" type="video/mp4" />
       Your browser does not support the video tag.
@@ -35,6 +37,8 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     
     ### 3D Movement
     
+    In this scene there are three different subscenes containing flocks of different sizes. The larger flock has a more optimized, but simpler neighbor query. This scene also shows usefullness of `HomingJobWrapper` which makes the entities stay withing a given areas. In the subscenes, the larger the flocks, the larger the homing radii on the `HomingComponents`. 
+
     <video controls width="800">
       <source src="/videos/samples/flocking/3D.mp4" type="video/mp4" />
       Your browser does not support the video tag.
@@ -42,12 +46,12 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     
     ### 2.5D Movement
     
+    This scene shows a flock set up on terrain, bordered by walls. The walls are a third option so far to constraint the entities within an area. The previous two options were `BoxLimiterSystem` and `MultiHomingJobWrapper`.
+
     <video controls width="800">
       <source src="/videos/samples/flocking/25D.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-
-    ### 2.5D Movement
 
     ### Cohesion
 
