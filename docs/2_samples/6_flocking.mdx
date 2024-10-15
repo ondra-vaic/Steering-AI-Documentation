@@ -50,7 +50,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Separation**
 
-    This sample visualizes the result of the `SerpatationJobWrapper`. It seperates the entity from it's neigbhors.
+    This sample visualizes the result of the `SeparationJobWrapper`. It seperates the entity from it's neigbhors.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/separation.mp4" type="video/mp4" />
@@ -59,7 +59,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Combination**
 
-    This sample visualizes the combination of all three behaviors responsible for flocking - `CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`.
+    This sample visualizes the combination of all three behaviors responsible for flocking - `CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/all-three.mp4" type="video/mp4" />
@@ -72,7 +72,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **FlockingBehaviorsSteeringAsset**:
     - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
-    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`]
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
     - ***Prefab*** - *EntityFlocking*
 
@@ -111,7 +111,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - `BoxLimiterAuthoring`
     
     :::note
-    It does not matter that the scenes use a different prefab than what is referenced in *FlockingBehaviorsSteeringAsset*, as long as they use `_6_SampleBehaviorsTagComponent`.
+    It does not matter that the scenes use different prefabs than the one referenced in *FlockingBehaviorsSteeringAsset*, as long as their `SteeringEntityAuthoring` has `_6_SampleBehaviorsTagComponent`.
     :::
     <img src="/img/samples/flocking/Prefab.png" alt="Description of the image"/>
 
@@ -139,7 +139,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Flocking2DSystemAsset**:
     - ***Main Tag*** - `_6_Sample2DTagComponent`
-    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`]
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
     - ***Prefab*** - *EntityFlocking*
 
@@ -149,6 +149,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Single Behaviors**
 
+    :::warning
+    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    :::
+
     <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
 
   </TabItem>
@@ -156,17 +160,22 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - `CohesionAuthoring`
+    - `AlignmentAuthoring`
+    - `SeparationAuthoring`
+    - `KeepSpeedAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
     - `Movement2DAuthoring`
+    - `BoxLimiterAuthoring`
     
     <img src="/img/samples/flocking/Prefab.png" alt="Description of the image"/>
 
   </TabItem>
 </Tabs>
+----
 
 ## 3. 3D
 
@@ -175,7 +184,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     
     **3D Movement**
     
-    In this scene there are three different subscenes containing flocks of different sizes. The larger flock has a more optimized, but simpler neighbor query. This scene also shows usefullness of `HomingJobWrapper` which makes the entities stay withing a given areas. In the subscenes, the larger the flocks, the larger the homing radii on the `HomingComponents`. 
+    In this scene there are three different subscenes containing flocks of different sizes. The larger flock has a more optimized, but simpler neighbor query. This scene also shows usefullness of `HomingJobWrapper` which makes the entities stay withing a given areas. In the subscenes, the larger the flocks, the larger the homing radii on the `HomingComponents`. Second new behavior is `AlignUpJobWrapper` [link], it prevents the entities from flying up or down at too steep angle. 
 
     <video controls width="800">
       <source src="/videos/samples/flocking/3D.mp4" type="video/mp4" />
@@ -188,7 +197,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Flocking3DHugeSystemAsset**:
     - ***Main Tag*** - `_6_Sample3DLargeTagComponent`
-    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`, `HomingJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`, `HomingJobWrapper`]
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`, `AlignUpJobWrapper`]
     - ***Prefab*** - *EntityFlockingHuge*
 
@@ -197,6 +206,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     <img src="/img/samples/flocking/3d/Asset.png" alt="Description of the image"/>
 
     **Single Behaviors**
+
+    :::warning
+    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    :::
 
     <img src="/img/samples/flocking/3d/Asset2.png" alt="Description of the image"/>
 
@@ -221,6 +234,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
   </TabItem>
 </Tabs>
+----
 
 ## 4. 2.5D
 
@@ -242,7 +256,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Flocking25DSystemAsset**:
     - ***Main Tag*** - `_6_Sample25TagComponent`
-    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`]
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
     - ***Prefab*** - *EntityFlocking*
 
@@ -252,6 +266,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **Single Behaviors**
 
+    :::warning
+    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    :::
+
     <img src="/img/samples/flocking/25d/Asset2.png" alt="Description of the image"/>
 
   </TabItem>
@@ -259,10 +277,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `KeepSpeedAuthoring`
     - `CohesionAuthoring`
     - `AlignmentAuthoring`
     - `SeparationAuthoring`
+    - `KeepSpeedAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
@@ -274,3 +292,4 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
   </TabItem>
 </Tabs>
+----
