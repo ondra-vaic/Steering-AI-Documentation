@@ -85,12 +85,16 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - `CohesionAuthoring`
+    - `AlignmentAuthoring`
+    - `SeparationAuthoring`
+    - `KeepSpeedAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
     - `Movement2DAuthoring`
+    - `BoxLimiterAuthoring`
     
     <img src="/img/samples/flocking/Prefab.png" alt="Description of the image"/>
 
@@ -115,8 +119,8 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **FlockingBehaviorsSteeringAsset**:
-    - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
+    **Flocking2DSystemAsset**:
+    - ***Main Tag*** - `_6_Sample2DTagComponent`
     - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
     - ***Prefab*** - *EntityFlocking*
@@ -164,33 +168,38 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **FlockingBehaviorsSteeringAsset**:
-    - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
-    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
-    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
-    - ***Prefab*** - *EntityFlocking*
+    **Flocking3DHugeSystemAsset**:
+    - ***Main Tag*** - `_6_Sample3DLargeTagComponent`
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`, `HomingJobWrapper`]
+    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`, `AlignUpJobWrapper`]
+    - ***Prefab*** - *EntityFlockingHuge*
 
     **Neighbor Behaviors**
 
-    <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking/3d/Asset.png" alt="Description of the image"/>
 
     **Single Behaviors**
 
-    <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking/3d/Asset2.png" alt="Description of the image"/>
 
   </TabItem>
   
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - `KeepSpeedAuthoring`
+    - `AlignUpAuthoring`
+    - `CohesionAuthoring`
+    - `AlignmentAuthoring`
+    - `SeparationAuthoring`
+    - `MultiHomingAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - `Movement3DAuthoring`
     
-    <img src="/img/samples/flocking/Prefab.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking/3d/Prefab.png" alt="Description of the image"/>
 
   </TabItem>
 </Tabs>
@@ -213,33 +222,37 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **FlockingBehaviorsSteeringAsset**:
-    - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
+    **Flocking25DSystemAsset**:
+    - ***Main Tag*** - `_6_Sample25TagComponent`
     - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
     - ***Prefab*** - *EntityFlocking*
 
     **Neighbor Behaviors**
 
-    <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking/25d/Asset.png" alt="Description of the image"/>
 
     **Single Behaviors**
 
-    <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking/25d/Asset2.png" alt="Description of the image"/>
 
   </TabItem>
   
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - `KeepSpeedAuthoring`
+    - `CohesionAuthoring`
+    - `AlignmentAuthoring`
+    - `SeparationAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - `Movement25DAuthoring`
+    - `KinematicBodyAuthoring`
     
-    <img src="/img/samples/flocking/Prefab.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking/25d/Prefab.png" alt="Description of the image"/>
 
   </TabItem>
 </Tabs>
