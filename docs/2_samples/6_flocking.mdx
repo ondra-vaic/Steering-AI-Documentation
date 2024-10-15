@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 </video>
 *Flocking with 3D movement.*
 
-This sample shows set up of flocking for all three movement types. Flocking here is the combination of three behaviors - *Alignment*, *Cohesion*, and *Separation* [link]. All these behaviors are included in the framework [link]. 
+This sample explains usage of neighbor behaviors through the classical flocking. Flocking here is the combination of three behaviors - *Alignment*, *Cohesion*, and *Separation* [link]. All these behaviors are included in the framework [link]. 
 
 The first folder - *1. Behaviors* contains a scene for each behavior where the behavior is visualized and a scene where the combination of the behaviors is visualized. These samples are in folder *1. Behaviors*. Then there is a sample scene with flocking for each movement system. For example folder *2. 2D*. 
 
@@ -25,6 +25,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
+
+    :::tip
+    All movement systems and behaviors can be toggled with an `IsActive` flag. In the following scenes, the `IsActive` is set to false on the `Movement2DAuthoring` to make it easier to understand. 
+    :::
 
     **Cohesion**
 
@@ -72,18 +76,28 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
     - ***Prefab*** - *EntityFlocking*
 
+    :::note
+    All the scenes in the *1. Behaviors* folder share this `SteeringSystemAsset`, because all the entities share the `_6_SampleBehaviorsTagComponent` tag. 
+    :::
+
     **Neighbor Behaviors**
+    
+    To learn more about setting up a neighbor query visit [link].
 
     <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
 
     **Single Behaviors**
 
+    :::warning
+    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    :::
+    
     <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
 
   </TabItem>
   
   <TabItem value="third" label="Prefab"> 
-    
+
     **Behavior Components**:
     - `CohesionAuthoring`
     - `AlignmentAuthoring`
@@ -96,10 +110,14 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - `Movement2DAuthoring`
     - `BoxLimiterAuthoring`
     
+    :::note
+    It does not matter that the scenes use a different prefab than what is referenced in *FlockingBehaviorsSteeringAsset*, as long as they use `_6_SampleBehaviorsTagComponent`.
+    :::
     <img src="/img/samples/flocking/Prefab.png" alt="Description of the image"/>
 
   </TabItem>
 </Tabs>
+-----
 
 ## 2. 2D
 
