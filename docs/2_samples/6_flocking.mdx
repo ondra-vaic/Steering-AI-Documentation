@@ -93,12 +93,19 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **Movement2DSteeringAsset**:
-    - ***Main Tag*** - `_2_SampleTagComponent`
-    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
-    - ***Prefab*** - *Movement2DEntity*
+    **FlockingBehaviorsSteeringAsset**:
+    - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SerpatationJobWrapper`]
+    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
+    - ***Prefab*** - *EntityFlocking*
+
+    **Neighbor Behaviors**
 
     <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
+
+    **Single Behaviors**
+
+    <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
 
   </TabItem>
   
