@@ -22,44 +22,48 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 <img src="/img/samples/flocking/Folder.png" alt="Description of the image"/>
 
 ## 1. Behaviors
+ 
+:::tip
+    All movement systems and behaviors can be toggled with an `IsActive` flag. In the following scenes, the `IsActive` is set to false on the `Movement2DAuthoring` to make it easier to understand. 
+:::
 
 <Tabs>
-  <TabItem value="first" label="Scene"> 
+  <TabItem value="first" label="Cohesion"> 
 
-    :::tip
-    All movement systems and behaviors can be toggled with an `IsActive` flag. In the following scenes, the `IsActive` is set to false on the `Movement2DAuthoring` to make it easier to understand. 
-    :::
-
-    **Cohesion**
-
-    This sample visualizes the result of the `CohesionJobWrapper`. This behavior makes the entity group up with it's neigbhors. The yellow arrow visualizes `VelocityResult`. The direction is `DesiredDirection`, the length is proportional to `DirectionDesire`. The radius where the behavior detects neighbors is shown with the yellow circle.
+    This scene visualizes the result of the `CohesionJobWrapper`. This behavior makes the entity group up with it's neigbhors. The yellow arrow visualizes `VelocityResult`. The direction is `DesiredDirection`, the length is proportional to `DirectionDesire`. The radius where the behavior detects neighbors is shown with the yellow circle.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/cohesion.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    **Alignment**
+  </TabItem>
+  
+  <TabItem value="first1" label="Alignment"> 
     
-    This sample visualizes the result of the `AlignmentJobWrapper`. It aligns the entity's direction with it's neighbors. 
+    This scene visualizes the result of the `AlignmentJobWrapper`. It aligns the entity's direction with it's neighbors. 
 
     <video controls width="800">
       <source src="/videos/samples/flocking/alignment.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    **Separation**
+  </TabItem>
 
-    This sample visualizes the result of the `SeparationJobWrapper`. It seperates the entity from it's neigbhors.
+  <TabItem value="first2" label="Separation"> 
+
+    This scene visualizes the result of the `SeparationJobWrapper`. It seperates the entity from it's neigbhors.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/separation.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    **Combination**
+  </TabItem>
 
-    This sample visualizes the combination of all three behaviors responsible for flocking - `CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`.
+  <TabItem value="first3" label="Combination"> 
+
+    This scene visualizes the combination of all three behaviors responsible for flocking - `CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/all-three.mp4" type="video/mp4" />
@@ -67,7 +71,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     </video>
 
   </TabItem>
-  
+
   <TabItem value="second" label="Steering System Asset"> 
 
     **FlockingBehaviorsSteeringAsset**:
@@ -86,7 +90,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
 
-    **Single Behaviors**
+    **Simple Behaviors**
 
     :::warning
     `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
@@ -147,7 +151,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
 
-    **Single Behaviors**
+    **Simple Behaviors**
 
     :::warning
     `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
@@ -205,7 +209,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     <img src="/img/samples/flocking/3d/Asset.png" alt="Description of the image"/>
 
-    **Single Behaviors**
+    **Simple Behaviors**
 
     :::warning
     `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
@@ -264,7 +268,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     <img src="/img/samples/flocking/25d/Asset.png" alt="Description of the image"/>
 
-    **Single Behaviors**
+    **Simple Behaviors**
 
     :::warning
     `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns `VelocityResult` with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.

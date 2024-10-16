@@ -12,40 +12,97 @@ import TabItem from '@theme/TabItem';
   Your browser does not support the video tag.
 </video>
 
------
+*Flocking combined with avoiding a predator (red) in 2D and 3D.*
 
+This sample shows combination of flocking and predator avoidance. There are two subscenes one for 2D and one for 3D. Each subscene contains a flock of entities similar to previous example. The entities here use `FleeJobWrapper` to escape a predator. The predator uses `SeekingJobWrapper` to chase the entities. When the predator is not seeking anything, the `WanderingJobWrapper` makes it wander around randomly. This example also shows the usefulness of neighbor query groups. The entities can use one query to find their flockmates and another query with a different tag to find the predator. 
+
+-----
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
 
------
+    The subscenes contain one predator in red color and `SpawnerAuthoring` which spawns in a flock of entities. There is several `HomeAuthoring` which the entities use to stay in a general area. The homes are used by both the predator and the prey entities.
 
     <img src="/img/samples/flocking-predator/Scene.png" alt="Description of the image"/>
     
   </TabItem>
   
-  <TabItem value="second" label="Steering System Asset"> 
+  <TabItem value="second" label="Prey System Asset"> 
 
-    **Movement2DSteeringAsset**:
-    - ***Main Tag*** - `_2_SampleTagComponent`
-    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
-    - ***Prefab*** - *Movement2DEntity*
+    **PreySteeringSystemAsset**:
+    - ***Main Tag*** - `_8_SampleTagComponent`
+    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`, `MultiHomingJobWrapper`, `FleeJobWrapper`]
+    - ***Prefab*** - *PreyEntity2D* (the same system is used for *PreyEntity3D* as well)
 
-    <img src="/img/samples/flocking-predator/Asset.png" alt="Description of the image"/>
+    **Neighbor Behaviors**
+    
+    :::note
+    The target entities to flee from are ones with tag `_8_SamplePredatorTagComponent`. There are three neighbor queries; first finds predators, second finds flockmates, third finds the homes. For each query, different behaviors are run. 
+    :::
+
+    <img src="/img/samples/flocking-predator/AssetPrey.png" alt="Description of the image"/>
+    
+    **Simple Behaviors**
+
+    <img src="/img/samples/flocking-predator/AssetPrey2.png" alt="Description of the image"/>
 
   </TabItem>
-  
-  <TabItem value="third" label="Prefab"> 
+
+  <TabItem value="fourth" label="Prey Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - `FleeAuthoring`
+    - `CohesionAuthoring`
+    - `AlignmentAuthoring`
+    - `SeparationAuthoring`
+    - `MultiHomingAuthoring`
+    - `KeepSpeedAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - `Movement2DAuthoring` (or `Movement3DAuthoring` for *PreyEntity3D*)
     
-    <img src="/img/samples/flocking-predator/Prefab.png" alt="Description of the image"/>
+    <img src="/img/samples/flocking-predator/PrefabPrey.png" alt="Description of the image"/>
 
   </TabItem>
+
+  <TabItem value="third" label="Predator System Asset"> 
+
+    **Movement2DSteeringAsset**:
+    - ***Main Tag*** - `_8_SamplePredatorTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`]
+    - ***Neighbor Behaviors*** - [`SeekingJobWrapper`, `MultiHomingJobWrapper`]
+    - ***Prefab*** - *PredatorEntity2D* (the same system is used for *PredatorEntity3D* as well)
+
+    **Neighbor Behaviors**
+
+    Note that the target entities to seek are ones with tag `_8_SampleTagComponent`.
+
+    <img src="/img/samples/flocking-predator/AssetPredator.png" alt="Description of the image"/>
+    
+    **Simple Behaviors**
+    <img src="/img/samples/flocking-predator/AssetPredator2.png" alt="Description of the image"/>
+
+  </TabItem>
+  
+  <TabItem value="Fifth" label="Predator Prefab"> 
+    
+    **Behavior Components**:
+    - `SeekingAuthoring`
+    - `WanderingAuthoring`
+    - `MultiHomingAuthoring`
+
+    **Other Components**:
+    - `SteeringEntityAuthoring`
+    - `DesiredVelocityAuthoring`
+    - `Movement2DAuthoring` or `Movement3DAuthoring`
+    
+    <img src="/img/samples/flocking-predator/PrefabPredator.png" alt="Description of the image"/>
+
+  </TabItem>
+
 </Tabs>
+
+-----
