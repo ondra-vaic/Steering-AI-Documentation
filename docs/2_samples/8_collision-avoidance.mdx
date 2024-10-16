@@ -12,12 +12,17 @@ import TabItem from '@theme/TabItem';
   Your browser does not support the video tag.
 </video>
 
+*Three different entities use `EnvironmentAvoidanceJobWrapper`, `AvoidVerticalWallsJobWrapper` and `AvoidGroundJobWrapper` respectively to avoid collisions with colliders. The green and red arrows show the raycasts done by the Ray Queries, the orange arrow shows the desired direction.*
+
+This is the first sample where *Ray Behaviors* are used. In the sample, entities follow paths while avoiding their environment. There are three behaviors which serve to avoid collisions - `EnvironmentAvoidanceJobWrapper`, `AvoidGroundJobWrapper` and `AvoidVerticalWallsJobWrapper`. To learn more about the differences between them, visit their documentation [link]. The behaviors use *Ray Queries* like `ConeCreateRaysJobWrapper` to detect `Colliders`.
+
 -----
 ![Minimal Setup folder](/img/samples/collision_avoidance/Folder.png)
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
 
+    The scene contains three entities each with one behavior to avoid collisions activated.
 
     <img src="/img/samples/collision_avoidance/Scene.png" alt="Description of the image"/>
     
@@ -25,12 +30,21 @@ import TabItem from '@theme/TabItem';
   
   <TabItem value="second" label="Steering System Asset"> 
 
-    **Movement2DSteeringAsset**:
-    - ***Main Tag*** - `_2_SampleTagComponent`
+    **CollisionAvoidanceSystemAsset**:
+    - ***Main Tag*** - `_7_SampleTagComponent`
     - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
-    - ***Prefab*** - *Movement2DEntity*
+    - ***Ray Behaviors*** - [`EnvironmentAvoidanceJobWrapper`, `AvoidVerticalWallsJobWrapper`, `AvoidGroundJobWrapper`]
+    - ***Prefab*** - *CollisionAvoidanceEntity*
+
+    :::tip
+      *Ray Behaviors* can be grouped by their query same as *Neighbor Behaviors*. In this example, `ConeCreateRaysJobWrapper` casts multiple rays in a cone, a second query `DownSingleCreateRayJobWrapper` casts a single ray downwards.
+    :::
+
+    **Ray Behaviors**
 
     <img src="/img/samples/collision_avoidance/Asset.png" alt="Description of the image"/>
+
+    **Simple Behaviors**
 
   </TabItem>
   
@@ -38,11 +52,14 @@ import TabItem from '@theme/TabItem';
     
     **Behavior Components**:
     - `FollowPathAuthoring`
+    - `EnvironmentAvoidanceAuthoring`
+    - `AvoidVerticalWallsAuthoring`
+    - `AvoidGroundAuthoring`
 
     **Other Components**:
     - `SteeringEntityAuthoring`
     - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - `Movement3DAuthoring`
     
     <img src="/img/samples/collision_avoidance/Prefab.png" alt="Description of the image"/>
 
