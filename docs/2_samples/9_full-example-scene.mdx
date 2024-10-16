@@ -12,7 +12,73 @@ import TabItem from '@theme/TabItem';
   Your browser does not support the video tag.
 </video>
 
+*Scene showing entities which flock while avoiding predators as well as environment. There views on "birds", "sheep" and "fish" respectively.*
+
+This sample shows a more complete scene with actual use cases. There are three kinds of entities - "birds", "sheep" and "fish" each with their predator. All the concepts from previous samples are combined here. The entities avoid collisions and flee from the predator while also flocking with their flockmates.
+
 -----
+
+## Birds 
+
+<Tabs>
+  <TabItem value="first" label="Scene"> 
+
+    <img src="/img/samples/full-example/Main2.png" alt="Description of the image"/>
+    
+  </TabItem>
+  
+  <TabItem value="second" label="Bird System Asset"> 
+
+    **BirdSteeringAsset**:
+    - ***Main Tag*** - `_9_BirdTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`, `AlignUpJobWrapper`, `KeepHeightJobWrapper`]
+    - ***Ray Behaviors*** - [`AvoidGroundJobWrapper`, `EnvironmentAvoidanceJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`, `MultiHomingJobWrapper`, `FleeJobWrapper`]
+    - ***Prefab*** - *Bird*
+
+    :::tip
+      Birds use `KeepHeightJobWrapper` to restrict their minimum and maximum altitude.
+    :::
+
+    **Simple Behaviors**
+    <img src="/img/samples/full-example/Bird/Simple.png" alt="Description of the image"/>
+
+    **Ray Behaviors**
+    <img src="/img/samples/full-example/Bird/Ray.png" alt="Description of the image"/>
+
+    **Neighbor Behaviors**
+    <img src="/img/samples/full-example/Bird/N2.png" alt="Description of the image"/>
+    <img src="/img/samples/full-example/Bird/N1.png" alt="Description of the image"/>
+    <img src="/img/samples/full-example/Bird/N3.png" alt="Description of the image"/>
+
+  </TabItem>
+
+  <TabItem value="second1" label="Bird Predator System Asset"> 
+
+    **BirdPredatorSteeringAsset**:
+    - ***Main Tag*** - `_9_BirdPredatorTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`, `AlignUpJobWrapper`, `KeepHeightJobWrapper`]
+    - ***Ray Behaviors*** - [`AvoidGroundJobWrapper`, `EnvironmentAvoidanceJobWrapper`]
+    - ***Neighbor Behaviors*** - [`MultiHomingJobWrapper`, `SeekingJobWrapper`]
+    - ***Prefab*** - *BirdPredator*
+
+    **Simple Behaviors**
+    <img src="/img/samples/full-example/BirdPredator/Simple.png" alt="Description of the image"/>
+
+    **Ray Behaviors**
+    <img src="/img/samples/full-example/BirdPredator/Ray.png" alt="Description of the image"/>
+
+    **Neighbor Behaviors**
+    <img src="/img/samples/full-example/BirdPredator/N.png" alt="Description of the image"/>
+    
+
+  </TabItem>
+  
+</Tabs>
+
+-------
+
+## Sheep 
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
@@ -21,29 +87,102 @@ import TabItem from '@theme/TabItem';
     
   </TabItem>
   
-  <TabItem value="second" label="Steering System Asset"> 
+  <TabItem value="second" label="Sheep System Asset"> 
 
-    **Movement2DSteeringAsset**:
-    - ***Main Tag*** - `_2_SampleTagComponent`
-    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
-    - ***Prefab*** - *Movement2DEntity*
+    **BirdSteeringAsset**:
+    - ***Main Tag*** - `_9_SheepTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`, `AlignUpJobWrapper`, `KeepHeightJobWrapper`]
+    - ***Ray Behaviors*** - [`AvoidGroundJobWrapper`, `EnvironmentAvoidanceJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`, `MultiHomingJobWrapper`, `FleeJobWrapper`]
+    - ***Prefab*** - *Sheep*
 
-    <img src="/img/samples/full-example/Asset.png" alt="Description of the image"/>
+    **Simple Behaviors**
+    <img src="/img/samples/full-example/Sheep/Simple.png" alt="Description of the image"/>
+
+    **Ray Behaviors**
+    <img src="/img/samples/full-example/Sheep/Ray.png" alt="Description of the image"/>
+
+    **Neighbor Behaviors**
+    <img src="/img/samples/full-example/Sheep/N1.png" alt="Description of the image"/>
+    <img src="/img/samples/full-example/Sheep/N2.png" alt="Description of the image"/>
+    <img src="/img/samples/full-example/Sheep/N3.png" alt="Description of the image"/>
+
+  </TabItem>
+
+  <TabItem value="second1" label="Sheep Predator System Asset"> 
+
+    **SheepPredatorSteeringAsset**:
+    - ***Main Tag*** - `_9_SheepPredatorTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`]
+    - ***Ray Behaviors*** - [`AvoidVerticalWallsJobWrapper`]
+    - ***Neighbor Behaviors*** - [`MultiHomingJobWrapper`, `SeekingJobWrapper`]
+    - ***Prefab*** - *SheepPredator*
+
+    **Simple Behaviors**
+    <img src="/img/samples/full-example/SheepPredator/Simple.png" alt="Description of the image"/>
+
+    **Ray Behaviors**
+    <img src="/img/samples/full-example/SheepPredator/Ray.png" alt="Description of the image"/>
+
+    **Neighbor Behaviors**
+    <img src="/img/samples/full-example/SheepPredator/N.png" alt="Description of the image"/>
 
   </TabItem>
   
-  <TabItem value="third" label="Prefab"> 
-    
-    **Behavior Components**:
-    - `FollowPathAuthoring`
+</Tabs>
 
-    **Other Components**:
-    - `SteeringEntityAuthoring`
-    - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+-------
+
+## Fish 
+
+<Tabs>
+  <TabItem value="first" label="Scene"> 
+
+    <img src="/img/samples/full-example/Scene.png" alt="Description of the image"/>
     
-    <img src="/img/samples/full-example/Prefab.png" alt="Description of the image"/>
+  </TabItem>
+  
+  <TabItem value="second" label="Fish System Asset"> 
+    
+    **FishSteeringAsset**:
+    - ***Main Tag*** - `_9_FishTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`, `AlignUpJobWrapper`, `KeepHeightJobWrapper`]
+    - ***Ray Behaviors*** - [`AvoidGroundJobWrapper`, `AvoidVerticalWallsJobWrapper`]
+    - ***Neighbor Behaviors*** - [`CohesionJobWrapper`, `AlignmentJobWrapper`, `SeparationJobWrapper`, `MultiHomingJobWrapper`, `FleeJobWrapper`]
+    - ***Prefab*** - *Fish*
+
+    **Simple Behaviors**
+    <img src="/img/samples/full-example/Fish/Simple.png" alt="Description of the image"/>
+
+    **Ray Behaviors**
+    <img src="/img/samples/full-example/Fish/Ray.png" alt="Description of the image"/>
+
+    **Neighbor Behaviors**
+    <img src="/img/samples/full-example/Fish/N1.png" alt="Description of the image"/>
+    <img src="/img/samples/full-example/Fish/N2.png" alt="Description of the image"/>
+    <img src="/img/samples/full-example/Fish/N3.png" alt="Description of the image"/>
 
   </TabItem>
+  
+  <TabItem value="second1" label="Fish Predator System Asset"> 
+
+    **FishPredatorSteeringAsset**:
+    - ***Main Tag*** - `_9_FishPredatorTagComponent`
+    - ***Simple Behaviors*** - [`WanderingJobWrapper`, `AlignUpJobWrapper`, `KeepHeightJobWrapper`]
+    - ***Ray Behaviors*** - [`AvoidGroundJobWrapper`, `AvoidVerticalWallsJobWrapper`]
+    - ***Neighbor Behaviors*** - [`MultiHomingJobWrapper`, `SeekingJobWrapper`]
+    - ***Prefab*** - *FishPredator*
+
+    **Simple Behaviors**
+    <img src="/img/samples/full-example/FishPredator/Simple.png" alt="Description of the image"/>
+    
+    **Ray Behaviors**
+    <img src="/img/samples/full-example/FishPredator/Ray.png" alt="Description of the image"/>
+
+    **Neighbor Behaviors**
+    <img src="/img/samples/full-example/FishPredator/N.png" alt="Description of the image"/>
+
+  </TabItem>
+  
 </Tabs>
 -------
