@@ -1,0 +1,33 @@
+---
+sidebar_position: 1
+---
+
+# Base System
+
+`BaseSteeringSystem` is a base class which can be inherited to create a steering system. It is configurable by `SteeringSystemAsset` which can be edited through the editor [link]. It contains definition of which jobs with which queries to run. The base class is responsible for these scheduling jobs and queries and passing data between them. 
+
+## Usage 
+To create a new steering system, inherit from `BaseSteeringSystem` and override the `getAssetReferenceName()` method to return the addressable path to the `SteeringSystemAsset` you wish to use. 
+
+```csharp title="SampleSteeringSystem.cs"
+using SteeringAI.Core;
+using Unity.Entities;
+
+[UpdateInGroup(typeof(SteeringSystemsGroup))]
+public partial class SampleSteeringSystem : BaseSteeringSystem
+{
+    protected override string getAssetReferenceName()
+    {
+        return "Path/To/SteeringSystemAsset.asset";
+    }
+}
+```
+
+## Diagram 
+The following image illustrates how the jobs and queries are scheduled, synchronized and how data is passed between them. 
+
+<p align="left">
+  <img src="/img/Implementation14.svg" alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
+</p>
+
+First entities with the same **Main Tag** are queried with an **Entity Query**. This is passed to all **Simple-, Neighbor-, Raycast Behaviors**. All **Simple Behaviors** are simply ran in parallel and their results passed into the **Combiner**. For **Neighbor Behaviors** and **Raycast Behaviors** there are additional **Queries** done first. Also these behaviors can be in multiple groups based on the additional queries. After the **Combiner** receives results from all behaviors, it combines them into a single `Desired Velocity` for each entity, which can later be used by any **Move System**.
