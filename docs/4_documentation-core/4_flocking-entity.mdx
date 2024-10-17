@@ -1,0 +1,16 @@
+---
+sidebar_position: 4
+---
+
+# Steering Entity Authoring
+
+Any entity to be use with the framework should use `SteeringEntityAuthoring`. It adds components which are used internally by the framework. The components are: 
+
+- `VelocityComponent` - Tracks the current velocity of the entity.
+- `RadiusComponent` - Determines the entity's radius. (Used to determine distance to other entities, and for collisions.)
+- `SteeringEntityTagComponent` - Marks the entity as being used with the framework.
+- `IsSimulatingTagComponent` - Marks the entity to be simulated by the framework.
+- User defined tags added through the editor.
+
+<img src="/img/core/SteeringEntity.png" alt="Description of the image"/>
+*`SteeringEntityAuthoring` with radius of 0.29 and a `_9_BirdTagComponent`.*
