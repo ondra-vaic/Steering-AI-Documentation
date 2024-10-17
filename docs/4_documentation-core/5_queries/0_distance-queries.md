@@ -14,7 +14,7 @@ Neighbor queries find *k* neighbors of each entity. The image below shows a `Ste
     <source src="/videos/DebugJob.mp4" type="video/mp4" />
     Your browser does not support the video tag.
 </video>
-*Video showing `DebugJobWrapper` visualized. The connections show neighbor relationships. The radii show the maximum distance to consider a neighbor.*
+*Video showing a neighbor query visualized. The connections show neighbor relationships. The radii show the maximum distance to consider a neighbor.*
 
 :::tip
 `DebugJobWrapper` can help to visualize a neighbor query, as in the video.
@@ -22,7 +22,7 @@ Neighbor queries find *k* neighbors of each entity. The image below shows a `Ste
 
 ## Implementing a Neighbor Query
 
-To implement your own query, create a class implementing the `INeighborQueryJobRunner` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which finds neighbors and writes them to the `neighbors` array. All the data necessary to find the neighbors is inside `NeighborQueryParams`. 
+To implement your own query, create a struct implementing the `INeighborQueryJobRunner` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which finds neighbors and writes them to the `neighbors` array. All the data necessary to find the neighbors is inside `NeighborQueryParams`. 
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [JobWrapper]
