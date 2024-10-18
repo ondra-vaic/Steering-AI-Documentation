@@ -1,0 +1,78 @@
+---
+sidebar_position: 0
+---
+
+# Simple Behaviors
+
+## Overview
+
+The result of simple behaviors only depends on a component on a given entity. For example, `GoForwardJobWrapper` makes the entities go along their forward direction. The behavior can be parametrized with the `GoForwardComponent`. The image below shows an example of `SteeringSystemAsset` with `GoForwardJobWrapper` in the list of simple behaviors. The component this behavior depends on - `GoForwardComponent` is added to the list on the right.
+
+<img src="/img/MinimalSteeringSystem.png" alt="Description of the image"/>
+*Image of a `SteeringSystemAsset` with `GoForwardJobWrapper`. On the right, the `GoForwardComponent` is added to the list of dependencies.*
+
+<video controls width="800">
+  <source src="/videos/GoForwardVideo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+*Video of a scene with three entities each with a different speed values in their `GoForwardComponent`.*
+
+## Implementing a Simple Behavior
+
+To create a new simple behavior, you need to implement a new instance of `ISimpleBehaviorJobRunner`. It should be marked with two attributes. `JobWrapperAttribute` declares which component this behavior uses, `OutDataAttribute` [link] declares which data the behavior outputs (normally `VelocityResults`). The `Schedule` method which must be implemented receives `BaseBehaviorParams` containing information about the entities. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. In this case `VelocityResults` is just a wrapper for `NativeArray<VelocityResult>`.
+
+The behavior should write one `VelocityResult` per entity into `VelocityResults`. There is a custom job to simplify this process - `ISimpleBehaviorJob<ComponentT, ResultT>`. It's execute method will be called once per each entity. Information about the entity together with it's `ComponentT` component are passed in, and a result of `ResultT` should be returned.
+
+Below is a sample implementation of the `GoForwardJobWrapper` and `GoForwardJob`. It can serve as a template for new simple behaviors. The `Execute` method of the `GoForwardJob` is where custom logic for the behavior can be implemented. The rest is just boiler plate.
+
+```csharp title="GoForwardJobWrapper.cs"
+[BurstCompile]
+struct GoForwardJob : ISimpleBehaviorJob<GoForwardComponent, VelocityResult>
+{
+    // highlight-start
+    public VelocityResult Execute(EntityInformation<GoForwardComponent> entity)
+    {
+        // Create a new result, implement your own behavior here instead
+        var result = new VelocityResult(
+            entity.Forward,                                 // Going forward in the current facing direction
+            entity.Component.BaseData.DirectionStrength,    // How much I want to go in that direction
+            entity.Component.Speed,                         // At what speed I want to go in that direction
+            entity.Component.BaseData.SpeedStrength,        // How much I want to go at that speed
+            entity.Component.BaseData.Priority);            // The priority of this behavior
+            
+        return result;
+    }
+    // highlight-end
+}
+    
+[JobWrapper(typeof(GoForwardComponent))]
+[OutData(typeof(VelocityResults))]
+public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
+{
+    public JobHandle Schedule(
+        SystemBase systemBase,
+        in BaseBehaviorParams baseBehaviorParams,
+        out IDelayedDisposable results,
+        in JobHandle dependency)
+    {
+        // Create new object to hold the results, should be same as declared in OutData
+        results = new VelocityResults(baseBehaviorParams.EntityCount);
+            
+        // Scheduling GoForwardJob
+        var outDependency = new GoForwardJob
+        {
+        }.Schedule<GoForwardJob, GoForwardComponent, VelocityResult>(
+            systemBase,
+            baseBehaviorParams,
+            (VelocityResults)results,
+            1,
+            dependency);
+            
+        return outDependency;
+    }
+}
+```
+
+:::tip
+You can just copy and paste this, then change all occurences of `GoForward` to `MyBehaviorName` to create a new behavior quickly.
+:::

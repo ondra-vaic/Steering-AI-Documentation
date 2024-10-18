@@ -22,7 +22,7 @@ Ray queries cast *k* rays to intersect the scene per each entity. The image belo
 
 ## Implementing a Ray Query
 
-To implement your own query, create a struct implementing the `ICreateRaysJobRunner` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which creates `NumRays` rays for each entity. There is helper custom job prepared to ease this process - `ICreateRaysJob`. It's `Execute` method will be called `NumRays` with indexes from `0` to `NumRays - 1` for each entity. The function should return the origin, direction and maximum distance of a ray to cast. The code below can be used as a template to create new ray queries through implementations of `ICreateRaysJobRunner` and `ICreateRaysJob`.
+To implement your own query, create a class implementing the `ICreateRaysJobRunner` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which creates `NumRays` rays for each entity. There is helper custom job prepared to ease this process - `ICreateRaysJob`. It's `Execute` method will be called `NumRays` with indexes from `0` to `NumRays - 1` for each entity. The function should return the origin, direction and maximum distance of a ray to cast. The code below can be used as a template to create new ray queries through implementations of `ICreateRaysJobRunner` and `ICreateRaysJob`.
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [BurstCompile]
