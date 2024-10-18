@@ -6,7 +6,7 @@ sidebar_position: 0
 
 ## Overview
 
-The result of simple behaviors only depends on a component on a given entity. For example, `GoForwardJobWrapper` makes the entities go along their forward direction. The behavior can be parametrized with the `GoForwardComponent`. The image below shows an example of `SteeringSystemAsset` with `GoForwardJobWrapper` in the list of simple behaviors. The component this behavior depends on - `GoForwardComponent` is added to the list on the right.
+The result of simple behaviors depends only on a given entity and it's component. For example, `GoForwardJobWrapper` makes the entities go along their forward direction. The behavior can be parametrized with the `GoForwardComponent`. The image below shows an example of `SteeringSystemAsset` with `GoForwardJobWrapper` in the list of simple behaviors. The component this behavior depends on - `GoForwardComponent` is added to the list on the right.
 
 <img src="/img/MinimalSteeringSystem.png" alt="Description of the image"/>
 *Image of a `SteeringSystemAsset` with `GoForwardJobWrapper`. On the right, the `GoForwardComponent` is added to the list of dependencies.*
@@ -18,6 +18,12 @@ The result of simple behaviors only depends on a component on a given entity. Fo
 *Video of a scene with three entities each with a different speed values in their `GoForwardComponent`.*
 
 ## Implementing a Simple Behavior
+
+
+### ISimpleBehaviorJobWrapper
+
+
+### ISimpleBehaviorJob\<ComponentT, ResultT\>
 
 To create a new simple behavior, you need to implement a new instance of `ISimpleBehaviorJobRunner`. It should be marked with two attributes. `JobWrapperAttribute` declares which component this behavior uses, `OutDataAttribute` [link] declares which data the behavior outputs (normally `VelocityResults`). The `Schedule` method which must be implemented receives `BaseBehaviorParams` containing information about the entities. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. In this case `VelocityResults` is just a wrapper for `NativeArray<VelocityResult>`.
 
@@ -74,5 +80,5 @@ public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
 ```
 
 :::tip
-You can just copy and paste this, then change all occurences of `GoForward` to `MyBehaviorName` to create a new behavior quickly.
+You can just copy and paste this, then change all occurences of `GoForward` to `MyBehaviorName` to create a new behavior quickly. The only thing to implement is the `Execute` method.
 :::
