@@ -35,8 +35,8 @@ Below is a sample implementation of the `GoForwardJobWrapper` and `GoForwardJob`
 [BurstCompile]
 struct GoForwardJob : ISimpleBehaviorJob<GoForwardComponent, VelocityResult>
 {
-    // highlight-start
     public VelocityResult Execute(EntityInformation<GoForwardComponent> entity)
+    // highlight-start
     {
         // Create a new result, implement your own behavior here instead
         var result = new VelocityResult(

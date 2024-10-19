@@ -23,7 +23,7 @@ To implement a neighbor behavior, you need an implementation of `INeighborBehavi
 
 ### INeighborBehaviorJobWrapper
 
-Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` receives information about the entities as well as it's neighbors inside `NeighborQueryParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here this is inside the `DebugJob`. The `JobWrapper` declares which components should be present on the entity and neighbor respectively, here `DebugableComponent` and `SteeringEntityTagComponent`. These types will be used in the editor of the `SteeringSystemAsset`.
+Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborQueryParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here this is inside the `DebugJob`. The `JobWrapper` declares which components should be present on the entity and neighbor respectively, here `DebugableComponent` and `SteeringEntityTagComponent`. These types will be used in the editor of the `SteeringSystemAsset`.
 
 ```csharp title="DebugableJobWrapper.cs"
 [JobWrapper(typeof(DebugableComponent), typeof(SteeringEntityTagComponent))]
@@ -50,7 +50,7 @@ class DebugableJobWrapper : INeighborBehaviorJobRunner
 
 ### INeighborBehaviorJob\<C1, C2, A, R\>
 
-`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. `behaviorData` contains one component from both of the entities. This corresponds to the `C1` and `C2` type parameters. In the example below, `C1` is `DebugableComponent` and `C2` is `SteeringEntityTagComponent`. The `Execute` method also receives reference to an accumulator of type `A`. One accumulator is created for each entity. It can be used to accumulate some result over all the neighbors. For example find the closest one, or find the centroid of their position as in `CohesionJob`. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns the `VelocityResult`.
+`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. `behaviorData` contains one component from both of the entities. This corresponds to the `C1` and `C2` type parameters. In the example below, `C1` is `DebugableComponent` and `C2` is `SteeringEntityTagComponent`. The `Execute` method also receives reference to an accumulator of type `A`. One accumulator is created for each entity. It can be used to accumulate some result over all the neighbors. For example find the closest one, or find the centroid of their position as in `CohesionJob`. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
 
 ```csharp title="DebugableJobWrapper.cs"
 [BurstCompile]
@@ -60,10 +60,10 @@ struct DebugableJob : INeighborBehaviorJob<
     NoneAccumulator, 
     VelocityResult>
 {
-    // highlight-start
     public void Execute(
         in NeighborBehaviorData<DebugableComponent, SteeringEntityTagComponent> behaviorData,
         ref NoneAccumulator accumulator)
+    // highlight-start
     {
         // Accumulate something about the neighbors into the accumulator
         Debug.DrawLine(behaviorData.Entity.Position, behaviorData.OtherEntity.Position);
@@ -74,6 +74,7 @@ struct DebugableJob : INeighborBehaviorJob<
     public VelocityResult Finalize(
         in EntityInformation<DebugableComponent> entity,
         in NoneAccumulator accumulator)
+    // highlight-start
     {
         // Based on the accumulator, return a VelocityResult which tells which way to go
         return default;
