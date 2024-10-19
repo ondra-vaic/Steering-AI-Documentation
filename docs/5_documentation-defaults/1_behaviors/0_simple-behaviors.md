@@ -4,53 +4,58 @@ sidebar_position: 0
 
 # Simple Behaviors
 
-There are several simple behaviors included in the *Defaults* package. This page contains an overview of them. The main focus will be on the components which drive them. 
+There are several simple behaviors included in the *Defaults* package. This page contains an overview of them. Each job must have some things to work. For example, here are all the types relevant for wandering:
+
+- **Job** - `WanderingJob` - *the logic of the behavior*
+- **Component** - `WanderingComponent` - *how an entity responds to the behavior depends on properties of this component*
+- **JobWrapper** - `WanderingJobWrapper` - *schedules the job*
+- **Authoring** - `WanderingAuthoring` - *attaches the component to an entity in editor*
+
+:::note
+The two important pieces to focus on are the `-Job` and the `-Component`. The `-JobWrapper` and `-Authoring` are mostly only needed for editor functionality.
+:::
+
+:::tip
+Every behavior in the defaults library follows the same naming pattern `BehaviorNameJob`, `BehaviorNameComponent`, `BehaviorNameJobWrapper` and `BehaviorNameAuthoring`.  
+:::
 
 ## Components
-All the components used with simple behaviors must implement `ISimpleBaseBehavior` and so they contain a property of type `SimpleBehaviorData` [link]. Below is an example of `GoForwardComponent` to illustrate this. The component has `SimpleBehaviorData BaseData` and a custom property `float Speed`. You can set properties on `GoForwardComponent` in the inspector, as is shown in the image below.
+
+Components are the main way to alter the behaviors. As a user, you will likely need to fine-tune their values for your specific needs. For this reason, the behaviors will mainly be explained in terms of their components. 
+
+All the components used with simple behaviors must implement `ISimpleBaseBehavior`. This means they must contain a property `SimpleBehaviorData BaseData`[link]. Below is an example of `GoForwardComponent` to illustrate this. The component has the `BaseData` and a custom property `Speed`. You can set properties on an component in the inspector, as is shown in the image below.
 
 <img src="/img/Defaults/GoForwardComponent.png" alt="Description of the image"/>
 *`GoForwardComponent` in the inspector.*
 
 :::tip
-All components used for simple behaviors contain `BaseData` and then some properties unique to the behavior.
+All components used for simple behaviors contain `BaseData` and then some properties unique to the behavior like `Speed`.
 :::
 
 ```csharp
-public interface ISimpleBaseBehavior
-{
-    public SimpleBehaviorData BaseData { get; set; }
-}
-
-public struct SimpleBehaviorData
-{
-    public byte Priority; // The higher the priority the more important
-    public float DirectionStrength; // Multiplier for DirectionDesire in the VelocityResult
-    public float SpeedStrength; // Multiplier for SpeedDesire in the VelocityResult
-    ...
-}
-
-// highlight-start
 [Serializable]
 public struct GoForwardComponent : IComponentData, ISimpleBaseBehavior
 {
+    // highlight-start
     public float Speed; // Custom property for GoForwardComponent
+    // highlight-end
     [field: SerializeField] public SimpleBehaviorData BaseData { get; set; }
 }
-// highlight-end
 ```
-## DebugSimpleJobWrapper 
+## DebugSimpleJob
 
-## AlignUpJob
 
-## FollowPathJob
 
-## GoForwardJob
+## AlignUp
 
-## HomingJob
+## FollowPath
 
-## KeepHeightJob
+## GoForward
 
-## KeepSpeedJob
+## Homing
 
-## WanderingJob
+## KeepHeight
+
+## KeepSpeed
+
+## Wandering
