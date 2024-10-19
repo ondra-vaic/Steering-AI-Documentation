@@ -29,17 +29,29 @@ There are three types of behaviors, each with it's own section to set them up.
 
 ### Simple Behaviors
 
+Simple behaviors can be simply added from the `behaviors` dropdown into the list of behaviors. Here the list contains `GoForwardJobWrapper` and `WanderingJobWrapper`.
+
 <img src="/img/core/Editor/Single.png" alt="Description of the image"/>
 
 ### Neighbor Behaviors
 
-<img src="/img/core/Editor/N1.png" alt="Description of the image"/>
-
-<img src="/img/core/Editor/N2.png" alt="Description of the image"/>
+Neighbor behaviors are grouped by *Neighbor Queries*. This let's multiple behaviors reuse the results of the expensive *Neighbor Query*, saving performance. In the image below is a single neighbor behavior group which contains a single neighbor behavior. 
 
 <img src="/img/core/Editor/N3.png" alt="Description of the image"/>
 
+In this section, you can select the implementation of a *Neighbor Query* and set it up. Here it's at most 7 (nearest) neighbors, at maximum distance of 10 units while considering full field of view - 360 degrees. The selected query below is `KDTreeKNNJobWrapper`.
+
 <img src="/img/core/Editor/N4.png" alt="Description of the image"/>
+
+This section shows which components the neighbors should have on them. The `required` section contains components which must be on the neighbors. For example when using `MultiHomingJobWrapper`, the entities which represent homes must have the `HomeComponent` on them. The other section is where tags to target which entities are potential neighbors can be added. A potential neighbor will be an entity with any of these tags.
+
+<img src="/img/core/Editor/N2.png" alt="Description of the image"/>
+
+This is where the neighbor behaviors can be added from the `Behaviors` dropdown into the list of behaviors.
+
+<img src="/img/core/Editor/N1.png" alt="Description of the image"/>
+
+
 
 ### Ray Behaviors
 
