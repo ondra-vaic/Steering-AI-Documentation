@@ -42,11 +42,46 @@ public struct GoForwardComponent : IComponentData, ISimpleBaseBehavior
     [field: SerializeField] public SimpleBehaviorData BaseData { get; set; }
 }
 ```
-## DebugSimpleJob
+## DebugSimple
 
+This behavior draws all the entities passed to it as circles. It can be useful for debugging.
 
+### DebugSimpleJob
+
+The behavior always outputs `default(VelocityResult)` for every entity. That means it does not affect the behavior at all.
+
+### DebugSimpleComponent
+
+The `DebugSimpleComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
+- `BaseData.IsActive` - *mark it to activate the behavior*
+- `BaseData.DebugScale` - *increase the size of the circle*
+- `BaseData.DebugColor` - *color of the cirle*
 
 ## AlignUp
+
+This behavior tries to prevent entites from flying up or down at too steep angles which may look unnatural. 
+
+### AlignUpJob
+
+The behavior affects only the direction, not speed. The `DesiredDirection` is the current direction of the entity projected on world's up. The `DirectionDesire` for this behavior increases with the angle difference between the world's up `float3(0, 1, 0)` and the entity's current direction. 
+
+This behavior outputs the following: 
+
+- `DesiredDirection` - *the current direction projected on `float3(0, 1, 0)`*
+- `DirectionDesire` - *grows with angle between `float3(0, 1, 0)` and entity's up*
+- `DesiredSpeed` - 0
+- `SpeedDesire` - 0
+- `Priority` -  `baseData.Priority`
+
+### AlignUpComponent
+
+The `AlignUpComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
+- `BaseData.DirectionStrength` - *multiplier for `DirectionDesire`*
+- `BaseData.Priority` - *priority*
+
+:::tip
+These two will likely be the most important properties for most behaviors.
+:::
 
 ## FollowPath
 
