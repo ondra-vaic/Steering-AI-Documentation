@@ -51,19 +51,23 @@ This is where the neighbor behaviors can be added from the `Behaviors` dropdown 
 
 <img src="/img/core/Editor/N1.png" alt="Description of the image"/>
 
-
-
 ### Ray Behaviors
+
+Ray behaviors are grouped by *Ray Queries* to reuse their results. In the image below is a single ray behavior group which contains a ray neighbor behavior. 
 
 <img src="/img/core/Editor/Ray1.png" alt="Description of the image"/>
 
-<img src="/img/core/Editor/Ray2.png" alt="Description of the image"/>
-
-<img src="/img/core/Editor/Ray3.png" alt="Description of the image"/>
+In this section, you can select the implementation of a *Ray Query* and set it up. Here it's 20 rays, at maximum distance 10 units, intersecting with any layer. The selected query below is `Sweep2DCreateRaysJobWrapper`. 
 
 <img src="/img/core/Editor/Ray4.png" alt="Description of the image"/>
 
+This is where the ray behaviors can be added from the `Behaviors` dropdown into the list of behaviors.
+
+<img src="/img/core/Editor/Ray3.png" alt="Description of the image"/>
+
 ## Combiner
+
+This section will only be used if you implement your custom combiner [link]. If you did, then you can select it here. Selecting the combiner makes all the behavior dropdowns only show behaviors with output type compatible to the input type of the combiner. With the default `MergeVelocityResultsJobWrapper` the compatible input type is `VelocityResults`, which is the output type of all default behaviors.
 
 <img src="/img/core/Editor/Combine.png" alt="Description of the image"/>
 
