@@ -44,7 +44,7 @@ public struct GoForwardComponent : IComponentData, ISimpleBaseBehavior
 ```
 ## DebugSimple
 
-This behavior draws all the entities passed to it as circles. It can be useful for debugging.
+Draws all the entities passed to it as circles. It can be useful for debugging.
 
 ### DebugSimpleJob
 
@@ -90,7 +90,7 @@ These two will likely be the most important properties for most behaviors.
 
 ## FollowPath
 
-This behavior makes the entity follow a given path. 
+Mkes the entity follow a given path. 
 
 ### FollowPathJob
 
@@ -117,7 +117,15 @@ Path can be created in the editor as ordered list of `Transform` using `PathPoin
 
 ## GoForward
 
-This behavior makes the entity go in the direction of it's forward direction.
+Makes the entity go in the direction of it's forward direction. 
+
+### Common usage
+
+Most behaviors influence only the direction, but not speed. If no behaviors used by the entity influences the speed, the entity will simply not move anywhere. To resolve this issue, you can add this behavior which will set a target speed for the entity. Moreover having a small tendency to always go in the current direction helps to reduce noise in the overall movement. Having **GoForward** is almost always useful for these two reasons, alternetively the **Wandering** provides these benefits too, plus makes the entity wander around randomly.
+
+:::tip
+Using either `GoForwardJobWrapper` or `WanderingJobWrapper` is almost always a good idea. They both always return a non-zero direction, speed, and desires. This ensures that an entity always has something to do. 
+:::
 
 ### GoForwardJob
 
@@ -130,14 +138,17 @@ This behavior outputs the following:
 
 ### GoForwardComponent
 
+It is also useful to use some low but non-zero `DirectionStrength` and the lowest priority. Having the tendency to always go in the current direction helps to reduce noise from other behaviors.
+
 The main interesting properties to adjust on `GoForwardComponent` are:
 - `Speed` - *how fast the entity should travel*
 - `BaseData.DirectionStrength` - *determines `DirectionDesire`*
+- `BaseData.SpeedStrength` - *determines `SpeedDesire`*
 - `BaseData.Priority` - *priority*
 
 ## Homing
 
-This behavior makes the entities go back towards a predefined home position if they get too far from it. It is very useful to constraint entities to some area.
+Makes the entities go back towards a predefined home position if they get too far from it. It is very useful to constraint entities to some area.
 
 ### HomingJob
 
@@ -158,9 +169,57 @@ The main interesting properties to adjust on `HomingComponent` are:
 - `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
 - `BaseData.Priority` - *priority*
 
-
+-------
 ## KeepHeight
 
-## KeepSpeed
+Makes the entities stay within a specified range of `y` coordinates. It can be for example useful to restrict how high the entities will fly.
+
+### KeepHeightJob
+
+This behavior outputs the following: 
+- `DesiredDirection` - *direction up or down back to the zone if `y` is outside `MinY` and `MaxY`*
+- `DirectionDesire` - *from `0` to `DirectionStrength` as distance from either boundaries goes from `0` to `CalmZoneHeight`*
+- `DesiredSpeed` - `0` *(constant)*
+- `SpeedDesire` - `0` *(constant)*
+- `Priority` -  `Priority` *(constant)*
+
+### KeepHeightComponent
+
+The main interesting properties to adjust on `KeepHeightComponent` are:
+- `MaxY` - *maximum y coordinate of the entity*
+- `MinY` - *minimum y coordinate of the entity*
+- `CalmZoneHeight` - *at this distance from either boundary, the behavior has maximum effect*
+- `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
+- `BaseData.Priority` - *priority*
+
+-------
 
 ## Wandering
+
+Makes the entity wander around the world smoothly changing the desired direction and speed. 
+
+:::tip
+Using either `GoForwardJobWrapper` or `WanderingJobWrapper` is almost always a good idea. They both always return a non-zero direction, speed, and desires. This ensures that an entity always has something to do. 
+:::
+
+### WanderingJob
+
+This behavior outputs the following: 
+- `DesiredDirection` - *random direction smoothly changing over time*
+- `DirectionDesire` - `DirectionStrength` *(constant)*
+- `DesiredSpeed` - *random speed smoothly changing over time between `MinSpeed` and `MaxSpeed`*
+- `SpeedDesire` - `SpeedStrength` *(constant)*
+- `Priority` -  `Priority` *(constant)*
+
+### WanderingComponent
+
+The main interesting properties to adjust on `WanderingComponent` are:
+- `MaxUpDownAngle` - *maximum possible angle between the returned desired direction and *XZ* plane* 
+- `XFrequency` - *frequency of desired direction change in the *XZ* plane* 
+- `YFrequency` - *frequency of desired direction change in it's `y` component* 
+- `SpeedFrequency` - *frequency of the speed changing*
+- `MinSpeed` - *minimum desired speed*
+- `MaxSpeed` - *maximum desired speed*
+- `BaseData.DirectionStrength` - *determines `DirectionDesire`*
+- `BaseData.SpeedStrength` - *determines `SpeedDesire`*
+- `BaseData.Priority` - *priority*
