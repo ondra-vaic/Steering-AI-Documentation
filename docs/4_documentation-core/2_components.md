@@ -61,3 +61,34 @@ public class GoForwardBaker : Baker<GoForwardAuthoring>
 :::note
 The attribute `[ComponentAuthoring(typeof(GoForwardComponent))]` lets the steering system editor find the correct authoring to use when adding a missing component. The editor would know that an entity needs `GoForwardComponent` because the attribute `[JobWrapper(typeof(GoForwardComponent))]` declares it on the `GoForwardJobWrapper`.
 :::
+
+
+# this somewhere? 
+# this somewhere? 
+
+```csharp title="ISimpleBaseBehavior.cs"
+[Serializable]
+    public struct SimpleBehaviorData : IActivable
+    {
+        public byte Priority;
+        public float DirectionStrength;
+        public float SpeedStrength;
+      
+        [field: SerializeField] public bool IsActive { get; set; }
+    
+        public bool Debug;
+        public Color Color;
+        public float DebugScale;
+
+        public static SimpleBehaviorData Preset => new()
+        {
+            Priority = 0,
+            DirectionStrength = 0.5f,
+            SpeedStrength = 0.5f,
+            IsActive = true,
+            Debug = false,
+            DebugScale = 10,
+            Color = Color.green,
+        };
+    }
+```
