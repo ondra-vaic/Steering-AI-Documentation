@@ -105,7 +105,7 @@ This behavior outputs the following:
 
 ### FollowPathComponent
 
-The main interesting properties to adjust on the component are:
+The main interesting properties to adjust on `FollowPathComponent` are:
 - `Speed` - *how fast the entity should travel*
 - `DistanceEpsilon` - *threshold distance to current target where the entity switches to next point*
 - `BaseData.DirectionStrength` - *determines `DirectionDesire`*
@@ -130,11 +130,34 @@ This behavior outputs the following:
 
 ### GoForwardComponent
 
-The `GoForwardComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
+The main interesting properties to adjust on `GoForwardComponent` are:
+- `Speed` - *how fast the entity should travel*
 - `BaseData.DirectionStrength` - *determines `DirectionDesire`*
 - `BaseData.Priority` - *priority*
 
 ## Homing
+
+This behavior makes the entities go back towards a predefined home position if they get too far from it. It is very useful to constraint entities to some area.
+
+### HomingJob
+
+This behavior outputs the following: 
+- `DesiredDirection` - *direction to home*
+- `DirectionDesire` - *from `0` to `DirectionStrength` as distance to home goes from `MinRadius` to `MaxRadius`*
+- `DesiredSpeed` - `0` *(constant)*
+- `SpeedDesire` - `0` *(constant)*
+- `Priority` -  `Priority` *(constant)*
+
+### HomingComponent
+
+The main interesting properties to adjust on `HomingComponent` are:
+- `HomePosition` - *the position of the home*
+- `MinRadius` - *distance to home where the behavior has no effect*
+- `MaxRadius` - *distance to home where the behavior has maximum effect*
+- `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
+- `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
+- `BaseData.Priority` - *priority*
+
 
 ## KeepHeight
 
