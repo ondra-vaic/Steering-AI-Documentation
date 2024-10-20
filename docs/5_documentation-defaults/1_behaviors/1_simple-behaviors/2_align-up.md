@@ -16,13 +16,15 @@ This behavior outputs the following:
 - `DirectionDesire` - *from `0` to `DirectionStrength` as angle between entity's up and `float3(0, 1, 0)` goes from `0` to `90` degrees.*
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
-- `Priority` -  `Priority`*(constant)*
+- `Priority` -  `Priority` *(constant)*
 
 ### AlignUpComponent
 
 The `AlignUpComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
-- `BaseData.DirectionStrength` - *multiplier for `DirectionDesire`*
-- `BaseData.Priority` - *priority*
+
+- `BaseData` 
+    - `DirectionStrength` - *multiplier for `DirectionDesire`*
+    - `Priority` - *priority*
 
 :::tip
 These two will likely be the most important properties for most behaviors.

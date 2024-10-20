@@ -22,5 +22,6 @@ The main interesting properties to adjust on `HomingComponent` are:
 - `MinRadius` - *distance to home where the behavior has no effect*
 - `MaxRadius` - *distance to home where the behavior has maximum effect*
 - `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
-- `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
-- `BaseData.Priority` - *priority*
+- `BaseData`
+    - `DirectionStrength` - *multiplies `DirectionDesire`*
+    - `Priority` - *priority*

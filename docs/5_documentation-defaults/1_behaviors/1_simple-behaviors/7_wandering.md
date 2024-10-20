@@ -28,6 +28,7 @@ The main interesting properties to adjust on `WanderingComponent` are:
 - `SpeedFrequency` - *frequency of the speed changing*
 - `MinSpeed` - *minimum desired speed*
 - `MaxSpeed` - *maximum desired speed*
-- `BaseData.DirectionStrength` - *determines `DirectionDesire`*
-- `BaseData.SpeedStrength` - *determines `SpeedDesire`*
-- `BaseData.Priority` - *priority*
+- `BaseData`
+    - `DirectionStrength` - *determines `DirectionDesire`*
+    - `SpeedStrength` - *determines `SpeedDesire`*
+    - `Priority` - *priority*

@@ -22,8 +22,9 @@ This behavior outputs the following:
 The main interesting properties to adjust on `FollowPathComponent` are:
 - `Speed` - *how fast the entity should travel*
 - `DistanceEpsilon` - *threshold distance to current target where the entity switches to next point*
-- `BaseData.DirectionStrength` - *determines `DirectionDesire`*
-- `BaseData.Priority` - *priority*
+- `BaseData`
+    - `DirectionStrength` - *determines `DirectionDesire`*
+    - `Priority` - *priority*
 
 ## Path
 

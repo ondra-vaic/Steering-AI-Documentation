@@ -29,6 +29,7 @@ It is also useful to use some low but non-zero `DirectionStrength` and the lowes
 
 The main interesting properties to adjust on `GoForwardComponent` are:
 - `Speed` - *how fast the entity should travel*
-- `BaseData.DirectionStrength` - *determines `DirectionDesire`*
-- `BaseData.SpeedStrength` - *determines `SpeedDesire`*
-- `BaseData.Priority` - *priority*
+- `BaseData`
+    - `DirectionStrength` - *determines `DirectionDesire`*
+    - `SpeedStrength` - *determines `SpeedDesire`*
+    - `Priority` - *priority*

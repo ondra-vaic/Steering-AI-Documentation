@@ -21,5 +21,6 @@ The main interesting properties to adjust on `KeepHeightComponent` are:
 - `MaxY` - *maximum y coordinate of the entity*
 - `MinY` - *minimum y coordinate of the entity*
 - `CalmZoneHeight` - *at this distance from either boundary, the behavior has maximum effect*
-- `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
-- `BaseData.Priority` - *priority*
+- `BaseData`
+    - `DirectionStrength` - *multiplies `DirectionDesire`*
+    - `Priority` - *priority*
