@@ -13,7 +13,7 @@ Internally, the behavior calculates a weighted centroid of it's neigbhors positi
 This behavior outputs the following: 
 - `DesiredDirection` - *direction to a weighted centroid of neighbors position*
 - `DirectionDesire` - *from `MinActivation * DirectionStrength` to `DirectionStrength` as distance to the weighted centroid goes from `0` to `MaxDistance`*
-- `DesiredSpeed` - `MinSpeed` to `MaxSpeed` as distance to the weighted centroid goes from `0` to `MaxDistance`*
+- `DesiredSpeed` - *from `MinSpeed` to `MaxSpeed` as distance to the weighted centroid goes from `0` to `MaxDistance`*
 - `SpeedDesire` - *from `MinActivation * SpeedStrength` to `SpeedStrength` as distance to the weighted centroid goes from `0` to `MaxDistance`*
 - `Priority` -  `Priority` *(constant)*
 
