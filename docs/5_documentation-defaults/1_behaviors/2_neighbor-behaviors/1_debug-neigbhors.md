@@ -18,6 +18,7 @@ This behavior outputs the following:
 ## DebugNeighborsComponent
 
 The `DebugNeighborsComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
+
 - `BaseData`
     - `IsActive` - *mark it to activate the behavior*
     - `DebugColor` - *color to use for debugging*
