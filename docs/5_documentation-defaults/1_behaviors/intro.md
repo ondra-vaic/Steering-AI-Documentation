@@ -20,6 +20,9 @@ Every behavior in the defaults library follows the same naming pattern `Behavior
 :::
 
 ------------------
+
+write here that max speed is from the movement script
+
 # DELETE OR MOVE THIS TO CORE
 
 ## Components

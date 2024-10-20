@@ -12,7 +12,7 @@ Internally, the behavior calculates a weighted sum of directions away from neigb
 
 This behavior outputs the following: 
 - `DesiredDirection` - *weighted sum of directions away from neigbhors*
-- `DirectionDesire` - *from `0` to `BaseData.DirectionStrength`, grows with the sum of the weights used for direction*
+- `DirectionDesire` - *from `0` to `DirectionStrength`, grows with the sum of the weights used for direction*
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
@@ -27,8 +27,8 @@ This behavior outputs the following:
     - `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
     - `ActivationK` - *second parameter for shaping the interpolation of `DirectionDesire`*
 - `BaseData`
-    - `BaseData.MaxDistance` - *maximum distance where neighbors will be detected*
-    - `BaseData.MaxAngle` - *maximum field of view angle where neighbors will be detected*
-    - `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
-    - `BaseData.SpeedStrength` - *multiplies `SpeedDesire`*
-    - `BaseData.Priority` - *priority*
+    - `MaxDistance` - *maximum distance where neighbors will be detected*
+    - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
+    - `DirectionStrength` - *multiplies `DirectionDesire`*
+    - `SpeedStrength` - *multiplies `SpeedDesire`*
+    - `Priority` - *priority*

@@ -34,8 +34,8 @@ The main interesting properties to adjust on `AlignmentComponent` are:
     - `MinSpeedDiffWeight` - *the minimum `SpeedDesire` returned will be `MinSpeedDiffWeight * SpeedStrength`*
     - `StartSpeedDiffFraction` - *the minimum difference between the average speed and current speed divided by `MaxSpeed` after which the `SpeedDesire` starts to increase above `MinSpeedDiffWeight * SpeedStrength`*
 - `BaseData`
-    - `BaseData.MaxDistance` - *maximum distance where neighbors will be detected*
-    - `BaseData.MaxAngle` - *maximum field of view angle where neighbors will be detected*
-    - `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
-    - `BaseData.SpeedStrength` - *multiplies `SpeedDesire`*
-    - `BaseData.Priority` - *priority*
+    - `MaxDistance` - *maximum distance where neighbors will be detected*
+    - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
+    - `DirectionStrength` - *multiplies `DirectionDesire`*
+    - `SpeedStrength` - *multiplies `SpeedDesire`*
+    - `Priority` - *priority*

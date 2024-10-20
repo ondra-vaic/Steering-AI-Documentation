@@ -19,8 +19,8 @@ This behavior outputs the following:
     - `MaxSpeedOverPrey` - **
     - `MinChaseSpeed` - **
 - `BaseData`
-    - `BaseData.MaxDistance` - *maximum distance where neighbors will be detected*
-    - `BaseData.MaxAngle` - *maximum field of view angle where neighbors will be detected*
-    - `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
-    - `BaseData.SpeedStrength` - *multiplies `SpeedDesire`*
-    - `BaseData.Priority` - *priority*
+    - `MaxDistance` - *maximum distance where neighbors will be detected*
+    - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
+    - `DirectionStrength` - *multiplies `DirectionDesire`*
+    - `SpeedStrength` - *multiplies `SpeedDesire`*
+    - `Priority` - *priority*
