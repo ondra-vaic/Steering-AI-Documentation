@@ -21,15 +21,18 @@ This behavior outputs the following:
 
 The main interesting properties to adjust on `CohesionComponent` are:
 
-- `DistanceP` - *power for shaping the influence of each neighbor based on distance*
-- `StartAngle` - *above this angle a neighbor's influence on the centroid starts to decrease, below it it's at maximum*
-- `AngleP` - *power for shaping the influence of each neighbor based on angle*
-- `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
-- `MinActivation` - *the minimum `DirectionDesire` returned will `MinActivation * DirectionStrength`*
-- `MinSpeed` - *the minimum desired speed to catch up with neighbors*
+
+- *Observability*
+    - `DistanceP` - *power for shaping the influence of each neighbor based on distance*
+    - `StartAngle` - *above this angle a neighbor's influence on the centroid starts to decrease, below it it's at maximum*
+    - `AngleP` - *power for shaping the influence of each neighbor based on angle*
+- *Activation*
+    - `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
+    - `MinActivation` - *the minimum `DirectionDesire` returned will `MinActivation * DirectionStrength`*
+    - `MinSpeed` - *the minimum desired speed to catch up with neighbors*
 - `BaseData`
-    - `BaseData.MaxDistance` - *maximum distance where neighbors will be detected*
-    - `BaseData.MaxAngle` - *maximum field of view angle where neighbors will be detected*
-    - `BaseData.DirectionStrength` - *multiplies `DirectionDesire`*
-    - `BaseData.SpeedStrength` - *multiplies `SpeedDesire`*
-    - `BaseData.Priority` - *priority*
+    - `MaxDistance` - *maximum distance where neighbors will be detected*
+    - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
+    - `DirectionStrength` - *multiplies `DirectionDesire`*
+    - `SpeedStrength` - *multiplies `SpeedDesire`*
+    - `Priority` - *priority*
