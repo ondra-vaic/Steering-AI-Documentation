@@ -30,5 +30,4 @@ This behavior outputs the following:
     - `MaxDistance` - *maximum distance where neighbors will be detected*
     - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
     - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `SpeedStrength` - *multiplies `SpeedDesire`*
     - `Priority` - *priority*

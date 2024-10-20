@@ -8,7 +8,7 @@ Makes entities speed up towards their closest neighbor.
 
 ## SeekingJob
 
-Internally, the behavior find an entity's closest neigbhor. It gives a direction towards it and speed greater than or higher that the neigbor's. The strengths and speed grow as the distance to the neighbor decreases.
+Internally, the behavior finds an entity's closest neigbhor. It gives a direction towards it and speed greater than or higher that the neigbor's. The strengths and speed grow as the distance to the neighbor decreases.
 
 This behavior outputs the following: 
 - `DesiredDirection` - *direction to the closest neighbor*
