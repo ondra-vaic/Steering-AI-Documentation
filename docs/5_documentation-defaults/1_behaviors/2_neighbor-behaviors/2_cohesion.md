@@ -21,7 +21,6 @@ This behavior outputs the following:
 
 The main interesting properties to adjust on `CohesionComponent` are:
 
-
 - *Observability*
     - `DistanceP` - *power for shaping the influence of each neighbor based on distance*
     - `StartAngle` - *above this angle a neighbor's influence on the centroid starts to decrease, below it it's at maximum*
