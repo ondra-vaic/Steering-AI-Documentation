@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# FollowPath
+# Follow Path
 
 Mkes the entity follow a given path. 
 

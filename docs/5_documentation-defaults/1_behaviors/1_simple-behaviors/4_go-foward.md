@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# GoForward
+# Go Forward
 
 Makes the entity go in the direction of it's forward direction. 
 

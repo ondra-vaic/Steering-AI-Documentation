@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# AlignUp
+# Align Up
 
 This behavior tries to prevent entites from flying up or down at too steep angles which may look unnatural. 
 

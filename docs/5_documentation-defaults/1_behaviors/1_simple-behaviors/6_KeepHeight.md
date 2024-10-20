@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# KeepHeight
+# Keep Height
 
 Makes the entities stay within a specified range of `y` coordinates. It can be for example useful to restrict how high the entities will fly.
 

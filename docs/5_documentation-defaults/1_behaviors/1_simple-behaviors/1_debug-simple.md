@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# DebugSimple
+# Debug Simple
 
 Draws all the entities passed to it as circles. It can be useful for debugging.
 
