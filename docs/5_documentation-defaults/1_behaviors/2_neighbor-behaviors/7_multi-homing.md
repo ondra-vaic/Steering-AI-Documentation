@@ -12,7 +12,7 @@ For this behavior, the neighbors need to have a `HomeComponent` on them. The com
 
 This behavior outputs the following: 
 - `DesiredDirection` - *direction to the target home*
-- `DirectionDesire` - *from `0` to `DirectionStrength` as distance to the home goes from `MinRadius` to `MaxRadius`*
+- `DirectionDesire` - *from `0` to `DirectionStrength * home.StrengthMultiplier` as distance to the home goes from `home.MinRadius` to `home.MaxRadius`*
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
@@ -27,5 +27,10 @@ This behavior outputs the following:
     - `DirectionStrength` - *multiplies `DirectionDesire`*
     - `Priority` - *priority*
 
-
 ## HomeComponent
+
+The entities which should work as homes need to have `HomeComponent` on them. It has the following properties:
+
+- `MinRadius` - *radius around the home's position where the entity will stop desiring to go towards it*
+- `MaxRadius` - *the entity will react to this home when within this radius*
+- `StrengthMultiplier` - *multiplier for the `DirectionDesire`, this way some homes can have more influence than others*
