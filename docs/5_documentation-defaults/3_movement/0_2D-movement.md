@@ -4,15 +4,18 @@ sidebar_position: 0
 
 # 2D Movement
 
+`Move2DSystem`, `Movement2DComponent`
+
 - `MoveOptions`
-    - `MaxSpeed` - The maximum
-    - `DefaultSpeed` -
-    - `MaxForwardAcceleration` - 
-    - `MaxRightAcceleration` - 
-    - `Friction` - 
-    - `Move` - 
+    - `MaxSpeed` - *The maximum reachable speed*
+    - `DefaultSpeed` - *The default speed (not used by the system can be looked up in behaviors)*
+    - `MaxForwardAcceleration` - *The maximum acceleration in the entity's direction forward*
+    - `MaxRightAcceleration` - *The maximum acceleration in the entity's left-right direction*
+    - `Friction` - *Friction applied when moving*
+    - `Move` - *Should the entity's velocity be updated*
 - `RotationOptions`
-    - `RotationSpeed` - 
-    - `Rotate` - 
-- `Debug` - 
-- `UpdatePosition` - 
+    - `RotationSpeed` - *How fast the entity orients itself with it's new velocity*
+    - `Rotate` - *Should the entity's rotation be updated*
+- `IsActive` - *Should the system run at all*
+- `UpdatePosition` - *Should the entity's position be updated*
+- `Debug` - *Draws current and desired velocity as arrows*

@@ -2,32 +2,34 @@
 sidebar_position: 2
 ---
 
-# 2.5D Movement
+# Movement 2.5D 
+
+`Move25DSystem`, `Movement25DComponent`
 
 - `MoveOptions`
-    - `MaxSpeed` - 
-    - `DefaultSpeed` - 
-    - `MaxForwardAcceleration` - 
-    - `MaxRightAcceleration` - 
-    - `Friction` - 
-    - `Move` - 
+    - `MaxSpeed` - *The maximum reachable speed*
+    - `DefaultSpeed` - *The default speed (not used by the system can be looked up in behaviors)*
+    - `MaxForwardAcceleration` - *The maximum acceleration in the entity's direction forward*
+    - `MaxRightAcceleration` - *The maximum acceleration in the entity's left-right direction*
+    - `Friction` - *Friction applied when moving*
+    - `Move` - *Should the entity's velocity be updated*
 - `RotationOptions`
-    - `SwingRotationSpeed` - 
-    - `RotationSpeed` - 
-    - `Rotate` - 
+    - `RotationSpeed` - *How fast the entity orients itself with it's new velocity*
+    - `SwingRotationSpeed` - *How fast the entity orients it's local y axis with the surface below*
+    - `Rotate` - *Should the entity's rotation be updated*
 - *(Walking)*
-    - `MinAngleToSlide` - 
-    - `MaxAngleToSlide` - 
-    - `MinAngleToSpeedUp` - 
-    - `MaxAngleToSpeedUp` - 
-    - `MaxDownhillSpeedUp` - 
-    - `UpAlignment` - 
-    - `StepHeight` - 
-    - `StepDownGravity` - 
+    - `MinAngleToSlide` - *Surface angle to start having reduced `MaxSpeed` if going up*
+    - `MaxAngleToSlide` - *Surface angle where `MaxSpeed = 0` if going up*
+    - `MinAngleToSpeedUp` - *Surface to start having increased `MaxSpeed` if going down* 
+    - `MaxAngleToSpeedUp` - *Surface angle where max speed is `MaxDownhillSpeedUp * MaxSpeed` if going down* 
+    - `MaxDownhillSpeedUp` - *Maximum speed multiplier if going down*
+    - `UpAlignment` - *How smoothly the detected surface up direction changes (can smooth out movement over terrain with sharp features)*
+    - `StepHeight` - *How high can the entity step*
+    - `StepDownGravity` - *Accelaration when taking a step down*
 - *(Falling)*
-    - `AirGravity` - 
-    - `AirLinearDrag` - 
-    - `AirForwardAlignmentSpeed` - 
-- `IsActive`- 
-- `Debug` -
-- `UpdatePosition` -
+    - `AirGravity` - *Gravity when falling*
+    - `AirLinearDrag` - *Linear drag when falling*
+    - `AirAlignmentSpeed` - *How fast the entity's rotation updates while falling*
+- `IsActive`- *Should the system run at all*
+- `UpdatePosition` - *Should the entity's position be updated*
+- `Debug` -*Draws multiple spheres and arrows for debugging*
