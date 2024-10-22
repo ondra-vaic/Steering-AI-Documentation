@@ -28,4 +28,5 @@ The main interesting properties to adjust on `FollowPathComponent` are:
 
 ## Path
 
-Path can be created in the editor as ordered list of `Transform` using `PathPoints` class. There is also an implementation of ordered list of `PathPoints` called `MultiPath`. The `FollowPathAuthoring` should have a reference to an instance of either of these classes. This set up is shown in the *Move 25D Sample* [link].
+The authoring must have a path assigned. The path only needs to implement a `IPathPoints` interface, for example `PathPoints` and `Multipath` [links]. You can see an example of this in *Move 25D Sample* [link].
+
