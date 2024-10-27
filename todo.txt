@@ -1,19 +1,3 @@
-CODE
-- combiner rename
-- create debug job for simple and ray behaviors
-- 2.5d movement rename paths better and assign ref to the two new terrains and put collider on them
-- fix no max distance for ray queries
-- avoid vertical walls - put project on global up
-- fix sheeps tag for predator group in the asset
-- simple/single
-- rename to INeighborBaseBehavior
-- rename to INeighborQueryJobWrapper not runner
-- rename AirForwardAlignmentSpeed
-- delete cyllinderCreateRaysJob
-- delete keep speed - it's same as go forward
-- stepheight etc into walking section of properties
-- add IsActive to Move2DSystem
-- rename StartSpeedDiffFraction etc
 
 forward+
 t:SteeringSystemAsset
@@ -26,6 +10,7 @@ add simple behavior screenshot for collisions sample
 image for each "scene" in full example 
 ... image for each behavior
 Movement25d - all screenshots have mouse pointer
+intro image
 
 DOCS.core
 
@@ -40,22 +25,27 @@ Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
 accumulators
 
-describe time scaler - utilities
-intro and installation
+DOCS.other 
 
 in defaults describe the combiner
-installation
+
+DOCS.last
+
 check everywhere that components and behaviors arent just copied from somewhere
 fix nothing after headline
 check runner/wrapper
 Your browser does not support the video tag.
+cleanup
+visual
+links
 
 DOCS.FUTURE
 
+describe time scaler - utilities
+
 OTHER
-set up min speed and test it works
-go through all scenes and check prefabs, apply / rever overrides, check everything works
 reexport diagram image with good wording
+go through all scenes and check prefabs, apply / rever overrides, check everything works
 
 EDITOR.FUTURE
 handle somehow changing name, now there is some bug it seems
