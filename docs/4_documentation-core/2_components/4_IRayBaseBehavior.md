@@ -16,7 +16,9 @@ public interface IRayBaseBehavior
 public struct RayBaseBehavior : IActivable
 {
     public byte Priority;
+    // highlight-start
     public float MaxDistance;
+    // highlight-end
     public float DirectionStrength;
     public float SpeedStrength;
     

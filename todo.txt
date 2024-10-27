@@ -31,7 +31,7 @@ explain purpose of fov and max dist in base behavior
 describe time scaler - utilities
 split generic parameters into a list and give example of accumulator
 editor in core - put behaviors into tabs
-
+attributes
 description into IBaseBehaviorData stuff
 describe base behavior data
 maybe mention IBaseBehavior in the behavior sections of core
