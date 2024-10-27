@@ -2,15 +2,20 @@
 sidebar_position: 1
 ---
 
-# INeighborBehaviorJob
+# INeighborBehaviorJobWrapper
 
-## Implementing a Neighbor Behavior
+Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding neighbor query is done, passing in its results.
 
-To implement a neighbor behavior, you need an implementation of `INeighborBehaviorJobWrapper`. This implementation will schedule an implementation of a custom job `INeighborBehaviorJob<C1, C2, A, R>`. It was created to simplify adding new neighbor behaviors. 
+### Implementing a Neighbor Behavior
 
-### INeighborBehaviorJobWrapper
+Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborBehaviorParams`. It should allocate an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugJob` is resposible for that.
 
-Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborQueryParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here this is inside the `DebugJob`. The `JobWrapper` declares which components should be present on the entity and neighbor respectively, here `DebugableComponent` and `SteeringEntityTagComponent`. These types will be used in the editor of the `SteeringSystemAsset`.
+#### Attributes
+
+This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity and it's neighbor. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
+
+- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
+- `JobWrapperAttribute` - *declares which components should be present on the entity and neighbor respectively, above `DebugableComponent` and `SteeringEntityTagComponent`*
 
 ```csharp title="DebugableJobWrapper.cs"
 [JobWrapper(typeof(DebugableComponent), typeof(SteeringEntityTagComponent))]
@@ -35,9 +40,17 @@ class DebugableJobWrapper : INeighborBehaviorJobRunner
 }
 ```
 
+
 ### INeighborBehaviorJob\<C1, C2, A, R\>
 
-`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. `behaviorData` contains one component from both of the entities. This corresponds to the `C1` and `C2` type parameters. In the example below, `C1` is `DebugableComponent` and `C2` is `SteeringEntityTagComponent`. The `Execute` method also receives reference to an accumulator of type `A`. One accumulator is created for each entity. It can be used to accumulate some result over all the neighbors. For example find the closest one, or find the centroid of their position as in `CohesionJob`. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
+`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. It has one component from both of the entities, depending on the generics. The `Execute` method also receives reference to an accumulator. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
+
+#### Generic Parameters
+
+- `C1` - *type of component expected on the main entities*
+- `C2` - *type of component expected on the neighbors*
+- `A` - *type of accumulator passed into the `Exectute` method*
+- `R` - *type of result returned from the behavior*
 
 ```csharp title="DebugableJobWrapper.cs"
 [BurstCompile]

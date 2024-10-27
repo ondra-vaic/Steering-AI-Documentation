@@ -36,7 +36,7 @@ visual
 links
 
 DOCS.FUTURE
-
+add CreateRaysParams etc into core just like NeighborQueryParams
 describe time scaler - utilities
 
 OTHER

@@ -8,7 +8,7 @@ Implementations of `ICreateRaysJobWrapper` create `NumRays` rays per each entity
 
 ## Implementing a Ray Query
 
-To implement your own ray query, create a class implementing the `ICreateRaysJobWrapper` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which creates `NumRays` rays for each entity. There is helper custom job prepared to ease this process - `ICreateRaysJob`. The code below can be used as template to create new ray queries through implementations of `ICreateRaysJobWrapper`.
+To implement your own ray query, create a class implementing the `ICreateRaysJobWrapper` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which creates `NumRays` rays for each entity. There is helper custom job prepared to ease this process - `ICreateRaysJob`. The code below can be used as template to create new ray queries.
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [JobWrapper]
