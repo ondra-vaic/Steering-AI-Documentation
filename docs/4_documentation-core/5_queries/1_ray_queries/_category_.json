@@ -1,6 +1,6 @@
 {
-  "label": "Entity",
-  "position": 0,
+  "label": "Ray Queries",
+  "position": 1,
   "link": {
     "type": "generated-index"
   }

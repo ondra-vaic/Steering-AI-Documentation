@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Components
+# Overview
 
 Components are used to parametrize the behaviors per entity. A simple example is `GoForwardAuthoring`, which adds the `GoForwardComponent` to an entity. This component's data can then be used inside the `Execute` method of `GoForwardJob`, where it's passed in as `EntityInformation<GoForwardComponent>`. 
 

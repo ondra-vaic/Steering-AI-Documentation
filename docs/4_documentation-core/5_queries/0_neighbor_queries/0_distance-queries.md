@@ -1,8 +1,8 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 ---
 
-# Neighbor Queries
+# INeighborQueryJobRunner
 
 ## Overview
 Neighbor queries find *k* neighbors of each entity. The image below shows a `SteeringSystemAsset` with one group of *neighbor behaviors*. The selected neighbor query here is `KDTreeKNNJobWrapper`. It finds at most `MaxNumNeighbors` of neighbors which are less than `MaxNeighborDistance` units away. `MaxFOV` can be used to specify the field of view of each entity. In this case, the query only considers entities with `_6_SampleBehaviorsTagComponent`, here it's the same tag as the *Main Tag* but that is not necessary. It is also possible to add more tags. In that case a potential neighbors must have at least one of these tags on them. 

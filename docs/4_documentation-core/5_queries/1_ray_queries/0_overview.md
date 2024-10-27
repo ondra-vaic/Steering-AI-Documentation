@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 0
 ---
 
-# Ray Queries
+# Overview
 
 ## Overview
 Ray queries cast *k* rays to intersect the scene per each entity. The image below shows a `SteeringSystemAsset` with one group of *ray behaviors*. The selected ray query here is `Sweep2DCreateRaysJobWrapper`. It casts `NumRays` rays, to max distance of `MaxDistance`. The `Sweep2DCreateRaysJobWrapper` casts the rays in section of a circle with a given field of view `FOV`. The rays will only hit objects matching the selected `LayerMask`. 
