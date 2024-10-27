@@ -27,10 +27,10 @@ image for each "scene" in full example
 ... image for each behavior
 Movement25d - all screenshots have mouse pointer
 
-bird predator environment avoidance
 explain purpose of fov and max dist in base behavior
 describe time scaler - utilities
 split generic parameters into a list and give example of accumulator
+editor in core - put behaviors into tabs
 
 maybe find place for base behavior data
 maybe mention IBaseBehavior in the behavior sections of core
@@ -39,6 +39,7 @@ Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
 intro and installation
 core accumulators
+fix nothing after headline - in simple behavior, ISimple... is X wrapper is y
 installation
 
 check everywhere that components and behaviors arent just copied from somewhere

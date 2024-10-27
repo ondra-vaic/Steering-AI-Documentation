@@ -1,0 +1,102 @@
+---
+sidebar_position: 2
+---
+
+# Ray Behaviors
+
+## Overview
+
+The result of ray behaviors depends on an entity and the ray casts created by the *Ray Query*. The entity can have a component which parametrizes this behavior. For example `EnvironmentAvoidanceJobWrapper` depends on `EnvironmentAvoidanceComponent`. The behaviors can be grouped together by the *Ray Query*. 
+
+
+<img src="/img/samples/collision_avoidance/Asset.png" alt="Description of the image"/>
+
+*Image of `SteeringSystemAsset` with two ray groups. The group given by the `ConeCreateRaysJobWrapper` ray query, contains the behaviors `EnvironmentAvoidanceJobWrapper` and `AvoidVerticalWallsJobWrapper`. The other group is given by `DownSingleCreateRayJobWrapper` and `AvoidGroundJobWrapper`. The components which these behaviors depend on are added to the list on the right.*
+
+<video controls width="800">
+  <source src="/videos/samples/collision_avoidance/Video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+*Video of *Sample 8* [link] which showing the three ray behaviors from image above, each solves collision avoidance.*
+
+## Implementing a Ray Behavior
+
+To implement a ray behavior, you need an implementation of `IRaycastBehaviorJobWrapper`. This implementation will schedule an implementation of a custom job `IRaycastBehaviorJob<C, A1, A2, R>`. It was created to simplify adding new neighbor behaviors. 
+
+### IRaycastBehaviorJobWrapper
+
+Below is the implementation of the `DebugRayJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of it's groups ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here this is inside the `DebugRayJob`. The `JobWrapper` declares which components should be present on the entity, here `DebugRayComponent`. This type will be used in the editor of the `SteeringSystemAsset`.
+
+```csharp title="DebugRayJobWrapper.cs"
+[JobWrapper(typeof(DebugRayComponent))]
+[OutData(typeof(VelocityResults))] 
+public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
+{
+    public JobHandle Schedule(
+        SystemBase systemBase,
+        in RaycastBehaviorParams neighborBehaviorParams,
+        out IDelayedDisposable results,
+        in JobHandle dependency)
+    {
+        results = new VelocityResults(neighborBehaviorParams.BaseBehaviorParams.EntityCount);
+        var outDependency = new DebugRayJob().Schedule<
+            DebugRayJob, 
+            DebugRayComponent, 
+            NoneAccumulator, 
+            NoneAccumulator, 
+            VelocityResult>(systemBase, neighborBehaviorParams, (VelocityResults)results, 1, dependency);
+        return outDependency;
+    }
+}
+```
+
+### IRaycastBehaviorJob\<C, A1, A2, R\>
+
+`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. The type parameter `C` corresponds to the type of component which the entity should have for this behavior. This component accessed in the `behaviorData`. `A1` and `A2` are types of accumulators for the `OnHit` and `OnMiss` methods respectively. They allow each entity to accumulate some information about all the raycasts, for example finding the closest hit. After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
+
+```csharp title="DebugRayJobWrapper.cs"
+[BurstCompile]
+struct DebugRayJob : IRaycastBehaviorJob<DebugRayComponent, NoneAccumulator, NoneAccumulator, VelocityResult>
+{
+    public void OnHit(
+        in EntityInformation<DebugRayComponent> behaviorData,
+        in RayData ray,
+        in RaycastHit raycastHit,
+        ref NoneAccumulator accumulator)
+    // highlight-start
+    {
+        // Accumulate something from rays that hit the environment into accumulator
+        DebugDraw.DrawArrow(entity.Position, raycastHit.Position, Color.red);
+    }
+    // highlight-end
+
+    public void OnMiss(
+        in EntityInformation<DebugRayComponent> behaviorData, 
+        in RayData ray, 
+        ref NoneAccumulator accumulator)
+    // highlight-start
+    {
+        // Accumulate something from rays that missed the environment into accumulator
+        DebugDraw.DrawArrow(
+            behaviorData.Position,
+            behaviorData.Position + ray.Direction * rayData.MaxDistance, 
+            Color.green);
+    }
+    // highlight-end
+
+    public VelocityResult Finalize(
+        in EntityInformation<DebugRayComponent> entity,
+        in NoneAccumulator hitAccumulator,
+        in NoneAccumulator missAccumulator)
+    // highlight-start
+    {
+        // Based on the accumulators, return a VelocityResult which tells which way to go
+        return default;
+    }
+    // highlight-end
+}
+```
+
+:::tip
+You can just copy and paste this, then change all occurences of `DebugRay` to `MyBehaviorName` to create a new behavior quickly. See other behaviors in [link] to understand more complex examples. The only three things to implement are the `OnHit`, `OnMiss` and `Finalize` methods.
+:::
