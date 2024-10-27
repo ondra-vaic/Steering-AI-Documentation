@@ -16,27 +16,6 @@ There are three interfaces [1], [2], [3], each matching one of the three kinds o
 - **DebugScale** - *scale for the debug elements*
 - **Color** - *color for the debug elements*
 
-
-## --- Components
-
-Components are the main way to alter the behaviors. As a user, you will likely need to fine-tune their values for your specific needs. 
-
-All the components used with simple behaviors must implement `ISimpleBaseBehavior`. This means they must contain a property `SimpleBehaviorData BaseData`[link]. Below is an example of `GoForwardComponent` to illustrate this. The component has the `BaseData` and a custom property `Speed`. You can set properties on an component in the inspector, as is shown in the image below.
-
 <img src="/img/Defaults/GoForwardComponent.png" alt="Description of the image"/>
-*`GoForwardComponent` in the inspector.*
+*Example of `GoForwardComponent` in the inspector, in contains a `Speed` property on top of the `BaseData`.*
 
-:::tip
-All components used for simple behaviors contain `BaseData` and then some properties unique to the behavior like `Speed`.
-:::
-
-```csharp
-[Serializable]
-public struct GoForwardComponent : IComponentData, ISimpleBaseBehavior
-{
-    // highlight-start
-    public float Speed; // Custom property for GoForwardComponent
-    // highlight-end
-    [field: SerializeField] public SimpleBehaviorData BaseData { get; set; }
-}
-```

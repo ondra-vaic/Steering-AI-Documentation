@@ -20,14 +20,10 @@ using UnityEngine;
 [Serializable]
 public struct GoForwardComponent : IComponentData, ISimpleBaseBehavior
 {
-    public float Speed;      
+    // highlight-start
+    public float Speed; // Custom property for GoForwardComponent
+    // highlight-end    
     [field: SerializeField] public SimpleBehaviorData BaseData { get; set; }
-
-    public static GoForwardComponent Preset => new()
-    {
-        Speed = 1,
-        BaseData = SimpleBehaviorData.Preset
-    };
 }
 
 // Boilerplate
