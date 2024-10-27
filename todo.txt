@@ -11,7 +11,7 @@ image for each "scene" in full example
 ... image for each behavior
 Movement25d - all screenshots have mouse pointer
 intro image
-combiner image
+defaults combiner image
 
 DOCS.core
 
@@ -28,7 +28,6 @@ accumulators
 
 DOCS.other 
 
-in defaults describe the combiner
 VelocityResult
 
 DOCS.last
