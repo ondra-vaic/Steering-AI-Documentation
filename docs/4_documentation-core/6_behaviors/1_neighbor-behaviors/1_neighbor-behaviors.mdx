@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding neighbor query is done, passing in its results.
 
-### Implementing a Neighbor Behavior
+### Implementing INeighborBehaviorJobWrapper
 
 Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborBehaviorParams`. It should allocate an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugJob` is resposible for that.
 
@@ -41,7 +41,7 @@ class DebugableJobWrapper : INeighborBehaviorJobRunner
 ```
 
 
-### INeighborBehaviorJob\<C1, C2, A, R\>
+### Implementing INeighborBehaviorJob\<C1, C2, A, R\>
 
 `INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. It has one component from both of the entities, depending on the generics. The `Execute` method also receives reference to an accumulator. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
 
