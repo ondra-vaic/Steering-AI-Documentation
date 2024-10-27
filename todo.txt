@@ -15,11 +15,9 @@ defaults combiner image
 
 DOCS.core
 
-explain purpose of fov and max dist in base behavior
 split generic parameters into a list and give example of accumulator
 editor - put behaviors into tabs
 attributes
-describe base behavior data
 describe base behavior params
 ref each IBaseBehavior in the behavior sections in core
 Describe creating a combiner
@@ -54,6 +52,7 @@ steering system window doesn't refresh when tag removed on entity
 CODE.FUTURE
 neighbor queries todos
 path performance probably sucks
+IBaseBehaviorData + INeighborBehavior data
 
 OTHER.FUTURE
 use the wandering desire thing?
