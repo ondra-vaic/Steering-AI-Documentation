@@ -15,9 +15,7 @@ defaults combiner image
 
 DOCS.core
 
-describe base behavior params
 split generic parameters into a list and give example of accumulator
-editor - put behaviors into tabs
 attributes
 Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
