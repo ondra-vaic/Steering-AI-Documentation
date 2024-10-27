@@ -52,6 +52,7 @@ CODE.FUTURE
 neighbor queries todos
 path performance probably sucks
 IBaseBehaviorData + INeighborBehavior data
+no need to split into RayData and Commands, keep in other struct
 
 OTHER.FUTURE
 use the wandering desire thing?
