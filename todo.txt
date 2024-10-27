@@ -15,12 +15,12 @@ defaults combiner image
 
 DOCS.core
 
+ref each IBaseBehavior in the behavior sections in core
 split generic parameters into a list and give example of accumulator
 attributes
 Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
 accumulators
-ref each IBaseBehavior in the behavior sections in core
 
 DOCS.other 
 

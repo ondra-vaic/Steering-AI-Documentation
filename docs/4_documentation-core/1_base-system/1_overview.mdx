@@ -2,44 +2,6 @@
 sidebar_position: 1
 ---
 
-# BaseSteeringSystem
+# Overview
 
-`BaseSteeringSystem` is a base class which can be inherited to create a steering system. It is configurable by `SteeringSystemAsset` which can be edited through the editor [link]. It contains definition of which jobs with which queries to run. The base class is responsible for these scheduling jobs and queries and passing data between them. 
-
-## Usage
-
-To create a new steering system, inherit from `BaseSteeringSystem` and override the `getAssetReferenceName()` method to return the addressable path to the `SteeringSystemAsset` to use. 
-
-```csharp title="SampleSteeringSystem.cs"
-using SteeringAI.Core;
-using Unity.Entities;
-
-[UpdateInGroup(typeof(SteeringSystemsGroup))]
-public partial class SampleSteeringSystem : BaseSteeringSystem
-{
-    protected override string getAssetReferenceName()
-    {
-        return "Path/To/SteeringSystemAsset.asset";
-    }
-}
-```
-
-## Overview
-
-The image below illustrates what `BaseSteeringSystem` does internally. 
-
-1) First entities with the same **Main Tag** are queried with an **Entity Query**. Information from these entities is extracted into `BaseBehaviorParams`. 
-
-2) This is passed to all **Simple-, Neighbor-, Raycast Behaviors**. All **Simple Behaviors** are simply ran in parallel and their results passed into the **Combiner**. For **Neighbor Behaviors** and **Raycast Behaviors** there are additional **Queries** done first. These behaviors can be in grouped by the additional queries. 
-
-3) After the **Combiner** receives results from all behaviors, it combines them into a single result for each entity, which can later be used by any **Move System**.
-
-:::note
-In the defaults library, all behaviors return `VelocityResult` and a combiner turns it into a `DesiredVelocityComponent`. It is however possible to create your own workflows. This is defined through the implementation of combiner. 
-:::
-
-<p align="left">
-  <img src="/img/Implementation14.svg" alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
-</p>
-
-*Diagram illustrating how the jobs and queries are scheduled, synchronized and how data is passed between them.* 
+The core of the library is the `BaseSteeringSystem`. It loads a `SteeringSystemAsset` which declaratively defines how entities should behave through instances of queries and behaviors [links] which are implemented as parallel jobs. The system then runs these jobs to determine where each entity wants to go. Each entity participating in the simulation must be initialized with `SteeringEntityAuthoring`. 
