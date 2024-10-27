@@ -6,11 +6,12 @@ sidebar_position: 2
 
 Components are used to parametrize the behaviors per entity. A simple example is `GoForwardAuthoring`, which adds the `GoForwardComponent` to an entity. This component's data can then be used inside the `Execute` method of `GoForwardJob`, where it's passed in as `EntityInformation<GoForwardComponent>`. 
 
-There are three interfaces each matching one of the three kinds of behaviors. 
+There are three interfaces, each matching one of the three kinds of behaviors, but they all share these properties:
 
-- `ISimpleBaseBehavior`
-- `INeighborBaseBehavior`
-- `IRayBaseBehavior`
+- **Priority** -- 
+- **DirectionStrength**;
+- **SpeedStrength**;
+      
 
 ## Creating a new component
 
