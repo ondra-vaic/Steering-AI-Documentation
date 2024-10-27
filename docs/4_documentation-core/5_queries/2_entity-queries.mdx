@@ -19,17 +19,3 @@ Entity queries are from the Unity's ECS package [link]. They find all entities m
 :::tip
 `DebugSimpleJobWrapper` [link] can help you visualize which entities are matched by the `SteeringSystemAsset`'s main entity query.
 :::
-## Base Behavior Params
-
-Contains information extracted from entities which matched an entity query. Each array has `EntityCount` elements. Each element at index `i` contains some piece of information about entity `i`. If you need to look up an arbitrary components on an entity, you can do so through `ArchetypeChunk` [link].
-
-```csharp title="BaseBehaviorParams.cs"
-public struct BaseBehaviorParams
-{
-    [ReadOnly] public NativeArray<LocalToWorld> LocalToWorlds;
-    [ReadOnly] public NativeArray<VelocityComponent> Velocities;
-    [ReadOnly] public NativeArray<float> Radii;
-    [ReadOnly] public NativeArray<ArchetypeChunk> ArchetypeChunks;
-    ...
-}
-```

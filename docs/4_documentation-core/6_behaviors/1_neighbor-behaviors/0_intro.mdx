@@ -4,8 +4,6 @@ sidebar_position: 0
 
 # Overview
 
-## Overview
-
 The result of neighbor behaviors depends on an entity, and it's neighbors given by the *Neighbor Query*. Both the entity and the neighbors can have a component which parametrize the behavior. For example `CohesionJobWrapper` depends on `CohesionComponent` on the entity and `SteeringEntityTag` on the neighbors. `SteeringEntityTag` is used because this behavior does not need any special data and any entity in the simulation will have this tag. Any component which is required on the neighbor will show up in the *All/(required)* section of the neighbor group. This can be seen in the image below. 
 
 <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
@@ -16,73 +14,3 @@ The result of neighbor behaviors depends on an entity, and it's neighbors given 
   Your browser does not support the video tag.
 </video>
 *`CohesionJobWrapper`, `AlignmentJobWrapper` and `SeparationJobWrapper` used to create flocking in 3D.*
-
-## Implementing a Neighbor Behavior
-
-To implement a neighbor behavior, you need an implementation of `INeighborBehaviorJobWrapper`. This implementation will schedule an implementation of a custom job `INeighborBehaviorJob<C1, C2, A, R>`. It was created to simplify adding new neighbor behaviors. 
-
-### INeighborBehaviorJobWrapper
-
-Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborQueryParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here this is inside the `DebugJob`. The `JobWrapper` declares which components should be present on the entity and neighbor respectively, here `DebugableComponent` and `SteeringEntityTagComponent`. These types will be used in the editor of the `SteeringSystemAsset`.
-
-```csharp title="DebugableJobWrapper.cs"
-[JobWrapper(typeof(DebugableComponent), typeof(SteeringEntityTagComponent))]
-[OutData(typeof(VelocityResults))]
-class DebugableJobWrapper : INeighborBehaviorJobRunner
-{
-    public JobHandle Schedule(
-        SystemBase systemBase,
-        in NeighborBehaviorParams neighborBehaviorParams,
-        out IDelayedDisposable results,
-        in JobHandle dependency)
-    {	
-        results = new VelocityResults(neighborBehaviorParams.BaseBehaviorParams.EntityCount);
-        var outDependency = new DebugableJob().Schedule<
-            DebugJob, 
-            DebugableComponent, 
-            SteeringEntityTagComponent, 
-            NoneAccumulator, 
-            VelocityResult>(systemBase, neighborBehaviorParams, (VelocityResults)results, 1, dependency);
-        return outDependency;
-    }
-}
-```
-
-### INeighborBehaviorJob\<C1, C2, A, R\>
-
-`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. `behaviorData` contains one component from both of the entities. This corresponds to the `C1` and `C2` type parameters. In the example below, `C1` is `DebugableComponent` and `C2` is `SteeringEntityTagComponent`. The `Execute` method also receives reference to an accumulator of type `A`. One accumulator is created for each entity. It can be used to accumulate some result over all the neighbors. For example find the closest one, or find the centroid of their position as in `CohesionJob`. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
-
-```csharp title="DebugableJobWrapper.cs"
-[BurstCompile]
-struct DebugableJob : INeighborBehaviorJob<
-    DebugableComponent, 
-    SteeringEntityTagComponent, 
-    NoneAccumulator, 
-    VelocityResult>
-{
-    public void Execute(
-        in NeighborBehaviorData<DebugableComponent, SteeringEntityTagComponent> behaviorData,
-        ref NoneAccumulator accumulator)
-    // highlight-start
-    {
-        // Accumulate something about the neighbors into the accumulator
-        Debug.DrawLine(behaviorData.Entity.Position, behaviorData.OtherEntity.Position);
-    }
-    // highlight-end
-
-    // highlight-start
-    public VelocityResult Finalize(
-        in EntityInformation<DebugableComponent> entity,
-        in NoneAccumulator accumulator)
-    // highlight-start
-    {
-        // Based on the accumulator, return a VelocityResult which tells which way to go
-        return default;
-    }
-    // highlight-end
-}
-```
-
-:::tip
-You can just copy and paste this, then change all occurences of `Debugable` to `MyBehaviorName` to create a new behavior quickly. See other behaviors in [link] to understand more complex examples. The only two things to implement are the `Execute` and `Finalize` methods.
-:::

@@ -32,17 +32,19 @@ describe time scaler - utilities
 split generic parameters into a list and give example of accumulator
 editor in core - put behaviors into tabs
 
-maybe find place for base behavior data
+description into IBaseBehaviorData stuff
+describe base behavior data
 maybe mention IBaseBehavior in the behavior sections of core
 Steering system asset in core
 Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
 intro and installation
 core accumulators
-fix nothing after headline - in simple behavior, ISimple... is X wrapper is y
+fix nothing after headline
+in defaults describe the combiner
 installation
-
 check everywhere that components and behaviors arent just copied from somewhere
+check runner/wrapper
 Your browser does not support the video tag.
 
 DOCS.FUTURE
