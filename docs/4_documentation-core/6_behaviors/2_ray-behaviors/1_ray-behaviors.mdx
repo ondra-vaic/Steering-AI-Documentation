@@ -2,15 +2,20 @@
 sidebar_position: 2
 ---
 
-# IRaycastBehaviorJob
+# IRaycastBehaviorJobWrapper
 
-## Implementing a Ray Behavior
+Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding ray query is done, passing in its results.
 
-To implement a ray behavior, you need an implementation of `IRaycastBehaviorJobWrapper`. This implementation will schedule an implementation of a custom job `IRaycastBehaviorJob<C, A1, A2, R>`. It was created to simplify adding new neighbor behaviors. 
+### Implementing IRaycastBehaviorJobWrapper
 
-### IRaycastBehaviorJobWrapper
+Below is the implementation of the `DebugRayJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugaRaysJob` is resposible for that.
 
-Below is the implementation of the `DebugRayJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of it's groups ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here this is inside the `DebugRayJob`. The `JobWrapper` declares which components should be present on the entity, here `DebugRayComponent`. This type will be used in the editor of the `SteeringSystemAsset`.
+#### Attributes
+
+This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
+
+- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
+- `JobWrapperAttribute` - *declares which components should be present on the entity and neighbor respectively, above `DebugRayComponent`*
 
 ```csharp title="DebugRayJobWrapper.cs"
 [JobWrapper(typeof(DebugRayComponent))]
@@ -35,9 +40,16 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 }
 ```
 
-### IRaycastBehaviorJob\<C, A1, A2, R\>
+### Implementing IRaycastBehaviorJob\<C, A1, A2, R\>
 
-`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. The type parameter `C` corresponds to the type of component which the entity should have for this behavior. This component accessed in the `behaviorData`. `A1` and `A2` are types of accumulators for the `OnHit` and `OnMiss` methods respectively. They allow each entity to accumulate some information about all the raycasts, for example finding the closest hit. After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
+`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. Both functions also receive an accumulator. After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
+
+#### Generic Parameters
+
+- `C` - *type of component expected on the main entities*
+- `A1` - *type of accumulator passed into the `OnHit` method*
+- `A2` - *type of accumulator passed into the `OnMiss` method*
+- `R` - *type of result returned from the behavior*
 
 ```csharp title="DebugRayJobWrapper.cs"
 [BurstCompile]

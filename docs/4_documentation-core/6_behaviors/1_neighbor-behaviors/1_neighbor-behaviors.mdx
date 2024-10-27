@@ -8,19 +8,19 @@ Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The `Ba
 
 ### Implementing INeighborBehaviorJobWrapper
 
-Below is the implementation of the `DebugJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborBehaviorParams`. It should allocate an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugJob` is resposible for that.
+Below is the implementation of the `DebugNeighborsJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborBehaviorParams`. It should allocate an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugaNeighborsJob` is resposible for that.
 
 #### Attributes
 
 This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity and it's neighbor. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
 
 - `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
-- `JobWrapperAttribute` - *declares which components should be present on the entity and neighbor respectively, above `DebugableComponent` and `SteeringEntityTagComponent`*
+- `JobWrapperAttribute` - *declares which components should be present on the entity and neighbor respectively, above `DebugaNeighborsComponent` and `SteeringEntityTagComponent`*
 
-```csharp title="DebugableJobWrapper.cs"
-[JobWrapper(typeof(DebugableComponent), typeof(SteeringEntityTagComponent))]
+```csharp title="DebugNeighborsJobWrapper.cs"
+[JobWrapper(typeof(DebugNeighborsComponent), typeof(SteeringEntityTagComponent))]
 [OutData(typeof(VelocityResults))]
-class DebugableJobWrapper : INeighborBehaviorJobRunner
+class DebugaNeighborsJobWrapper : INeighborBehaviorJobRunner
 {
     public JobHandle Schedule(
         SystemBase systemBase,
@@ -29,9 +29,9 @@ class DebugableJobWrapper : INeighborBehaviorJobRunner
         in JobHandle dependency)
     {	
         results = new VelocityResults(neighborBehaviorParams.BaseBehaviorParams.EntityCount);
-        var outDependency = new DebugableJob().Schedule<
+        var outDependency = new DebugNeighborsJob().Schedule<
             DebugJob, 
-            DebugableComponent, 
+            DebugaNeighborsComponent, 
             SteeringEntityTagComponent, 
             NoneAccumulator, 
             VelocityResult>(systemBase, neighborBehaviorParams, (VelocityResults)results, 1, dependency);
@@ -52,16 +52,16 @@ class DebugableJobWrapper : INeighborBehaviorJobRunner
 - `A` - *type of accumulator passed into the `Exectute` method*
 - `R` - *type of result returned from the behavior*
 
-```csharp title="DebugableJobWrapper.cs"
+```csharp title="DebugaNeighborsJobWrapper.cs"
 [BurstCompile]
-struct DebugableJob : INeighborBehaviorJob<
-    DebugableComponent, 
+struct DebugNeighborsJob : INeighborBehaviorJob<
+    DebugaNeighborsComponent, 
     SteeringEntityTagComponent, 
     NoneAccumulator, 
     VelocityResult>
 {
     public void Execute(
-        in NeighborBehaviorData<DebugableComponent, SteeringEntityTagComponent> behaviorData,
+        in NeighborBehaviorData<DebugaNeighborsComponent, SteeringEntityTagComponent> behaviorData,
         ref NoneAccumulator accumulator)
     // highlight-start
     {
@@ -72,7 +72,7 @@ struct DebugableJob : INeighborBehaviorJob<
 
     // highlight-start
     public VelocityResult Finalize(
-        in EntityInformation<DebugableComponent> entity,
+        in EntityInformation<DebugaNeighborsComponent> entity,
         in NoneAccumulator accumulator)
     // highlight-start
     {
