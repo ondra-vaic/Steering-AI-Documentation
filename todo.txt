@@ -27,23 +27,22 @@ image for each "scene" in full example
 ... image for each behavior
 Movement25d - all screenshots have mouse pointer
 
+bird predator environment avoidance
+explain purpose of fov and max dist in base behavior
+describe time scaler - utilities
+split generic parameters into a list and give example of accumulator
+
 maybe find place for base behavior data
 maybe mention IBaseBehavior in the behavior sections of core
 Steering system asset in core
 Describe creating a combiner
-explain purpose of fov and max dist in base behavior
 describe somewhere you can put shared properties into job wrappers
 intro and installation
-describe time scaler
-bird predator environment avoidance
-NOT sheep environment avoidance instead of avoid vertical walls
-STEERING_DEBUG
-installation
-change
 core accumulators
+installation
+
 check everywhere that components and behaviors arent just copied from somewhere
 Your browser does not support the video tag.
-could split generic parameters and give example of accumulator into INeighborBehaviorJob etc
 
 DOCS.FUTURE
 
