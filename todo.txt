@@ -28,8 +28,6 @@ accumulators
 
 DOCS.other 
 
-VelocityResult
-
 DOCS.last
 
 check everywhere that components and behaviors arent just copied from somewhere
