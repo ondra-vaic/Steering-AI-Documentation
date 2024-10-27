@@ -1,0 +1,77 @@
+CODE
+- combiner rename
+- create debug job for simple and ray behaviors
+- 2.5d movement rename paths better and assign ref to the two new terrains and put collider on them
+- fix no max distance for ray queries
+- avoid vertical walls - put project on global up
+- fix sheeps tag for predator group in the asset
+- simple/single
+- rename to INeighborBaseBehavior
+- rename to INeighborQueryJobWrapper not runner
+- rename AirForwardAlignmentSpeed
+- delete cyllinderCreateRaysJob
+- delete keep speed - it's same as go forward
+- stepheight etc into walking section of properties
+- add IsActive to Move2DSystem
+- rename StartSpeedDiffFraction etc
+
+forward+
+t:SteeringSystemAsset
+STEERING_DEBUG
+
+DOCS
+
+DOCS.imgs
+
+add simple behavior screenshot for collisions sample
+image for each "scene" in full example 
+could split generic parameters and give example of accumulator into INeighborBehaviorJob etc
+maybe find place for base behavior data
+maybe mention IBaseBehavior in the behavior sections of core
+Steering system asset in core
+Describe creating a combiner
+explain purpose of fov and max dist in base behavior
+... image for each behavior
+rename StartSpeedDiffFraction etc
+accumulators into core
+describe somewhere you can put shared properties into job wrappers
+Your browser does not support the video tag.
+intro and installation
+describe time scale 
+bird predator environment avoidance
+NOT sheep environment avoidance instead of avoid vertical walls
+STEERING_DEBUG
+installation
+change
+core accumulators
+Movement25d - all screenshots have mouse pointer
+
+DOCS.FUTURE
+
+OTHER
+set up min speed and test it works
+go through all scenes and check prefabs, apply / rever overrides, check everything works
+reexport diagram image with good wording
+
+EDITOR.FUTURE
+handle somehow changing name, now there is some bug it seems
+rename tag - warning in the window 
+steering system window doesn't refresh when tag removed on entity
+
+CODE.FUTURE
+neighbor queries todos
+path performance probably sucks
+
+OTHER.FUTURE
+use the wandering desire thing?
+Rotations for 3D might work with sterp, seems to work with 2.5D. Next time use forward as twist axis!!
+check what is the performance difference if I use bssr = temp.MaxHeap.HeadValue;
+
+BACKLOG
+accelerate more based on sum desire * f(prio)?
+
+NOTES
+high direction on keep speed and homing helps with nice cohesive flocks
+
+unity sphere and box corner collision detection bug
+https://www.youtube.com/watch?v=cYVmcaRAbJg intrinsic mean
