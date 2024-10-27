@@ -9,7 +9,6 @@ Components to be used with neighbore behaviors must implement `IRayBaseBehavior`
 - **MaxDistance** - *maximum distance of ray hits to react to*
 
 ```csharp title="ISimpleBaseBehavior.cs"
-
 public interface IRayBaseBehavior
 {
     public RayBehaviorData BaseData { get; set; }
