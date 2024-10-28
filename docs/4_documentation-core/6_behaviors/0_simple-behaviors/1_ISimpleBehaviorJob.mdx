@@ -4,7 +4,14 @@ sidebar_position: 0
 
 # ISimpleBehaviorJobWrapper
 
-Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The `BaseSystem` schedules them after querying the entities with the main entity query.
+Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The `BaseSystem` schedules them after querying the entities with the main entity query. There are three interfaces relevant in creating a simple behavior. The most important one is a custom job `ISimpleBehaviorJob<C, R>` which significantly simplifies creating the behaviors. 
+
+- `ISimpleBehaviorJobWrapper` 
+    - `Schedule` should schedule a job which writes `VelocityResult`s to `results`
+- `ISimpleBehaviorJob<C, R>` 
+    - `Execute` method should return a single `VelocityResult`
+- `ISimpleBaseBehavior` 
+    - entities used by `ISimpleBehaviorJob<C, R>` must have a component implementing this interface
 
 
 ## Implementing ISimpleBehaviorJobWrapper

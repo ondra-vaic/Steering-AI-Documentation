@@ -4,7 +4,16 @@ sidebar_position: 2
 
 # IRaycastBehaviorJobWrapper
 
-Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding ray query is done, passing in its results.
+Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding ray query is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a custom job `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
+
+- `IRayBehaviorJobWrapper` 
+    - `Schedule` should schedule a job which writes `VelocityResult`s to `results`
+- `IRaycastBehaviorJob<C, A1, A2, R>` 
+    - `Finalize` should return a single `VelocityResult`
+    - `OnHit` runs once per each entity ray hit pair
+    - `OnMiss` once per each entity ray miss pair
+- `IRayBaseBehavior` 
+    - entities used by `IRaycastBehaviorJob<C, A1, A2, R>` must have a component implementing this interface
 
 ## Implementing IRaycastBehaviorJobWrapper
 

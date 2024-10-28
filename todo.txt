@@ -10,7 +10,6 @@ defaults combiner image
 
 DOCS.core
 
-ref each IBaseBehavior in the behavior sections in core
 Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
 attributes

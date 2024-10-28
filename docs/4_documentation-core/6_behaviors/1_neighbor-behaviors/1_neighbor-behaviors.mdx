@@ -4,7 +4,15 @@ sidebar_position: 1
 
 # INeighborBehaviorJobWrapper
 
-Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding neighbor query is done, passing in its results.
+Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding neighbor query is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a custom job `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 
+
+- `INeighborBehaviorJobWrapper` 
+    - `Schedule` should schedule a job which writes `VelocityResult`s to `results`
+- `INeighborBehaviorJob<C1, C2, A, R>` 
+    - `Finalize` should return a single `VelocityResult`
+    -  `Execute` runs once per each entity neighbor pair
+- `INeighborBaseBehavior` 
+    - entities used by `INeighborBehaviorJob<C1, C2, A, R>` must have a component implementing this interface
 
 ## Implementing INeighborBehaviorJobWrapper
 
