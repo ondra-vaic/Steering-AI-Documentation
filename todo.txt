@@ -10,14 +10,14 @@ defaults combiner image
 
 DOCS.core
 
+attributes
 Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
-attributes
-accumulators
 
 DOCS.other 
 
 STEERING_DEBUG into installation
+accumulators in defaults
 
 DOCS.last
 
