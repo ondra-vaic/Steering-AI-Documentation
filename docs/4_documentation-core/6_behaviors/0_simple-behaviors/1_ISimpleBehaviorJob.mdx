@@ -2,42 +2,16 @@
 sidebar_position: 0
 ---
 
-# ISimpleBehaviorJob
+# ISimpleBehaviorJobWrapper
 
-## Implementing a Simple Behavior
-
-
-### ISimpleBehaviorJobWrapper
+Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The `BaseSystem` schedules them after querying the entities with the main entity query.
 
 
-### ISimpleBehaviorJob\<ComponentT, ResultT\>
+## Implementing ISimpleBehaviorJobWrapper
 
-To create a new simple behavior, you need to implement a new instance of `ISimpleBehaviorJobRunner`. It should be marked with two attributes. `JobWrapperAttribute` declares which component this behavior uses, `OutDataAttribute` [link] declares which data the behavior outputs (normally `VelocityResults`). The `Schedule` method which must be implemented receives `BaseBehaviorParams` containing information about the entities. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. In this case `VelocityResults` is just a wrapper for `NativeArray<VelocityResult>`.
-
-The behavior should write one `VelocityResult` per entity into `VelocityResults`. There is a custom job to simplify this process - `ISimpleBehaviorJob<ComponentT, ResultT>`. It's execute method will be called once per each entity. Information about the entity together with it's `ComponentT` component are passed in, and a result of `ResultT` should be returned.
-
-Below is a sample implementation of the `GoForwardJobWrapper` and `GoForwardJob`. It can serve as a template for new simple behaviors. The `Execute` method of the `GoForwardJob` is where custom logic for the behavior can be implemented. The rest is just boiler plate.
+Below is the implementation of the `GoForwardJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities inside `BaseBehaviorParams`. It should allocate an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `GoForwardJob` is resposible for that.
 
 ```csharp title="GoForwardJobWrapper.cs"
-[BurstCompile]
-struct GoForwardJob : ISimpleBehaviorJob<GoForwardComponent, VelocityResult>
-{
-    public VelocityResult Execute(EntityInformation<GoForwardComponent> entity)
-    // highlight-start
-    {
-        // Create a new result, implement your own behavior here instead
-        var result = new VelocityResult(
-            entity.Forward,                                 // Going forward in the current facing direction
-            entity.Component.BaseData.DirectionStrength,    // How much I want to go in that direction
-            entity.Component.Speed,                         // At what speed I want to go in that direction
-            entity.Component.BaseData.SpeedStrength,        // How much I want to go at that speed
-            entity.Component.BaseData.Priority);            // The priority of this behavior
-            
-        return result;
-    }
-    // highlight-end
-}
-    
 [JobWrapper(typeof(GoForwardComponent))]
 [OutData(typeof(VelocityResults))]
 public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
@@ -63,6 +37,43 @@ public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
             
         return outDependency;
     }
+}
+```
+
+### Attributes
+
+This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
+
+- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
+- `JobWrapperAttribute` - *declares which components should be present on the entity, above `GoForwardComponent`*
+
+## ISimpleBehaviorJob\<C, R\>
+
+`ISimpleBehaviorJob<C, R>` simplifies creation of new simple behaviors. For each entity, the `Execute` is called once, passing in information about the entity in the `behaviorData` parameter. The method returns a result of type `R`. Internally the result is then written into the `results`. 
+
+### Generic Parameters
+
+- `C` - *type of component expected on the main entities - should match the argument of `JobWrapper`*
+- `R` - *type of result returned from the behavior - should match the argument of `OutData`*
+
+```csharp title="GoForwardJobWrapper.cs"
+[BurstCompile]
+struct GoForwardJob : ISimpleBehaviorJob<GoForwardComponent, VelocityResult>
+{
+    public VelocityResult Execute(EntityInformation<GoForwardComponent> entity)
+    // highlight-start
+    {
+        // Create a new result, implement your own behavior here instead
+        var result = new VelocityResult(
+            entity.Forward,                                 // Going forward in the current facing direction
+            entity.Component.BaseData.DirectionStrength,    // How much I want to go in that direction
+            entity.Component.Speed,                         // At what speed I want to go in that direction
+            entity.Component.BaseData.SpeedStrength,        // How much I want to go at that speed
+            entity.Component.BaseData.Priority);            // The priority of this behavior
+            
+        return result;
+    }
+    // highlight-end
 }
 ```
 

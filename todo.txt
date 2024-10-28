@@ -35,6 +35,7 @@ links
 DOCS.FUTURE
 add CreateRaysParams etc into core just like NeighborQueryParams
 describe time scaler - utilities
+describe IBehaviorResults and VelocityResults
 
 OTHER
 reexport diagram image with good wording

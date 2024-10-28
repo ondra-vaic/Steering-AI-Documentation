@@ -6,16 +6,9 @@ sidebar_position: 2
 
 Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding ray query is done, passing in its results.
 
-### Implementing IRaycastBehaviorJobWrapper
+## Implementing IRaycastBehaviorJobWrapper
 
 Below is the implementation of the `DebugRayJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugaRaysJob` is resposible for that.
-
-#### Attributes
-
-This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
-
-- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
-- `JobWrapperAttribute` - *declares which components should be present on the entity and neighbor respectively, above `DebugRayComponent`*
 
 ```csharp title="DebugRayJobWrapper.cs"
 [JobWrapper(typeof(DebugRayComponent))]
@@ -40,16 +33,23 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 }
 ```
 
-### Implementing IRaycastBehaviorJob\<C, A1, A2, R\>
+### Attributes
 
-`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. Both functions also receive an accumulator. After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single the `VelocityResult` per entity.
+This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
 
-#### Generic Parameters
+- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
+- `JobWrapperAttribute` - *declares which components should be present on the entity, above `DebugRayComponent`*
 
-- `C` - *type of component expected on the main entities*
+## Implementing IRaycastBehaviorJob\<C, A1, A2, R\>
+
+`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. Both functions also receive an accumulator. After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single result of type `R` per entity. Internally the result is then written into the `results`. 
+
+### Generic Parameters
+
+- `C` - *type of component expected on the main entities - should match the argument of `JobWrapper`*
 - `A1` - *type of accumulator passed into the `OnHit` method*
 - `A2` - *type of accumulator passed into the `OnMiss` method*
-- `R` - *type of result returned from the behavior*
+- `R` - *type of result returned from the behavior - should match the argument of `OutData`* 
 
 ```csharp title="DebugRayJobWrapper.cs"
 [BurstCompile]
