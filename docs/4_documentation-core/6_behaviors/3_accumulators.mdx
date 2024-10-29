@@ -19,7 +19,6 @@ foreach entity in entities:
 For example to create a cohesion behavior, a centroid (average position) of all neighbors is calculated first. This could be implemented with the following implementation of `IAccumulator` and `INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>`.
 
 ```csharp title="calculating a centroid"
-
 public struct CentroidAccumulator : IAccumulator
 {
     public float3 SumPosition;
