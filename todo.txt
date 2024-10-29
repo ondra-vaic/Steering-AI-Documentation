@@ -11,7 +11,6 @@ defaults combiner image
 DOCS.core
 
 attributes
-Describe creating a combiner
 describe somewhere you can put shared properties into job wrappers
 
 DOCS.other 

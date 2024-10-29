@@ -10,7 +10,7 @@ Combiner is an implementation of `ICombineJobWrapper`. It is the last step that 
 - `DesiredVelocity` - *final result attached as component on the entity telling the movement system where the entity wants to go*
 - `CombineVelocitiesJobWrapper` - *implementation of `ICombineJobWrapper`*
 
-It is however entirely possible to use your own types instead of `VelocityResult` and `DesiredVelocity`. The implementation should declare the types it works with in attributes. For example this is the declaration of `CombineVelocitiesJobWrapper`:
+It is however entirely possible to use your own types instead of `VelocityResult` and `DesiredVelocity`. The implementation should declare the types it works using attributes. For example this is the declaration of `CombineVelocitiesJobWrapper`:
 
 ```csharp title="CombineVelocitiesJobWrapper.cs"
 [JobWrapper(typeof(DesiredVelocityComponent))]
@@ -26,6 +26,14 @@ public class CombineVelocitiesJobWrapper : ICombineJobWrapper
 ```
 
 The interface receives an array of data structures containing results. The results should be castable into whichever type is declared in the `OutData` attribute. For example in `CombineVelocitiesJobWrapper`, they are cast into `VelocityResults` which is just a wrapper struct for `NativeArray<VelocityResult>`. 
+
+## Attributes
+
+This job wrapper uses two attributes. First declares what type of objects the combiner accepts. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
+
+- `OutDataAttribute` - *declares what type of results the combiner accepts `VelocityResults`*
+- `JobWrapperAttribute` - *declares which components should be present on the entity, above `DesiredVelocityComponent`*
+
 
 ## Behavior Combiner Compatibility
 
