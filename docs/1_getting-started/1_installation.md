@@ -17,7 +17,22 @@ Import with Unity Package Manager and select which parts you need. After getting
 <img src="/img/installation.png" alt="Description of the image"/>
 *Importing the package into Unity.*
 
-## 2) Initialize Samples
+## 2) Add a STEERING_DEBUG symbol
+
+Add a script define symbol `STEERING_DEBUG`. This will allow you to debug the behaviors. 
+
+:::tip
+For a slight performance increase, make sure to remove the symbol before releasing your project. 
+:::
+
+1) Navigate to `Project Settings/Player/Other Settings`
+2) Add `STEERING_DEBUG` 
+3) Click apply
+
+<img src="/img/addDebugSymbol.png" alt="Description of the image"/>
+*Adding `STEERING_DEBUG` into script define symbols.*
+
+## 3) Initialize Samples
 
 After importing the project, you need to mark all `SteeringSystemAsset` as addressable. 
 
@@ -30,7 +45,7 @@ After importing the project, you need to mark all `SteeringSystemAsset` as addre
 <img src="/img/markAddressable2.png" alt="Description of the image"/>
 *Marking the assets as `Addressable`.*
 
-## 3) Set Renderer to Forward+
+## 4) Set Renderer to Forward+
 
 The samples use `com.unity.entities.graphics` to draw the entities. To ensure proper set up, you need to use `Forward+` rendering. 
 
@@ -43,7 +58,7 @@ The samples use `com.unity.entities.graphics` to draw the entities. To ensure pr
 <img src="/img/markAddressable2.png" alt="Description of the image"/>
 *Instance of `UniversalRendererData` with `Forward+` selected.*
 
-## 4) Test
+## 5) Test
 
 Open the scene at `ECS-Steering-Samples/1. Minimal Set Up/SampleScene.unity` and run it. The entities in the scene should start moving forward.
 

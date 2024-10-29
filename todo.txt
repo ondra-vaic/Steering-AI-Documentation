@@ -8,15 +8,6 @@ Movement25d - all screenshots have mouse pointer
 intro image
 defaults combiner image
 
-DOCS.core
-
-attributes
-describe somewhere you can put shared properties into job wrappers
-
-DOCS.other 
-
-STEERING_DEBUG into installation
-accumulators in defaults
 
 DOCS.last
 
@@ -33,6 +24,7 @@ DOCS.FUTURE
 add CreateRaysParams etc into core just like NeighborQueryParams
 describe time scaler - utilities
 describe IBehaviorResults and VelocityResults
+describe somewhere you can put shared properties into job wrappers
 
 OTHER
 reexport diagram image with good wording
