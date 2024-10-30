@@ -18,6 +18,7 @@ describe IBehaviorResults and VelocityResults
 describe somewhere you can put shared properties into job wrappers
 ... image for each behavior
 Movement25d - all screenshots have mouse pointer
+sub headlines for all categories
 
 OTHER
 reexport diagram image with good wording

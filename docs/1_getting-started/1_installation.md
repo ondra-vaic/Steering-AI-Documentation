@@ -4,11 +4,12 @@ sidebar_position: 1
 
 # Installation
 
-Steering AI is split into four parts. 
-- **Runtime/Core** - The core of the framework, so it must always be imported. It is responsible for taking `SteeringSystemAsset` prepared in the editor and running it's jobs. 
-- **Runtime/Defaults** - Contains implementation of several behaviors [link] as well as movement systems [link] and other utilities. This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
-- **Editor** - Handles creation of the Steering System Assets [link] in editor rather than code. 
-- **ECS-Steering-Samples** - Contains sample scenes [link] which showcase the usage of the framework with behaviors and movement systems from defaults.
+Steering AI is split into four main folders, shown when importing in the image below.
+
+- [**Runtime/Core**](category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](documentation-core/base-system/SteeringSystemAsset) prepared in the editor and running it's jobs. 
+- [**Runtime/Defaults**](category/documentation-defaults) - Contains implementation of several [behaviors](category/behaviors-1) as well as [movement systems](category/movement) and other utilities. This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
+- [**Editor**](documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](documentation-core/base-system/SteeringSystemAsset) in editor. 
+- [**ECS-Steering-Samples**](category/samples) - Contains sample scenes [link] which showcase the usage of the framework with behaviors and movement systems from defaults.
 
 ## 1) Import
 
