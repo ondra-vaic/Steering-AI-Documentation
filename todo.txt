@@ -1,7 +1,6 @@
 DOCS
 
 DOCS.imgs
-intro image
 defaults combiner image
 
 
