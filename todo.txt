@@ -1,10 +1,5 @@
 DOCS
 
-DOCS.imgs
-defaults combiner image
-
-
-
 DOCS.last
 
 check everywhere that components and behaviors arent just copied from somewhere
