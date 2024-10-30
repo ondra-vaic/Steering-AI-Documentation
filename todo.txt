@@ -1,12 +1,9 @@
 DOCS
 
 DOCS.imgs
-add simple behavior screenshot for collisions sample
-image for each "scene" in full example 
-... image for each behavior
-Movement25d - all screenshots have mouse pointer
 intro image
 defaults combiner image
+
 
 
 DOCS.last
@@ -25,6 +22,8 @@ add CreateRaysParams etc into core just like NeighborQueryParams
 describe time scaler - utilities
 describe IBehaviorResults and VelocityResults
 describe somewhere you can put shared properties into job wrappers
+... image for each behavior
+Movement25d - all screenshots have mouse pointer
 
 OTHER
 reexport diagram image with good wording
