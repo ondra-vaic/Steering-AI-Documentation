@@ -4,19 +4,19 @@ sidebar_position: 1
 
 # INeighborBehaviorJobWrapper
 
-Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding neighbor query is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a custom job `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 
+Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding neighbor query is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a custom job `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 
 
 - `INeighborBehaviorJobWrapper` 
-    - `Schedule` should schedule a job which writes `VelocityResult`s to `results`
+    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
 - `INeighborBehaviorJob<C1, C2, A, R>` 
-    - `Finalize` should return a single `VelocityResult`
+    - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
     -  `Execute` runs once per each entity neighbor pair
-- `INeighborBaseBehavior` 
+- [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior)
     - entities used by `INeighborBehaviorJob<C1, C2, A, R>` must have a component implementing this interface
 
 ## Implementing INeighborBehaviorJobWrapper
 
-Below is the implementation of the `DebugNeighborsJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborBehaviorParams`. It should allocate an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugaNeighborsJob` is resposible for that.
+Below is the implementation of the [`DebugNeighborsJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as it's neighbors inside `NeighborBehaviorParams`. It should allocate an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into `VelocityResults`. Here the [`DebugNeighborsJob`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors) is resposible for that.
 
 ```csharp title="DebugNeighborsJobWrapper.cs"
 [JobWrapper(typeof(DebugNeighborsComponent), typeof(SteeringEntityTagComponent))]
@@ -43,10 +43,10 @@ class DebugaNeighborsJobWrapper : INeighborBehaviorJobRunner
 
 ### Attributes
 
-This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity and it's neighbor. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
+This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity and it's neighbor. The types from the attributes are used in the editor of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
-- `JobWrapperAttribute` - *declares which components should be present on the entity and neighbor respectively, above `DebugaNeighborsComponent` and `SteeringEntityTagComponent`*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above `VelocityResults`*
+- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity and neighbor respectively, above [`DebugNeighborsComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors#debugneighborscomponent) and [`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity)*
 
 ## Implementing INeighborBehaviorJob\<C1, C2, A, R\>
 
@@ -54,10 +54,10 @@ This job wrapper uses two attributes. First declares what type of object the beh
 
 ### Generic Parameters
 
-- `C1` - *type of component expected on the main entities - should match the first argument of `JobWrapper`*
-- `C2` - *type of component expected on the neighbors - should match the second argument of `JobWrapper`*
+- `C1` - *type of component expected on the main entities - should match the first argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
+- `C2` - *type of component expected on the neighbors - should match the second argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
 - `A` - *type of accumulator passed into the `Exectute` method*
-- `R` - *type of result returned from the behavior - should match the argument of `OutData`*
+- `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)*
 
 ```csharp title="DebugaNeighborsJobWrapper.cs"
 [BurstCompile]

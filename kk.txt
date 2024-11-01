@@ -23,6 +23,9 @@
 [`[SteeringEntityTag]`](/docs/documentation-core/attributes#steeringentitytagattribute)
 [`DebugSimpleJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/debug-simple)
 [`DebugNeighborsJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors)
+[`DebugNeighborsComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors#debugneighborscomponent)
+
+[`DebugNeighborsJob`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors)
 [`DebugRayJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays)
 [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
 [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering)
@@ -89,3 +92,5 @@
 [`KeepHeightJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/KeepHeight)
 [`INeighborQueryJobWrapper`](/docs/documentation-core/queries/neighbor_queries/neighbor-queries)
 [`ICreateRaysJobWrapper`](/docs/documentation-core/queries/ray_queries/ray-queries)
+[`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity)
+[`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior)
