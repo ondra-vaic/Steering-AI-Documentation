@@ -87,3 +87,5 @@
 [`SpawnerAuthoring`](/docs/documentation-defaults/utilities/spawner)
 [`HomeAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)
 [`KeepHeightJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/KeepHeight)
+[`INeighborQueryJobWrapper`](/docs/documentation-core/queries/neighbor_queries/neighbor-queries)
+[`ICreateRaysJobWrapper`](/docs/documentation-core/queries/ray_queries/ray-queries)

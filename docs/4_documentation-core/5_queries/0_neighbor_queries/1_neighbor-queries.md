@@ -8,7 +8,7 @@ Neighbor queries are implementations of `INeighborQueryJobWrapper`. Given two se
 
 ## Implementing a Neighbor Query
 
-To implement your own neighbor query, create a class implementing the `INeighborQueryJobWrapper` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which finds neighbors and writes them to the `neighbors` array. See below for details about the format of `neighbors` which the behaviors will expect. All the data necessary to find the neighbors is passed inside `NeighborQueryParams`.
+To implement your own neighbor query, create a class implementing the `INeighborQueryJobWrapper` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which finds neighbors and writes them to the `neighbors` array. See below for details about the format of `neighbors` which the behaviors will expect. All the data necessary to find the neighbors is passed inside [`NeighborQueryParams`](/docs/documentation-core/queries/neighbor_queries/neighbor-params).
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [JobWrapper]

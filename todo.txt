@@ -16,6 +16,7 @@ Flocking samples links to behaviors
 some samples probably miss other components section with SteeringEntityAuthoring
 document MaxSpeedComponent somewhere
 base behavior params link to ecs stuff
+maybe just reflexive reference everywhere
 
 DOCS.last
 
