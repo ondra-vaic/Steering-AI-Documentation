@@ -61,4 +61,6 @@
 [`FollowPathComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 [`Movement3DAuthoring`](/docs/documentation-defaults/movement/1_3D-movement)
+[`Movement25DAuthoring`](/docs/documentation-defaults/movement/2_25D-movement)
 [`PathPoints`](/docs/documentation-defaults/utilities/path#pathpoints)
+[`KinematicBodyAuthoring`](/docs/documentation-defaults/movement/collision-resolution)
