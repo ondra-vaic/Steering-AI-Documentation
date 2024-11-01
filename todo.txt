@@ -12,6 +12,7 @@ KeepSpeedJobWrapper - at least still in samples flocking - get rid of it
 FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
 Base System -> BaseSteeringSystem
 DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
+Flocking samples links to behaviors
 
 DOCS.last
 
