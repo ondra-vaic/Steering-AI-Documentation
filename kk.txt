@@ -24,9 +24,11 @@
 [`DebugSimpleJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/debug-simple)
 [`DebugNeighborsJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors)
 [`DebugNeighborsComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors#debugneighborscomponent)
-
 [`DebugNeighborsJob`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors)
-[`DebugRayJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays)
+[`DebugRaysJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays)
+[`DebugRaysJob`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays)
+[`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent)
+
 [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
 [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering)
 [`WanderingAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingcomponent)
@@ -52,6 +54,8 @@
 [`SeekingAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/seeking#seekingcomponent)
 [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance)
 [`EnvironmentAvoidanceAuthoring`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance#environmentavoidancecomponent)
+[`EnvironmentAvoidanceComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance#environmentavoidancecomponent)
+
 [`AvoidGroundJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground)
 [`AvoidGroundAuthoring`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground#avoidgroundcomponent)
 [`AvoidVerticalWallsJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls)
@@ -94,3 +98,4 @@
 [`ICreateRaysJobWrapper`](/docs/documentation-core/queries/ray_queries/ray-queries)
 [`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity)
 [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior)
+[`IRayBaseBehavior`](/docs/documentation-core/components/IRayBaseBehavior)

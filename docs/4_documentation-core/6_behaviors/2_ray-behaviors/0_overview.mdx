@@ -4,11 +4,11 @@ sidebar_position: 0
 
 # Overview
 
-The result of ray behaviors depends on an entity and the ray casts created by the *Ray Query*. The entity can have a component which parametrizes this behavior. For example `EnvironmentAvoidanceJobWrapper` depends on `EnvironmentAvoidanceComponent`. The behaviors can be grouped together by the *Ray Query*. 
+The result of ray behaviors depends on an entity and the ray casts created by the *Ray Query*. The entity can have a component which parametrizes this behavior. For example [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance) depends on [`EnvironmentAvoidanceComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance#environmentavoidancecomponent). The behaviors can be grouped together by the *Ray Query*. 
 
 <img src="/img/samples/collision_avoidance/Asset.png" alt="Description of the image"/>
 
-*Image of `SteeringSystemAsset` with two ray groups. The group given by the `ConeCreateRaysJobWrapper` ray query, contains the behaviors `EnvironmentAvoidanceJobWrapper` and `AvoidVerticalWallsJobWrapper`. The other group is given by `DownSingleCreateRayJobWrapper` and `AvoidGroundJobWrapper`. The components which these behaviors depend on are added to the list on the right.*
+*Image of [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) with two ray groups. The group given by the `ConeCreateRaysJobWrapper` ray query, contains the behaviors [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance) and [`AvoidVerticalWallsJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls). The other group is given by [`DownSingleCreateRayJobWrapper`](/docs/documentation-defaults/queries/ray-queries/down-single-create-rays) and [`AvoidGroundJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground). The components which these behaviors depend on are added to the list on the right.*
 
 <video controls width="800">
   <source src="/videos/samples/collision_avoidance/Video.mp4" type="video/mp4" />

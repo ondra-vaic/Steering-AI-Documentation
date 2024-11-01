@@ -4,20 +4,20 @@ sidebar_position: 2
 
 # IRaycastBehaviorJobWrapper
 
-Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The `BaseSystem` schedules them after their corresponding ray query is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a custom job `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
+Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding ray query is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a custom job `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
 
 - `IRayBehaviorJobWrapper` 
-    - `Schedule` should schedule a job which writes `VelocityResult`s to `results`
+    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
 - `IRaycastBehaviorJob<C, A1, A2, R>` 
-    - `Finalize` should return a single `VelocityResult`
+    - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
     - `OnHit` runs once per each entity ray hit pair
     - `OnMiss` once per each entity ray miss pair
-- `IRayBaseBehavior` 
+- [`IRayBaseBehavior`](/docs/documentation-core/components/IRayBaseBehavior) 
     - entities used by `IRaycastBehaviorJob<C, A1, A2, R>` must have a component implementing this interface
 
 ## Implementing IRaycastBehaviorJobWrapper
 
-Below is the implementation of the `DebugRayJobWrapper`. It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in `OutDataAttribute` and assign it to `out results`. The behavior should write one `VelocityResult` per entity into `VelocityResults`. Here the `DebugaRaysJob` is resposible for that.
+Below is the implementation of the [`DebugRaysJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into `VelocityResults`. Here the [`DebugRaysJob`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays) is resposible for that.
 
 ```csharp title="DebugRayJobWrapper.cs"
 [JobWrapper(typeof(DebugRayComponent))]
@@ -44,10 +44,10 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 
 ### Attributes
 
-This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the `SteeringSystemAsset`. 
+This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- `OutDataAttribute` - *declares what type of results the behavior creates, above `VelocityResults`*
-- `JobWrapperAttribute` - *declares which components should be present on the entity, above `DebugRayComponent`*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above `VelocityResults`*
+- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent)*
 
 ## Implementing IRaycastBehaviorJob\<C, A1, A2, R\>
 
@@ -55,10 +55,10 @@ This job wrapper uses two attributes. First declares what type of object the beh
 
 ### Generic Parameters
 
-- `C` - *type of component expected on the main entities - should match the argument of `JobWrapper`*
+- `C` - *type of component expected on the main entities - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
 - `A1` - *type of accumulator passed into the `OnHit` method*
 - `A2` - *type of accumulator passed into the `OnMiss` method*
-- `R` - *type of result returned from the behavior - should match the argument of `OutData`* 
+- `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)* 
 
 ```csharp title="DebugRayJobWrapper.cs"
 [BurstCompile]
