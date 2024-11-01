@@ -57,3 +57,5 @@
 [`MonoBehaviour`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html)
 [`SpacialHashKNNJobWrapper`](/docs/documentation-defaults/queries/neighbor-queries/spacial-hash-knn)
 [`AnimationCurve`](https://docs.unity3d.com/ScriptReference/AnimationCurve.html)
+
+[`VelocityComponent`](/docs/documentation-core/base-system/steering-entity)

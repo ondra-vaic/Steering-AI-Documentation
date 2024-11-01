@@ -10,20 +10,20 @@ This page will give you a basic introduction into most important concepts and te
 
 ## Steering Systems
 
-A **Steering System** is a Unity `System` [link] which derives from `BaseSteeringSystem`. There will typically be one implementation of `BaseSteeringSystem` per one entity tag. `BaseSteeringSystem` is responsible for scheduling and synchornizing parallel Jobs [link] which determine behavior of all entities with same **Main Tag**. See figure below for details on how the jobs are scheduled.  
+A **Steering System** is a Unity [`System`](https://https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/systems-overview.html) which derives from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem). There will typically be one implementation of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) per one entity tag. [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) is responsible for scheduling and synchornizing parallel Jobs [link] which determine behavior of all entities with same **Main Tag**. See figure below for details on how the jobs are scheduled.  
 
-In short, `BaseSteeringSystem` loads a `SteeringSystemAsset` at a given path and then runs all of the system's **Behaviors** for all entities in the scene which have the corresponding **Main Tag** assigned. Then, the results of behaviors are passed into a **Combiner**, which combines all behaviors' results into a single final desired velocity [link] which the entity wants to travel at. This is later given to the **Movement System**. The jobs are run for all entities in parallel indendent of each other.  
+In short, [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) loads a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) at a given path and then runs all of the system's **Behaviors** for all entities in the scene which have the corresponding **Main Tag** assigned. Then, the results of behaviors are passed into a **Combiner**, which combines all behaviors' results into a single final desired velocity [link] which the entity wants to travel at. This is later given to the **Movement System**. The jobs are run for all entities in parallel indendent of each other.  
 
 In the previous example [link], this was:
 
 - **Steering System** - `SampleSteeringSystem`
 - **Steering System Asset** - `SampleSteeringSystemAsset`
 - **Main Tag** - `SampleEntityTagComponent`
-- **Behaviors** - `GoForwardJobWrapper`
+- **Behaviors** - [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)
 - **Combiner** - `MergeVelocityResultsJobWrapper`
-- **Move System** - `Movement2DSystem` (Separate system from BaseSteeringSystem)
+- **Move System** - [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement) (Separate system from BaseSteeringSystem)
 
-The following diagram visualizes the `BaseSteeringSystem` job dependency graph. It is not necessary to undestand this completely to use the framework.
+The following diagram visualizes the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) job dependency graph. It is not necessary to undestand this completely to use the framework.
 
 <p align="left">
   <img src="/img/Implementation14.svg" alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
@@ -35,7 +35,7 @@ First entities with the same **Main Tag** are queried with an **Entity Query**. 
 
 ## Tags
 
-Tags are components with no properties. They take up no memory and in context of this framework they are used to mark which entity belongs to which Steering System. All the tags used with the framework should be marked with `[SteeringEntityTag]`.
+Tags are components with no properties. They take up no memory and in context of this framework they are used to mark which entity belongs to which Steering System. All the tags used with the framework should be marked with [`[SteeringEntityTag]`](/docs/documentation-core/attributes#steeringentitytagattribute).
 
 ---
 
@@ -47,14 +47,14 @@ There are three types of queries which you should understand. Queries collect en
   <TabItem value="first" label="Entity Queries">
 
     **Entity Queries** are part of Unity's ECS [link]. They find all entities in the scene which have some set of components on them.
-    In the example, the `SampleSteeringSystem` finds all entities which have a `SampleEntityTagComponent` and `GoForwardComponent` (and components added by the `SteeringEntityAuthoring`). These entities are then passed to the `GoForwardJobWrapper`, which suggests which way each entity should go. This is the systems main entity query. 
+    In the example, the `SampleSteeringSystem` finds all entities which have a `SampleEntityTagComponent` and [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) (and components added by the `SteeringEntityAuthoring`). These entities are then passed to the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward), which suggests which way each entity should go. This is the systems main entity query. 
 
     <video controls width="800">
       <source src="/videos/SimpleDebugJob.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     :::tip
-    `DebugSimpleJobWrapper` can help you visualize the results of entity queries like in the video above.
+    [`DebugSimpleJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/debug-simple) can help you visualize the results of entity queries like in the video above.
     :::
 
   </TabItem>
@@ -70,7 +70,7 @@ There are three types of queries which you should understand. Queries collect en
     In the video, you can see each entity finds two nearest neighbors in some radius around them. Here the queries A and B are the same, but they generally do not have to be. Tags specify which entities to look for.
 
     :::tip
-    `DebugNeighborsJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
+    [`DebugNeighborsJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors) can help you visualize the results of neighbor queries like in the video above.
     :::
 
   </TabItem>
@@ -82,7 +82,7 @@ There are three types of queries which you should understand. Queries collect en
     </video>
     
     :::tip
-    `DebugRayJobWrapper` [link] can help you visualize the results of ray queries like in the video above.
+    [`DebugRayJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays) can help you visualize the results of ray queries like in the video above.
     :::
   </TabItem>
 </Tabs>
@@ -93,7 +93,7 @@ There are three types of queries which you should understand. Queries collect en
 
 **Behaviors** are the main driver of what the entities do. They receive a result of the Steering System's main entity query, and for each entity calculate one desired velocity to travel at. They can also receive additional information like a result of a neighbor query. 
 
-Normally they give results of type `VelocityResult` which contains the following properties:
+Normally they give results of type [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) which contains the following properties:
 - `float3 Direction` - Which direction to travel in.
 - `float Speed` - What speed to travel at.
 - `float DirectionDesire` - How much (0, 1) do we want to travel in `Direction`.
@@ -107,7 +107,7 @@ If you want your behaviors to return more information, you can implement your ow
 <Tabs>
   <TabItem value="first" label="Simple Behaviors">
 
-    **Simple Behaviors** are the most basic type of behaviors. They only receive results of the main entity query, and return `VelocityResult` for each entity. This is for example the `GoForwardJobWrapper`[link] or a wandering behavior `WanderingJobWrapper` [link].
+    **Simple Behaviors** are the most basic type of behaviors. They only receive results of the main entity query, and return [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) for each entity. This is for example the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)[link] or a wandering behavior `WanderingJobWrapper` [link].
 
     <video controls width="800">
       <source src="/videos/Wandering.mp4" type="video/mp4" />
@@ -117,7 +117,7 @@ If you want your behaviors to return more information, you can implement your ow
   </TabItem>
   <TabItem value="second" label="Neighbor Behaviors">
   
-    **Neighbor Behaviors** let entities react to other entities. This is useful for example for group behaviors like flocking [link]. These behaviors receive the results of the main query and a neighbor query. Then for each entity they loop through all it's neighbors to determine a `VelocityResult`. 
+    **Neighbor Behaviors** let entities react to other entities. This is useful for example for group behaviors like flocking [link]. These behaviors receive the results of the main query and a neighbor query. Then for each entity they loop through all it's neighbors to determine a [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). 
 
     <video controls width="800">
       <source src="/videos/Cohesion.mp4" type="video/mp4" />
@@ -127,7 +127,7 @@ If you want your behaviors to return more information, you can implement your ow
   </TabItem>
 
   <TabItem value="third" label="Ray Behaviors">
-    **Ray Behaviors** let entities react to the physical environment. This is especially useful for example for collision avoidance [link]. These behaviors receive the results of the main query and a ray query. Then for each entity they loop through all it's raycasts to determine a `VelocityResult`. 
+    **Ray Behaviors** let entities react to the physical environment. This is especially useful for example for collision avoidance [link]. These behaviors receive the results of the main query and a ray query. Then for each entity they loop through all it's raycasts to determine a [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). 
 
     <video controls width="800">
       <source src="/videos/EnvironmentAvoidance.mp4" type="video/mp4" />
@@ -141,7 +141,7 @@ If you want your behaviors to return more information, you can implement your ow
 
 ## Combiners
 
-**Combiners** tie all the `VelocityResult`s from behaviors together at the end. Each behavior says what the entity should do. Combiners take all of the entity's `VelocityResult`s and write to each entity's `DesiredVelocityComponent` [link].
+**Combiners** tie all the [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s from behaviors together at the end. Each behavior says what the entity should do. Combiners take all of the entity's [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s and write to each entity's [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent).
 
 <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start' }}>
   
@@ -157,7 +157,7 @@ If you want your behaviors to return more information, you can implement your ow
 
 ## Movement Systems
 
-**Movement System** (in the previous example `Movement2DSystem` [link]) takes a look the entity's current velocity `VelocityComponent` and `DesiredVelocityComponent` and calculates a new `VelocityComponent` which will move the entity. They are a separate system from implementations of `BaseSteeringSystem`.
+**Movement System** (in the previous example [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement)) takes a look the entity's current velocity [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) and calculates a new [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) which will move the entity. They are a separate system from implementations of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem).
 
   <video controls width="800">
     <source src="/videos/MovementSystem.mp4" type="video/mp4" />
@@ -167,6 +167,6 @@ If you want your behaviors to return more information, you can implement your ow
 
 ## Components
 
-**Components** are the *C* from the Unity's ECS. They are simply data attached to entities. Here, each behavior expects that there is a component of a certain type on the entities it works with. The components parametrize the behaviors, for example how strong their influence should be. This can be done per entity. In the previous example, you can for example change `Speed` on the `GoForwardComponent`, to speed up the entity.
+**Components** are the *C* from the Unity's ECS. They are simply data attached to entities. Here, each behavior expects that there is a component of a certain type on the entities it works with. The components parametrize the behaviors, for example how strong their influence should be. This can be done per entity. In the previous example, you can for example change `Speed` on the [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent), to speed up the entity.
 
 ---

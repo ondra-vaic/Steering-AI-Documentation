@@ -35,14 +35,14 @@ For a slight performance increase, make sure to remove the symbol before releasi
 
 ## 3) Initialize Samples
 
-After importing the project, you need to mark all `SteeringSystemAsset` as [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3). 
+After importing the project, you need to mark all [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) as [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3). 
 
 1) Search for `t:SteeringSystemAsset` in the Project window and select all of them.
-2) In the inspector check `Addressable` on all t
+2) In the inspector check [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3) on all t
 he assets.
 
 <img src="/img/markAddressable.png" alt="Description of the image"/>
-*Locating all instances of `SteeringSystemAsset`.*
+*Locating all instances of [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset).*
 
 <img src="/img/markAddressable2.png" alt="Description of the image"/>
 *Marking the assets as `Addressable`.*
