@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
   Your browser does not support the video tag.
 </video>
 
-This sample shows different setups of the `Movement2DAuthoring` when using the `Move2DSystem`. There are multiple entities which follow path using the `FollowPathJobWrapper` behavior. The only difference between them are in the properties on `Movement2DAuthoring` like `MaxSpeed` or `MaxForwardAcceleration`. The yellow arrow shows what velocity the entity wants to have - `DesiredVelocityComponent`, the green arrow shows it's actual current velocity - `VelocityComponent`. 
+This sample shows different setups of the [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement) when using the [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement). There are multiple entities which follow path using the [`FollowPathJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path) behavior. The only difference between them are in the properties on [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement) like `MaxSpeed` or `MaxForwardAcceleration`. The yellow arrow shows what velocity the entity wants to have - [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent), the green arrow shows it's actual current velocity - [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity). 
 
 :::tip
 Compare the different entities in the scene to the default one named *BaseMovement* and observe the effect each changed property has. For example third entity in the video has high maximum speed, but low acceleration. That's why it stuggles to go through the points along the path. 
@@ -22,14 +22,14 @@ Compare the different entities in the scene to the default one named *BaseMoveme
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
-    There are multiple copies of the *Movement2DEntity* prefab in the scene. Each entity has a different values changed on it's `Movement2DAuthoring` relative to the original.
+    There are multiple copies of the *Movement2DEntity* prefab in the scene. Each entity has a different values changed on it's [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement) relative to the original.
     <img src="/img/samples/2d/Scene.png" alt="Description of the image"/>
   </TabItem>
   <TabItem value="second" label="Steering System Asset"> 
 
     **Movement2DSteeringAsset**:
     - ***Main Tag*** - `_2_SampleTagComponent`
-    - ***Simple Behaviors*** - [`FollowPathJobWrapper`]
+    - ***Simple Behaviors*** - [[`FollowPathJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path)]
     - ***Prefab*** - *Movement2DEntity*
 
     <img src="/img/samples/2d/Asset.png" alt="Description of the image"/>
@@ -37,12 +37,12 @@ Compare the different entities in the scene to the default one named *BaseMoveme
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 
     **Other Components**:
-    - `SteeringEntityAuthoring`
-    - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
+    - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)
+    - [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement)
     
     <img src="/img/samples/2d/Prefab.png" alt="Description of the image"/>
 

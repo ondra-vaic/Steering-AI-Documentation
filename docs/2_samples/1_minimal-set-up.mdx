@@ -18,14 +18,14 @@ This sample shows a minimal setup of an *entity* and it's *steering system*. The
 
 <Tabs>
   <TabItem value="third" label="Scene"> 
-    There are three copies of the *SteeringEntity* prefab in the scene. Each has a different value for `Speed` on the `GoForwardComponent`.
+    There are three copies of the *SteeringEntity* prefab in the scene. Each has a different value for `Speed` on the [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent).
     <img src="/img/MinimalSetupScene.png" alt="Description of the image"/>
   </TabItem>
   <TabItem value="first" label="Steering System Asset"> 
 
     **SampleSteeringSystemAsset**:
     - ***Main Tag*** - `SampleEntityTagComponent`
-    - ***Simple Behaviors*** - [`GoForwardJobWrapper`]
+    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *SteeringEntity*
 
     <img src="/img/MinimalSteeringSystem.png" alt="Description of the image"/>
@@ -33,14 +33,14 @@ This sample shows a minimal setup of an *entity* and it's *steering system*. The
   <TabItem value="second" label="Prefab"> 
     
     **Behavior Components**:
-    - `GoForwardAuthoring`
+    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
 
     **Other Components**:
-    - `SteeringEntityAuthoring`
-    - `DesiredVelocityAuthoring`
-    - `Movement2DAuthoring`
+    - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
+    - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)
+    - [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement)
     :::note
-      Your entities will generally need to have `SteeringEntityAuthoring` and `DesiredVelocityAuthoring` on them. It will usually also be useful to add movement, in this case with `Movement2DAuthoring`.
+      Your entities will generally need to have `SteeringEntityAuthoring` and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) on them. It will usually also be useful to add movement, in this case with [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement).
     :::
     <img src="/img/MinimalSetupPrefab.png" alt="Description of the image"/>
   </TabItem>
