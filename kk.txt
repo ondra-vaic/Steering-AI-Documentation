@@ -76,3 +76,4 @@
 [`HomingComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)
 [`SpawnerAuthoring`](/docs/documentation-defaults/utilities/spawner)
 [`HomeAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)
+[`KeepHeightJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/KeepHeight)
