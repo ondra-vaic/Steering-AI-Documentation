@@ -17,6 +17,7 @@
 [`DebugRayJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays)
 [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
 [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering)
+[`WanderingAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingcomponent)
 [`FollowPathJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path)
 [`Move3DSystem`](/docs/documentation-defaults/movement/1_3D-movement)
 [`Move25DSystem`](/docs/documentation-defaults/movement/2_25D-movement)
@@ -73,3 +74,5 @@
 [`AlignUpJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up)
 [`AlignUpAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up#alignupcomponent)
 [`HomingComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)
+[`SpawnerAuthoring`](/docs/documentation-defaults/utilities/spawner)
+[`HomeAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)
