@@ -12,9 +12,9 @@ import TabItem from '@theme/TabItem';
   Your browser does not support the video tag.
 </video>
 
-*Entity with collision resolution against regular `Colliders`.*
+*Entity with collision resolution against regular [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.*
 
-Normally in Unity `CharacteController` handles both movement and collision resolution. Here the collision resolution is split into `CollideAndSlideSystem`. This allows the collision resolution to be used with any other movement system, in this sample the `Movement2DSystem`. To use it, add `KinematicBodyAuthoring` and set the `LayerMask`. The entities will react to regular Unity `Colliders`.
+Normally in Unity [`CharacterController`](https://docs.unity3d.com/ScriptReference/CharacterController.html) handles both movement and collision resolution. Here the collision resolution is split into [`CollideAndSlideSystem `](/docs/documentation-defaults/movement/collision-resolution). This allows the collision resolution to be used with any other movement system, in this sample the [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement). To use it, add [`KinematicBodyAuthoring`](/docs/documentation-defaults/movement/collision-resolution) and set the [`LayerMask`](https://docs.unity3d.com/ScriptReference/LayerMask.html). The entities will react to regular Unity [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.
 
 *The algorithm is based on paper about numerically stable collide and slide algorithm [link paper] by [name].*
 
@@ -25,7 +25,7 @@ Normally in Unity `CharacteController` handles both movement and collision resol
 <Tabs>
   <TabItem value="first" label="Scene"> 
 
-    There are two entities in the scene, both are trying to travel straight forward using the `GoForwardJobWrapper`. The `CollideAndSlideSystem` makes thes slide along the `Colliders`.
+    There are two entities in the scene, both are trying to travel straight forward using the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward). The [`CollideAndSlideSystem `](/docs/documentation-defaults/movement/collision-resolution) makes thes slide along the [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.
 
    <img src="/img/samples/collisions/Scene.png" alt="Description of the image"/>
     
@@ -35,7 +35,7 @@ Normally in Unity `CharacteController` handles both movement and collision resol
 
     **CollisionsSteeringAsset**:
     - ***Main Tag*** - `_4_SampleTagComponent`
-    - ***Simple Behaviors*** - [`GoForwardJobWrapper`]
+    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *CollisionsEntity*
 
     <img src="/img/samples/collisions/Asset.png" alt="Description of the image"/>
@@ -45,12 +45,12 @@ Normally in Unity `CharacteController` handles both movement and collision resol
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `FollowPathAuthoring`
+    - [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 
     **Other Components**:
-    - `SteeringEntityAuthoring`
-    - `DesiredVelocityAuthoring`
-    - `GoForwardAuthoring`
+    - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
+    - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)
+    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
     
     <img src="/img/samples/collisions/Prefab.png" alt="Description of the image"/>
 
