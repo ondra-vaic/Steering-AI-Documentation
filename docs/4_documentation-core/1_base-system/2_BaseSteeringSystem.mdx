@@ -4,11 +4,11 @@ sidebar_position: 2
 
 # BaseSteeringSystem
 
-`BaseSteeringSystem` is a base class which can be inherited to create a steering system. It is configurable by `SteeringSystemAsset` which can be edited through the editor [link]. It contains definition of which jobs with which queries to run. The base class is responsible for these scheduling jobs and queries and passing data between them. 
+[`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) is a base class which can be inherited to create a steering system. It is configurable by [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) which can be edited through the editor [link]. It contains definition of which jobs with which queries to run. The base class is responsible for these scheduling jobs and queries and passing data between them. 
 
 ## Usage
 
-To create a new steering system, inherit from `BaseSteeringSystem` and override the `getAssetReferenceName()` method to return the addressable path to the `SteeringSystemAsset` to use. 
+To create a new steering system, inherit from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) and override the `getAssetReferenceName()` method to return the addressable path to the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) to use. 
 
 ```csharp title="SampleSteeringSystem.cs"
 using SteeringAI.Core;
@@ -26,16 +26,16 @@ public partial class SampleSteeringSystem : BaseSteeringSystem
 
 ## What It Does
 
-The image below illustrates what `BaseSteeringSystem` does internally. 
+The image below illustrates what [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) does internally. 
 
-1) First entities with the same **Main Tag** are queried with an **Entity Query**. Information from these entities is extracted into `BaseBehaviorParams`. 
+1) First entities with the same **Main Tag** are queried with an **Entity Query**. Information from these entities is extracted into [`BaseBehaviorParams`](/docs/documentation-core/base-system/BaseBehaviorParams). 
 
 2) This is passed to all **Simple-, Neighbor-, Raycast Behaviors**. All **Simple Behaviors** are simply ran in parallel and their results passed into the **Combiner**. For **Neighbor Behaviors** and **Raycast Behaviors** there are additional **Queries** done first. These behaviors can be in grouped by the additional queries. 
 
 3) After the **Combiner** receives results from all behaviors, it combines them into a single result for each entity, which can later be used by any **Move System**.
 
 :::note
-In the defaults library, all behaviors return `VelocityResult` and a combiner turns it into a `DesiredVelocityComponent`. It is however possible to create your own workflows. This is defined through the implementation of combiner. 
+In the defaults library, all behaviors return [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) and a combiner turns it into a [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent). It is however possible to create your own workflows. This is defined through the implementation of combiner. 
 :::
 
 <p align="left">

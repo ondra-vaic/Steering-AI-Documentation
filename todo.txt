@@ -13,6 +13,7 @@ FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
 Base System -> BaseSteeringSystem
 DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
 Flocking samples links to behaviors
+some samples probably miss other components section with SteeringEntityAuthoring
 
 DOCS.last
 
