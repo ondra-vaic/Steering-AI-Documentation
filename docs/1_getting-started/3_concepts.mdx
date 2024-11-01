@@ -29,7 +29,7 @@ The following diagram visualizes the `BaseSteeringSystem` job dependency graph. 
   <img src="/img/Implementation14.svg" alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
 </p>
 
-First entities with the same **Main Tag** are queried with an **Entity Query**. This is passed to all **Simple-, Neighbor-, Raycast Behaviors**. All **Simple Behaviors** are simply ran in parallel and their results passed into the **Combiner**. For **Neighbor Behaviors** and **Raycast Behaviors** there are additional **Queries** done first. Also these behaviors can be in multiple groups based on the additional queries. After the **Combiner** receives results from all behaviors, it combines them into a single `Desired Velocity` for each entity, which is passed into the **Move System**.
+First entities with the same **Main Tag** are queried with an **Entity Query**. This is passed to all **Simple-, Neighbor-, Raycast Behaviors**. All **Simple Behaviors** are simply ran in parallel and their results passed into the **Combiner**. For **Neighbor Behaviors** and **Raycast Behaviors** there are additional **Queries** done first. Also these behaviors can be in multiple groups based on the additional queries. After the **Combiner** receives results from all behaviors, it combines them into a single **Desired Velocity** for each entity, which is passed into the **Move System**.
 
 ---
 
@@ -54,7 +54,7 @@ There are three types of queries which you should understand. Queries collect en
       Your browser does not support the video tag.
     </video>
     :::tip
-    `DebugSimpleJobWrapper` [link] can help you visualize the results of entity queries like in the video above.
+    `DebugSimpleJobWrapper` can help you visualize the results of entity queries like in the video above.
     :::
 
   </TabItem>
@@ -70,7 +70,7 @@ There are three types of queries which you should understand. Queries collect en
     In the video, you can see each entity finds two nearest neighbors in some radius around them. Here the queries A and B are the same, but they generally do not have to be. Tags specify which entities to look for.
 
     :::tip
-    `DebugJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
+    `DebugNeighborsJobWrapper` [link] can help you visualize the results of neighbor queries like in the video above.
     :::
 
   </TabItem>

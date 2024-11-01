@@ -2,6 +2,12 @@ DOCS
 
 2D Movement -> Movement 2D
 desriptions for all movement systems 
+in concepts, MergeVelocityResultsJobWrapper -> CombineVelocitiesJobWrapper
+bold letters and links in concepts?
+link ecs in concepts
+describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
+collision resolution - more description and fill in stuff for authoring
+Movement25DAuthoring and KinematicBodyAuthoring sections
 
 DOCS.last
 
