@@ -9,11 +9,11 @@ Steering AI is split into four main folders, shown when importing in the image b
 - [**Runtime/Core**](category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](documentation-core/base-system/SteeringSystemAsset) prepared in the editor and running it's jobs. 
 - [**Runtime/Defaults**](category/documentation-defaults) - Contains implementation of several [behaviors](category/behaviors-1) as well as [movement systems](category/movement) and other utilities. This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
 - [**Editor**](documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](documentation-core/base-system/SteeringSystemAsset) in editor. 
-- [**ECS-Steering-Samples**](category/samples) - Contains sample scenes [link] which showcase the usage of the framework with behaviors and movement systems from defaults.
+- [**ECS-Steering-Samples**](category/samples) - Contains sample scenes which showcase the usage of the framework with behaviors and movement systems from defaults.
 
 ## 1) Import
 
-Import with Unity Package Manager and select which parts you need. After getting familiar with the samples, feel free to remove them. [img]
+Import with Unity Package Manager and select which parts you need. After getting familiar with the samples, feel free to remove them.
 
 <img src="/img/installation.png" alt="Description of the image"/>
 *Importing the package into Unity.*
@@ -35,10 +35,11 @@ For a slight performance increase, make sure to remove the symbol before releasi
 
 ## 3) Initialize Samples
 
-After importing the project, you need to mark all `SteeringSystemAsset` as addressable. 
+After importing the project, you need to mark all `SteeringSystemAsset` as [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3). 
 
 1) Search for `t:SteeringSystemAsset` in the Project window and select all of them.
-2) In the inspector check `Addressable` on all the assets.
+2) In the inspector check `Addressable` on all t
+he assets.
 
 <img src="/img/markAddressable.png" alt="Description of the image"/>
 *Locating all instances of `SteeringSystemAsset`.*
@@ -48,16 +49,16 @@ After importing the project, you need to mark all `SteeringSystemAsset` as addre
 
 ## 4) Set Renderer to Forward+
 
-The samples use `com.unity.entities.graphics` to draw the entities. To ensure proper set up, you need to use `Forward+` rendering. 
+The samples use [`com.unity.entities.graphics`](https://docs.unity3d.com/Packages/com.unity.entities.graphics@1.0) to draw the entities. To ensure proper set up, you need to use [`Forward+`](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/rendering/forward-plus-rendering-path.html) rendering. 
 
 1) Search for `t:UniversalRendererData`.
-2) Set `RenderingPath` to `Forward+` on all of them.
+2) Set `RenderingPath` to [`Forward+`](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/rendering/forward-plus-rendering-path.html) on all of them.
 
-<img src="/img/markAddressable.png" alt="Description of the image"/>
-*Locating all instances of `UniversalRendererData`.*
+<img src="/img/markAsForwardPlus.png" alt="Description of the image"/>
+*Locating all instances of [`UniversalRendererData`](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/api/UnityEngine.Rendering.Universal.UniversalRendererData.html).*
 
-<img src="/img/markAddressable2.png" alt="Description of the image"/>
-*Instance of `UniversalRendererData` with `Forward+` selected.*
+<img src="/img/markAsForwardPlus2.png" alt="Description of the image"/>
+*Instance of [`UniversalRendererData`](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/api/UnityEngine.Rendering.Universal.UniversalRendererData.html) with [`Forward+`](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/rendering/forward-plus-rendering-path.html) selected.*
 
 ## 5) Test
 
