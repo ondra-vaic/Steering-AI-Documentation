@@ -4,13 +4,13 @@ sidebar_position: 5
 
 # BaseBehaviorParams
 
-This struct is passed into all behaviors. It has information about the entities matched by the `BaseSystem`'s main entity query. There are several arrays, each containing `EntityCount` elements (with the exception of `ArchetypeChunks` and `ChunkBaseIndexArray`). Each array element has some information about an entity at index `i` in the query. The `BaseBehaviorParams` struct contains these fields:
+This struct is passed into all behaviors. It has information about the entities matched by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem)'s main entity query. There are several arrays, each containing `EntityCount` elements (with the exception of `ArchetypeChunks` and `ChunkBaseIndexArray`). Each array element has some information about an entity at index `i` in the query. The `BaseBehaviorParams` struct contains these fields:
 
 - `LocalToWorlds[EntityInQueryIndex]` - *entity's postion, rotation and scale*
-- `Velocities[EntityInQueryIndex]` - *entity's current velocity from `VelocityComponent`*
+- `Velocities[EntityInQueryIndex]` - *entity's current velocity from [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity)*
 - `CachedSpeeds[EntityInQueryIndex]` - *magnitude of entity's current velocity*
 - `MaxSpeeds[EntityInQueryIndex]` - *entity's maximum speed from `MaxSpeedComponent`*
-- `Radii[EntityInQueryIndex]` - *entity's radius from `RadiusComponent`*
+- `Radii[EntityInQueryIndex]` - *entity's radius from [`RadiusComponent`](/docs/documentation-core/base-system/steering-entity)*
 - `IndexesArray[EntityInQueryIndex]` - *entity's `Indexes`* 
 - `ChunkBaseIndexArray[ChunkIndex]` - *chunk base index array [link]*
 - `ArchetypeChunks[ChunkIndex]` - *archetype chunks [link]*
@@ -40,7 +40,7 @@ public struct Indexes
 
 ## Indexing ArchetypeChunk
 
-The `ArchetypeChunks` gives access to all archetype chunks of the entities. This can be used to look up any arbitrary component on them. `ArchetypeChunk` containing an entity can be found at it's `ChunkIndex`. It's archetype inside the chunk is at `EntityInChunkIndex`. The following example shows looking up `LocalToWorld` on an entity. 
+The `ArchetypeChunks` gives access to all archetype chunks of the entities. This can be used to look up any arbitrary component on them. [`ArchetypeChunk`](https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/concepts-archetypes.html) containing an entity can be found at it's `ChunkIndex`. It's archetype inside the chunk is at `EntityInChunkIndex`. The following example shows looking up `LocalToWorld` on an entity. 
 
 ```csharp title=""
 int i = ... // EntityInQueryIndex

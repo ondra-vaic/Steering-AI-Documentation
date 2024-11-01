@@ -71,6 +71,7 @@
 [`SpacialHashKNNJobWrapper`](/docs/documentation-defaults/queries/neighbor-queries/spacial-hash-knn)
 [`AnimationCurve`](https://docs.unity3d.com/ScriptReference/AnimationCurve.html)
 [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity)
+[`RadiusComponent`](/docs/documentation-core/base-system/steering-entity)
 [`FollowPathComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 [`Movement3DAuthoring`](/docs/documentation-defaults/movement/1_3D-movement)
