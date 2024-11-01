@@ -9,6 +9,9 @@ describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResul
 collision resolution - more description and fill in stuff for authoring
 Movement25DAuthoring and KinematicBodyAuthoring sections
 KeepSpeedJobWrapper - at least still in samples flocking - get rid of it
+FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
+Base System -> BaseSteeringSystem
+DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
 
 DOCS.last
 
