@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # IRayBaseBehavior
 
-Components to be used with neighbore behaviors must implement `IRayBaseBehavior`. It requires the component to have `RayBehaviorData` member with fields which are internally used by the framework. The fields are the same with `ISimpleBaseBehavior`, with the addition of:
+Components to be used with neighbore behaviors must implement `IRayBaseBehavior`. It requires the component to have `RayBehaviorData` member with fields which are internally used by the framework. The fields are the same with [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior), with the addition of:
 
 - **MaxDistance** - *maximum distance of ray hits to react to*
 
