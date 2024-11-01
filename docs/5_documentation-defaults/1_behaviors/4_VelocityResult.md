@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # VelocityResult
 
-All behaviors in the defaults library return a `VelocityResult`. These results are compatible with the `CombineVelocitiesJobWrapper`. The `VelocityResult` says how desirable it is to travel at a certain velocity. It contains the following properties:
+All behaviors in the defaults library return a `VelocityResult`. These results are compatible with the [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner). The `VelocityResult` says how desirable it is to travel at a certain velocity. It contains the following properties:
 
 - `float3 Direction` - Which direction to travel in.
 - `float Speed` - What speed to travel at.

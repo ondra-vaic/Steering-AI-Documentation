@@ -7,7 +7,7 @@ sidebar_position: 7
 Makes the entity wander around the world smoothly changing the desired direction and speed. 
 
 :::tip
-Using either `GoForwardJobWrapper` or `WanderingJobWrapper` is almost always a good idea. They both always return a non-zero direction, speed, and desires. This ensures that an entity always has something to do. 
+Using either [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) or `WanderingJobWrapper` is almost always a good idea. They both always return a non-zero direction, speed, and desires. This ensures that an entity always has something to do. 
 :::
 
 ## WanderingJob
