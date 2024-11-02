@@ -1,6 +1,6 @@
 # IAccumulator
 
-Two custom jobs which can simplify creating behaviors use implementations of `IAccumulator`. Types implementing this interface must be included as generic parameters for implementations of [`INeighborBehaviorJob<C1, C2, A, R>`](/docs/documentation-core/behaviors/neighbor-behaviors/#implementing-ineighborbehaviorjobc1-c2-a-r) and [`IRaycastBehaviorJob<C, A1, A2, R>`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobc-a1-a2-r). 
+Two [custom jobs](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) which can simplify creating behaviors use implementations of `IAccumulator`. Types implementing this interface must be included as generic parameters for implementations of [`INeighborBehaviorJob<C1, C2, A, R>`](/docs/documentation-core/behaviors/neighbor-behaviors/#implementing-ineighborbehaviorjobc1-c2-a-r) and [`IRaycastBehaviorJob<C, A1, A2, R>`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobc-a1-a2-r). 
 
 ## Overview
 
@@ -16,7 +16,11 @@ foreach entity in entities:
 
 ## Example 
 
-For example to create a cohesion behavior, a centroid (average position) of all neighbors is calculated first. This could be implemented with the following implementation of `IAccumulator` and `INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>`.
+For example to create a [cohesion behavior](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), a [centroid](https://en.wikipedia.org/wiki/Centroid) (average position) of all neighbors is calculated first. This could be implemented with the following implementation of `IAccumulator` and `INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>`.
+
+:::note
+The [implementation](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion) in the [defaults library](/docs/category/documentation-defaults) actually uses [weighted average](https://en.wikipedia.org/wiki/Weighted_arithmetic_mean) of positions. For the sake of simplicity, average of positions ([centroid](https://en.wikipedia.org/wiki/Centroid)) is used in the following example.
+:::
 
 ```csharp title="calculating a centroid"
 public struct CentroidAccumulator : IAccumulator
@@ -35,6 +39,11 @@ public struct CentroidAccumulator : IAccumulator
         SumPosition = new float3();
         NumNeighbors = 0;
     }
+
+    public float3 CalculateCentroid()
+    {
+        return SumPosition / NumNeighbors;
+    }
 }
 
 struct CohesionJob : INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>
@@ -47,7 +56,7 @@ struct CohesionJob : INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityRes
     
     public VelocityResult Finalize(in EntityInformation<C1> entity, in CentroidAccumulator accumulator)
     {
-        float3 centroid = accumulator.SumPosition / accumulator.SumNeighbors;
+        float3 centroid = accumulator.CalculateCentroid();
         float3 toCentroid = centroid - entity.Position 
         ... // rest of the behavior
     }

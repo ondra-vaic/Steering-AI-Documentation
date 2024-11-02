@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # ISimpleBehaviorJobWrapper
 
-Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after querying the entities with the main entity query. There are three interfaces relevant in creating a simple behavior. The most important one is a custom job `ISimpleBehaviorJob<C, R>` which significantly simplifies creating the behaviors. 
+Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after querying the entities with the main [entity query](/docs/documentation-core/queries/entity-queries). There are three interfaces relevant in creating a simple behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `ISimpleBehaviorJob<C, R>` which significantly simplifies creating the behaviors. 
 
 - `ISimpleBehaviorJobWrapper` 
     - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
@@ -60,7 +60,7 @@ This job wrapper uses two attributes. First declares what type of object the beh
 
 ### Generic Parameters
 
-- `C` - *type of component expected on the main entities - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
+- `C` - *type of component on the main entities implementing [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior) - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
 - `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)*
 
 ```csharp title="GoForwardJobWrapper.cs"
@@ -85,5 +85,5 @@ struct GoForwardJob : ISimpleBehaviorJob<GoForwardComponent, VelocityResult>
 ```
 
 :::tip
-You can just copy and paste this, then change all occurences of `GoForward` to `MyBehaviorName` to create a new behavior quickly. The only thing to implement is the `Execute` method.
+You can just copy and paste this, then change all occurences of `GoForward` to `MyBehaviorName` to create a new behavior quickly. The only thing to implement is the `Execute` method. See other [default behaviors](/docs/category/simple-behaviors-1) to understand more complex examples.
 :::

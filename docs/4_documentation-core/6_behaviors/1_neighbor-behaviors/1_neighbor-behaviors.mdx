@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # INeighborBehaviorJobWrapper
 
-Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding neighbor query is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a custom job `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 
+Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview) is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 
 
 - `INeighborBehaviorJobWrapper` 
     - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
@@ -21,7 +21,7 @@ Below is the implementation of the [`DebugNeighborsJobWrapper`](/docs/documentat
 ```csharp title="DebugNeighborsJobWrapper.cs"
 [JobWrapper(typeof(DebugNeighborsComponent), typeof(SteeringEntityTagComponent))]
 [OutData(typeof(VelocityResults))]
-class DebugaNeighborsJobWrapper : INeighborBehaviorJobRunner
+class DebugNeighborsJobWrapper : INeighborBehaviorJobRunner
 {
     public JobHandle Schedule(
         SystemBase systemBase,
@@ -32,7 +32,7 @@ class DebugaNeighborsJobWrapper : INeighborBehaviorJobRunner
         results = new VelocityResults(neighborBehaviorParams.BaseBehaviorParams.EntityCount);
         var outDependency = new DebugNeighborsJob().Schedule<
             DebugJob, 
-            DebugaNeighborsComponent, 
+            DebugNeighborsComponent, 
             SteeringEntityTagComponent, 
             NoneAccumulator, 
             VelocityResult>(systemBase, neighborBehaviorParams, (VelocityResults)results, 1, dependency);
@@ -50,25 +50,25 @@ This job wrapper uses two attributes. First declares what type of object the beh
 
 ## Implementing INeighborBehaviorJob\<C1, C2, A, R\>
 
-`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. It has one component from both of the entities, depending on the generics. The `Execute` method also receives reference to an accumulator. After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single result of type `R` per entity. Internally the result is then written into the `results`. 
+`INeighborBehaviorJob<C1, C2, A, R>` simplifies creation of new neighbor behaviors. For each entity, the `Execute` is called up to `MaxNumNeighbors` times, once for each neighbor. Information about the entity and it's neighbor are passed in the `behaviorData` parameter. It has one component from both of the entities, depending on the generics. The `Execute` method also receives reference to an [accumulator](/docs/documentation-core/behaviors/accumulators). After influence of all neighbors is accumulated into the accumulator, it is passed with information about the entity into the `Finalize` method. That then returns a single result of type `R` per entity. Internally the result is then written into the `results`. 
 
 ### Generic Parameters
 
-- `C1` - *type of component expected on the main entities - should match the first argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
-- `C2` - *type of component expected on the neighbors - should match the second argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
-- `A` - *type of accumulator passed into the `Exectute` method*
+- `C1` - *type of component on the main entities implements [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior) - must match the first argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
+- `C2` - *type of component on the neighbors - should match the second argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
+- `A` - *type of accumulator passed into the `Exectute` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators)*
 - `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)*
 
-```csharp title="DebugaNeighborsJobWrapper.cs"
+```csharp title="DebugNeighborsJobWrapper.cs"
 [BurstCompile]
 struct DebugNeighborsJob : INeighborBehaviorJob<
-    DebugaNeighborsComponent, 
+    DebugNeighborsComponent, 
     SteeringEntityTagComponent, 
     NoneAccumulator, 
     VelocityResult>
 {
     public void Execute(
-        in NeighborBehaviorData<DebugaNeighborsComponent, SteeringEntityTagComponent> behaviorData,
+        in NeighborBehaviorData<DebugNeighborsComponent, SteeringEntityTagComponent> behaviorData,
         ref NoneAccumulator accumulator)
     // highlight-start
     {
@@ -79,7 +79,7 @@ struct DebugNeighborsJob : INeighborBehaviorJob<
 
     // highlight-start
     public VelocityResult Finalize(
-        in EntityInformation<DebugaNeighborsComponent> entity,
+        in EntityInformation<DebugNeighborsComponent> entity,
         in NoneAccumulator accumulator)
     // highlight-start
     {
@@ -91,5 +91,5 @@ struct DebugNeighborsJob : INeighborBehaviorJob<
 ```
 
 :::tip
-You can just copy and paste this, then change all occurences of `Debugable` to `MyBehaviorName` to create a new behavior quickly. See other behaviors in [link] to understand more complex examples. The only two things to implement are the `Execute` and `Finalize` methods.
+You can just copy and paste this, then change all occurences of `DebugNeighbors` to `MyBehaviorName` to create a new behavior quickly. The only two things to implement are the `Execute` and `Finalize` methods. See other [default behaviors](/docs/category/neighbor-behaviors-1) to understand more complex examples. 
 :::

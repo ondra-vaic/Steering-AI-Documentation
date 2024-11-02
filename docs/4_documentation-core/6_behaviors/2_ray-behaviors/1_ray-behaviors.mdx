@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # IRaycastBehaviorJobWrapper
 
-Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding ray query is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a custom job `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
+Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding [ray query](/docs/documentation-core/queries/ray_queries/overview) is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
 
 - `IRayBehaviorJobWrapper` 
     - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
@@ -17,7 +17,7 @@ Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSte
 
 ## Implementing IRaycastBehaviorJobWrapper
 
-Below is the implementation of the [`DebugRaysJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's ray query inside `RaycastBehaviorParams`. It should create an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into `VelocityResults`. Here the [`DebugRaysJob`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays) is resposible for that.
+Below is the implementation of the [`DebugRaysJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's [ray query](/docs/documentation-core/queries/ray_queries/overview) inside `RaycastBehaviorParams`. It should create an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into `VelocityResults`. Here the [`DebugRaysJob`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays) is resposible for that.
 
 ```csharp title="DebugRayJobWrapper.cs"
 [JobWrapper(typeof(DebugRayComponent))]
@@ -44,20 +44,20 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 
 ### Attributes
 
-This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
+This job wrapper uses two [attributes](/docs/documentation-core/attributes). First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the [attributes](/docs/documentation-core/attributes) are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
 - [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above `VelocityResults`*
 - [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent)*
 
 ## Implementing IRaycastBehaviorJob\<C, A1, A2, R\>
 
-`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. Both functions also receive an accumulator. After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single result of type `R` per entity. Internally the result is then written into the `results`. 
+`IRaycastBehaviorJob<C, A1, A2, R>` simplifies creation of new ray behaviors. For each entity, `OnHit` is called for each ray of the query which hit and `OnMiss` for each ray missed. Information about the entity and the ray are passed in. Both functions also receive an [accumulator](/docs/documentation-core/behaviors/accumulators). After influence of all rays is accumulated into the accumulators, they are passed with information about the entity into the `Finalize` method. That then returns a single result of type `R` per entity. Internally the result is then written into the `results`. 
 
 ### Generic Parameters
 
 - `C` - *type of component expected on the main entities - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
-- `A1` - *type of accumulator passed into the `OnHit` method*
-- `A2` - *type of accumulator passed into the `OnMiss` method*
+- `A1` - *type of accumulator passed into the `OnHit` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators)*
+- `A2` - *type of accumulator passed into the `OnMiss` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators)*
 - `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)* 
 
 ```csharp title="DebugRayJobWrapper.cs"
@@ -104,5 +104,5 @@ struct DebugRayJob : IRaycastBehaviorJob<DebugRayComponent, NoneAccumulator, Non
 ```
 
 :::tip
-You can just copy and paste this, then change all occurences of `DebugRay` to `MyBehaviorName` to create a new behavior quickly. See other behaviors in [link] to understand more complex examples. The only three things to implement are the `OnHit`, `OnMiss` and `Finalize` methods.
+You can just copy and paste this, then change all occurences of `DebugRay` to `MyBehaviorName` to create a new behavior quickly. The only three things to implement are the `OnHit`, `OnMiss` and `Finalize` methods. See other [default behaviors](/docs/category/ray-behaviors-1) to understand more complex examples.
 :::

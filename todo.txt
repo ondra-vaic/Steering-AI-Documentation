@@ -25,6 +25,12 @@ sample 5 - The algorithm is based on paper about numerically stable collide ....
 sample 8 - missing screenshot of simple behaviors
 link to unity entity query in core/entityquery
 link to unity jobs in core/behaviors - maybe section for overview of behaviors?
+VelocityResults - describe and link
+link this guy in code - https://www.jacksondunstan.com/articles/4857
+core behaviors generic parameters descriptions as -implements, -matches as new -lines
+cite video from in core/neighbors/overview
+link custom job everywhere where mentioned?
+link editor
 
 DOCS.last
 
