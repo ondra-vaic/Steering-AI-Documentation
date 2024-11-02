@@ -4,9 +4,7 @@ sidebar_position: 2
 
 # Entity Queries
 
-## Overview
-
-Entity queries are from the Unity's ECS package [link]. They find all entities matching some set of components. The base system runs an entity query which matches all entities with the same *Main Tag*. Information about these entities is then packaged as [`BaseBehaviorParams`](/docs/documentation-core/base-system/BaseBehaviorParams) and passed around to all behaviors by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem).
+[Entity queries](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/systems-entityquery.html) are crucial part of the [ECS](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/index.html) package. They find all entities matching some set of [components](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-components.html). The base system runs an entity query which matches all entities with the same *Main Tag*. Information about these entities is then packaged as [`BaseBehaviorParams`](/docs/documentation-core/base-system/BaseBehaviorParams) and passed around to all behaviors by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem).
 
 <img src="/img/core/EntityQuery.png" alt="Description of the image"/>
 *[`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) with `_9_BirdPredatorTagComponent` tag selected as it's Main Tag.*
@@ -17,5 +15,5 @@ Entity queries are from the Unity's ECS package [link]. They find all entities m
 </video>
 
 :::tip
-[`DebugSimpleJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/debug-simple) [link] can help you visualize which entities are matched by the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset)'s main entity query.
+[`DebugSimpleJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/debug-simple) can help you visualize which entities are matched by the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset)'s main entity query.
 :::

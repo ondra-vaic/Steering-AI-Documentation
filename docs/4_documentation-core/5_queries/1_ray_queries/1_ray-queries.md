@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # ICreateRaysJobWrapper
 
-Implementations of `ICreateRaysJobWrapper` create `NumRays` rays per each entity. The rays are then cast by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) in the background. The results of these raycasts are then passed into ray behaviors. 
+Implementations of `ICreateRaysJobWrapper` create `NumRays` [RayCommand](https://docs.unity3d.com/ScriptReference/RaycastCommand.html)s per each entity. The rays are then cast by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) in the background. The results of these [raycasts](https://docs.unity3d.com/Packages/com.unity.physics@1.3/manual/collision-queries.html#ray-casts) are then passed into [ray behaviors](/docs/documentation-core/behaviors/ray-behaviors/overview). 
 
 ## Implementing a Ray Query
 
@@ -37,7 +37,7 @@ public class MyCreateRaysJobWrapper : ICreateRaysJobWrapper
 
 ## ICreateRaysJob
 
-`ICreateRaysJob` is a custom job which makes implementing a job to create rays easier. It's `Execute` method will be called `NumRays` times with indexes from `0` to `NumRays - 1` for each entity. The function should return the origin, direction and maximum distance of a ray to cast. Internally, the job makes sure that `raycastCommands` and `rayDatas` are filled in format expected by ray behaviors.
+`ICreateRaysJob` is a custom job which makes implementing a job to create rays easier. It's `Execute` method will be called `NumRays` times with indexes from `0` to `NumRays - 1` for each entity. The function should return the origin, direction and maximum distance of a ray to cast. Internally, the job makes sure that `raycastCommands` and `rayDatas` are filled in format expected by [ray behaviors](/docs/documentation-core/behaviors/ray-behaviors/overview).
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [BurstCompile]

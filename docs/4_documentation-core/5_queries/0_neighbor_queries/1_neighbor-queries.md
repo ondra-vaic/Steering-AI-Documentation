@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # INeighborQueryJobWrapper
 
-Neighbor queries are implementations of `INeighborQueryJobWrapper`. Given two sets of entities, they find `MaxNumNeighbors` neighbors for each entity from the first set. Normally this is `MaxNumNeighbors` nearest entities restricted by field of view `FOV`, but other criteria of a neighborhood can be implemented. The resulting neighborhood is passed into neighbor behaviors.
+Neighbor queries are implementations of `INeighborQueryJobWrapper`. Given two sets of entities, they find `MaxNumNeighbors` neighbors for each entity from the first set. Normally this is `MaxNumNeighbors` nearest entities restricted by field of view `FOV`, but generally other criteria of a neighborhood could be implemented. The resulting neighborhood is passed into [neighbor behaviors](/docs/documentation-core/behaviors/neighbor-behaviors/intro).
 
 ## Implementing a Neighbor Query
 
-To implement your own neighbor query, create a class implementing the `INeighborQueryJobWrapper` interface. Mark it with `[JobWrapper]`, this will make it show up in the editor. The schedule method is expected to schedule a job which finds neighbors and writes them to the `neighbors` array. See below for details about the format of `neighbors` which the behaviors will expect. All the data necessary to find the neighbors is passed inside [`NeighborQueryParams`](/docs/documentation-core/queries/neighbor_queries/neighbor-params).
+To implement your own neighbor query, create a class implementing the `INeighborQueryJobWrapper` interface. Mark it with [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute), this will make it show up in the [editor](/docs/documentation-core/editor). The schedule method is expected to schedule a [job](https://docs.unity3d.com/Manual/job-system.html) which finds neighbors and writes them to the `neighbors` array. See below for details about the format of `neighbors` which the behaviors will expect. All the data necessary to find the neighbors is passed inside [`NeighborQueryParams`](/docs/documentation-core/queries/neighbor_queries/neighbor-params).
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [JobWrapper]
