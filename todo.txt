@@ -23,6 +23,7 @@ MaxAccumulator - description - not centroid
 put everywhere in core links to defaults
 sample 5 - The algorithm is based on paper about numerically stable collide ....
 sample 8 - missing screenshot of simple behaviors
+link to entity query in core/entityquery
 
 DOCS.last
 
