@@ -20,6 +20,7 @@ maybe just reflexive reference everywhere
 mention `PathUpdateSystem` in 
 a bit more description into defaults/CollideAndSlideSystem, can take from samples
 MaxAccumulator - description - not centroid
+put everywhere in core links to defaults
 
 DOCS.last
 

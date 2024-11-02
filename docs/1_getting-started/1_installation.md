@@ -6,14 +6,14 @@ sidebar_position: 1
 
 Steering AI is split into four main folders, shown when importing in the image below.
 
-- [**Runtime/Core**](category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](documentation-core/base-system/SteeringSystemAsset) prepared in the editor and running it's jobs. 
-- [**Runtime/Defaults**](category/documentation-defaults) - Contains implementation of several [behaviors](category/behaviors-1) as well as [movement systems](category/movement) and other utilities. This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
-- [**Editor**](documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](documentation-core/base-system/SteeringSystemAsset) in editor. 
-- [**ECS-Steering-Samples**](category/samples) - Contains sample scenes which showcase the usage of the framework with behaviors and movement systems from defaults.
+- [**Runtime/Core**](/docs/category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) prepared in the editor and running it's [jobs](https://docs.unity3d.com/Manual/job-system.html). 
+- [**Runtime/Defaults**](/docs/category/documentation-defaults) - Contains implementation of several [behaviors](/docs/category/behaviors-1) as well as [movement systems](/docs/category/movement) and other [utilities](/docs/category/utilities). This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
+- [**Editor**](/docs/documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) in editor. 
+- [**ECS-Steering-Samples**](/docs/category/samples) - Contains sample scenes which showcase the usage of the framework with behaviors and movement systems from [Runtime/Defaults](/docs/category/documentation-defaults).
 
 ## 1) Import
 
-Import with Unity Package Manager and select which parts you need. After getting familiar with the samples, feel free to remove them.
+Import with [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) and select which parts you need. After getting familiar with the [samples](/docs/category/samples), feel free to remove them.
 
 <img src="/img/installation.png" alt="Description of the image"/>
 *Importing the package into Unity.*
@@ -38,14 +38,13 @@ For a slight performance increase, make sure to remove the symbol before releasi
 After importing the project, you need to mark all [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) as [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3). 
 
 1) Search for `t:SteeringSystemAsset` in the Project window and select all of them.
-2) In the inspector check [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3) on all t
-he assets.
+2) In the inspector check [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3) on all the assets.
 
 <img src="/img/markAddressable.png" alt="Description of the image"/>
 *Locating all instances of [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset).*
 
 <img src="/img/markAddressable2.png" alt="Description of the image"/>
-*Marking the assets as `Addressable`.*
+*Marking the assets as [`Addressable`]((https://docs.unity3d.com/Packages/com.unity.addressables@2.3)).*
 
 ## 4) Set Renderer to Forward+
 
@@ -62,5 +61,5 @@ The samples use [`com.unity.entities.graphics`](https://docs.unity3d.com/Package
 
 ## 5) Test
 
-Open the scene at `ECS-Steering-Samples/1. Minimal Set Up/SampleScene.unity` and run it. The entities in the scene should start moving forward.
+Open the [sample scene](/docs/samples/minimal-set-up) at `ECS-Steering-Samples/1. Minimal Set Up/SampleScene.unity` and run it. The entities in the scene should start moving forward.
 
