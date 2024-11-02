@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # ISimpleBaseBehavior
 
-Components to be used with simple behaviors must implement `ISimpleBaseBehavior`. It requires the component to have `SimpleBehaviorData` member with these fields which are internally used by the framework:
+[Components](/docs/documentation-core/components/intro) to be used with [simple behaviors](/docs/documentation-core/behaviors/simple-behaviors/overview) must implement `ISimpleBaseBehavior`. It requires the component to have `SimpleBehaviorData` member with these fields which are internally used by the framework:
 
 - **Priority** - *(0, 255) what is the priority of this behavior*
 - **DirectionStrength** - *(0, 1) how strongly (relative to other behaviors) should this behavior influence the entity's direction*

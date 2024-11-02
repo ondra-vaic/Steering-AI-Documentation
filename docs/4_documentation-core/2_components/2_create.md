@@ -4,11 +4,15 @@ sidebar_position: 1
 
 # Component Creation
 
-A component in ECS is a little bit more work to set up than when using game objects. The following is code needed for [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent). There are three parts. 
+A [component](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-components.html) in [ECS](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/index.html) is a little bit more work to set up than when using normal [`GameObject`](https://docs.unity3d.com/ScriptReference/GameObject.html)s. For example, the following is code needed for [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent). There are three parts. 
 
-- [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) - Struct which contains the actual data which will be attached to an entity. Has to implement ISimpleBaseBehavior in order to be used in a *Simple Behavior*.
-- `GoForwardAuthoring` - Monobehavior which will be attached to the [`GameObject`](https://docs.unity3d.com/ScriptReference/GameObject.html) in editor. It is only used for serialization in the scene.
+- [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) - Struct which contains the actual data which will be attached to an entity. Has to implement [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior) in order to be used in a [*Simple Behavior*](/docs/documentation-core/behaviors/simple-behaviors/overview).
+- `GoForwardAuthoring` - [`MonoBehaviour`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) which will be attached to the [`GameObject`](https://docs.unity3d.com/ScriptReference/GameObject.html). It is only used for serialization in the scene.
 - `GoForwardBaker` - Receives the authoring and constructs the entity from it. In this case simply adding the `authoring.GoForwardComponent` as component.
+
+:::tip
+For more information about [components](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-components.html), [authoring](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/editor-authoring-runtime.html) and [baking](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/baking.html), visit the [ECS documentation](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/).
+:::
 
 ```csharp title="GoForwardAuthoring.cs"
 using System;
@@ -45,5 +49,5 @@ public class GoForwardBaker : Baker<GoForwardAuthoring>
 ```
 
 :::note
-The attribute `[ComponentAuthoring(typeof(GoForwardComponent))]` lets the steering system editor find the correct authoring to use when adding a missing component. The editor would know that an entity needs [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) because the attribute `[JobWrapper(typeof(GoForwardComponent))]` declares it on the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward).
+The attribute [`[ComponentAuthoring]`](/docs/documentation-core/attributes#componentauthoringattribute) lets the [editor](/docs/documentation-core/editor) find the correct authoring to use when adding a missing component. The editor would know that an entity needs [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) because the attribute [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) declares it on the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward).
 :::

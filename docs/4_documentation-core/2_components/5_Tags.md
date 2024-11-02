@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Tags
 
-Tags components are components with no properties. Their main usage is to uniquely identify all entities which share the same tag - for example all birds in [link sample] have `BirdTagComponent`. *Entity Queries* [link] can match entities with a given tag. The tags can also be used in *Neighbor Queries* to filter out potential neighbors.
+[Tag components](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/components-tag.html) are components with no properties. Their main usage is to uniquely identify all entities which share the same tag - for example all birds in [9. Full Example](/docs/samples/full-example-scene) have `BirdTagComponent`. [*Entity Queries*](/docs/documentation-core/queries/entity-queries) can match entities with a given tag. The tags can also be used in [*Neighbor Queries*](/docs/documentation-core/queries/neighbor_queries/overview) to filter out potential neighbors.
 
 :::note
 To avoid creating an authoring and a baker for each new tag, the tags marked with [`[SteeringEntityTag]`](/docs/documentation-core/attributes#steeringentitytagattribute) can be added through the [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity). 
