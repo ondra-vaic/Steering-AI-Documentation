@@ -21,6 +21,8 @@ mention `PathUpdateSystem` in
 a bit more description into defaults/CollideAndSlideSystem, can take from samples
 MaxAccumulator - description - not centroid
 put everywhere in core links to defaults
+sample 5 - The algorithm is based on paper about numerically stable collide ....
+sample 8 - missing screenshot of simple behaviors
 
 DOCS.last
 

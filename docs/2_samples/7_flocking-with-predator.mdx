@@ -14,14 +14,14 @@ import TabItem from '@theme/TabItem';
 
 *Flocking combined with avoiding a predator (red) in 2D and 3D.*
 
-This sample shows combination of flocking and predator avoidance. There are two subscenes one for 2D and one for 3D. Each subscene contains a flock of entities similar to previous example. The entities here use [`FleeJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/flee) to escape a predator. The predator uses [`SeekingJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/seeking) to chase the entities. When the predator is not seeking anything, the [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) makes it wander around randomly. This example also shows the usefulness of neighbor query groups. The entities can use one query to find their flockmates and another query with a different tag to find the predator. 
+This sample shows combination of flocking and predator avoidance. There are two [subscenes](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/conversion-subscenes.html) one for 2D and one for 3D. Each subscene contains a flock of entities similar to previous example. The entities here use [`FleeJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/flee) to escape a predator. The predator uses [`SeekingJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/seeking) to chase the entities. When the predator is not seeking anything, the [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) makes it wander around randomly. This example also shows the usefulness of [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview) groups. The entities can use one query to find their flockmates and another query with a different tag to find the predator. 
 
 -----
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
 
-    The subscenes contain one predator in red color and [`SpawnerAuthoring`](/docs/documentation-defaults/utilities/spawner) which spawns in a flock of entities. There is several [`HomeAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent) which the entities use to stay in a general area. The homes are used by both the predator and the prey entities.
+    The subscenes contain one predator in red color and [`SpawnerAuthoring`](/docs/documentation-defaults/utilities/spawner) which spawns in a flock of entities. There is several [`HomeAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent) which the entities use to stay in a general area. The same homes are used by both the predator and the prey entities.
 
     <img src="/img/samples/flocking-predator/Scene.png" alt="Description of the image"/>
     
@@ -38,7 +38,7 @@ This sample shows combination of flocking and predator avoidance. There are two 
     **Neighbor Behaviors**
     
     :::note
-    The target entities to flee from are ones with tag `_8_SamplePredatorTagComponent`. There are three neighbor queries; first finds predators, second finds flockmates, third finds the homes. For each query, different behaviors are run. 
+    The target entities to flee from are ones with tag `_8_SamplePredatorTagComponent`. There are three [neighbor queries](/docs/documentation-core/queries/neighbor_queries/overview); first finds predators, second finds flockmates, third finds the [homes](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent). For each query, different behaviors are run. 
     :::
 
     <img src="/img/samples/flocking-predator/AssetPrey.png" alt="Description of the image"/>

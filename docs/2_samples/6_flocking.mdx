@@ -13,9 +13,9 @@ import TabItem from '@theme/TabItem';
 </video>
 *Flocking with 3D movement.*
 
-This sample explains usage of neighbor behaviors through the classical flocking. Flocking here is the combination of three behaviors - *Alignment*, *Cohesion*, and *Separation* [link]. All these behaviors are included in the framework [link]. 
+This sample explains usage of [neighbor behaviors](/docs/documentation-core/behaviors/neighbor-behaviors/intro) through classical use case - [flocking](https://en.wikipedia.org/wiki/Flocking). Flocking here is the combination of three behaviors - [*Alignment*](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [*Cohesion*](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), and [*Separation*](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation). All these behaviors are included in the [default behaviors](/docs/category/neighbor-behaviors-1). 
 
-The first folder - *1. Behaviors* contains a scene for each behavior where the behavior is visualized and a scene where the combination of the behaviors is visualized. These samples are in folder *1. Behaviors*. Then there is a sample scene with flocking for each movement system. For example folder *2. 2D*. 
+The first folder - *1. Behaviors* contains a scene for each behavior where the behavior is visualized and a scene where the combination of the behaviors is visualized. Then there is a sample scene with flocking for each [movement system](/docs/category/movement). For example folder *2. 2D*. 
 
 -----
 
@@ -30,7 +30,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 <Tabs>
   <TabItem value="first" label="Cohesion"> 
 
-    This scene visualizes the result of the [`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion). This behavior makes the entity group up with it's neigbhors. The yellow arrow visualizes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). The direction is `DesiredDirection`, the length is proportional to `DirectionDesire`. The radius where the behavior detects neighbors is shown with the yellow circle.
+    This scene visualizes the result of the [`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion). This behavior makes the entity group up with it's neighbors. The yellow arrow visualizes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). The direction is `DesiredDirection`, the length is proportional to `DirectionDesire`. The radius where the behavior detects neighbors is shown with the yellow circle.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/cohesion.mp4" type="video/mp4" />
@@ -52,7 +52,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
   <TabItem value="first2" label="Separation"> 
 
-    This scene visualizes the result of the [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation). It seperates the entity from it's neigbhors.
+    This scene visualizes the result of the [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation). It seperates the entity from it's neighbors.
 
     <video controls width="800">
       <source src="/videos/samples/flocking/separation.mp4" type="video/mp4" />
@@ -81,12 +81,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - ***Prefab*** - *EntityFlocking*
 
     :::note
-    All the scenes in the *1. Behaviors* folder share this `SteeringSystemAsset`, because all the entities share the `_6_SampleBehaviorsTagComponent` tag. 
+    All the scenes in the *1. Behaviors* folder share this [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset), because all the entities share the `_6_SampleBehaviorsTagComponent` tag. 
     :::
 
     **Neighbor Behaviors**
-    
-    To learn more about setting up a neighbor query visit [link].
 
     <img src="/img/samples/flocking/Asset.png" alt="Description of the image"/>
 
@@ -130,7 +128,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     **2D Movement**
     
-    In this scene you can toggle multiple different subscenes which have different setups of [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent), [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent), [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent). If the entities go over a border set on [`BoxLimiterAuthoring`](/docs/documentation-defaults/utilities/box-limiter), the entity is teleported to the oposite side. 
+    In this scene you can toggle multiple different [subscenes](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/conversion-subscenes.html) which have different setups of [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent), [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent), [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent). If an entity goes over a border set on [`BoxLimiterAuthoring`](/docs/documentation-defaults/utilities/box-limiter), it is teleported to the oposite side. 
 
     <video controls width="800">
       <source src="/videos/samples/flocking/2D.mp4" type="video/mp4" />
@@ -188,7 +186,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     
     **3D Movement**
     
-    In this scene there are three different subscenes containing flocks of different sizes. The larger flock has a more optimized, but simpler neighbor query. This scene also shows usefullness of [`MultiHomingAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing) which makes the entities stay withing a given areas. In the subscenes, the larger the flocks, the larger the homing radii on the [`HomingComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)s. Second new behavior is [`AlignUpJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up) [link], it prevents the entities from flying up or down at too steep angle. 
+    In this scene there are three different [subscenes](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/conversion-subscenes.html) containing flocks of different sizes. The larger flock has a more optimized, but simpler [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview). This scene also shows usefullness of [`MultiHomingAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing) which makes the entities stay within given areas. In the subscenes, the larger the flocks, the larger the homing radii on the [`HomingComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)s. Second new behavior is [`AlignUpJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up), it prevents the entities from flying up or down at too steep angle. 
 
     <video controls width="800">
       <source src="/videos/samples/flocking/3D.mp4" type="video/mp4" />
