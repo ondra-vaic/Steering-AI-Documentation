@@ -4,13 +4,13 @@ sidebar_position: 9
 
 # Combiner
 
-Combiner is an implementation of `ICombineJobWrapper`. It is the last step that the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) does. Its resposibility is to for each entity, take all its results from all the system's behaviors and turn it into one final result for the movement system. By default, this is:
+Combiner is an implementation of `ICombineJobWrapper`. It is the last step that the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) does. Its resposibility is to for each entity, take all its **results** from all the system's [behaviors](/docs/category/behaviors) and turn it into one **final result** for one of the [movement systems](/docs/category/movement). By default, this is:
 
-- [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) - *result which behaviors output per entity*
-- [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) - *final result attached as component on the entity telling the movement system where the entity wants to go*
+- [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) - ***result** which behaviors output per entity*
+- [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) - ***final result** attached as component on the entity telling the movement system where the entity wants to go*
 - [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner) - *implementation of `ICombineJobWrapper`*
 
-It is however entirely possible to use your own types instead of [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent). The implementation should declare the types it works using attributes. For example this is the declaration of [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner):
+It is however entirely possible to use your own types instead of [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent). The implementation should declare the types it works with using [attributes](/docs/documentation-core/attributes). For example this is the declaration of [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner):
 
 ```csharp title="CombineVelocitiesJobWrapper.cs"
 [JobWrapper(typeof(DesiredVelocityComponent))]
@@ -25,16 +25,16 @@ public class CombineVelocitiesJobWrapper : ICombineJobWrapper
 }
 ```
 
-The interface receives an array of data structures containing results. The results should be castable into whichever type is declared in the [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) attribute. For example in [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner), they are cast into `VelocityResults` which is just a wrapper struct for `NativeArray<VelocityResult>`. 
+The interface receives an array of data structures containing **results**. The **results** should be castable into whichever type is declared in the [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) attribute. For example in [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner), they are cast into `VelocityResults` which is just a wrapper struct for `NativeArray<VelocityResult>`. 
 
 ## Attributes
 
-This job wrapper uses two attributes. First declares what type of objects the combiner accepts. Second declares which components are expected on the entity. The types from the attributes are used in the editor of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
+This job wrapper uses two [attributes](/docs/documentation-core/attributes). First declares what type of objects the combiner accepts. Second declares which components are expected on the entity. The types from the [attributes](/docs/documentation-core/attributes) are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the combiner accepts `VelocityResults`*
-- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares the type of **results** the combiner accepts `VelocityResults`*
+- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares the type of [components](/docs/documentation-core/components/intro)(**final result**) which should be present on the entity, above [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)*
 
 
 ## Behavior Combiner Compatibility
 
-If a combiner is declared as accepting `VelocityResults` and a behavior as outputting `VelocityResults`, then they are compatible. When a combiner is selected in the editor, only compatible behaviors will be shown as possibilities. This prevents issues when casting from the `IDelayedDisposable`. As usual, the editor will also add whichever component is declared in the [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) as the entity's dependency. 
+If a combiner is declared as accepting `VelocityResults` and a behavior as outputting `VelocityResults`, then they are compatible. When a combiner is selected in the [editor](/docs/documentation-core/editor), only compatible behaviors will be shown as possibilities. This prevents issues when casting from the `IDelayedDisposable`. As usual, the [editor](/docs/documentation-core/editor) will also add whichever [component](/docs/documentation-core/components/intro) is declared in the [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) as the entity's dependency. 
