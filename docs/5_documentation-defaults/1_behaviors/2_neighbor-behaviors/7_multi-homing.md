@@ -29,7 +29,7 @@ This behavior outputs the following:
 
 ## HomeComponent
 
-The entities which should work as homes need to have `HomeComponent` on them. It has the following properties:
+The neighbors which should work as homes need to have `HomeComponent` on them. It has the following properties:
 
 - `MinRadius` - *radius around the home's position where the entity will stop desiring to go towards it*
 - `MaxRadius` - *the entity will react to this home when within this radius*

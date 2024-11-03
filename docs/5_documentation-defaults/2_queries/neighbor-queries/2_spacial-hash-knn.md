@@ -9,5 +9,5 @@ For each entity finds maximum of `MaxNumNeighbors` within radius `MaxNeighborDis
 This implementation can provide performance improvements over [`KDTreeKNNJobWrapper`](/docs/documentation-defaults/queries/neighbor-queries/kd-tree-knn), especially for smaller `MaxNeighborDistance` or sparse groups.
 
 :::tip
-Neighbor queries can easily cost most of the resources needed to run a steering system. Try to limit the `MaxNumNeighbors` and `MaxNeighborDistance` to minimum. 
+[Neighbor queries](/docs/documentation-core/queries/neighbor_queries/overview) can easily cost most of the resources needed to run a steering system. Try to limit the `MaxNumNeighbors` and `MaxNeighborDistance` to minimum. 
 :::

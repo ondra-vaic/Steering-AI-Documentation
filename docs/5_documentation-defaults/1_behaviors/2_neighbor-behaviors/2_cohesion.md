@@ -8,7 +8,7 @@ Makes entities go towards their neighbors.
 
 ## CohesionJob
 
-Internally, the behavior calculates a weighted centroid of it's neigbhors positions. The weight of each neighbor is higher the closer it is and the more it is directly in front of the entity. The behavior gives direction to the centroid and possibly makes the entity speed up to catch up to it's neighbors. The strength of the behavior grows larger the further away the weighted centroid is.
+Internally, the behavior calculates a weighted centroid of it's neigbhors positions. The weight of each neighbor is higher the closer it is and the more it is directly in front of the entity. The behavior gives direction to the centroid and possibly makes the entity speed up to catch up to its neighbors. The strength of the behavior grows larger the further away the weighted centroid is.
 
 This behavior outputs the following: 
 - `DesiredDirection` - *direction to a weighted centroid of neighbors position*

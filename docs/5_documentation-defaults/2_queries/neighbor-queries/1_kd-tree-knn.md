@@ -8,8 +8,8 @@ For each entity finds maximum of `MaxNumNeighbors` within radius `MaxNeighborDis
 
 This implementation has generally more stable framerate which does not depend on `MaxNeighborDistance` a lot, therefore it is generally a good default. However, in some scenarios [`SpacialHashKNNJobWrapper`](/docs/documentation-defaults/queries/neighbor-queries/spacial-hash-knn) can provide better performance, proper profiling is always necessary.
 
-*The code is based on public github repository [link] by [].*
+*The code is based on public [github repository](https://github.com/ArthurBrussee/KNN) by [ArthurBrussee](https://github.com/ArthurBrussee).*
 
 :::tip
-Neighbor queries can easily cost most of the resources needed to run a steering system. Try to limit the `MaxNumNeighbors` to minimum. 
+[Neighbor queries](/docs/documentation-core/queries/neighbor_queries/overview) can easily cost most of the resources needed to run a steering system. Try to limit the `MaxNumNeighbors` to minimum. 
 :::

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Debug Simple
 
-Draws all the entities passed to it as circles. It can be useful for debugging.
+Draws all the entities passed to it as circles. Can be useful for debugging.
 
 ## DebugSimpleJob
 

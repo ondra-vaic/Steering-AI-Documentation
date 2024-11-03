@@ -4,17 +4,17 @@ sidebar_position: 0
 
 # Intro
 
-There are several simple behaviors included in the *Defaults* package. This page contains an overview of them. Each job must have some things to work. For example, here are all the types relevant for wandering:
+There are several implementations of [behaviors](/docs/category/behaviors) included in the *Defaults* library. They can be added to a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) in the [editor](/docs/documentation-core/editor). Each behavior must have some things to work. For example, here are all the types relevant for one of the [provided simple behaviors](/docs/category/simple-behaviors-1), the *Wandering* behavior:
 
-- **Job** - [`WanderingJob`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingjob) - *implements the logic of the behavior*
-- **Component** - [`WanderingComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingcomponent) - *how an entity responds to the behavior depends on properties of this component*
-- **JobWrapper** - [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) - *schedules the job*
-- **Authoring** - [`WanderingAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingcomponent) - *attaches the component to an entity in editor*
+- **Job** - **[`WanderingJob`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingjob)** - *implements the logic of the behavior*
+- **Component** - **[`WanderingComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingcomponent)** - *how an entity responds to the behavior depends on properties of this [component](/docs/documentation-core/components/intro)*
+- **JobWrapper** - [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) - *schedules **`WanderingJob`***
+- **Authoring** - [`WanderingAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering#wanderingcomponent) - *attaches the **`WanderingComponent`** to an entity*
 
 :::note
-The two important pieces to focus on are the `-Job` and the `-Component`. The `-JobWrapper` and `-Authoring` are mostly only needed for editor functionality.
+The two important pieces to focus on are the **`-Job`** and the **`-Component`**. The `-JobWrapper` and `-Authoring` are mostly only needed for [editor](/docs/documentation-core/editor) functionality.
 :::
 
 :::tip
-Every behavior in the defaults library follows the same naming pattern `BehaviorNameJob`, `BehaviorNameComponent`, `BehaviorNameJobWrapper` and `BehaviorNameAuthoring`.  
+Every implementation of a [behavior](/docs/category/behaviors) in the defaults library follows the same naming pattern `BehaviorNameJob`, `BehaviorNameComponent`, `BehaviorNameJobWrapper` and `BehaviorNameAuthoring`.  
 :::

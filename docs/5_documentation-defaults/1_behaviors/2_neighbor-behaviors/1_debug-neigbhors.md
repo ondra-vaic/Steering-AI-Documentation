@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Debug Neighbors
 
-Draw a line from each entity to all of it's neighbors and a circle showing the maximum distance where a neighbor can be detected.
+Draws a line from each entity to all of it's neighbors and a circle showing the maximum distance where a neighbor can be detected. Can be used to debug [neighbor queries](/docs/documentation-core/queries/neighbor_queries/overview).
 
 ## DebugNeighborsJob
 

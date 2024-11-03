@@ -33,6 +33,11 @@ link custom job everywhere where mentioned?
 link editor
 link entity
 defaults behavior intro fix
+put ref to velocity result into all behaviors
+write intro in all defaults behaviors and queries kinds - which job wrapper, which job, which component, which result
+link all samples to all behaviors, queries, movement in defaults
+maybe intro to movement - mention max speed, then intro, and group movement systems into a folder
+
 
 DOCS.last
 

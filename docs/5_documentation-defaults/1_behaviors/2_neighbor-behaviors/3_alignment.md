@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Alignment
 
-Makes entities align their velocity with their neighbors.
+Makes entities align their velocity with their neighbors' velocities.
 
 ## AlignmentJob
 

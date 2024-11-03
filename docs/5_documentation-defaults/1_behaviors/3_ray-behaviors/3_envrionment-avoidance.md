@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Environment Avoidance
 
-Makes the entities avoid collisions with the environment.
+Makes the entities avoid all collisions with the environment.
 
 ## EnvironmentAvoidanceJob
 

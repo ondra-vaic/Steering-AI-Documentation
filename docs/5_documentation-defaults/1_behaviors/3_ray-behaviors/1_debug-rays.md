@@ -4,7 +4,8 @@ sidebar_position: 1
 
 # Debug Rays
 
-Draw an arrow for each cast ray, green for rays that miss, red for rays that hit.
+Draw an arrow for each cast ray, green for rays that miss, red for rays that hit. Can be used to debug [ray queries](/docs/documentation-core/queries/ray_queries/overview).
+
 
 ## DebugRaysJob
 

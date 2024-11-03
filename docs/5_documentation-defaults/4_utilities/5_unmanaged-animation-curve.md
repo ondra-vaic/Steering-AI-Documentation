@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Unmanaged Animation Curve
 
-Unity provides animation curves with the `AnimationCurve` class. Unfortunately as of now this is a class and so cannot be used inside burst compiled jobs. `AnimationCurveUnmanaged` can be used to bypass this restriction. The following snippet shows using `AnimationCurveUnmanaged` inside a behavior.
+Unity provides animation curves with the `AnimationCurve` class. Unfortunately as of now this is a class and so cannot be used inside burst compiled jobs. `AnimationCurveUnmanaged` can be used to bypass this restriction. The following snippet shows using `AnimationCurveUnmanaged` inside a implementation of a [simple behavior](/docs/documentation-core/behaviors/simple-behaviors/overview).
 
 
 

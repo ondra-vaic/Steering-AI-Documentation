@@ -8,10 +8,10 @@ Makes the entity go in the direction of it's forward direction.
 
 ## Common usage
 
-Most behaviors influence only the direction, but not speed. If no behaviors used by the entity influences the speed, the entity will simply not move anywhere. To resolve this issue, you can add this behavior which will set a target speed for the entity. Moreover having a small tendency to always go in the current direction helps to reduce noise in the overall movement. Having **GoForward** is almost always useful for these two reasons, alternetively the **Wandering** provides these benefits too, plus makes the entity wander around randomly.
+Most behaviors influence only the direction, but not speed. If no behaviors used by the entity influences the speed, the entity will simply not move anywhere. To resolve this issue, you can add this behavior which will set a target speed for the entity. Moreover having a small tendency to always go in the current direction helps to reduce noise in the overall movement. Having **GoForward** behavior is almost always useful for these two reasons. Alternetively the [**Wandering**](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) provides these benefits too, plus makes the entity wander around randomly.
 
 :::tip
-Using either [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) or [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) is almost always a good idea. They both always return a non-zero direction, speed, and desires. This ensures that an entity always has something to do. 
+Using either [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) or [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering) is almost always a good idea. They both always return a non-zero direction, speed, and desires. This ensures that an entity always 'has something to do'. 
 :::
 
 ## GoForwardJob
