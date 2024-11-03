@@ -13,12 +13,12 @@ This struct is passed into all [behaviors](/docs/category/behaviors). It has inf
 - `Radii[EntityInQueryIndex]` - *entity's radius from [`RadiusComponent`](/docs/documentation-core/base-system/steering-entity)*
 - `IndexesArray[EntityInQueryIndex]` - *entity's `Indexes`* 
 - `ChunkBaseIndexArray[ChunkIndex]` - *[chunk base index array](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.EntityQuery.CalculateBaseEntityIndexArrayAsync.html)*
-- `ArchetypeChunks[ChunkIndex]` - *[archetype chunk](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-archetypes.html)s*
-- `EntityCount` - *number of entities in the query*
+- `ArchetypeChunks[ChunkIndex]` - *[archetype chunks](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-archetypes.html)*
+- `EntityCount` - *number of entities in the [entity query](/docs/documentation-core/queries/entity-queries)*
 - `DeltaTime` - *time since last frame*
 
 :::tip
-You can use `ArchetypeChunks` to lookup any component on an entity [link].
+You can use `ArchetypeChunks` to [lookup any component on an entity](/docs/documentation-core/base-system/BaseBehaviorParams#indexing-archetypechunk).
 :::
 
 ```csharp title="BaseBehaviorParams.cs"
