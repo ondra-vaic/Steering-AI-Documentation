@@ -6,9 +6,9 @@ sidebar_position: 2
 
 Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding [ray query](/docs/documentation-core/queries/ray_queries/overview) is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
 
-- `IRayBehaviorJobWrapper` 
+- [`IRayBehaviorJobWrapper`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobwrapper) 
     - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
-- `IRaycastBehaviorJob<C, A1, A2, R>` 
+- [`IRaycastBehaviorJob<C, A1, A2, R>`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobc-a1-a2-r) 
     - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
     - `OnHit` runs once per each entity ray hit pair
     - `OnMiss` once per each entity ray miss pair
@@ -48,6 +48,11 @@ This job wrapper uses two [attributes](/docs/documentation-core/attributes). Fir
 
 - [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above `VelocityResults`*
 - [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent)*
+
+The correct way to match the type arguments with generic parameters to `IRaycastBehaviorJob<C, A1, A2, R>` is the following:
+
+- `[JobWrapper(typeof(C))]`
+- `[OutData(typeof(R))]`
 
 ## Implementing IRaycastBehaviorJob\<C, A1, A2, R\>
 

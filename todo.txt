@@ -33,10 +33,7 @@ think
     section for core behaviors how are they set up + link to unity jobs there
 
 chore    
-
-    core behaviors generic parameters descriptions as -implements, -matches as new -lines
     -----------------------------------------------------------------------------------------------------
-    reflexive reference in behaviors
     sample 8 - missing screenshot of simple behaviors
 
 
