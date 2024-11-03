@@ -6,21 +6,34 @@ import TabItem from '@theme/TabItem';
 
 
 # Concepts
-This page will give you a basic introduction into most important concepts and terms.
+This page will give you a basic introduction into most important concepts and terms. 
+
+## ECS
+
+If you have never worked with Unity's [ECS](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/index.html), it might be useful to learn about the basics of this approach. The most important concepts are:
+
+- [**E**ntity](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-entities.html)
+- [**C**omponent](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-components.html)
+- [**S**ystem](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-systems.html)
+- [Entity Queries](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/systems-entityquery.html)
+- [Jobs](https://docs.unity3d.com/Manual/job-system.html)
+- [Burst](https://docs.unity3d.com/Packages/com.unity.burst@1.8/manual/index.html)
+- [NativeArrays](https://docs.unity3d.com/ScriptReference/Unity.Collections.NativeArray_1.html)
+
 
 ## Steering Systems
 
-A **Steering System** is a Unity [`System`](https://https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/systems-overview.html) which derives from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem). There will typically be one implementation of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) per one [entity tag](/docs/documentation-core/components/Tags). [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) is responsible for scheduling and synchornizing parallel [Jobs](https://docs.unity3d.com/Manual/job-system.html) which determine behavior of all entities with same **Main Tag**. See diagram below for details on how the [Jobs](https://docs.unity3d.com/Manual/job-system.html) are scheduled.  
+A **Steering System** is a Unity [`System`](https://https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/systems-overview.html) which derives from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem). There will typically be one implementation of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) per one [tag](/docs/documentation-core/components/Tags). [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) is responsible for scheduling and synchornizing parallel [Jobs](https://docs.unity3d.com/Manual/job-system.html) which determine behavior of all entities with same **Main Tag**. See diagram below for details on how the jobs are scheduled.  
 
-In short, [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) loads a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) at a given path and then runs all of the system's [**Behaviors**](/docs/category/behaviors) for all entities in the scene which have the corresponding **Main Tag** assigned. Then, the results of behaviors are passed into a [**Combiner**](/docs/documentation-core/combiner), which combines all behaviors' results into a single final [**Desired Velocity**](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) which the entity wants to travel at. This is later given to the [**Movement System**](/docs/category/movement). The [Jobs](https://docs.unity3d.com/Manual/job-system.html) are run for all entities in parallel indendent of each other.  
+In short, [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) loads a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) at a given path and then runs all of the system's [**Behaviors**](/docs/category/behaviors) for all entities in the scene which have the corresponding **Main Tag** assigned. Then, the results of behaviors are passed into a [**Combiner**](/docs/documentation-core/combiner), which combines all behaviors' results into a single final [**Desired Velocity**](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) which the [entity](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-entities.html) wants to travel at. This is later given to the [**Movement System**](/docs/category/movement). The jobs are run for all entities in parallel indendent of each other.  
 
 In [Minimal Setup](/docs/getting-started/minimal-set-up), this was:
 
 - [**Steering System**](/docs/documentation-core/base-system/BaseSteeringSystem) - `SampleSteeringSystem`
 - [**Steering System Asset**](/docs/documentation-core/base-system/SteeringSystemAsset) - `SampleSteeringSystemAsset`
-- [**Main Tag**](/docs/documentation-core/editor) - `SampleEntityTagComponent`
-- [**Behaviors**](/docs/category/behaviors) - [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)
-- [**Combiner**](/docs/documentation-core/combiner) - [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner)
+  - [**Main Tag**](/docs/documentation-core/editor) - `SampleEntityTagComponent`
+  - [**Behaviors**](/docs/category/behaviors) - [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)
+  - [**Combiner**](/docs/documentation-core/combiner) - [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner)
 - [**Move System**](/docs/category/movement) - [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement) (Separate system from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem))
 
 The following diagram visualizes the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) job dependency graph. It is not necessary to undestand this completely to use the framework.

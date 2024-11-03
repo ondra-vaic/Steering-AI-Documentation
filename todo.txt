@@ -1,7 +1,5 @@
 DOCS
 
-2D Movement -> Movement 2D
-
 everywhere samples
 
     some samples probably miss other components section with SteeringEntityAuthoring
@@ -33,9 +31,6 @@ think
     section for core behaviors how are they set up
 
 link
-    link ecs in concepts
-    link entity in concepts
-    link to unity entity query in core/entityquery
     link to unity jobs in core/behaviors
     link video from in core/neighbors/overview
     link MaxSpeedComponent in SteeringEntityAuthoring
