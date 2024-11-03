@@ -4,11 +4,11 @@ sidebar_position: 11
 
 # Attributes
 
-The framework uses several attributes to achieve type safe and user friendly experience.
+The framework uses several [attributes](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/attributes) to achieve type safe and user friendly experience.
 
 ## SteeringEntityTagAttribute
 
-Marks a tag component to show up in the editor window for [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) and inspector of [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset).
+Marks a [tag component](/docs/documentation-core/components/Tags) to show up in the [editor window](/docs/documentation-core/editor) for [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) and inspector of [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset).
 
 ```csharp title="SampleEntityTag.cs"
 // highlight-next-line
@@ -18,7 +18,7 @@ public struct SampleEntityTagComponent : IComponentData {}
 
 ## JobWrapperAttribute
 
-Declares that a job wrapper requires an entity to have a specific component. In case of [`INeighborBehaviorJobWrapper`](/docs/documentation-core/behaviors/neighbor-behaviors/), the second parameter declares which component the neighbor should have. There are also overloads to handle arrays of components. The component dependencies can then be displayed and resolved in the editor.
+Declares that a job wrapper requires an entity to have a specific [component](/docs/documentation-core/components/intro). Used when implementing a [behavior](/docs/category/behaviors), [query](/docs/category/queries) or a [combiner](/docs/documentation-core/combiner#attributes). In case of [`INeighborBehaviorJobWrapper`](/docs/documentation-core/behaviors/neighbor-behaviors/), the second parameter declares which component the neighbor should have. There are also overloads to handle arrays of components. The component dependencies can then be displayed and resolved in the [editor](/docs/documentation-core/editor).
 
 ```csharp title="MultiHomingJobWrapper.cs"
 // highlight-next-line
@@ -30,7 +30,7 @@ public class MultiHomingJobWrapper : INeighborBehaviorJobWrapper { }
 
 ## OutDataAttribute
 
-This is to be used on all behavior job wrappers and the combiner. For behaviors, it declares type of data structure the behavior allocates and writes results to. In case of the combiner, it declares which type(s) of data structure(s) returned from the behavior job wrappers it can accept. After selecting a combiner in the editor, all dropdowns are refreshed to only offer behaviors whose output result type is compatible with the combiner. 
+This attribute should mark all [behavior](/docs/category/behaviors) job wrappers and the [combiner](/docs/documentation-core/combiner). For behaviors, it declares type of data structure the behavior allocates and writes results to. In case of the combiner, it declares which type(s) of data structure(s) returned from the behavior job wrappers it can accept. After selecting a combiner in the [editor](/docs/documentation-core/editor), all dropdowns are refreshed to only offer behaviors whose output result type is compatible with the combiner. 
 
 ```csharp title="MultiHomingJobWrapper.cs"
 // highlight-next-line
@@ -50,7 +50,7 @@ public class CombineVelocitiesJobWrapper : ICombineJobWrapper { }
 
 ## ComponentAuthoringAttribute
 
-Declares that a [`MonoBehaviour`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) authoring `X` authors a specific [`IComponentData`](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.IComponentData.html) component `T`. When the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) editor shows that there is a missing component of type `T` on the entity, it can find the authoring `X` which declares authoring `T`. When the plus or minus is clicked on the component `T`, the editor knows it should add or remove `X` from the entity. 
+Declares that a [`MonoBehaviour`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) authoring `X` authors a specific [`IComponentData`](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.IComponentData.html) component `T`. When the [editor](/docs/documentation-core/editor) shows that there is a missing [component](/docs/documentation-core/components/intro) of type `T` on the entity, it can find the authoring `X` which declares authoring `T`. When the plus or minus is clicked on the component `T`, the editor knows it should add or remove `X` from the entity. 
 
 ```csharp title="DebugSimpleAuthoring.cs"
 // highlight-next-line
