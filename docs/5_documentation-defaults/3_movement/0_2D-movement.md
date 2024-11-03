@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# 2D Movement
+# Movement 2D
 
 `Move2DSystem`, `Movement2DComponent`
 

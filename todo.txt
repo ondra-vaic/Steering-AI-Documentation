@@ -1,42 +1,41 @@
 DOCS
 
 2D Movement -> Movement 2D
-desriptions for all movement systems 
-in concepts, MergeVelocityResultsJobWrapper -> CombineVelocitiesJobWrapper
-bold letters and links in concepts?
-link ecs in concepts
-describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
-collision resolution - more description and fill in stuff for authoring
-Movement25DAuthoring and KinematicBodyAuthoring sections
-KeepSpeedJobWrapper - at least still in samples flocking - get rid of it
-FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
-Base System -> BaseSteeringSystem
-DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
-Flocking samples links to behaviors
+
+
 some samples probably miss other components section with SteeringEntityAuthoring
-document MaxSpeedComponent somewhere
-base behavior params link to ecs stuff
-maybe just reflexive reference everywhere
-mention `PathUpdateSystem` in 
-a bit more description into defaults/CollideAndSlideSystem, can take from samples
-MaxAccumulator - description - not centroid
+KeepSpeedJobWrapper - at least still in samples flocking - get rid of it
+Base System -> BaseSteeringSystem
+describe and link VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
+collision resolution - more description and fill in stuff for authoring
+KinematicBodyAuthoring section
+desriptions for all movement systems 
+maybe intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
+link editor everywhere
+reflexive reference in behaviors
 put everywhere in core links to defaults
+bold letters and links in concepts?
+link all samples to all behaviors, queries, movement in defaults
+link custom job everywhere where mentioned?
+put ref to velocity result into all defaults behaviors
+
+FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
+link ecs in concepts
+link entity in concepts
+link MaxSpeedComponent in SteeringEntityAuthoring
+base behavior params link to ecs stuff
+MaxAccumulator - description - not centroid
+DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
+mention `PathUpdateSystem` in path behavior
+a bit more description into defaults/CollideAndSlideSystem, can take from samples
 sample 5 - The algorithm is based on paper about numerically stable collide ....
 sample 8 - missing screenshot of simple behaviors
 link to unity entity query in core/entityquery
-link to unity jobs in core/behaviors - maybe section for overview of behaviors?
-VelocityResults - describe and link
-link this guy in code - https://www.jacksondunstan.com/articles/4857
-core behaviors generic parameters descriptions as -implements, -matches as new -lines
+link to unity jobs in core/behaviors
+section for core behaviors how are they set up
 cite video from in core/neighbors/overview
-link custom job everywhere where mentioned?
-link editor
-link entity
-defaults behavior intro fix
-put ref to velocity result into all behaviors
+core behaviors generic parameters descriptions as -implements, -matches as new -lines
 write intro in all defaults behaviors and queries kinds - which job wrapper, which job, which component, which result
-link all samples to all behaviors, queries, movement in defaults
-maybe intro to movement - mention max speed, then intro, and group movement systems into a folder
 
 
 DOCS.last
@@ -62,6 +61,7 @@ sub headlines for all categories
 OTHER
 reexport diagram image with good wording
 go through all scenes and check prefabs, apply / rever overrides, check everything works
+link this guy in code - https://www.jacksondunstan.com/articles/4857
 
 EDITOR.FUTURE
 handle somehow changing name, now there is some bug it seems
