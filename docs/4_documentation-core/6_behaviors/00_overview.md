@@ -1,0 +1,39 @@
+---
+sidebar_position: -1
+---
+
+# Overview
+
+There are three kinds of behaviors. [Simple](/docs/documentation-core/behaviors/simple-behaviors/overview), [Neighbor](/docs/documentation-core/behaviors/neighbor-behaviors/intro) and [Ray](/docs/documentation-core/behaviors/ray-behaviors/overview). The defaults library contains several implementations for each kind of behavior [[1]](/docs/category/simple-behaviors-1), [[2]](/docs/category/neighbor-behaviors-1), [[3]](/docs/category/ray-behaviors-1). They can be added to a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) in the [editor](/docs/documentation-core/editor).
+
+## Implementing New Behaviors
+
+The framework provides a simple way to create your own behaviors. There are generally three parts to implement.
+
+### Job
+
+The behaviors are implemented as [Jobs](https://docs.unity3d.com/Manual/job-system.html) which loop through all entities in parallel and calculate one result per entity, normally of type [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). There is some logic which would be the same for all behaviors of a certain kind. For example neighbor behaviors will for each entity want to loop through each of its neighbors. To simplify creating new behaviors, there are [custom jobs](https://www.jacksondunstan.com/articles/4857) for each kind of behavior. When creating for example a [simple behavior](/docs/documentation-core/behaviors/simple-behaviors/overview), you only need to create a struct implementing the [`ISimpleBehaviorJob`](/docs/documentation-core/behaviors/simple-behaviors/ISimpleBehaviorJob#isimplebehaviorjobc-r) interface. The three interfaces for behavior jobs are:
+
+- [`ISimpleBehaviorJob<C, R>`](/docs/documentation-core/behaviors/simple-behaviors/ISimpleBehaviorJob#isimplebehaviorjobc-r)
+- [`INeighborBehaviorJob<C1, C2, A, R>`](/docs/documentation-core/behaviors/neighbor-behaviors/#implementing-ineighborbehaviorjobc1-c2-a-r)
+- [`IRaycastBehaviorJob<C, A1, A2, R>`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobc-a1-a2-r)
+
+:::note
+Special thanks Jackson Dunstan who wrote a [blog post](https://www.jacksondunstan.com/articles/4857) about creating custom job types. 
+:::
+
+### Job Wrapper
+
+A job wrapper is what is serialized into the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) when adding behaviors in the [editor](/docs/documentation-core/editor). Jobwrapper's main purpose is to schedule the job which has the actual logic of the behavior. However, it can also contain additional serializable properties for this behavior which can be set in the editor. The `Schedule` method of a job wrapper can also contain some additional setup logic before the job is scheduled if necessary. There are three interfaces for job wrappers:
+
+ - [`ISimpleBehaviorJobWrapper`](/docs/documentation-core/behaviors/simple-behaviors/ISimpleBehaviorJob#implementing-isimplebehaviorjobwrapper)
+ - [`INeighborBehaviorJobWrapper`](/docs/documentation-core/behaviors/neighbor-behaviors/#implementing-ineighborbehaviorjobwrapper)
+ - [`IRaycastBehaviorJobWrapper`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobwrapper)
+
+ ### Component
+
+ Each kind of behavior requires that the entity has some [component](/docs/documentation-core/components/intro) on itself which parametrizes the behavior per entity. There are three interfaces for components:
+
+- [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior)
+- [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior)
+- [`IRayBaseBehavior`](/docs/documentation-core/components/IRayBaseBehavior)

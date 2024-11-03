@@ -21,16 +21,11 @@ everywhere
     get rid of *cursive*
 
 movement 
-    collision resolution - more description and fill in stuff for authoring
+    collision resolution - more description and fill in stuff for authoring -  sample 5 - The algorithm is based on paper about numerically stable collide ....
     KinematicBodyAuthoring section
     desriptions for all movement systems 
     intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
     link MaxSpeedComponent in SteeringEntityAuthoring and base behavior params
-
-think
-    -----------------------------------------------------------------------------------------------------
-    a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
-    section for core behaviors how are they set up + link to unity jobs there
 
 DOCS.last
 
