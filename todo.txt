@@ -18,6 +18,7 @@ everywhere
     link VelocityResultS
     link editor
     check [link]
+    get rid of *cursive*
 
 movement 
     collision resolution - more description and fill in stuff for authoring
@@ -26,8 +27,7 @@ movement
     intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
     link MaxSpeedComponent in SteeringEntityAuthoring and base behavior params
 
-think 
-    describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
+think
     -----------------------------------------------------------------------------------------------------
     a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
     section for core behaviors how are they set up + link to unity jobs there
@@ -72,6 +72,7 @@ path performance probably sucks
 IBaseBehaviorData + INeighborBehavior data
 no need to split into RayData and Commands, keep in other struct
 put MaxSpeedComponent into base systems query
+ICombineJobWrapper - IDelayedDisposable[] change to IBehaviorResults
 
 OTHER.FUTURE
 use the wandering desire thing?

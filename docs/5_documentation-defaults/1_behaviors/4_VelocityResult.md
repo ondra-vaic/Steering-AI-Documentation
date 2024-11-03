@@ -2,12 +2,31 @@
 sidebar_position: 4
 ---
 
-# VelocityResult
+# VelocityResult(s)
 
-All behaviors in the defaults library return a `VelocityResult`. These results are compatible with the [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner). The `VelocityResult` says how desirable it is to travel at a certain velocity. It contains the following properties:
+All behaviors in the defaults library return a plain struct `VelocityResult` per entity. The results for each entity in a behavior are contained by `VelocityResults`, a wrapper object for [`NativeArray<VelocityResult>`](https://docs.unity3d.com/ScriptReference/Unity.Collections.NativeArray_1.html). The `VelocityResults` structure is 'compatible' with [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner), a [combiner](/docs/documentation-core/combiner) which receives an array of `VelocityResults`, one for each behavior. 
+
+## VelocityResult
+
+Each behavior returns one `VelocityResult` per entity. It says how desirable it is to travel at a certain velocity. It contains the following properties:
 
 - `float3 Direction` - Which direction to travel in.
 - `float Speed` - What speed to travel at.
 - `float DirectionDesire` - How much (0, 1) do we want to travel in `Direction`.
 - `float SpeedDesire` - How much (0, 1) do we want to travel at `Speed`.
 - `byte Priority` - What is the priority (0, 255) of this behavior.
+
+## VelocityResults
+
+Each behavior fills `VelocityResults` with one `VelocityResult` per entity. The struct is just a wrapper for a `NativeArray`, which it provides readonly access to. It can be allocated with a the constructor, and disposed of after a job is finished with `Dispose`. The `VelocityResults` struct implements `IBehaviorResults<VelocityResult>`, so that it can be used internally by the framework.
+
+```csharp title="VelocityResults.cs"
+public struct VelocityResults : IBehaviorResults<VelocityResult>
+{
+    public NativeArray<VelocityResult> Results { get ... ; };
+    
+    public VelocityResults(int entityCount) { ... }  
+
+    public void Dispose(JobHandle dependency) { ... }
+}
+```
