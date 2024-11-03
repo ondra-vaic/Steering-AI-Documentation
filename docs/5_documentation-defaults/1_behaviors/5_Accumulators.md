@@ -17,32 +17,6 @@ public struct NoneAccumulator : IAccumulator
 }
 ```
 
-## MaxAccumulator
-
-Finds a vector with a largest `weight` passed into the `Add` function. Useful for example to find a centroid inside [`CohesionJob`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion).
-
-```csharp title="MaxAccumulator.cs"
-public struct MaxAccumulator : IAccumulator
-{
-    public float MaxMagnitude;
-    public float3 Direction;
-    
-    public void Add(float3 direction, float weight)
-    {
-        if (magnitude > MaxMagnitude)
-        {
-            MaxMagnitude = magnitude;
-            Direction = direction;
-        }
-    }
-
-    public void Init()
-    {
-        MaxMagnitude = float.NegativeInfinity;
-    }
-}
-```
-
 ## SimpleAccumulator
 
 Accumulates a weighted sum of vectors passed into the `Add` function. Useful for example to find a centroid inside [`CohesionJob`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion).
@@ -63,6 +37,32 @@ public struct SimpleAccumulator : IAccumulator
     {
         SumVector = new float3();
         SumMagnitude = 0;
+    }
+}
+```
+
+## MaxAccumulator
+
+Finds a vector with a largest `weight` passed into the `Add` function. Could be useful for any behavior which finds direction with some associated maximum score. For example [`EnvironmentAvoidanceJob`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance) finds a raycast hit with maximum 'dangerousness score' to determine what to avoid.  
+
+```csharp title="MaxAccumulator.cs"
+public struct MaxAccumulator : IAccumulator
+{
+    public float MaxMagnitude;
+    public float3 Direction;
+    
+    public void Add(float3 direction, float weight)
+    {
+        if (magnitude > MaxMagnitude)
+        {
+            MaxMagnitude = magnitude;
+            Direction = direction;
+        }
+    }
+
+    public void Init()
+    {
+        MaxMagnitude = float.NegativeInfinity;
     }
 }
 ```

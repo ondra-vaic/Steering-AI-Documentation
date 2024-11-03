@@ -17,6 +17,7 @@ everywhere
     Base System -> BaseSteeringSystem
     link VelocityResultS
     link editor
+    check [link]
 
 movement 
     collision resolution - more description and fill in stuff for authoring
@@ -31,15 +32,12 @@ think
     a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
     section for core behaviors how are they set up + link to unity jobs there
 
-chore
-    FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
-    MaxAccumulator - description - not centroid
-    DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
-    mention `PathUpdateSystem` in path behavior
-    sample 8 - missing screenshot of simple behaviors
+chore    
+
     core behaviors generic parameters descriptions as -implements, -matches as new -lines
+    -----------------------------------------------------------------------------------------------------
     reflexive reference in behaviors
-    check [link] everywhere
+    sample 8 - missing screenshot of simple behaviors
 
 
 
