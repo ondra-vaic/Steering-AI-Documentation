@@ -27,16 +27,10 @@ movement
     link MaxSpeedComponent in SteeringEntityAuthoring and base behavior params
 
 think 
-    bold letters and links in concepts?
     describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
+    -----------------------------------------------------------------------------------------------------
     a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
     section for core behaviors how are they set up + link to unity jobs there
-
-chore    
-    -----------------------------------------------------------------------------------------------------
-    sample 8 - missing screenshot of simple behaviors
-
-
 
 DOCS.last
 
@@ -77,6 +71,7 @@ neighbor queries todos
 path performance probably sucks
 IBaseBehaviorData + INeighborBehavior data
 no need to split into RayData and Commands, keep in other struct
+put MaxSpeedComponent into base systems query
 
 OTHER.FUTURE
 use the wandering desire thing?
