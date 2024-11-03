@@ -2,40 +2,51 @@ DOCS
 
 2D Movement -> Movement 2D
 
+everywhere samples
 
-some samples probably miss other components section with SteeringEntityAuthoring
-KeepSpeedJobWrapper - at least still in samples flocking - get rid of it
-Base System -> BaseSteeringSystem
-describe and link VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
-collision resolution - more description and fill in stuff for authoring
-KinematicBodyAuthoring section
-desriptions for all movement systems 
-maybe intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
-link editor everywhere
-reflexive reference in behaviors
-put everywhere in core links to defaults
+    some samples probably miss other components section with SteeringEntityAuthoring
+    KeepSpeedJobWrapper - at least still in samples flocking - get rid of it
+
+everywhere defaults
+    link velocity result in all defaults behaviors
+    write intro in all defaults behaviors and queries kinds - which job wrapper, which job, which component, which result
+    link all samples to all behaviors, queries, movement in defaults
+
+everywhere core 
+    link custom job everywhere where mentioned? 
+
+everywhere
+    Base System -> BaseSteeringSystem
+    link VelocityResultS
+    link editor
+
+movement 
+    collision resolution - more description and fill in stuff for authoring
+    KinematicBodyAuthoring section
+    desriptions for all movement systems 
+    intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
+
 bold letters and links in concepts?
-link all samples to all behaviors, queries, movement in defaults
-link custom job everywhere where mentioned?
-put ref to velocity result into all defaults behaviors
+describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
+a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
+section for core behaviors how are they set up
 
-FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
 link ecs in concepts
 link entity in concepts
+link to unity entity query in core/entityquery
+link to unity jobs in core/behaviors
+link video from in core/neighbors/overview
 link MaxSpeedComponent in SteeringEntityAuthoring
-base behavior params link to ecs stuff
+link ecs in base behavior params
+
+FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
 MaxAccumulator - description - not centroid
 DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
 mention `PathUpdateSystem` in path behavior
-a bit more description into defaults/CollideAndSlideSystem, can take from samples
-sample 5 - The algorithm is based on paper about numerically stable collide ....
 sample 8 - missing screenshot of simple behaviors
-link to unity entity query in core/entityquery
-link to unity jobs in core/behaviors
-section for core behaviors how are they set up
-cite video from in core/neighbors/overview
 core behaviors generic parameters descriptions as -implements, -matches as new -lines
-write intro in all defaults behaviors and queries kinds - which job wrapper, which job, which component, which result
+reflexive reference in behaviors
+
 
 
 DOCS.last
