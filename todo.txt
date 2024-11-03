@@ -26,26 +26,29 @@ movement
     desriptions for all movement systems 
     intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
 
-bold letters and links in concepts?
-describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
-a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
-section for core behaviors how are they set up
+think 
+    bold letters and links in concepts?
+    describe VelocityResultS in /docs/documentation-defaults/behaviors/VelocityResult
+    a bit more description into defaults/CollideAndSlideSystem, can take from samples + sample 5 - The algorithm is based on paper about numerically stable collide ....
+    section for core behaviors how are they set up
 
-link ecs in concepts
-link entity in concepts
-link to unity entity query in core/entityquery
-link to unity jobs in core/behaviors
-link video from in core/neighbors/overview
-link MaxSpeedComponent in SteeringEntityAuthoring
-link ecs in base behavior params
+link
+    link ecs in concepts
+    link entity in concepts
+    link to unity entity query in core/entityquery
+    link to unity jobs in core/behaviors
+    link video from in core/neighbors/overview
+    link MaxSpeedComponent in SteeringEntityAuthoring
+    link ecs in base behavior params
 
-FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
-MaxAccumulator - description - not centroid
-DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
-mention `PathUpdateSystem` in path behavior
-sample 8 - missing screenshot of simple behaviors
-core behaviors generic parameters descriptions as -implements, -matches as new -lines
-reflexive reference in behaviors
+chore
+    FlockingEntityAuthoring to Steering in /docs/documentation-core/components/Tags
+    MaxAccumulator - description - not centroid
+    DebugaNeighborsComponent in /docs/documentation-core/behaviors/neighbor-behaviors/
+    mention `PathUpdateSystem` in path behavior
+    sample 8 - missing screenshot of simple behaviors
+    core behaviors generic parameters descriptions as -implements, -matches as new -lines
+    reflexive reference in behaviors
 
 
 
