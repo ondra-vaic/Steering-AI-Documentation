@@ -4,9 +4,7 @@ everywhere defaults
     link all samples to all behaviors, queries, movement in defaults
 
 everywhere
-    Base System -> BaseSteeringSystem
     link VelocityResultS
-    link editor
     check [link]
     get rid of *cursive* and add . at the end
 

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Steering AI is split into four main folders, shown when importing in the image below.
 
-- [**Runtime/Core**](/docs/category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) prepared in the editor and running it's [jobs](https://docs.unity3d.com/Manual/job-system.html). 
+- [**Runtime/Core**](/docs/category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) prepared in the [editor](/docs/documentation-core/editor) and running it's [jobs](https://docs.unity3d.com/Manual/job-system.html). 
 - [**Runtime/Defaults**](/docs/category/documentation-defaults) - Contains implementation of several [behaviors](/docs/category/behaviors-1) as well as [movement systems](/docs/category/movement) and other [utilities](/docs/category/utilities). This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
 - [**Editor**](/docs/documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) in editor. 
 - [**ECS-Steering-Samples**](/docs/category/samples) - Contains sample scenes which showcase the usage of the framework with behaviors and movement systems from [Runtime/Defaults](/docs/category/documentation-defaults).
