@@ -1,8 +1,6 @@
 DOCS
 
 everywhere defaults
-    link velocity result in all defaults behaviors
-    write intro in all defaults behaviors and queries kinds - which job wrapper, which job, which component, which result
     link all samples to all behaviors, queries, movement in defaults
 
 everywhere
@@ -10,7 +8,7 @@ everywhere
     link VelocityResultS
     link editor
     check [link]
-    get rid of *cursive*
+    get rid of *cursive* and add . at the end
 
 movement 
     link - The algorithm is based on paper...
