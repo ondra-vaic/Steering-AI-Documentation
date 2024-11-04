@@ -1,7 +1,14 @@
-DOCS.last
+DOCS
 
-visual
+'explore' button link to all the stuff mentiond in the features
 hosting
+
+DOCS.IMAGES
+
+social card in config
+fav icon
+images for the features
+
 
 OTHER
 reexport diagram image with good wording

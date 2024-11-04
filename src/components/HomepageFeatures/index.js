@@ -4,32 +4,56 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Easy of Use',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        SteeringAI provides a visual editor where different combinations of behaviors can be set up without any code.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Library of Samples',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        SteeringAI provides a library of samples which showcase how to use it.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Library of Behaviors',
+    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    description: (
+      <>
+        SteeringAI provides a library behaviors which can be used out of the box.
+      </>
+    ),
+  },
+  {
+    title: 'Extensible',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        SteeringAI offers a simple way to create your own custom behaviors which are automatically parallelized and integrated into the visual editor. 
+      </>
+    ),
+  },
+  {
+    title: 'Modular',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        SteeringAI allows you to set up any combination of behaviors in a modular way, all without writing a single line of code. 
+      </>
+    ),
+  },
+  {
+    title: 'Performant',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        SteeringAI achieves high performance through use of Unity's ECS, Jobs and Burst. 
       </>
     ),
   },
