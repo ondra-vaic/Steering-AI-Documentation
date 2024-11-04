@@ -16,9 +16,9 @@ import TabItem from '@theme/TabItem';
 
 Normally in Unity [`CharacterController`](https://docs.unity3d.com/ScriptReference/CharacterController.html) handles both movement and collision resolution. Here the collision resolution is split into a separate system - [`CollideAndSlideSystem`](/docs/documentation-defaults/movement/collision-resolution). This allows the collision resolution to be used with any other movement system, in this sample the [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement). To use it, add [`KinematicBodyAuthoring`](/docs/documentation-defaults/movement/collision-resolution) and set the [`LayerMask`](https://docs.unity3d.com/ScriptReference/LayerMask.html). The entities will react to regular Unity [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.
 
------
-
 ![Minimal Setup folder](/img/samples/collisions/Folder.png)
+
+-----
 
 <Tabs>
   <TabItem value="first" label="Scene"> 
@@ -50,10 +50,11 @@ Normally in Unity [`CharacterController`](https://docs.unity3d.com/ScriptReferen
     - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)
     - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
     - [`KinematicBodyAuthoring`](/docs/documentation-defaults/movement/collision-resolution)
-    
+
     <img src="/img/samples/collisions/Prefab.png" alt="Description of the image"/>
 
  
   </TabItem>
 </Tabs>
+
 -----
