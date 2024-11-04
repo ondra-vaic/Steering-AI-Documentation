@@ -4,7 +4,9 @@ sidebar_position: 0
 
 # Movement 2D
 
-`Move2DSystem`, `Movement2DComponent`
+This movement system is suitable for movemement in 2D. The logic is implemented inside `Move2DSystem`, which works with `Movement2DComponent`. The following properties can be set on the `Movement2DComponent`:
+
+To use it, add `Movement2DAuthoring` which adds `Movement2DComponent` with these properties:
 
 - `MoveOptions`
     - `MaxSpeed` - *The maximum reachable speed*

@@ -18,10 +18,6 @@ everywhere
     get rid of *cursive*
 
 movement 
-    desriptions for all movement systems 
-    intro to movement - mention max speed, desired velocity and velocity
-    
-    link MaxSpeedComponent in SteeringEntityAuthoring and base behavior params
     link - The algorithm is based on paper...
 
 DOCS.last
@@ -42,7 +38,7 @@ describe somewhere you can put shared properties into job wrappers
 ... image for each behavior
 Movement25d - all screenshots have mouse pointer
 sub headlines for all categories
-add an entity needs these components to work: VelocityComponent.... in base steering system
+add an entity needs these components to work: VelocityComponent, MaxSpeedComponent.... in base steering system
 
 OTHER
 reexport diagram image with good wording

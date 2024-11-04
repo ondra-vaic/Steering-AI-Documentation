@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Movement 2.5D 
 
-`Move25DSystem`, `Movement25DComponent`
+The `Move25DSystem` is suitable for movement on a 3D surface, for example a terrain. It is our replacement for Unity's [`CharacterController`](https://docs.unity3d.com/ScriptReference/CharacterController.html) which works with [ECS](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/index.html). The `Move25DSystem` is only usable with [`CollideAndSlideSystem`](/docs/documentation-defaults/movement/collision-resolution), and so [`KinematicBodyAuthoring`](/docs/documentation-defaults/movement/collision-resolution) must be added any entity which wants to use it.
+
+To use it, add `KinematicBodyAuthoring` and `Movement25DAuthoring` which adds `Movement25DComponent` with these properties:
 
 - `MoveOptions`
     - `MaxSpeed` - *The maximum reachable speed*

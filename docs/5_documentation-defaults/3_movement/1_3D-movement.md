@@ -4,7 +4,9 @@ sidebar_position: 1
 
 # Movement 3D
 
-`Move3DSystem`, `Movement3DComponent`
+This movement system is suitable for flying or swimming movemement in 3D. It's almost identical to [2D movement](/docs/documentation-defaults/movement/0_2D-movement) but works in 3D. Also, the entities [bank](https://en.wikipedia.org/wiki/Banked_turn) to turns. The logic is implemented inside `Move3DSystem`, which works with `Movement3DComponent`.
+
+To use it, add `Movement3DAuthoring` which adds `Movement3DComponent` with these properties:
 
 - `MoveOptions`
     - `MaxSpeed` - *The maximum reachable speed*
