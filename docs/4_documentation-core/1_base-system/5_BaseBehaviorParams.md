@@ -9,7 +9,7 @@ This struct is passed into all [behaviors](/docs/category/behaviors). It has inf
 - `LocalToWorlds[EntityInQueryIndex]` - *entity's postion, rotation and scale*
 - `Velocities[EntityInQueryIndex]` - *entity's current velocity from [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity)*
 - `CachedSpeeds[EntityInQueryIndex]` - *magnitude of entity's current velocity*
-- `MaxSpeeds[EntityInQueryIndex]` - *entity's maximum speed from `MaxSpeedComponent`*
+- `MaxSpeeds[EntityInQueryIndex]` - *entity's maximum speed from [`MaxSpeedComponent`](/docs/documentation-defaults/movement/overview) added by movement authoring*
 - `Radii[EntityInQueryIndex]` - *entity's radius from [`RadiusComponent`](/docs/documentation-core/base-system/steering-entity)*
 - `IndexesArray[EntityInQueryIndex]` - *entity's `Indexes`* 
 - `ChunkBaseIndexArray[ChunkIndex]` - *[chunk base index array](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.EntityQuery.CalculateBaseEntityIndexArrayAsync.html)*

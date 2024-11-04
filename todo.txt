@@ -19,7 +19,7 @@ everywhere
 
 movement 
     desriptions for all movement systems 
-    intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
+    intro to movement - mention max speed, desired velocity and velocity
     
     link MaxSpeedComponent in SteeringEntityAuthoring and base behavior params
     link - The algorithm is based on paper...
