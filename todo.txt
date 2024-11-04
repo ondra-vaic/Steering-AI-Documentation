@@ -1,10 +1,11 @@
 DOCS
 
+samples fix --- lines 
+
 everywhere defaults
     link all samples to all behaviors, queries, movement in defaults
 
 everywhere
-    link VelocityResultS
     get rid of *cursive* and add . at the end
 
 movement 

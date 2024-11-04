@@ -25,16 +25,16 @@ public class CombineVelocitiesJobWrapper : ICombineJobWrapper
 }
 ```
 
-The interface receives an array of data structures containing **results**. The **results** should be castable into whichever type is declared in the [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) attribute. For example in [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner), they are cast into `VelocityResults` which is just a wrapper struct for `NativeArray<VelocityResult>`. 
+The interface receives an array of data structures containing **results**. The **results** should be castable into whichever type is declared in the [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) attribute. For example in [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner), they are cast into [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult) which is just a wrapper struct for `NativeArray<VelocityResult>`. 
 
 ## Attributes
 
 This job wrapper uses two [attributes](/docs/documentation-core/attributes). First declares what type of objects the combiner accepts. Second declares which components are expected on the entity. The types from the [attributes](/docs/documentation-core/attributes) are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares the type of **results** the combiner accepts `VelocityResults`*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares the type of **results** the combiner accepts [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult)*
 - [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares the type of [components](/docs/documentation-core/components/intro)(**final result**) which should be present on the entity, above [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)*
 
 
 ## Behavior Combiner Compatibility
 
-If a combiner is declared as accepting `VelocityResults` and a behavior as outputting `VelocityResults`, then they are compatible. When a combiner is selected in the [editor](/docs/documentation-core/editor), only compatible behaviors will be shown as possibilities. This prevents issues when casting from the `IDelayedDisposable`. As usual, the [editor](/docs/documentation-core/editor) will also add whichever [component](/docs/documentation-core/components/intro) is declared in the [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) as the entity's dependency. 
+If a combiner is declared as accepting [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult) and a behavior as outputting [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult), then they are compatible. When a combiner is selected in the [editor](/docs/documentation-core/editor), only compatible behaviors will be shown as possibilities. This prevents issues when casting from the `IDelayedDisposable`. As usual, the [editor](/docs/documentation-core/editor) will also add whichever [component](/docs/documentation-core/components/intro) is declared in the [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) as the entity's dependency. 

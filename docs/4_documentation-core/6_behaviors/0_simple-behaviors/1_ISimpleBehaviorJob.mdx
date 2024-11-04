@@ -16,7 +16,7 @@ Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The [`BaseS
 
 ## Implementing ISimpleBehaviorJobWrapper
 
-Below is the implementation of the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities inside [`BaseBehaviorParams`](/docs/documentation-core/base-system/BaseBehaviorParams). It should allocate an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into `VelocityResults`. Here the [`GoForwardJob`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardjob) is resposible for that.
+Below is the implementation of the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities inside [`BaseBehaviorParams`](/docs/documentation-core/base-system/BaseBehaviorParams). It should allocate an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult). Here the [`GoForwardJob`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardjob) is resposible for that.
 
 ```csharp title="GoForwardJobWrapper.cs"
 [JobWrapper(typeof(GoForwardComponent))]
@@ -51,7 +51,7 @@ public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
 
 This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above `VelocityResults`*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult)*
 - [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)*
 
 The correct way to match the type arguments with generic parameters to `ISimpleBehaviorJob<C, R>` is the following:

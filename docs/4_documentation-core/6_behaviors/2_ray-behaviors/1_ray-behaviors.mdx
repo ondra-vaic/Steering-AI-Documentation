@@ -17,7 +17,7 @@ Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSte
 
 ## Implementing IRaycastBehaviorJobWrapper
 
-Below is the implementation of the [`DebugRaysJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's [ray query](/docs/documentation-core/queries/ray_queries/overview) inside `RaycastBehaviorParams`. It should create an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into `VelocityResults`. Here the [`DebugRaysJob`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays) is resposible for that.
+Below is the implementation of the [`DebugRaysJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays). It can be easily used as a template to create your own behavior. The `Schedule` method receives information about the entities as well as the result of its group's [ray query](/docs/documentation-core/queries/ray_queries/overview) inside `RaycastBehaviorParams`. It should create an object of the type specified in [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) and assign it to `out results`. The behavior should write one [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) per entity into [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult). Here the [`DebugRaysJob`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays) is resposible for that.
 
 ```csharp title="DebugRayJobWrapper.cs"
 [JobWrapper(typeof(DebugRayComponent))]
@@ -46,7 +46,7 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 
 This job wrapper uses two [attributes](/docs/documentation-core/attributes). First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the [attributes](/docs/documentation-core/attributes) are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above `VelocityResults`*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult)*
 - [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent)*
 
 The correct way to match the type arguments with generic parameters to `IRaycastBehaviorJob<C, A1, A2, R>` is the following:
