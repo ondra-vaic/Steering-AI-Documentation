@@ -20,6 +20,6 @@ This behavior outputs the following:
 The `DebugSimpleComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
 
 - `BaseData`
-    - `IsActive` - *mark it to activate the behavior*
-    - `DebugScale` - *increase the size of the circle*
-    - `DebugColor` - *color of the cirle*
+    - `IsActive` - Mark it to activate the behavior.
+    - `DebugScale` - Increase the size of the circle.
+    - `DebugColor` - Color of the cirle.

@@ -9,8 +9,8 @@ Makes the entities go back towards a predefined home position if they get too fa
 ## HomingJob
 
 This behavior outputs the following: 
-- `DesiredDirection` - *direction to home*
-- `DirectionDesire` - *from `0` to `DirectionStrength` as distance to home goes from `MinRadius` to `MaxRadius`*
+- `DesiredDirection` - Direction to home.
+- `DirectionDesire` - Drom `0` to `DirectionStrength` as distance to home goes from `MinRadius` to `MaxRadius`.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
@@ -18,10 +18,10 @@ This behavior outputs the following:
 ## HomingComponent
 
 The main interesting properties to adjust on `HomingComponent` are:
-- `HomePosition` - *the position of the home*
-- `MinRadius` - *distance to home where the behavior has no effect*
-- `MaxRadius` - *distance to home where the behavior has maximum effect*
-- `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
+- `HomePosition` - The position of the home.
+- `MinRadius` - Distance to home where the behavior has no effect.
+- `MaxRadius` - Distance to home where the behavior has maximum effect.
+- `ActivationP` - Power for shaping the interpolation of `DirectionDesire`.
 - `BaseData`
-    - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `Priority` - *priority*
+    - `DirectionStrength` - Multiplies `DirectionDesire`.
+    - `Priority` - Priority.

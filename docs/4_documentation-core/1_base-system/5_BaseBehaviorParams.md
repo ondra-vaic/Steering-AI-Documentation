@@ -6,16 +6,16 @@ sidebar_position: 5
 
 This struct is passed into all [behaviors](/docs/category/behaviors). It has information about the entities matched by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem)'s main [entity query](/docs/documentation-core/queries/entity-queries). There are several arrays, each containing `EntityCount` elements (with the exception of `ArchetypeChunks` and `ChunkBaseIndexArray`). Each array element has some information about an entity at index `i` in the query. The `BaseBehaviorParams` struct contains these fields:
 
-- `LocalToWorlds[EntityInQueryIndex]` - *entity's postion, rotation and scale*
-- `Velocities[EntityInQueryIndex]` - *entity's current velocity from [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity)*
-- `CachedSpeeds[EntityInQueryIndex]` - *magnitude of entity's current velocity*
-- `MaxSpeeds[EntityInQueryIndex]` - *entity's maximum speed from [`MaxSpeedComponent`](/docs/documentation-defaults/movement/overview) added by movement authoring*
-- `Radii[EntityInQueryIndex]` - *entity's radius from [`RadiusComponent`](/docs/documentation-core/base-system/steering-entity)*
-- `IndexesArray[EntityInQueryIndex]` - *entity's `Indexes`* 
-- `ChunkBaseIndexArray[ChunkIndex]` - *[chunk base index array](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.EntityQuery.CalculateBaseEntityIndexArrayAsync.html)*
-- `ArchetypeChunks[ChunkIndex]` - *[archetype chunks](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-archetypes.html)*
-- `EntityCount` - *number of entities in the [entity query](/docs/documentation-core/queries/entity-queries)*
-- `DeltaTime` - *time since last frame*
+- `LocalToWorlds[EntityInQueryIndex]` - Entity's postion, rotation and scale.
+- `Velocities[EntityInQueryIndex]` - Entity's current velocity from [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity).
+- `CachedSpeeds[EntityInQueryIndex]` - Magnitude of entity's current velocity.
+- `MaxSpeeds[EntityInQueryIndex]` - Entity's maximum speed from [`MaxSpeedComponent`](/docs/documentation-defaults/movement/overview) added by movement authoring.
+- `Radii[EntityInQueryIndex]` - Entity's radius from [`RadiusComponent`](/docs/documentation-core/base-system/steering-entity).
+- `IndexesArray[EntityInQueryIndex]` - Entity's `Indexes`. 
+- `ChunkBaseIndexArray[ChunkIndex]` - [Chunk base index array](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.EntityQuery.CalculateBaseEntityIndexArrayAsync.html).
+- `ArchetypeChunks[ChunkIndex]` - [Archetype chunks](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-archetypes.html).
+- `EntityCount` - Number of entities in the [entity query](/docs/documentation-core/queries/entity-queries).
+- `DeltaTime` - Time since last frame.
 
 :::tip
 You can use `ArchetypeChunks` to [lookup any component on an entity](/docs/documentation-core/base-system/BaseBehaviorParams#indexing-archetypechunk).

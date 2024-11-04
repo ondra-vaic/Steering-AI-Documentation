@@ -11,10 +11,10 @@ Makes entities go towards their neighbors.
 Internally, the behavior calculates a weighted centroid of it's neigbhors positions. The weight of each neighbor is higher the closer it is and the more it is directly in front of the entity. The behavior gives direction to the centroid and possibly makes the entity speed up to catch up to its neighbors. The strength of the behavior grows larger the further away the weighted centroid is.
 
 This behavior outputs the following: 
-- `DesiredDirection` - *direction to a weighted centroid of neighbors position*
-- `DirectionDesire` - *from `MinActivation * DirectionStrength` to `DirectionStrength` as distance to the weighted centroid goes from `0` to `MaxDistance`*
-- `DesiredSpeed` - *from `MinSpeed` to `MaxSpeed` as distance to the weighted centroid goes from `0` to `MaxDistance`*
-- `SpeedDesire` - *from `MinActivation * SpeedStrength` to `SpeedStrength` as distance to the weighted centroid goes from `0` to `MaxDistance`*
+- `DesiredDirection` - Direction to a weighted centroid of neighbors position.
+- `DirectionDesire` - From `MinActivation * DirectionStrength` to `DirectionStrength` as distance to the weighted centroid goes from `0` to `MaxDistance`.
+- `DesiredSpeed` - From `MinSpeed` to `MaxSpeed` as distance to the weighted centroid goes from `0` to `MaxDistance`.
+- `SpeedDesire` - From `MinActivation * SpeedStrength` to `SpeedStrength` as distance to the weighted centroid goes from `0` to `MaxDistance`.
 - `Priority` -  `Priority` *(constant)*
 
 ## CohesionComponent
@@ -22,16 +22,16 @@ This behavior outputs the following:
 The main interesting properties to adjust on `CohesionComponent` are:
 
 - *Observability*
-    - `DistanceP` - *power for shaping the influence of each neighbor based on distance*
-    - `StartAngle` - *above this angle a neighbor's influence on the centroid starts to decrease, below it it's at maximum*
-    - `AngleP` - *power for shaping the influence of each neighbor based on angle*
+    - `DistanceP` - Power for shaping the influence of each neighbor based on distance.
+    - `StartAngle` - Above this angle a neighbor's influence on the centroid starts to decrease, below it it's at maximum.
+    - `AngleP` - Power for shaping the influence of each neighbor based on angle.
 - *Activation*
-    - `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
-    - `MinActivation` - *the minimum `DirectionDesire` returned will `MinActivation * DirectionStrength`*
-    - `MinSpeed` - *the minimum desired speed to catch up with neighbors*
+    - `ActivationP` - Power for shaping the interpolation of `DirectionDesire`.
+    - `MinActivation` - The minimum `DirectionDesire` returned will `MinActivation * DirectionStrength`.
+    - `MinSpeed` - The minimum desired speed to catch up with neighbors.
 - `BaseData`
-    - `MaxDistance` - *maximum distance where neighbors will be detected*
-    - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
-    - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `SpeedStrength` - *multiplies `SpeedDesire`*
-    - `Priority` - *priority*
+    - `MaxDistance` - Maximum distance where neighbors will be detected.
+    - `MaxAngle` - Maximum field of view angle where neighbors will be detected.
+    - `DirectionStrength` - Multiplies `DirectionDesire`.
+    - `SpeedStrength` - Multiplies `SpeedDesire`.
+    - `Priority` - Priority.

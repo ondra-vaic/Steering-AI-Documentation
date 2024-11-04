@@ -1,10 +1,3 @@
-DOCS
-
-samples fix --- lines 
-
-everywhere
-    get rid of *cursive* and add . at the end
-
 DOCS.last
 
 check everywhere that components and behaviors arent just copied from somewhere
@@ -15,6 +8,16 @@ Your browser does not support the video tag.
 cleanup
 visual
 
+OTHER
+reexport diagram image with good wording
+go through all scenes and check prefabs, apply / rever overrides, check everything works
+
+CODE
+
+link this guy in code - https://www.jacksondunstan.com/articles/4857
+rename DebugableComponent
+
+------------------------------------ FUTURE ------------------------------------
 DOCS.FUTURE
 add CreateRaysParams etc into core just like NeighborQueryParams
 describe time scaler - utilities
@@ -28,20 +31,6 @@ full example is missing sections for prefabs
 link all samples to all behaviors, queries, movement in defaults
 flocking with predator is missing folder image
 
-OTHER
-reexport diagram image with good wording
-go through all scenes and check prefabs, apply / rever overrides, check everything works
-link this guy in code - https://www.jacksondunstan.com/articles/4857
-
-EDITOR.FUTURE
-handle somehow changing name, now there is some bug it seems
-rename tag - warning in the window 
-steering system window doesn't refresh when tag removed on entity
-
-CODE
-
-rename DebugableComponent
-
 CODE.FUTURE
 neighbor queries todos
 path performance probably sucks
@@ -50,11 +39,17 @@ no need to split into RayData and Commands, keep in other struct
 put MaxSpeedComponent into base systems query
 ICombineJobWrapper - IDelayedDisposable[] change to IBehaviorResults
 
+EDITOR.FUTURE
+handle somehow changing name, now there is some bug it seems
+rename tag - warning in the window 
+steering system window doesn't refresh when tag removed on entity
+
 OTHER.FUTURE
 use the wandering desire thing?
 Rotations for 3D might work with sterp, seems to work with 2.5D. Next time use forward as twist axis!!
 check what is the performance difference if I use bssr = temp.MaxHeap.HeadValue;
 
+------------------------------------ NOTES ------------------------------------
 BACKLOG
 accelerate more based on sum desire * f(prio)?
 

@@ -7,12 +7,12 @@ sidebar_position: 1
 Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview) is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 
 
 - [`INeighborBehaviorJobWrapper`](/docs/documentation-core/behaviors/neighbor-behaviors/#implementing-ineighborbehaviorjobwrapper) 
-    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
+    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`.
 - [`INeighborBehaviorJob<C1, C2, A, R>`](/docs/documentation-core/behaviors/neighbor-behaviors/#implementing-ineighborbehaviorjobc1-c2-a-r)
-    - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
-    -  `Execute` runs once per each entity neighbor pair
+    - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult).
+    -  `Execute` runs once per each entity neighbor pair.
 - [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior)
-    - entities used by `INeighborBehaviorJob<C1, C2, A, R>` must have a component implementing this interface
+    - Entities used by `INeighborBehaviorJob<C1, C2, A, R>` must have a component implementing this interface.
 
 ## Implementing INeighborBehaviorJobWrapper
 
@@ -45,8 +45,8 @@ class DebugNeighborsJobWrapper : INeighborBehaviorJobRunner
 
 This job wrapper uses two [attributes](/docs/documentation-core/attributes). First declares what type of object the behavior returns. Second declares which components are expected on the entity and it's neighbor. The types from the attributes are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult)*
-- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity and neighbor respectively, above [`DebugNeighborsComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors#debugneighborscomponent) and [`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity)*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - Declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult).
+- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - Declares which components should be present on the entity and neighbor respectively, above [`DebugNeighborsComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/debug-neigbhors#debugneighborscomponent) and [`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity).
 
 The correct way to match the type arguments with generic parameters to `INeighborBehaviorJob<C1, C2, A, R>` is the following:
 
@@ -59,10 +59,10 @@ The correct way to match the type arguments with generic parameters to `INeighbo
 
 ### Generic Parameters
 
-- `C1` - *type of component on the main entities implements [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior)*
-- `C2` - *type of component on the neighbors*
-- `A` - *type of [accumulator](/docs/documentation-core/behaviors/accumulators) passed into the `Exectute` method*
-- `R` - *type of result returned from the behavior*
+- `C1` - Type of component on the main entities implements [`INeighborBaseBehavior`](/docs/documentation-core/components/INeighborBaseBehavior).
+- `C2` - Type of component on the neighbors.
+- `A` - Type of [accumulator](/docs/documentation-core/behaviors/accumulators) passed into the `Exectute` method.
+- `R` - Type of result returned from the behavior.
 
 ```csharp title="DebugNeighborsJobWrapper.cs"
 [BurstCompile]

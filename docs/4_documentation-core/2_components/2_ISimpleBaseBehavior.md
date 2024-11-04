@@ -6,13 +6,13 @@ sidebar_position: 2
 
 [Components](/docs/documentation-core/components/intro) to be used with [simple behaviors](/docs/documentation-core/behaviors/simple-behaviors/overview) must implement `ISimpleBaseBehavior`. It requires the component to have `SimpleBehaviorData` member with these fields which are internally used by the framework:
 
-- **Priority** - *(0, 255) what is the priority of this behavior*
-- **DirectionStrength** - *(0, 1) how strongly (relative to other behaviors) should this behavior influence the entity's direction*
-- **SpeedStrength** - *(0, 1) how strongly (relative to other behaviors) should this behavior influence the entity's speed*
-- **IsActive** - *should the behavior run*
-- **Debug** - *toggle to draw debug elements*
-- **DebugScale** - *scale for the debug elements*
-- **Color** - *color for the debug elements*
+- **Priority** - (0, 255) what is the priority of this behavior.
+- **DirectionStrength** - (0, 1) how strongly (relative to other behaviors) should this behavior influence the entity's direction.
+- **SpeedStrength** - (0, 1) how strongly (relative to other behaviors) should this behavior influence the entity's speed.
+- **IsActive** - Should the behavior run.
+- **Debug** - Toggle to draw debug elements.
+- **DebugScale** - Scale for the debug elements.
+- **Color** - Color for the debug elements.
 
 ```csharp title="ISimpleBaseBehavior.cs"
 public interface ISimpleBaseBehavior

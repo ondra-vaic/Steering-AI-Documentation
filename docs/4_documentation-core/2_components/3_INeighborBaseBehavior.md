@@ -6,8 +6,8 @@ sidebar_position: 3
 
 [Components](/docs/documentation-core/components/intro) to be used with [neighbor behaviors](/docs/documentation-core/behaviors/neighbor-behaviors/intro) must implement `INeighborBaseBehavior`. It requires the component to have `NeighborBehaviorData` member with fields which are internally used by the framework. The fields are the same with [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior), with the addition of:
 
-- **MaxDistance** - *maximum radius where neighbors can be detected*
-- **MaxAngle** - *field of view where neighbors can be detected*
+- **MaxDistance** - Maximum radius where neighbors can be detected.
+- **MaxAngle** - Field of view where neighbors can be detected.
 
 ```csharp title="INeighborBaseBehavior.cs"
 public interface INeighborBaseBehavior

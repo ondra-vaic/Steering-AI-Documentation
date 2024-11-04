@@ -9,8 +9,8 @@ Makes the entities stay within a specified range of `y` coordinates. It can be f
 ## KeepHeightJob
 
 This behavior outputs the following: 
-- `DesiredDirection` - *direction up or down back to the zone if `y` is outside `MinY` and `MaxY`*
-- `DirectionDesire` - *from `0` to `DirectionStrength` as distance from either boundaries goes from `0` to `CalmZoneHeight`*
+- `DesiredDirection` - Direction up or down back to the zone if `y` is outside `MinY` and `MaxY`.
+- `DirectionDesire` - From `0` to `DirectionStrength` as distance from either boundaries goes from `0` to `CalmZoneHeight`.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
@@ -18,9 +18,9 @@ This behavior outputs the following:
 ## KeepHeightComponent
 
 The main interesting properties to adjust on `KeepHeightComponent` are:
-- `MaxY` - *maximum y coordinate of the entity*
-- `MinY` - *minimum y coordinate of the entity*
-- `CalmZoneHeight` - *at this distance from either boundary, the behavior has maximum effect*
+- `MaxY` - Maximum y coordinate of the entity.
+- `MinY` - Minimum y coordinate of the entity.
+- `CalmZoneHeight` - At this distance from either boundary, the behavior has maximum effect.
 - `BaseData`
-    - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `Priority` - *priority*
+    - `DirectionStrength` - Multiplies `DirectionDesire`.
+    - `Priority` - Priority.

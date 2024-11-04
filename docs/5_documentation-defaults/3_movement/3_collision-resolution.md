@@ -8,10 +8,10 @@ Normally in Unity [`CharacterController`](https://docs.unity3d.com/ScriptReferen
 
 To use it, add the `KinematicBodyAuthoring` which adds `CollideAndSlideComponent`. The `KinematicBodyAuthoring` has the following properties:
 
-- `IsActive` - Should collisions be resolved
-- `SkinWidth` - Skin width, small number to avoid floating point inaccuracies
-- `LayerMask` - The [`LayerMask`](https://docs.unity3d.com/ScriptReference/LayerMask.html) to filter [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s
-- `Debug` - Draws spheres for debugging different states of the collide and slide algorithm
+- `IsActive` - Should collisions be resolved.
+- `SkinWidth` - Skin width, small number to avoid floating point inaccuracies.
+- `LayerMask` - The [`LayerMask`](https://docs.unity3d.com/ScriptReference/LayerMask.html) to filter [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.
+- `Debug` - Draws spheres for debugging different states of the collide and slide algorithm.
 
 :::note
 The entities do not need to have a [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html) to detect and resolve collisions, they only need the `KinematicBodyAuthoring`.

@@ -22,6 +22,6 @@ This behavior outputs the following:
 ## AvoidVerticalWallsComponent
 
 - `BaseData`
-    - `MaxDistance` - *maximum distance where a hit will be detected*
-    - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `Priority` - *priority*
+    - `MaxDistance` - Maximum distance where a hit will be detected.
+    - `DirectionStrength` - Multiplies `DirectionDesire`.
+    - `Priority` - Priority.

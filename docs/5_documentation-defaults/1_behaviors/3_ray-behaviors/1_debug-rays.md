@@ -21,4 +21,4 @@ This behavior outputs the following:
 The `DebugRaysComponent` contains only `BaseData`. The main interesting properties to adjust on the component are:
 
 - `BaseData`
-    - `IsActive` - *mark it to activate the behavior*
+    - `IsActive` - Mark it to activate the behavior.

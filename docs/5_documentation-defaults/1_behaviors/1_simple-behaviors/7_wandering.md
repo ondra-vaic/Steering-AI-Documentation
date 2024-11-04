@@ -13,22 +13,22 @@ Using either [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simp
 ## WanderingJob
 
 This behavior outputs the following: 
-- `DesiredDirection` - *random direction smoothly changing over time*
+- `DesiredDirection` - Random direction smoothly changing over time.
 - `DirectionDesire` - `DirectionStrength` *(constant)*
-- `DesiredSpeed` - *random speed smoothly changing over time between `MinSpeed` and `MaxSpeed`*
+- `DesiredSpeed` - Random speed smoothly changing over time between `MinSpeed` and `MaxSpeed`.
 - `SpeedDesire` - `SpeedStrength` *(constant)*
 - `Priority` -  `Priority` *(constant)*
 
 ## WanderingComponent
 
 The main interesting properties to adjust on `WanderingComponent` are:
-- `MaxUpDownAngle` - *maximum possible angle between the returned desired direction and *XZ* plane* 
-- `XFrequency` - *frequency of desired direction change in the *XZ* plane* 
-- `YFrequency` - *frequency of desired direction change in it's `y` component* 
-- `SpeedFrequency` - *frequency of the speed changing*
-- `MinSpeed` - *minimum desired speed*
-- `MaxSpeed` - *maximum desired speed*
+- `MaxUpDownAngle` - Maximum possible angle between the returned desired direction and *XZ* plane.
+- `XFrequency` - Frequency of desired direction change in the *XZ* plane.
+- `YFrequency` - Frequency of desired direction change in it's `y` component.
+- `SpeedFrequency` - Frequency of the speed changing.
+- `MinSpeed` - Minimum desired speed.
+- `MaxSpeed` - Maximum desired speed.
 - `BaseData`
-    - `DirectionStrength` - *determines `DirectionDesire`*
-    - `SpeedStrength` - *determines `SpeedDesire`*
-    - `Priority` - *priority*
+    - `DirectionStrength` - Determines `DirectionDesire`.
+    - `SpeedStrength` - Determines `SpeedDesire`.
+    - `Priority` - Priority.

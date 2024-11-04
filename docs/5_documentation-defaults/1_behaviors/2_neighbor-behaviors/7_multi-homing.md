@@ -11,8 +11,8 @@ Makes entities go towards the smallest of home areas they are currently in.
 For this behavior, the neighbors need to have a `HomeComponent` on them. The component contains the radius and other properties of the home area. The behavior finds a home with the smallest radius which contains the entity. It gives a direction towards the target home. The behavior's strength grows as the distance to the home increases.
 
 This behavior outputs the following: 
-- `DesiredDirection` - *direction to the target home*
-- `DirectionDesire` - *from `0` to `DirectionStrength * home.StrengthMultiplier` as distance to the home goes from `home.MinRadius` to `home.MaxRadius`*
+- `DesiredDirection` - Direction to the target home.
+- `DirectionDesire` - From `0` to `DirectionStrength * home.StrengthMultiplier` as distance to the home goes from `home.MinRadius` to `home.MaxRadius`.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
@@ -20,12 +20,12 @@ This behavior outputs the following:
 ## MultiHomingComponent
 
 - *Activation*
-    - `ActivationP` - *power for shaping the interpolation of `DirectionDesire`.*
+    - `ActivationP` - Power for shaping the interpolation of `DirectionDesire`.
 - `BaseData`
-    - `MaxDistance` - *maximum distance where neighbors will be detected*
-    - `MaxAngle` - *maximum field of view angle where neighbors will be detected*
-    - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `Priority` - *priority*
+    - `MaxDistance` - Maximum distance where neighbors will be detected.
+    - `MaxAngle` - Maximum field of view angle where neighbors will be detected.
+    - `DirectionStrength` - Multiplies `DirectionDesire`.
+    - `Priority` - Priority.
 
 ## HomeComponent
 

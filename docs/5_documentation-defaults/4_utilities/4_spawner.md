@@ -8,9 +8,9 @@ sidebar_position: 4
 
 You can set the following properties on `SpawnerAuthoring`.
 
-- `Prefab` - *prefab of an entity to spawn*
-- `Count` - *how many to spawn*
-- `Radius` - *radius of the area where entities can spawn*
-- `Position` - *center of the area where entities can spawn*
-- `PositionMask` - *multiplier for the random positions - for example `float3(1, 0, 1)` will make a circle, `float3(1, 1, 1)` a sphere and `float3(1, 0.1, 1)` would make a sphere squashed on y axis*
+- `Prefab` - Prefab of an entity to spawn.
+- `Count` - How many to spawn.
+- `Radius` - Radius of the area where entities can spawn.
+- `Position` - Center of the area where entities can spawn.
+- `PositionMask` - Multiplier for the random positions - for example `float3(1, 0, 1)` will make a circle, `float3(1, 1, 1)` a sphere and `float3(1, 0.1, 1)` would make a sphere squashed on y axis.
 

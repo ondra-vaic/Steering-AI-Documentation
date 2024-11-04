@@ -7,13 +7,13 @@ sidebar_position: 2
 Ray behaviors are implementations of `IRaycastBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding [ray query](/docs/documentation-core/queries/ray_queries/overview) is done, passing in its results. There are three interfaces relevant in creating a ray behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `IRaycastBehaviorJob<C, A1, A2, R>` which significantly simplifies creating the behaviors. 
 
 - [`IRayBehaviorJobWrapper`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobwrapper) 
-    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
+    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`.
 - [`IRaycastBehaviorJob<C, A1, A2, R>`](/docs/documentation-core/behaviors/ray-behaviors/ray-behaviors#implementing-iraycastbehaviorjobc-a1-a2-r) 
-    - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
-    - `OnHit` runs once per each entity ray hit pair
-    - `OnMiss` once per each entity ray miss pair
+    - `Finalize` should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult).
+    - `OnHit` runs once per each entity ray hit pair.
+    - `OnMiss` once per each entity ray miss pair.
 - [`IRayBaseBehavior`](/docs/documentation-core/components/IRayBaseBehavior) 
-    - entities used by `IRaycastBehaviorJob<C, A1, A2, R>` must have a component implementing this interface
+    - Entities used by `IRaycastBehaviorJob<C, A1, A2, R>` must have a component implementing this interface.
 
 ## Implementing IRaycastBehaviorJobWrapper
 
@@ -46,8 +46,8 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 
 This job wrapper uses two [attributes](/docs/documentation-core/attributes). First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the [attributes](/docs/documentation-core/attributes) are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult)*
-- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent)*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - Declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult).
+- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - Declares which components should be present on the entity, above [`DebugRayComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/debug-rays#debugrayscomponent).
 
 The correct way to match the type arguments with generic parameters to `IRaycastBehaviorJob<C, A1, A2, R>` is the following:
 
@@ -60,10 +60,10 @@ The correct way to match the type arguments with generic parameters to `IRaycast
 
 ### Generic Parameters
 
-- `C` - *type of component expected on the main entities - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
-- `A1` - *type of accumulator passed into the `OnHit` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators)*
-- `A2` - *type of accumulator passed into the `OnMiss` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators)*
-- `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)* 
+- `C` - Type of component expected on the main entities - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute).
+- `A1` - Type of accumulator passed into the `OnHit` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators).
+- `A2` - Type of accumulator passed into the `OnMiss` method, implements [IAccumulator](/docs/documentation-core/behaviors/accumulators).
+- `R` - Type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute).
 
 ```csharp title="DebugRayJobWrapper.cs"
 [BurstCompile]

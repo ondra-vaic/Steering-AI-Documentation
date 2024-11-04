@@ -12,7 +12,7 @@ The behavior expects that the ray query cast rays downwards. It can work with mu
 
 This behavior outputs the following: 
 - `DesiredDirection` - `new float(0, 1, 0)` *(constant)*
-- `DirectionDesire` - *from `0` to `DirectionStrength` as average distance to hit goes from `MaxDistance` to `0`*
+- `DirectionDesire` - From `0` to `DirectionStrength` as average distance to hit goes from `MaxDistance` to `0`.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
@@ -20,6 +20,6 @@ This behavior outputs the following:
 ## AvoidGroundComponent
 
 - `BaseData`
-    - `MaxDistance` - *maximum distance where a hit will be detected*
-    - `DirectionStrength` - *multiplies `DirectionDesire`*
-    - `Priority` - *priority*
+    - `MaxDistance` - Maximum distance where a hit will be detected.
+    - `DirectionStrength` - Multiplies `DirectionDesire`.
+    - `Priority` - Priority.

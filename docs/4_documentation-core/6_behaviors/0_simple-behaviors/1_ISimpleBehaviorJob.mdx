@@ -7,11 +7,11 @@ sidebar_position: 0
 Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after querying the entities with the main [entity query](/docs/documentation-core/queries/entity-queries). There are three interfaces relevant in creating a simple behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `ISimpleBehaviorJob<C, R>` which significantly simplifies creating the behaviors. 
 
 - [`ISimpleBehaviorJobWrapper`](/docs/documentation-core/behaviors/simple-behaviors/ISimpleBehaviorJob#implementing-isimplebehaviorjobwrapper)
-    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`
+    - `Schedule` should schedule a job which writes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s to `results`.
 - [`ISimpleBehaviorJob<C, R>`](/docs/documentation-core/behaviors/simple-behaviors/ISimpleBehaviorJob#isimplebehaviorjobc-r) 
-    - `Execute` method should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)
+    - `Execute` method should return a single [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult).
 - [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior)
-    - entities used by `ISimpleBehaviorJob<C, R>` must have a component implementing this interface
+    - entities used by `ISimpleBehaviorJob<C, R>` must have a component implementing this interface.
 
 
 ## Implementing ISimpleBehaviorJobWrapper
@@ -51,8 +51,8 @@ public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
 
 This job wrapper uses two attributes. First declares what type of object the behavior returns. Second declares which components are expected on the entity. The types from the attributes are used in the [editor](/docs/documentation-core/editor) of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset). 
 
-- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - *declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult)*
-- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - *declares which components should be present on the entity, above [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)*
+- [`[OutData]`](/docs/documentation-core/attributes#outdataattribute) - Declares what type of results the behavior creates, above [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult).
+- [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - Declares which components should be present on the entity, above [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent).
 
 The correct way to match the type arguments with generic parameters to `ISimpleBehaviorJob<C, R>` is the following:
 - `[JobWrapper(typeof(C))]`
@@ -64,8 +64,8 @@ The correct way to match the type arguments with generic parameters to `ISimpleB
 
 ### Generic Parameters
 
-- `C` - *type of component on the main entities implementing [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior) - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute)*
-- `R` - *type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute)*
+- `C` - Type of component on the main entities implementing [`ISimpleBaseBehavior`](/docs/documentation-core/components/ISimpleBaseBehavior) - should match the argument of [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute).
+- `R` - Type of result returned from the behavior - should match the argument of [`[OutData]`](/docs/documentation-core/attributes#outdataattribute).
 
 ```csharp title="GoForwardJobWrapper.cs"
 [BurstCompile]

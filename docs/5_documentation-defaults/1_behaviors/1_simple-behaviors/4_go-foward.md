@@ -17,7 +17,7 @@ Using either [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simp
 ## GoForwardJob
 
 This behavior outputs the following: 
-- `DesiredDirection` - *the entity's current forward direction*
+- `DesiredDirection` - The entity's current forward direction.
 - `DirectionDesire` - `DirectionStrength` *(constant)*
 - `DesiredSpeed` - `Speed` *(constant)*
 - `SpeedDesire` - `SpeedStrength` *(constant)*
@@ -28,8 +28,8 @@ This behavior outputs the following:
 It is also useful to use some low but non-zero `DirectionStrength` and the lowest priority. Having the tendency to always go in the current direction helps to reduce noise from other behaviors.
 
 The main interesting properties to adjust on [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) are:
-- `Speed` - *how fast the entity should travel*
+- `Speed` - How fast the entity should travel.
 - `BaseData`
-    - `DirectionStrength` - *determines `DirectionDesire`*
-    - `SpeedStrength` - *determines `SpeedDesire`*
-    - `Priority` - *priority*
+    - `DirectionStrength` - Determines `DirectionDesire`.
+    - `SpeedStrength` - Determines `SpeedDesire`.
+    - `Priority` - Priority.
