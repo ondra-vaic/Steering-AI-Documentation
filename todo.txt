@@ -2,9 +2,6 @@ DOCS
 
 samples fix --- lines 
 
-everywhere defaults
-    link all samples to all behaviors, queries, movement in defaults
-
 everywhere
     get rid of *cursive* and add . at the end
 
@@ -31,6 +28,7 @@ Movement25d - all screenshots have mouse pointer
 sub headlines for all categories
 add: an entity needs these components to work: VelocityComponent, MaxSpeedComponent.... in base steering system
 full example is missing sections for prefabs
+link all samples to all behaviors, queries, movement in defaults
 
 OTHER
 reexport diagram image with good wording

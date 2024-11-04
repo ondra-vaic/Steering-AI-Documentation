@@ -18,5 +18,5 @@ The entities do not need to have a [`Collider`](https://docs.unity3d.com/ScriptR
 :::
 
 :::note 
-The algorithm is based on paper about numerically stable collide and slide algorithm [link paper] by [name].
+The algorithm is based on [paper](https://arxiv.org/pdf/1211.0059) about numerically stable collide and slide algorithm by Jeff Linahan.
 :::
