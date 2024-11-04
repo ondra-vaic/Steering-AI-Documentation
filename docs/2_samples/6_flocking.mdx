@@ -77,7 +77,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **FlockingBehaviorsSteeringAsset**:
     - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
     - ***Neighbor Behaviors*** - [[`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation)]
-    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
+    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *EntityFlocking*
 
     :::note
@@ -91,7 +91,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Simple Behaviors**
 
     :::warning
-    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) makes entity keep movement direction with constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
     :::
     
     <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
@@ -104,7 +104,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent)
     - [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent)
     - [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent)
-    - `KeepSpeedAuthoring`
+    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
 
     **Other Components**:
     - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
@@ -142,7 +142,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Flocking2DSystemAsset**:
     - ***Main Tag*** - `_6_Sample2DTagComponent`
     - ***Neighbor Behaviors*** - [[`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation)]
-    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
+    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *EntityFlocking*
 
     **Neighbor Behaviors**
@@ -152,7 +152,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Simple Behaviors**
 
     :::warning
-    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) makes entity keep movement direction with constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
     :::
 
     <img src="/img/samples/flocking/Asset2.png" alt="Description of the image"/>
@@ -165,7 +165,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent)
     - [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent)
     - [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent)
-    - `KeepSpeedAuthoring`
+    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
 
     **Other Components**:
     - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
@@ -200,7 +200,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Flocking3DHugeSystemAsset**:
     - ***Main Tag*** - `_6_Sample3DLargeTagComponent`
     - ***Neighbor Behaviors*** - [[`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation), [`MultiHomingAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing)]
-    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`, [`AlignUpJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up)]
+    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward), [`AlignUpJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up)]
     - ***Prefab*** - *EntityFlockingHuge*
 
     **Neighbor Behaviors**
@@ -210,7 +210,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Simple Behaviors**
 
     :::warning
-    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) makes entity keep movement direction with constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
     :::
 
     <img src="/img/samples/flocking/3d/Asset2.png" alt="Description of the image"/>
@@ -220,7 +220,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - `KeepSpeedAuthoring`
+    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
     - [`AlignUpAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up#alignupcomponent)
     - [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent)
     - [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent)
@@ -259,7 +259,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Flocking25DSystemAsset**:
     - ***Main Tag*** - `_6_Sample25TagComponent`
     - ***Neighbor Behaviors*** - [[`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation)]
-    - ***Simple Behaviors*** - [`KeepSpeedJobWrapper`]
+    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *EntityFlocking*
 
     **Neighbor Behaviors**
@@ -269,7 +269,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **Simple Behaviors**
 
     :::warning
-    `KeepSpeedJobWrapper` makes entity keep a given constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
+    [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)makes entity keep movement direction with constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
     :::
 
     <img src="/img/samples/flocking/25d/Asset2.png" alt="Description of the image"/>
@@ -282,7 +282,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent)
     - [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent)
     - [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent)
-    - `KeepSpeedAuthoring`
+    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
 
     **Other Components**:
     - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
