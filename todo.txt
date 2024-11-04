@@ -1,9 +1,7 @@
 DOCS.last
 
-check everywhere that components and behaviors arent just copied from somewhere
-fix nothing after headline
-cleanup
 visual
+hosting
 
 OTHER
 reexport diagram image with good wording
