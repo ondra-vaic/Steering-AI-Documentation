@@ -10,9 +10,6 @@ everywhere defaults
     write intro in all defaults behaviors and queries kinds - which job wrapper, which job, which component, which result
     link all samples to all behaviors, queries, movement in defaults
 
-everywhere core 
-    link custom job everywhere where mentioned? 
-
 everywhere
     Base System -> BaseSteeringSystem
     link VelocityResultS
@@ -21,11 +18,11 @@ everywhere
     get rid of *cursive*
 
 movement 
-    collision resolution - more description and fill in stuff for authoring -  sample 5 - The algorithm is based on paper about numerically stable collide ....
-    KinematicBodyAuthoring section
     desriptions for all movement systems 
     intro to movement - mention max speed, desired velocity and velocity, then intro, and group movement systems into a folder
+    
     link MaxSpeedComponent in SteeringEntityAuthoring and base behavior params
+    link - The algorithm is based on paper...
 
 DOCS.last
 
@@ -36,7 +33,6 @@ no name on code samples - no highlighting
 Your browser does not support the video tag.
 cleanup
 visual
-links
 
 DOCS.FUTURE
 add CreateRaysParams etc into core just like NeighborQueryParams
