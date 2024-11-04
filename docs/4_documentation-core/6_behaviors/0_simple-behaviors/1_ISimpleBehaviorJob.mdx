@@ -21,7 +21,7 @@ Below is the implementation of the [`GoForwardJobWrapper`](/docs/documentation-d
 ```csharp title="GoForwardJobWrapper.cs"
 [JobWrapper(typeof(GoForwardComponent))]
 [OutData(typeof(VelocityResults))]
-public class GoForwardJobWrapper : ISimpleBehaviorJobRunner
+public class GoForwardJobWrapper : ISimpleBehaviorJobWrapper
 {
     public JobHandle Schedule(
         SystemBase systemBase,

@@ -12,7 +12,7 @@ To implement your own neighbor query, create a class implementing the `INeighbor
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [JobWrapper]
-public class MyNeighborQueryJobWrapper : INeighborQueryJobRunner
+public class MyNeighborQueryJobWrapper : INeighborQueryJobWrapper
 {
     public JobHandle Schedule(
         SystemBase systemBase,

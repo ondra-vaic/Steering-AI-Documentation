@@ -6,7 +6,7 @@ sidebar_position: 5
 
 Unity provides animation curves with the `AnimationCurve` class. Unfortunately as of now this is a class and so cannot be used inside burst compiled jobs. `AnimationCurveUnmanaged` can be used to bypass this restriction. The following snippet shows using `AnimationCurveUnmanaged` inside a implementation of a [simple behavior](/docs/documentation-core/behaviors/simple-behaviors/overview).
 
-```csharp
+```csharp title="Sample usage of AnimationCurveUnmanaged"
 [BurstCompile]
 struct SampleJob : ISimpleBehaviorJob<SampleComponent, VelocityResult>
 {
@@ -22,7 +22,7 @@ struct SampleJob : ISimpleBehaviorJob<SampleComponent, VelocityResult>
     }
 }
 
-public class SampleJobWrapper : ISimpleBehaviorJobRunner
+public class SampleJobWrapper : ISimpleBehaviorJobWrapper
 {
     // highlight-next-line
     [SerializeField] private AnimationCurve animationCurve;

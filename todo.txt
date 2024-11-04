@@ -2,9 +2,6 @@ DOCS.last
 
 check everywhere that components and behaviors arent just copied from somewhere
 fix nothing after headline
-check runner/wrapper
-no name on code samples - no highlighting
-Your browser does not support the video tag.
 cleanup
 visual
 

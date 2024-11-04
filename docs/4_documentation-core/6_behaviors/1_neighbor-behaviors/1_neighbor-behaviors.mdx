@@ -21,7 +21,7 @@ Below is the implementation of the [`DebugNeighborsJobWrapper`](/docs/documentat
 ```csharp title="DebugNeighborsJobWrapper.cs"
 [JobWrapper(typeof(DebugNeighborsComponent), typeof(SteeringEntityTagComponent))]
 [OutData(typeof(VelocityResults))]
-class DebugNeighborsJobWrapper : INeighborBehaviorJobRunner
+class DebugNeighborsJobWrapper : INeighborBehaviorJobWrapper
 {
     public JobHandle Schedule(
         SystemBase systemBase,
