@@ -2,6 +2,8 @@
 sidebar_position: 0
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Overview
 
 The result of neighbor behaviors depends on an entity, and it's neighbors given by the [*Neighbor Query*](/docs/documentation-core/queries/neighbor_queries/overview). Both the entity and the neighbors can have a [component](/docs/documentation-core/components/intro) which parametrizes the behavior. For example [`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion) depends on [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent) on the entity and [`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity) on the neighbors. [`SteeringEntityTagComponent`](/docs/documentation-core/base-system/steering-entity) is used because this behavior does not need any special data and any entity in the simulation will have this [tag](/docs/documentation-core/components/Tags). Any component which is required on the neighbor will show up in the *All/(required)* section of the neighbor group. This can be seen in the image below. 

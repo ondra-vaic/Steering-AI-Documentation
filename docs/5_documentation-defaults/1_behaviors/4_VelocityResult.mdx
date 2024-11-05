@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # VelocityResult(s)
 
 All behaviors in the defaults library return a plain struct `VelocityResult` per entity. The results for each entity in a behavior are contained by `VelocityResults`, a wrapper object for [`NativeArray<VelocityResult>`](https://docs.unity3d.com/ScriptReference/Unity.Collections.NativeArray_1.html). The `VelocityResults` structure is 'compatible' with [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner), a [combiner](/docs/documentation-core/combiner) which receives an array of `VelocityResults`, one for each behavior. 

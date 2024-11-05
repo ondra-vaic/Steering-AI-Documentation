@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Collision Resolution
 
 Normally in Unity [`CharacterController`](https://docs.unity3d.com/ScriptReference/CharacterController.html) handles both movement and collision resolution. Here the collision resolution is split into a separate system - `CollideAndSlideSystem` which implements a [collide and slide algorithm](https://www.youtube.com/watch?v=YR6Q7dUz2uk). This allows the collision resolution to be used with any movement system. For now the algorithm only supports a sphere shape to detect collisions. The system takes the entities' [`RadiusComponent`](/docs/documentation-core/base-system/steering-entity) as the sphere's radius. Collisions are detected against any Unity [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html) in the scene. A collider does not need to be present on the entities themselves. 

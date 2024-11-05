@@ -2,6 +2,8 @@
 sidebar_position: 5
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Combine Velocities
 
 The library contains one implementation of a [combiner](/docs/documentation-core/combiner) - [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner). It turns all the [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) from behaviors into one [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) which the movement systems use to update the entities' [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity). The combiner requires that a [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) is present on the entity. [Behaviors](/docs/category/behaviors) which can be used with it must return [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) (all behaviors in the defaults library do).

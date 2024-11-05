@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # INeighborBehaviorJobWrapper
 
 Neighbor behaviors are implementations of `INeighborBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after their corresponding [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview) is done, passing in its results. There are three interfaces relevant in creating a neighbor behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `INeighborBehaviorJob<C1, C2, A, R>` which significantly simplifies creating the behaviors. 

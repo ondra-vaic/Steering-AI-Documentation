@@ -2,6 +2,8 @@
 sidebar_position: 0
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Overview
 
 The result of ray behaviors depends on an entity and the ray casts created by the [*Ray Query*](/docs/documentation-core/queries/ray_queries/overview). The entity can have a [component](/docs/documentation-core/components/IRayBaseBehavior) which parametrizes this behavior. For example [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance) depends on [`EnvironmentAvoidanceComponent`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance#environmentavoidancecomponent). The behaviors can be grouped together by the [*Ray Query*](/docs/documentation-core/queries/ray_queries/overview). 

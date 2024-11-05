@@ -2,6 +2,8 @@
 sidebar_position: 0
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Overview
 
 Components are used to parametrize the [behaviors](/docs/category/behaviors) per entity. A simple example is [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent), which adds the [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) to an entity. This component's data can then be used inside the `Execute` method of [`GoForwardJob`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardjob), where it's passed in as `EntityInformation<GoForwardComponent>`. 

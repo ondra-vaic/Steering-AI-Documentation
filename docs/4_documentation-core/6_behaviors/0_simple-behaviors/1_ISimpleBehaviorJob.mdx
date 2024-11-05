@@ -2,6 +2,8 @@
 sidebar_position: 0
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # ISimpleBehaviorJobWrapper
 
 Simple behaviors are implementations of `ISimpleBehaviorJobWrapper`. The [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) schedules them after querying the entities with the main [entity query](/docs/documentation-core/queries/entity-queries). There are three interfaces relevant in creating a simple behavior. The most important one is a [custom job](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) `ISimpleBehaviorJob<C, R>` which significantly simplifies creating the behaviors. 

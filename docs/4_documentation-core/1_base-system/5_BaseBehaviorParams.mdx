@@ -2,6 +2,8 @@
 sidebar_position: 5
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # BaseBehaviorParams
 
 This struct is passed into all [behaviors](/docs/category/behaviors). It has information about the entities matched by the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem)'s main [entity query](/docs/documentation-core/queries/entity-queries). There are several arrays, each containing `EntityCount` elements (with the exception of `ArchetypeChunks` and `ChunkBaseIndexArray`). Each array element has some information about an entity at index `i` in the query. The `BaseBehaviorParams` struct contains these fields:
