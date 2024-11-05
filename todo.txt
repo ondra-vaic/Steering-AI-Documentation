@@ -4,6 +4,9 @@ DOCS
 fix image links
 readme
 
+<img src="([^"]*)"
+<img src={useBaseUrl("$1")}
+
 DEPLOYMENT:
 1. make repo public first
 2. cmd /C "set GIT_USER=ondra-vaic&& yarn deploy"
