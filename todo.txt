@@ -1,7 +1,12 @@
 DOCS
 
 'explore' button link to all the stuff mentiond in the features
-hosting
+fix image links
+readme
+
+DEPLOYMENT:
+1. make repo public first
+2. cmd /C "set GIT_USER=ondra-vaic&& yarn deploy"
 
 DOCS.IMAGES
 
