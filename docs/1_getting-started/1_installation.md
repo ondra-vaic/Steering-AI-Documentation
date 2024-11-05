@@ -44,7 +44,7 @@ After importing the project, you need to mark all [`SteeringSystemAsset`](/docs/
 *Locating all instances of [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset).*
 
 <img src="/img/markAddressable2.png" alt="Description of the image"/>
-*Marking the assets as [`Addressable`]((https://docs.unity3d.com/Packages/com.unity.addressables@2.3)).*
+*Marking the assets as [`Addressable`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3).*
 
 ## 4) Set Renderer to Forward+
 
