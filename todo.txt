@@ -7,6 +7,7 @@ readme
 DEPLOYMENT:
 1. make repo public first
 2. cmd /C "set GIT_USER=ondra-vaic&& yarn deploy"
+https://www.youtube.com/watch?v=NiHFqziyvyk
 
 DOCS.IMAGES
 
