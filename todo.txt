@@ -21,6 +21,7 @@ rename DebugableComponent
 
 ------------------------------------ FUTURE ------------------------------------
 DOCS.FUTURE
+fix screenshots containing KeepSpeedBehavior
 add CreateRaysParams etc into core just like NeighborQueryParams
 describe time scaler - utilities
 describe IBehaviorResults and VelocityResults
