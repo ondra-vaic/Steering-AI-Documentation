@@ -22,7 +22,7 @@ This sample shows a minimal setup of an *entity* and it's *steering system*. The
 <Tabs>
   <TabItem value="third" label="Scene"> 
     There are three copies of the *SteeringEntity* prefab in the scene. Each has a different value for `Speed` on the [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent).
-    <img src="/img/MinimalSetupScene.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/MinimalSetupScene.png")} alt="Description of the image"/>
   </TabItem>
   <TabItem value="first" label="Steering System Asset"> 
 
@@ -31,7 +31,7 @@ This sample shows a minimal setup of an *entity* and it's *steering system*. The
     - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *SteeringEntity*
 
-    <img src="/img/MinimalSteeringSystem.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/MinimalSteeringSystem.png")} alt="Description of the image"/>
   </TabItem>
   <TabItem value="second" label="Prefab"> 
     
@@ -45,7 +45,7 @@ This sample shows a minimal setup of an *entity* and it's *steering system*. The
     :::note
       Your entities will generally need to have [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) on them. It will usually also be useful to add movement, in this case with [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement).
     :::
-    <img src="/img/MinimalSetupPrefab.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/MinimalSetupPrefab.png")} alt="Description of the image"/>
   </TabItem>
 </Tabs>
 

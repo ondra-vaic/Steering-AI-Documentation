@@ -24,7 +24,7 @@ This sample shows combination of flocking and predator avoidance. There are two 
 
     The subscenes contain one predator in red color and [`SpawnerAuthoring`](/docs/documentation-defaults/utilities/spawner) which spawns in a flock of entities. There is several [`HomeAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent) which the entities use to stay in a general area. The same homes are used by both the predator and the prey entities.
 
-    <img src="/img/samples/flocking-predator/Scene.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/Scene.png")} alt="Description of the image"/>
     
   </TabItem>
   
@@ -42,11 +42,11 @@ This sample shows combination of flocking and predator avoidance. There are two 
     The target entities to flee from are ones with tag `_8_SamplePredatorTagComponent`. There are three [neighbor queries](/docs/documentation-core/queries/neighbor_queries/overview); first finds predators, second finds flockmates, third finds the [homes](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent). For each query, different behaviors are run. 
     :::
 
-    <img src="/img/samples/flocking-predator/AssetPrey.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/AssetPrey.png")} alt="Description of the image"/>
     
     **Simple Behaviors**
 
-    <img src="/img/samples/flocking-predator/AssetPrey2.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/AssetPrey2.png")} alt="Description of the image"/>
 
   </TabItem>
 
@@ -65,7 +65,7 @@ This sample shows combination of flocking and predator avoidance. There are two 
     - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)
     - [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement) (or [`Movement3DAuthoring`](/docs/documentation-defaults/movement/1_3D-movement) for *PreyEntity3D*)
     
-    <img src="/img/samples/flocking-predator/PrefabPrey.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/PrefabPrey.png")} alt="Description of the image"/>
 
   </TabItem>
 
@@ -81,10 +81,10 @@ This sample shows combination of flocking and predator avoidance. There are two 
 
     Note that the target entities to seek are ones with tag `_8_SampleTagComponent`.
 
-    <img src="/img/samples/flocking-predator/AssetPredator.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/AssetPredator.png")} alt="Description of the image"/>
     
     **Simple Behaviors**
-    <img src="/img/samples/flocking-predator/AssetPredator2.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/AssetPredator2.png")} alt="Description of the image"/>
 
   </TabItem>
   
@@ -100,7 +100,7 @@ This sample shows combination of flocking and predator avoidance. There are two 
     - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent)
     - [`Movement2DAuthoring`](/docs/documentation-defaults/movement/0_2D-movement) or [`Movement3DAuthoring`](/docs/documentation-defaults/movement/1_3D-movement)
     
-    <img src="/img/samples/flocking-predator/PrefabPredator.png" alt="Description of the image"/>
+    <img src={useBaseUrl("/img/samples/flocking-predator/PrefabPredator.png")} alt="Description of the image"/>
 
   </TabItem>
 

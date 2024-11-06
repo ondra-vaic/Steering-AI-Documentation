@@ -40,7 +40,7 @@ In [Minimal Setup](/docs/getting-started/minimal-set-up), this was:
 The following diagram visualizes the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) job dependency graph. It is not necessary to undestand this completely to use the framework.
 
 <p align="left">
-  <img src="/img/Implementation14.svg" alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
+  <img src={useBaseUrl("/img/Implementation14.svg")} alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
 </p>
 
 First entities with the same **Main Tag** are queried with an [**Entity Query**](/docs/documentation-core/queries/entity-queries). This is passed to all **[Simple-](/docs/category/simple-behaviors), [Neighbor-](/docs/category/neighbor-behaviors), [Raycast Behaviors](/docs/category/ray-behaviors)**. All [**Simple Behaviors**](/docs/category/simple-behaviors) are simply ran in parallel and their results passed into the [**Combiner**](/docs/documentation-core/combiner). For [**Neighbor Behaviors**](/docs/category/neighbor-behaviors) and [**Raycast Behaviors**](/docs/category/ray-behaviors) there are additional [**Queries**](/docs/category/queries) done first. Also these behaviors can be in multiple groups based on the additional queries. After the [**Combiner**](/docs/documentation-core/combiner) receives results from all behaviors, it combines them into a single [**Desired Velocity**](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) for each entity, which is passed into the [**Move System**](/docs/category/movement).
@@ -170,7 +170,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
     Your browser does not support the video tag.
   </video>
   <div style={{ width: '15px' }}/>
-  <img src="/img/Combiner.png" alt="Description of the image" height="305" />
+  <img src={useBaseUrl("/img/Combiner.png")} alt="Description of the image" height="305" />
 
 </div>
 ---
