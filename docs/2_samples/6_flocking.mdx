@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # 6. Flocking
 
 <video controls width="800">
-  <source src="/videos/samples/flocking/3D.mp4" type="video/mp4" />
+  <source src={useBaseUrl("/videos/samples/flocking/3D.mp4")} type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 *Flocking with 3D movement.*
@@ -34,7 +34,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     This scene visualizes the result of the [`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion). This behavior makes the entity group up with it's neighbors. The yellow arrow visualizes [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). The direction is `DesiredDirection`, the length is proportional to `DirectionDesire`. The radius where the behavior detects neighbors is shown with the yellow circle.
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/cohesion.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/cohesion.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -45,7 +45,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     This scene visualizes the result of the [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment). It aligns the entity's direction with it's neighbors. 
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/alignment.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/alignment.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -56,7 +56,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     This scene visualizes the result of the [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation). It seperates the entity from it's neighbors.
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/separation.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/separation.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -67,7 +67,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     This scene visualizes the combination of all three behaviors responsible for flocking - [`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation).
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/all-three.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/all-three.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -132,7 +132,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     In this scene you can toggle multiple different [subscenes](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/conversion-subscenes.html) which have different setups of [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent), [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent), [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent). If an entity goes over a border set on [`BoxLimiterAuthoring`](/docs/documentation-defaults/utilities/box-limiter), it is teleported to the oposite side. 
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/2D.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/2D.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     
@@ -190,7 +190,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     In this scene there are three different [subscenes](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/conversion-subscenes.html) containing flocks of different sizes. The larger flock has a more optimized, but simpler [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview). This scene also shows usefullness of [`MultiHomingAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing) which makes the entities stay within given areas. In the subscenes, the larger the flocks, the larger the homing radii on the [`HomingComponent`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing#homecomponent)s. Second new behavior is [`AlignUpJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up), it prevents the entities from flying up or down at too steep angle. 
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/3D.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/3D.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -249,7 +249,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     This scene shows a flock set up on terrain, bordered by walls. The walls are a third option so far to constraint the entities within an area. The previous two options were [`BoxLimiterAuthoring`](/docs/documentation-defaults/utilities/box-limiter) and [`MultiHomingAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/multi-homing).
 
     <video controls width="800">
-      <source src="/videos/samples/flocking/25D.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/samples/flocking/25D.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 

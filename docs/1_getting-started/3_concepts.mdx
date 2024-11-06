@@ -70,7 +70,7 @@ There are three types of [Queries](/docs/category/queries) which you should unde
     (and components added by the [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)). These entities are then passed to the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward), which suggests which way each entity should go. This is the system's main entity query. 
 
     <video controls width="800">
-      <source src="/videos/SimpleDebugJob.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/SimpleDebugJob.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     :::tip
@@ -83,7 +83,7 @@ There are three types of [Queries](/docs/category/queries) which you should unde
     [**Neighbor Queries**](/docs/documentation-core/queries/neighbor_queries/overview) are used by [**Neighbor Behaviors**](/docs/documentation-core/behaviors/neighbor-behaviors/intro). Given the results of two [**Entity Queries**](/docs/documentation-core/queries/entity-queries), *A* and *B*, a neighbor query finds a number of it's 'neighbors' which satisfy some conditions. Normally they find [*k* nearest entities](/docs/documentation-defaults/queries/neighbor-queries/kd-tree-knn), but it's possible to create your [own query](/docs/documentation-core/queries/neighbor_queries/neighbor-queries). The neighbors are then passed into neighbor behaviors.
 
     <video controls width="800">
-      <source src="/videos/DebugJob.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/DebugJob.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     
@@ -97,7 +97,7 @@ There are three types of [Queries](/docs/category/queries) which you should unde
   <TabItem value="third" label="Ray Queries">
   [**Ray Queries**](/docs/documentation-core/queries/ray_queries/overview) are used by [**Ray Behaviors**](/docs/documentation-core/behaviors/ray-behaviors/overview). Given the results of an entity query, a ray query casts a number of rays into the world per each entity. The results of these ray casts are then passed into ray behaviors.
     <video controls width="800">
-      <source src="/videos/Raycasts.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/Raycasts.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     
@@ -126,7 +126,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
     [**Simple Behaviors**](/docs/documentation-core/behaviors/simple-behaviors/overview) are the most basic type of behaviors. They only receive results of the main entity query, and return [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) for each entity. This is for example [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) or [`WanderingJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/wandering).
 
     <video controls width="800">
-      <source src="/videos/Wandering.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/Wandering.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -136,7 +136,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
     [**Neighbor Behaviors**](/docs/documentation-core/behaviors/neighbor-behaviors/intro) let entities react to other entities. This is useful for example for group behaviors like [flocking](/docs/samples/flocking). These behaviors receive the results of the main query and a [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview). Then for each entity they loop through all it's neighbors to determine a [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). 
 
     <video controls width="800">
-      <source src="/videos/Cohesion.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/Cohesion.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -146,7 +146,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
     [**Ray Behaviors**](/docs/documentation-core/behaviors/ray-behaviors/overview) let entities react to the physical environment. This is especially useful for example for collision avoidance. These behaviors receive the results of the main query and a [ray query](/docs/documentation-core/queries/ray_queries/overview). Then for each entity they loop through all it's raycasts to determine a [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult). 
 
     <video controls width="800">
-      <source src="/videos/EnvironmentAvoidance.mp4" type="video/mp4" />
+      <source src={useBaseUrl("/videos/EnvironmentAvoidance.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -166,7 +166,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
 <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start' }}>
   
   <video controls height="320">
-    <source src="/videos/Combiner.mp4" type="video/mp4" />
+    <source src={useBaseUrl("/videos/Combiner.mp4")} type="video/mp4" />
     Your browser does not support the video tag.
   </video>
   <div style={{ width: '15px' }}/>
@@ -180,7 +180,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
 **Movement System** (in the [Minimal Setup](/docs/getting-started/minimal-set-up) section [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement)) takes a look the entity's current velocity [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) and calculates a new [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) which will move the entity. They are a separate systems from implementations of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem).
 
   <video controls width="800">
-    <source src="/videos/MovementSystem.mp4" type="video/mp4" />
+    <source src={useBaseUrl("/videos/MovementSystem.mp4")} type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 ---
