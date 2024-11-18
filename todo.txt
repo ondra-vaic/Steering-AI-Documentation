@@ -50,6 +50,7 @@ IBaseBehaviorData + INeighborBehavior data
 no need to split into RayData and Commands, keep in other struct
 put MaxSpeedComponent into base systems query
 ICombineJobWrapper - IDelayedDisposable[] change to IBehaviorResults
+Probably don't need RayCommand at all
 
 EDITOR.FUTURE
 handle somehow changing name, now there is some bug it seems
