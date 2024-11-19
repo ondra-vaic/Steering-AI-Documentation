@@ -5,6 +5,7 @@ site name is "My Site" (top left corner)
 'explore' button link to all the stuff mentiond in the features
 fix image links
 readme
+Installation - last step say you need to enable the subscene.
 
 <img src="([^"]*)"
 <img src={useBaseUrl("$1")}
