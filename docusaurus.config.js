@@ -72,7 +72,7 @@ const config = {
       },
 
       navbar: {
-        title: 'My Site',
+        title: 'SteeringAI',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
