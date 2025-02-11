@@ -26,7 +26,7 @@ If you have never worked with Unity's [ECS](https://docs.unity3d.com/Packages/co
 
 A **Steering System** is a Unity [`System`](https://https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/systems-overview.html) which derives from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem). There will typically be one implementation of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) per one [tag](/docs/documentation-core/components/Tags). [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) is responsible for scheduling and synchornizing parallel [Jobs](https://docs.unity3d.com/Manual/job-system.html) which determine behavior of all entities with same **Main Tag**. See diagram below for details on how the jobs are scheduled.  
 
-In short, [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) loads a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) at a given path and then runs all of the system's [**Behaviors**](/docs/category/behaviors) for all entities in the scene which have the corresponding **Main Tag** assigned. Then, the results of behaviors are passed into a [**Combiner**](/docs/documentation-core/combiner), which combines all behaviors' results into a single final [**Desired Velocity**](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) which the [entity](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-entities.html) wants to travel at. This is later given to the [**Movement System**](/docs/category/movement). The jobs are run for all entities in parallel indendent of each other.  
+In short, [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) loads a [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) at a given path and then runs all of the system's [**Behaviors**](/docs/category/behaviors) for all entities in the scene which have the corresponding **Main Tag** assigned. Then, the results of behaviors are passed into a [**Merger**](/docs/documentation-core/merger), which merges all behaviors' results into a single final [**Desired Velocity**](/docs/documentation-defaults/merger#desiredvelocitycomponent) which the [entity](https://docs.unity3d.com/Packages/com.unity.entities@1.3/manual/concepts-entities.html) wants to travel at. This is later given to the [**Movement System**](/docs/category/movement). The jobs are run for all entities in parallel indendent of each other.  
 
 In [Minimal Setup](/docs/getting-started/minimal-set-up), this was:
 
@@ -34,7 +34,7 @@ In [Minimal Setup](/docs/getting-started/minimal-set-up), this was:
 - [**Steering System Asset**](/docs/documentation-core/base-system/SteeringSystemAsset) - `SampleSteeringSystemAsset`
   - [**Main Tag**](/docs/documentation-core/editor) - `SampleEntityTagComponent`
   - [**Behaviors**](/docs/category/behaviors) - [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)
-  - [**Combiner**](/docs/documentation-core/combiner) - [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/Combiner)
+  - [**Merger**](/docs/documentation-core/merger) - [`CombineVelocitiesJobWrapper`](/docs/documentation-defaults/merger)
 - [**Move System**](/docs/category/movement) - [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement) (Separate system from [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem))
 
 The following diagram visualizes the [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem) job dependency graph. It is not necessary to undestand this completely to use the framework.
@@ -43,7 +43,7 @@ The following diagram visualizes the [`BaseSteeringSystem`](/docs/documentation-
   <img src={useBaseUrl("/img/Implementation14.svg")} alt="Steering System Diagram" width="650px" class="invert-for-dark"/>
 </p>
 
-First entities with the same **Main Tag** are queried with an [**Entity Query**](/docs/documentation-core/queries/entity-queries). This is passed to all **[Simple-](/docs/category/simple-behaviors), [Neighbor-](/docs/category/neighbor-behaviors), [Raycast Behaviors](/docs/category/ray-behaviors)**. All [**Simple Behaviors**](/docs/category/simple-behaviors) are simply ran in parallel and their results passed into the [**Combiner**](/docs/documentation-core/combiner). For [**Neighbor Behaviors**](/docs/category/neighbor-behaviors) and [**Raycast Behaviors**](/docs/category/ray-behaviors) there are additional [**Queries**](/docs/category/queries) done first. Also these behaviors can be in multiple groups based on the additional queries. After the [**Combiner**](/docs/documentation-core/combiner) receives results from all behaviors, it combines them into a single [**Desired Velocity**](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) for each entity, which is passed into the [**Move System**](/docs/category/movement).
+First entities with the same **Main Tag** are queried with an [**Entity Query**](/docs/documentation-core/queries/entity-queries). This is passed to all **[Simple-](/docs/category/simple-behaviors), [Neighbor-](/docs/category/neighbor-behaviors), [Raycast Behaviors](/docs/category/ray-behaviors)**. All [**Simple Behaviors**](/docs/category/simple-behaviors) are simply ran in parallel and their results passed into the [**Merger**](/docs/documentation-core/merger). For [**Neighbor Behaviors**](/docs/category/neighbor-behaviors) and [**Raycast Behaviors**](/docs/category/ray-behaviors) there are additional [**Queries**](/docs/category/queries) done first. Also these behaviors can be in multiple groups based on the additional queries. After the [**Merger**](/docs/documentation-core/merger) receives results from all behaviors, it merges them into a single [**Desired Velocity**](/docs/documentation-defaults/merger#desiredvelocitycomponent) for each entity, which is passed into the [**Move System**](/docs/category/movement).
 
 ---
 
@@ -65,9 +65,9 @@ There are three types of [Queries](/docs/category/queries) which you should unde
     
     - `SampleEntityTagComponent` - Because it's selected as **Main Tag** in the [editor](/docs/documentation-core/editor).
     - [`GoForwardComponent`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent) - Because the used behavior, [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) depends on it.
-    - *Components added by [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)* - All entities used by the system must have at least these components.
+    - Components added by [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity) - All entities used by the system must have at least these components.
     
-    (and components added by the [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)). These entities are then passed to the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward), which suggests which way each entity should go. This is the system's main entity query. 
+    In the minimal set up example, these entities are then passed to the [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward), which suggests which way each entity should go. 
 
     <video controls width="800">
       <source src={useBaseUrl("/videos/SimpleDebugJob.mp4")} type="video/mp4" />
@@ -95,7 +95,7 @@ There are three types of [Queries](/docs/category/queries) which you should unde
 
   </TabItem>
   <TabItem value="third" label="Ray Queries">
-  [**Ray Queries**](/docs/documentation-core/queries/ray_queries/overview) are used by [**Ray Behaviors**](/docs/documentation-core/behaviors/ray-behaviors/overview). Given the results of an entity query, a ray query casts a number of rays into the world per each entity. The results of these ray casts are then passed into ray behaviors.
+  [**Ray Queries**](/docs/documentation-core/queries/ray_queries/overview) are used by [**Ray Behaviors**](/docs/documentation-core/behaviors/ray-behaviors/overview). Given the results of an entity query, a ray query casts a number of rays into the world per each entity. The results of these ray casts are then passed into the ray behaviors.
     <video controls width="800">
       <source src={useBaseUrl("/videos/Raycasts.mp4")} type="video/mp4" />
       Your browser does not support the video tag.
@@ -111,9 +111,9 @@ There are three types of [Queries](/docs/category/queries) which you should unde
 
 ## Behaviors
 
-[**Behaviors**](/docs/category/behaviors) are the main driver of what the entities do. They receive a result of the steering system's main [entity query](/docs/documentation-core/queries/entity-queries), and for each entity calculate one [desired velocity](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) to travel at. They can also receive additional information like a result of a [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview). 
+[**Behaviors**](/docs/category/behaviors) are the main driver of what the entities do. They receive a result of the steering system's main [entity query](/docs/documentation-core/queries/entity-queries), and for each entity calculate one result, normally [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult), suggesting what velocity to travel at, and how desirable it is to travel a that velocity. Behaviors can also receive additional information like a result of a [neighbor query](/docs/documentation-core/queries/neighbor_queries/overview). 
 
-Normally they give results of type [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) which contains the following properties:
+[`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) returned by a behavior contains the following properties:
 - `float3 Direction` - Which direction to travel in.
 - `float Speed` - What speed to travel at.
 - `float DirectionDesire` - How much (0, 1) do we want to travel in `Direction`.
@@ -155,12 +155,12 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
 
 ---
 
-## Combiners
+## Mergers
 
-[**Combiners**](/docs/documentation-core/combiner) tie all the [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s from behaviors together at the end. Each behavior says what the entity should do. Combiners take all of the entity's [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s and write to each entity's [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent).
+[**Mergers**](/docs/documentation-core/merger) tie all the [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s from behaviors together at the end. Each behavior says what the entity should do. Mergers take all of the entity's [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult)s and write to each entity's [`DesiredVelocityComponent`](/docs/documentation-defaults/merger#desiredvelocitycomponent).
 
 :::tip
-[`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) are types determined by [`CombineVelocitiesJob`](/docs/documentation-defaults/Combiner) combiner from the [defaults library](/docs/category/documentation-defaults). If you want to experiment with behaviors and combiners working with different types, look into implementing your own [`ICombineJobWrapper`](/docs/documentation-core/combiner). 
+[`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) and [`DesiredVelocityComponent`](/docs/documentation-defaults/merger#desiredvelocitycomponent) are types determined by [`CombineVelocitiesJob`](/docs/documentation-defaults/merger) merger from the [defaults library](/docs/category/documentation-defaults). If you want to experiment with behaviors and mergers working with different types, look into implementing your own [`IMergeJobWrapper`](/docs/documentation-core/merger). 
 :::
 
 <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start' }}>
@@ -177,7 +177,7 @@ Normally they give results of type [`VelocityResult`](/docs/documentation-defaul
 
 ## Movement Systems
 
-**Movement System** (in the [Minimal Setup](/docs/getting-started/minimal-set-up) section [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement)) takes a look the entity's current velocity [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Combiner#desiredvelocitycomponent) and calculates a new [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) which will move the entity. They are a separate systems from implementations of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem).
+**Movement System** (in the [Minimal Setup](/docs/getting-started/minimal-set-up) section [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement)) takes a look the entity's current velocity [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/merger#desiredvelocitycomponent) and calculates a new [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) which will move the entity. They are a separate systems from implementations of [`BaseSteeringSystem`](/docs/documentation-core/base-system/BaseSteeringSystem).
 
   <video controls width="800">
     <source src={useBaseUrl("/videos/MovementSystem.mp4")} type="video/mp4" />

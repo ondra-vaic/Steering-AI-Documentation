@@ -20,7 +20,7 @@ public struct SampleEntityTagComponent : IComponentData {}
 
 ## JobWrapperAttribute
 
-Declares that a job wrapper requires an entity to have a specific [component](/docs/documentation-core/components/intro). Used when implementing a [behavior](/docs/category/behaviors), [query](/docs/category/queries) or a [combiner](/docs/documentation-core/combiner#attributes). In case of [`INeighborBehaviorJobWrapper`](/docs/documentation-core/behaviors/neighbor-behaviors/), the second parameter declares which component the neighbor should have. There are also overloads to handle arrays of components. The component dependencies can then be displayed and resolved in the [editor](/docs/documentation-core/editor).
+Declares that a job wrapper requires an entity to have a specific [component](/docs/documentation-core/components/intro). Used when implementing a [behavior](/docs/category/behaviors), [query](/docs/category/queries) or a [merger](/docs/documentation-core/merger#attributes). In case of [`INeighborBehaviorJobWrapper`](/docs/documentation-core/behaviors/neighbor-behaviors/), the second parameter declares which component the neighbor should have. There are also overloads to handle arrays of components. The component dependencies can then be displayed and resolved in the [editor](/docs/documentation-core/editor).
 
 ```csharp title="MultiHomingJobWrapper.cs"
 // highlight-next-line
@@ -32,7 +32,7 @@ public class MultiHomingJobWrapper : INeighborBehaviorJobWrapper { }
 
 ## OutDataAttribute
 
-This attribute should mark all [behavior](/docs/category/behaviors) job wrappers and the [combiner](/docs/documentation-core/combiner). For behaviors, it declares type of data structure the behavior allocates and writes results to. In case of the combiner, it declares which type(s) of data structure(s) returned from the behavior job wrappers it can accept. After selecting a combiner in the [editor](/docs/documentation-core/editor), all dropdowns are refreshed to only offer behaviors whose output result type is compatible with the combiner. 
+This attribute should mark all [behavior](/docs/category/behaviors) job wrappers and the [merger](/docs/documentation-core/merger). For behaviors, it declares type of data structure the behavior allocates and writes results to. In case of the merger, it declares which type(s) of data structure(s) returned from the behavior job wrappers it can accept. After selecting a merger in the [editor](/docs/documentation-core/editor), all dropdowns are refreshed to only offer behaviors whose output result type is compatible with the merger. 
 
 ```csharp title="MultiHomingJobWrapper.cs"
 // highlight-next-line
@@ -44,10 +44,10 @@ public class MultiHomingJobWrapper : INeighborBehaviorJobWrapper { }
 
 ```csharp title="CombineVelocitiesJobWrapper.cs"
 // highlight-next-line
-// Lets the editor know that this combiner accepts VelocityResults
+// Lets the editor know that this merger accepts VelocityResults
 // highlight-next-line
 [OutData(typeof(VelocityResults))]
-public class CombineVelocitiesJobWrapper : ICombineJobWrapper { }
+public class CombineVelocitiesJobWrapper : IMergeJobWrapper { }
 ```
 
 ## ComponentAuthoringAttribute
