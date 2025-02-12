@@ -78,7 +78,6 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     **FlockingBehaviorsSteeringAsset**:
     - ***Main Tag*** - `_6_SampleBehaviorsTagComponent`
     - ***Neighbor Behaviors*** - [[`CohesionJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), [`AlignmentJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment), [`SeparationJobWrapper`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation)]
-    - ***Simple Behaviors*** - [[`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward)]
     - ***Prefab*** - *EntityFlocking*
 
     :::note
@@ -89,14 +88,6 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
 
     <img src={useBaseUrl("/img/samples/flocking/Asset.png")} alt="Description of the image"/>
 
-    **Simple Behaviors**
-
-    :::warning
-    [`GoForwardJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward) makes entity keep movement direction with constant speed. It is crucial to have at least one behavior which returns [`VelocityResult`](/docs/documentation-defaults/behaviors/VelocityResult) with positive `DesiredSpeed` and `SpeedDesire`. Otherwise the entities will not move anywhere.
-    :::
-    
-    <img src={useBaseUrl("/img/samples/flocking/Asset2.png")} alt="Description of the image"/>
-
   </TabItem>
   
   <TabItem value="third" label="Prefab"> 
@@ -105,7 +96,6 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent)
     - [`AlignmentAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/alignment#alignmentcomponent)
     - [`SeparationAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/separation#separationcomponent)
-    - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
 
     **Other Components**:
     - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
@@ -217,10 +207,10 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     <img src={useBaseUrl("/img/samples/flocking/3d/Asset2.png")} alt="Description of the image"/>
 
   </TabItem>
-  
+   
   <TabItem value="third" label="Prefab"> 
     
-    **Behavior Components**:
+    **Behavior Components**: 
     - [`GoForwardAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/go-foward#goforwardcomponent)
     - [`AlignUpAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/align-up#alignupcomponent)
     - [`CohesionAuthoring`](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion#cohesioncomponent)
@@ -235,7 +225,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     
     <img src={useBaseUrl("/img/samples/flocking/3d/Prefab.png")} alt="Description of the image"/>
 
-  </TabItem>
+  </TabItem> 
 </Tabs>
 ----
 
@@ -264,7 +254,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - ***Prefab*** - *EntityFlocking*
 
     **Neighbor Behaviors**
-
+ 
     <img src={useBaseUrl("/img/samples/flocking/25d/Asset.png")} alt="Description of the image"/>
 
     **Simple Behaviors**
@@ -292,7 +282,7 @@ The first folder - *1. Behaviors* contains a scene for each behavior where the b
     - [`KinematicBodyAuthoring`](/docs/documentation-defaults/movement/collision-resolution)
     
     <img src={useBaseUrl("/img/samples/flocking/25d/Prefab.png")} alt="Description of the image"/>
-
+ 
   </TabItem>
 </Tabs>
 ----
