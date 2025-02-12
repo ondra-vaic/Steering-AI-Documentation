@@ -1,21 +1,21 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# 4. 2.5D Movement
+# 5. 2.5D Movement
 
 <video controls width="800">
   <source src={useBaseUrl("/videos/samples/25d/video.mp4")} type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
-*Entity following a path along terrain smoothly.*
+*Entity following a path along terrain smoothly.* 
 
-This sample shows usage of [`Move25DSystem`](/docs/documentation-defaults/movement/2_25D-movement). This system allows movement on ground. Paired with [`CollideAndSlideSystem`](/docs/documentation-defaults/movement/collision-resolution) it is similar to Unity's [`CharacterController`](https://docs.unity3d.com/ScriptReference/CharacterController.html). It handles steps and gradual speeding up and down depending on whether the entity travels up- or down-hill. The [`CollideAndSlideSystem`](/docs/documentation-defaults/movement/collision-resolution) makes sure the entity does not travel through colliders. It can also be used with other *Movement Systems*, it's usage shown in the [next sample](/docs/samples/collisions). 
+This sample shows usage of [`Move25DSystem`](/docs/documentation-defaults/movement/2_25D-movement). This system allows movement on ground. Paired with [`CollideAndSlideSystem`](/docs/documentation-defaults/movement/collision-resolution) it is similar to Unity's [`CharacterController`](https://docs.unity3d.com/ScriptReference/CharacterController.html). It handles steps and gradual speeding up and down depending on whether the entity travels up- or down-hill. The [`CollideAndSlideSystem`](/docs/documentation-defaults/movement/collision-resolution) makes sure the entity does not travel through colliders. It can also be used with other *Movement Systems*, it's usage shown in the [collisions sample](/docs/samples/collisions). 
 
 ![Minimal Setup folder](/img/samples/25d/Folder.png)
 
