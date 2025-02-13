@@ -10,11 +10,11 @@ Makes the entities avoid ground.
 
 ## AvoidGroundJob
 
-The behavior expects that the ray query cast rays downwards. It can work with multiple rays, but a single ray downward using the [`DownSingleCreateRaysJobWrapper`](/docs/documentation-defaults/queries/ray-queries/down-single-create-rays) should be sufficient. The behavior always gives direction straight up. The strength grows as the average hit distance of the rays decreases.
+The behavior expects that the ray query cast rays downwards. It can work with multiple rays, but a single ray downward using the [`DownSingleCreateRaysJobWrapper`](/docs/documentation-defaults/queries/ray-queries/down-single-create-rays) should be sufficient. The behavior always gives direction straight up. The strength grows as the distance to the closest hit decreases.
 
 This behavior outputs the following: 
 - `DesiredDirection` - `new float(0, 1, 0)` *(constant)*
-- `DirectionDesire` - From `0` to `DirectionStrength` as average distance to hit goes from `MaxDistance` to `0`.
+- `DirectionDesire` - From `0` to `DirectionStrength` as minimum distance to hit goes from `MaxDistance` to `0`.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*

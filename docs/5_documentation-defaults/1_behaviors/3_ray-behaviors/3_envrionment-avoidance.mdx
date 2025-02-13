@@ -10,11 +10,11 @@ Makes the entities avoid all collisions with the environment.
 
 ## EnvironmentAvoidanceJob
 
-Internally the behavior determines one hit as the most 'dangerous', and makes the entity move in a direction of the hit's normal. The hit is thought of as more dangerous the closer it is, and the more the ray aligns with the current direction of movement.
+Internally, the behavior calculates a weighted sum of hit normals. The weight of each hit is higher the closer it is, and the more it is directly in front of the entity. The behavior gives this direction. The strength of the behavior grows larger the closer the nearest hit is.
 
 This behavior outputs the following: 
-- `DesiredDirection` - Normal of the most 'dangerous' hit.
-- `DirectionDesire` - `0` to `DirectionStrength` as the distance to the hit and angle between the ray go to `0`.
+- `DesiredDirection` - Weighted sum of hits' normals.
+- `DirectionDesire` - `0` to `DirectionStrength`, as distance to the nearest hit decreases.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*

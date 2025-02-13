@@ -15,8 +15,8 @@ This behavior proved to be useful especially for fish in the [last sample](/docs
 ## AvoidVerticalWallsJob
 
 This behavior outputs the following: 
-- `DesiredDirection` - `float.zero` *(constant)*
-- `DirectionDesire` - `0` *(constant)*
+- `DesiredDirection` - Weighted sum of hits' normals projected on world up.
+- `DirectionDesire` - `0` to `DirectionStrength`, as distance to the nearest hit decreases, and the average slope of the hits' surface goes from 0 to 90 degrees.
 - `DesiredSpeed` - `0` *(constant)*
 - `SpeedDesire` - `0` *(constant)*
 - `Priority` -  `Priority` *(constant)*
