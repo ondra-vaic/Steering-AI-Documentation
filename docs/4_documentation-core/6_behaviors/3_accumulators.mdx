@@ -22,7 +22,7 @@ foreach entity in entities:
 
 ## Example 
 
-For example to create a [cohesion behavior](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), a [centroid](https://en.wikipedia.org/wiki/Centroid) (average position) of all neighbors is calculated first. This could be implemented with the following implementation of `IAccumulator` and `INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>`.
+For example, to create a [cohesion behavior](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion), a [centroid](https://en.wikipedia.org/wiki/Centroid) (average position) of all neighbors is calculated first. This could be implemented with the following implementation of `IAccumulator` and `INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>`.
 
 :::note
 The [implementation](/docs/documentation-defaults/behaviors/neighbor-behaviors/cohesion) in the [defaults library](/docs/category/documentation-defaults) actually uses [weighted average](https://en.wikipedia.org/wiki/Weighted_arithmetic_mean) of positions. For the sake of simplicity, average of positions ([centroid](https://en.wikipedia.org/wiki/Centroid)) is used in the following example.
@@ -54,10 +54,10 @@ public struct CentroidAccumulator : IAccumulator
 
 struct CohesionJob : INeighborBehaviorJob<C1, C2, SimpleAccumulator, VelocityResult>
 {
-    public void Execute(in NeighborBehaviorData<C1, C2> behaviorData, ref CentroidAccumulator accumulator)
+    public void Execute(in NeighborBehaviorData<C1, C2> pair, ref CentroidAccumulator accumulator)
     {
         // pass in position of the neighbor
-        accumulator.Add(behaviorData.OtherEntity.Position);
+        accumulator.Add(pair.OtherEntity.Position);
     }
     
     public VelocityResult Finalize(in EntityInformation<C1> entity, in CentroidAccumulator accumulator)

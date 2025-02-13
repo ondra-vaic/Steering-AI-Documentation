@@ -28,17 +28,17 @@ public class DebugRayJobWrapper : IRaycastBehaviorJobWrapper
 {
     public JobHandle Schedule(
         SystemBase systemBase,
-        in RaycastBehaviorParams neighborBehaviorParams,
+        in RaycastBehaviorParams rayBehaviorParams,
         out IDelayedDisposable results,
         in JobHandle dependency)
     {
-        results = new VelocityResults(neighborBehaviorParams.BaseBehaviorParams.EntityCount);
+        results = new VelocityResults(rayBehaviorParams.MainBaseParams.EntityCount);
         var outDependency = new DebugRayJob().Schedule<
             DebugRayJob, 
             DebugRayComponent, 
             NoneAccumulator, 
             NoneAccumulator, 
-            VelocityResult>(systemBase, neighborBehaviorParams, (VelocityResults)results, 1, dependency);
+            VelocityResult>(systemBase, rayBehaviorParams, (VelocityResults)results, 1, dependency);
         return outDependency;
     }
 }
@@ -72,10 +72,10 @@ The correct way to match the type arguments with generic parameters to `IRaycast
 struct DebugRayJob : IRaycastBehaviorJob<DebugRayComponent, NoneAccumulator, NoneAccumulator, VelocityResult>
 {
     public void OnHit(
-        in EntityInformation<DebugRayComponent> behaviorData,
-        in RayData ray,
-        in RaycastHit raycastHit,
-        ref NoneAccumulator accumulator)
+        in EntityInformation<DebugRayComponent> entity,
+        in RayData rayData,
+        in RaycastHit hit,
+        ref NoneAccumulator hitA)
     // highlight-start
     {
         // Accumulate something from rays that hit the environment into accumulator
@@ -84,23 +84,23 @@ struct DebugRayJob : IRaycastBehaviorJob<DebugRayComponent, NoneAccumulator, Non
     // highlight-end
 
     public void OnMiss(
-        in EntityInformation<DebugRayComponent> behaviorData, 
-        in RayData ray, 
-        ref NoneAccumulator accumulator)
+        in EntityInformation<DebugRayComponent> entity, 
+        in RayData rayData, 
+        ref NoneAccumulator missA)
     // highlight-start
     {
         // Accumulate something from rays that missed the environment into accumulator
         DebugDraw.DrawArrow(
-            behaviorData.Position,
-            behaviorData.Position + ray.Direction * rayData.MaxDistance, 
+            entity.Position,
+            entity.Position + rayData.Direction * rayData.MaxDistance, 
             Color.green);
     }
     // highlight-end
 
     public VelocityResult Finalize(
         in EntityInformation<DebugRayComponent> entity,
-        in NoneAccumulator hitAccumulator,
-        in NoneAccumulator missAccumulator)
+        in NoneAccumulator hitA,
+        in NoneAccumulator missA)
     // highlight-start
     {
         // Based on the accumulators, return a VelocityResult which tells which way to go

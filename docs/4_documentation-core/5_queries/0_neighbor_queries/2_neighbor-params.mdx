@@ -11,8 +11,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ```csharp title="INeighborQueryJobWrapper.cs"
 public struct NeighborQueryParams
 {
-    public BaseBehaviorParams BaseBehaviorParams; // the entities which are looking for neighbors
-    public BaseBehaviorParams OtherBehaviorParams; // the entities which are potential neighbors
+    public BaseBehaviorParams MainBaseParams; // the entities which are looking for neighbors
+    public BaseBehaviorParams OtherBaseParams; // the entities which are potential neighbors
     public NeighborhoodSettings NeighborhoodSettings; // information about the query
 }
 ```

@@ -27,19 +27,19 @@ public class GoForwardJobWrapper : ISimpleBehaviorJobWrapper
 {
     public JobHandle Schedule(
         SystemBase systemBase,
-        in BaseBehaviorParams baseBehaviorParams,
+        in BaseBehaviorParams mainBaseParams,
         out IDelayedDisposable results,
         in JobHandle dependency)
     {
         // Create new object to hold the results, should be same as declared in OutData
-        results = new VelocityResults(baseBehaviorParams.EntityCount);
+        results = new VelocityResults(mainBaseParams.EntityCount);
             
         // Scheduling GoForwardJob
         var outDependency = new GoForwardJob
         {
         }.Schedule<GoForwardJob, GoForwardComponent, VelocityResult>(
             systemBase,
-            baseBehaviorParams,
+            mainBaseParams,
             (VelocityResults)results,
             1,
             dependency);

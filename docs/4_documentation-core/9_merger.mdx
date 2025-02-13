@@ -21,7 +21,7 @@ public class CombineVelocitiesJobWrapper : IMergeJobWrapper
 {
     public JobHandle Schedule(
         SystemBase system,
-        in BaseBehaviorParams baseBehaviorParams,
+        in BaseBehaviorParams mainBaseParams,
         in IDelayedDisposable[] results,
         JobHandle dependency) { ... }
 }
@@ -37,6 +37,6 @@ This job wrapper uses two [attributes](/docs/documentation-core/attributes). Fir
 - [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) - Declares the type of [components](/docs/documentation-core/components/intro) (**final result**) which should be present on the entity, above [`DesiredVelocityComponent`](/docs/documentation-defaults/merger#desiredvelocitycomponent).
 
 
-## Behavior Merger Compatibility
+## Behavior - Merger Compatibility
 
 If a merger is declared as accepting [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult) and a behavior as outputting [`VelocityResults`](/docs/documentation-defaults/behaviors/VelocityResult), then they are compatible. When a merger is selected in the [editor](/docs/documentation-core/editor), only compatible behaviors will be shown as possibilities. This prevents issues when casting from the `IDelayedDisposable`. As usual, the [editor](/docs/documentation-core/editor) will also add whichever [component](/docs/documentation-core/components/intro) is declared in the [`[JobWrapper]`](/docs/documentation-core/attributes#jobwrapperattribute) as the entity's dependency. 

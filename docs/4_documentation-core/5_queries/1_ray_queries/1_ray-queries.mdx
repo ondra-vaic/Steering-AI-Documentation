@@ -20,7 +20,6 @@ public class MyCreateRaysJobWrapper : ICreateRaysJobWrapper
     public JobHandle Schedule(
         SystemBase systemBase,
         in CreateRaysParams createRaysParams,
-        in NativeArray<RayCommand> raycastCommands,
         in NativeArray<RayData> rayDatas,
         JobHandle dependency)
     {
@@ -29,7 +28,6 @@ public class MyCreateRaysJobWrapper : ICreateRaysJobWrapper
             MaxDistance = createRaysParams.RaySettings.MaxDistance,
         }.Schedule(
             createRaysParams,
-            raycastCommands,
             rayDatas,
             1,
             dependency);
@@ -39,7 +37,7 @@ public class MyCreateRaysJobWrapper : ICreateRaysJobWrapper
 
 ## ICreateRaysJob
 
-`ICreateRaysJob` is a custom job which makes implementing a job to create rays easier. It's `Execute` method will be called `NumRays` times with indexes from `0` to `NumRays - 1` for each entity. The function should return the origin, direction and maximum distance of a ray to cast. Internally, the job makes sure that `raycastCommands` and `rayDatas` are filled in format expected by [ray behaviors](/docs/documentation-core/behaviors/ray-behaviors/overview).
+`ICreateRaysJob` is a custom job which makes implementing a job to create rays easier. It's `Execute` method will be called `NumRays` times with indexes from `0` to `NumRays - 1` for each entity. The function should return the origin, direction and maximum distance of a ray to cast. Internally, the job makes sure that `rayDatas` are filled in format expected by [ray behaviors](/docs/documentation-core/behaviors/ray-behaviors/overview).
 
 ```csharp title="MyNeighborQueryJobWrapper.cs"
 [BurstCompile]
