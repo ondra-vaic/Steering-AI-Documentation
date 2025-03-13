@@ -1,5 +1,12 @@
-# Steering AI Documentation
+The documentation is online at: 
+https://ondra-vaic.github.io/Steering-AI-Documentation/docs/intro
 
-**Steering AI** is a Unity package for creation of *Steering Behaviors* like for example *Flocking*.
+-------------------------------------------------------------------
+To run the documentation locally:
 
-***If you are reading this, the package is not yet released anywhere.***
+1) Download and install nodejs from: https://nodejs.org/en
+   - in cmd run: `node -v`, `npm -v`, to verify node and npm is installed
+2) Install dependencies
+   - in cmd run: `npm install`
+3) Start the website 
+   - in cmd run: `npm run start`

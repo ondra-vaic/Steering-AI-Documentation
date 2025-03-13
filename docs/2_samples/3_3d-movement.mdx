@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This sample shows usage of [`Move3DSystem`](/docs/documentation-defaults/movement/1_3D-movement) in the same way as the [previous sample](/docs/samples/2_2d-movement). The main difference to [`Movement2DSystem`](/docs/documentation-defaults/movement/0_2D-movement) is that the entities bank into turns when using [`Move3DSystem`](/docs/documentation-defaults/movement/1_3D-movement). The main focus of this sample is to show different options for `RotationOptions3D` and `BankingGravity` which control the banking. Other properties like `MaxSpeed` will be familiar from the 2D case. 
 
-In the video, the yellow and green arrows show [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/merger#desiredvelocitycomponent) with green and yellow arrows respectively. The other arrows visualize the orientation. The blue arrows show the current forward and up directions, the red arrows show the target forward and up directions. Higher values for `RotationOptions3D.RotationSpeed` and `RotationOptions3D.RollRotationSpeed` change how fast the current orientation matches the target in the seperate axis. `BankingGravity` affects how far the entity tilts. You can observe lower `BankingGravity` in the second part of the video on the blue ship.
+In the video, the yellow and green arrows show [`VelocityComponent`](/docs/documentation-core/base-system/steering-entity) and [`DesiredVelocityComponent`](/docs/documentation-defaults/Merger#desiredvelocitycomponent) with green and yellow arrows respectively. The other arrows visualize the orientation. The blue arrows show the current forward and up directions, the red arrows show the target forward and up directions. Higher values for `RotationOptions3D.RotationSpeed` and `RotationOptions3D.RollRotationSpeed` change how fast the current orientation matches the target in the seperate axis. `BankingGravity` affects how far the entity tilts. You can observe lower `BankingGravity` in the second part of the video on the blue ship.
 
 ![Minimal Setup folder](/img/samples/3d/Folder.png)
 
@@ -48,7 +48,7 @@ In the video, the yellow and green arrows show [`VelocityComponent`](/docs/docum
 
     **Other Components**:
     - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
-    - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/merger#desiredvelocitycomponent)
+    - [`DesiredVelocityAuthoring`](/docs/documentation-defaults/Merger#desiredvelocitycomponent)
     - [`Movement3DAuthoring`](/docs/documentation-defaults/movement/1_3D-movement)
     
     <img src={useBaseUrl("/img/samples/3d/Prefab.png")} alt="Description of the image"/>
