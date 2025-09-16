@@ -9,8 +9,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'SteeringAI',
-  tagline: 'Framework for Steering and Flocking Behaviors, written in Unity ECS.',
-  favicon: 'img/favicon.ico',
+  tagline: 'High-Performance Steering and Flocking Framework Powered by Unity DOTS.',
+  favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
   url: 'https://ondra-vaic.github.io',
@@ -74,8 +74,8 @@ const config = {
       navbar: {
         title: 'SteeringAI',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'SteeringAI Logo',
+          src: 'img/favicon.svg',
         },
         items: [
           {

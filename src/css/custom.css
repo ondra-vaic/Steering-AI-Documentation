@@ -4,31 +4,340 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Landing page inspired theme variables */
 :root {
-  --ifm-color-primary: #1574c2;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary colors matching landing page gradient */
+  --ifm-color-primary: #667eea;
+  --ifm-color-primary-dark: #5a6fd8;
+  --ifm-color-primary-darker: #5469ce;
+  --ifm-color-primary-darkest: #4556aa;
+  --ifm-color-primary-light: #728dfc;
+  --ifm-color-primary-lighter: #7c97fc;
+  --ifm-color-primary-lightest: #96b0ff;
+  
+  /* Background colors matching landing page */
+  --ifm-background-color: #0f0f23;
+  --ifm-background-surface-color: #1a1a2e;
+  
+  /* Text colors - ensuring readability */
+  --ifm-font-color-base: #e2e8f0;
+  --ifm-font-color-secondary: #cbd5e1;
+  --ifm-heading-color: #ffffff;
+  
+  /* Code styling */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-code-background: rgba(255, 255, 255, 0.05);
+  --ifm-code-color: #e2e8f0;
+  --docusaurus-highlighted-code-line-bg: rgba(102, 126, 234, 0.1);
+  
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(15, 15, 35, 0.95);
+  --ifm-navbar-link-color: #e2e8f0;
+  --ifm-navbar-link-hover-color: #667eea;
+  
+  /* Footer */
+  --ifm-footer-background-color: #0f0f23;
+  --ifm-footer-color: #cbd5e1;
+  
+  /* Cards and surfaces */
+  --ifm-card-background-color: rgba(255, 255, 255, 0.05);
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.1);
+  
+  /* Buttons */
+  --ifm-button-border-radius: 12px;
+  --ifm-button-font-weight: 600;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark theme (default) */
 [data-theme='dark'] {
-  --ifm-color-primary: #46acff;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #667eea;
+  --ifm-color-primary-dark: #5a6fd8;
+  --ifm-color-primary-darker: #5469ce;
+  --ifm-color-primary-darkest: #4556aa;
+  --ifm-color-primary-light: #728dfc;
+  --ifm-color-primary-lighter: #7c97fc;
+  --ifm-color-primary-lightest: #96b0ff;
+  
+  --ifm-background-color: #0f0f23;
+  --ifm-background-surface-color: #1a1a2e;
+  --ifm-font-color-base: #e2e8f0;
+  --ifm-font-color-secondary: #cbd5e1;
+  --ifm-heading-color: #ffffff;
+  
+  --ifm-code-background: rgba(255, 255, 255, 0.05);
+  --ifm-code-color: #e2e8f0;
+  --docusaurus-highlighted-code-line-bg: rgba(102, 126, 234, 0.2);
+  
+  --ifm-navbar-background-color: rgba(15, 15, 35, 0.95);
+  --ifm-navbar-link-color: #e2e8f0;
+  --ifm-navbar-link-hover-color: #667eea;
+  
+  --ifm-footer-background-color: #0f0f23;
+  --ifm-footer-color: #cbd5e1;
+  
+  --ifm-card-background-color: rgba(255, 255, 255, 0.05);
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] .invert-for-dark {
+/* Force dark theme - no light mode */
+[data-theme='light'] {
+  --ifm-color-primary: #667eea;
+  --ifm-color-primary-dark: #5a6fd8;
+  --ifm-color-primary-darker: #5469ce;
+  --ifm-color-primary-darkest: #4556aa;
+  --ifm-color-primary-light: #728dfc;
+  --ifm-color-primary-lighter: #7c97fc;
+  --ifm-color-primary-lightest: #96b0ff;
+  
+  --ifm-background-color: #0f0f23;
+  --ifm-background-surface-color: #1a1a2e;
+  --ifm-font-color-base: #e2e8f0;
+  --ifm-font-color-secondary: #cbd5e1;
+  --ifm-heading-color: #ffffff;
+  
+  --ifm-code-background: rgba(255, 255, 255, 0.05);
+  --ifm-code-color: #e2e8f0;
+  --docusaurus-highlighted-code-line-bg: rgba(102, 126, 234, 0.2);
+  
+  --ifm-navbar-background-color: rgba(15, 15, 35, 0.95);
+  --ifm-navbar-link-color: #e2e8f0;
+  --ifm-navbar-link-hover-color: #667eea;
+  
+  --ifm-footer-background-color: #0f0f23;
+  --ifm-footer-color: #cbd5e1;
+  
+  --ifm-card-background-color: rgba(255, 255, 255, 0.05);
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Global body styling */
+body {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  color: #e2e8f0;
+}
+
+/* Navbar styling */
+.navbar {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.navbar__link {
+  transition: color 0.3s ease;
+  color: #e2e8f0;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Main content area */
+.main-wrapper {
+  background: transparent;
+}
+
+/* Cards and containers */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: #e2e8f0;
+}
+
+/* Code blocks */
+.prism-code {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+/* Tables */
+table {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  color: #e2e8f0;
+}
+
+table th {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+table td {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+/* Sidebar */
+.theme-doc-sidebar-container {
+  background: rgba(15, 15, 35, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-doc-sidebar-item-link {
+  color: #cbd5e1;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  margin: 2px 0;
+}
+
+.theme-doc-sidebar-item-link:hover {
+  color: #e2e8f0;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.theme-doc-sidebar-item-link--active {
+  color: var(--ifm-color-primary);
+  background: rgba(102, 126, 234, 0.15);
+  font-weight: 600;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs__link {
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Pagination */
+.pagination-nav {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.pagination-nav__link {
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+/* TOC */
+.table-of-contents {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.table-of-contents__link {
+  color: #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__title {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer__link-item {
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Heading styles for better visibility */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Chapter overview headings */
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+  color: #ffffff !important;
+}
+
+/* Ensure all text is readable */
+p, li, span, div {
+  color: #e2e8f0;
+}
+
+/* Links */
+a {
+  color: var(--ifm-color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+/* Utility classes */
+.invert-for-dark {
   filter: invert(1) brightness(0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .theme-doc-sidebar-container {
+    background: rgba(15, 15, 35, 0.95);
+  }
 }
