@@ -12,16 +12,13 @@ const config = {
   tagline: 'High-Performance Steering and Flocking Framework Powered by Unity DOTS.',
   favicon: 'img/favicon.svg',
 
-  // Set the production url of your site here
-  url: 'https://ondra-vaic.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-
+  url: 'https://steeringai.ondrejvaic.com',
+  baseUrl: '/',  // root for custom domain
+  
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'ondra-vaic', // Usually your GitHub org/user name.
-  projectName: 'Steering-AI-Documentation', // Usually your repo name.
+  projectName: 'Steering-AI-Documentation',
   trailingSlash: false,
   
   onBrokenLinks: 'throw',
