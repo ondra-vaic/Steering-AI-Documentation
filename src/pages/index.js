@@ -28,7 +28,7 @@ function VideoSection() {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/5KR1cyjmYlo"
+              src="https://www.youtube.com/embed/5KR1cyjmYlo?hd=1&vq=hd1080&rel=0&modestbranding=1&showinfo=0"
               title="SteeringAI Demo"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
