@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'SteeringAI',
-  tagline: 'Create intelligent, lifelike movement behaviors with Unity ECS. No coding required.',
+  tagline: 'Framework for Steering and Flocking Behaviors, written in Unity ECS.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

@@ -5,44 +5,23 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
-function HomepageHeader() {
+function VideoSection() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero', styles.heroBanner)}>
-      <div className={styles.heroBackground}></div>
+    <section className={styles.videoSection}>
       <div className="container">
-        <div className={styles.heroContent}>
-          <Heading as="h1" className={styles.heroTitle}>
+        <div className={styles.sectionHeader}>
+          <Heading as="h1" className={styles.mainTitle}>
             {siteConfig.title}
           </Heading>
-          <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
+          <p className={styles.mainSubtitle}>{siteConfig.tagline}</p>
+          <div className={styles.headerButton}>
             <Link
               className={styles.primaryButton}
               to="/docs/intro">
               Get Started
             </Link>
-            <Link
-              className={styles.secondaryButton}
-              to="#demo">
-              Watch Demo
-            </Link>
           </div>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function VideoSection() {
-  return (
-    <section id="demo" className={styles.videoSection}>
-      <div className="container">
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>See SteeringAI in Action</h2>
-          <p className={styles.sectionSubtitle}>
-            Watch how easy it is to create complex steering behaviors with our visual editor and ECS-powered performance.
-          </p>
         </div>
         <div className={styles.videoContainer}>
           <div className={styles.videoWrapper}>
@@ -59,19 +38,34 @@ function VideoSection() {
         </div>
         <div className={styles.featuresGrid}>
           <div className={styles.feature}>
-            <div className={styles.featureIcon}>🎮</div>
+            <div className={styles.featureIcon}>🖥️</div>
             <h3>Visual Editor</h3>
-            <p>Create behaviors without writing a single line of code</p>
+            <p>Design Flocking and Steering Systems through GUI, ng required.</p>
           </div>
           <div className={styles.feature}>
             <div className={styles.featureIcon}>⚡</div>
-            <h3>ECS Performance</h3>
-            <p>Built on Unity's ECS for maximum performance</p>
+            <h3>DOTS Performance</h3>
+            <p>Built on Unity's ECS, Jobs, and Burst Compiler for maximum performance.</p>
           </div>
           <div className={styles.feature}>
             <div className={styles.featureIcon}>🔧</div>
-            <h3>Extensible</h3>
-            <p>Create custom behaviors that integrate seamlessly</p>
+            <h3>Extensible Framework</h3>
+            <p>Create custom behaviors that automatically integrate with the visual editor and parallel job system.</p>
+          </div>
+          <div className={styles.feature}>
+            <div className={styles.featureIcon}>🐦</div>
+            <h3>Flocking Behaviors</h3>
+            <p>Complete flocking simulation with cohesion, alignment, separation, seeking, and fleeing behaviors.</p>
+          </div>
+          <div className={styles.feature}>
+            <div className={styles.featureIcon}>🧭</div>
+            <h3>Library of Behaviors</h3>
+            <p>Path following, wandering, homing, collision avoidance, and more.</p>
+          </div>
+          <div className={styles.feature}>
+            <div className={styles.featureIcon}>🏃</div>
+            <h3>Fast Character Controller</h3>
+            <p>High-performance 2D, 3D, and 2.5D movement systems with collision resolution.</p>
           </div>
         </div>
       </div>
@@ -84,8 +78,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Create intelligent, lifelike movement behaviors with Unity ECS. No coding required.">
-      <HomepageHeader />
+      description="Framework for Steering and Flocking Behaviors, written in Unity ECS.">
       <main>
         <VideoSection />
       </main>

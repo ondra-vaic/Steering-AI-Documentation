@@ -3,43 +3,21 @@
  * and scoped locally.
  */
 
-.heroBanner {
+.videoSection {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
 }
 
-.heroBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(1deg); }
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
+.sectionHeader {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 0;
+  margin-bottom: 2.5rem;
 }
 
-.heroTitle {
+.mainTitle {
   font-size: 4rem;
   font-weight: 800;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -50,38 +28,48 @@
   animation: fadeInUp 1s ease-out;
 }
 
-.heroSubtitle {
+.mainSubtitle {
   font-size: 1.5rem;
   color: #e2e8f0;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
   animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-.buttons {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.headerButton {
   animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .primaryButton {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
+  padding: 1.2rem 3rem;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
   border: none;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .primaryButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
   color: white;
   text-decoration: none;
 }
@@ -105,57 +93,17 @@
   text-decoration: none;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.videoSection {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  position: relative;
-}
-
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.sectionTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #e2e8f0;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.sectionSubtitle {
-  font-size: 1.2rem;
-  color: #94a3b8;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
 
 .videoContainer {
   display: flex;
   justify-content: center;
-  margin-bottom: 5rem;
+  margin: 2.5rem 0;
 }
 
 .videoWrapper {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   aspect-ratio: 16/9;
   border-radius: 20px;
   overflow: hidden;
@@ -181,16 +129,17 @@
 
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .feature {
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 16px;
+  padding: 1.5rem;
+  border-radius: 12px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -204,33 +153,34 @@
 }
 
 .featureIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
   display: block;
 }
 
 .feature h3 {
   color: #e2e8f0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .feature p {
   color: #94a3b8;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 @media screen and (max-width: 996px) {
-  .heroTitle {
+  .mainTitle {
     font-size: 2.5rem;
   }
   
-  .heroSubtitle {
+  .mainSubtitle {
     font-size: 1.2rem;
   }
   
-  .buttons {
+  .actionButtons {
     flex-direction: column;
     align-items: center;
   }
@@ -242,19 +192,12 @@
   }
   
   .videoSection {
-    padding: 3rem 0;
-  }
-  
-  .sectionTitle {
-    font-size: 2rem;
-  }
-  
-  .sectionSubtitle {
-    font-size: 1rem;
+    padding: 2rem 0;
   }
   
   .featuresGrid {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
     gap: 1.5rem;
   }
 }
