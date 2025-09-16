@@ -60,6 +60,12 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
 
+      colorMode: {
+        defaultMode: 'dark', // or 'dark'
+        disableSwitch: true, // we'll keep this for now
+        respectPrefersColorScheme: false, // ignore user's system preference
+      },
+
       zoom: {
       selector: '.markdown :not(em) > img',
       config: {

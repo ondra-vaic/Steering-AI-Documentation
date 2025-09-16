@@ -112,9 +112,34 @@
 
 /* Global body styling */
 body {
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 30%, #16213e 70%, #0f0f23 100%);
   min-height: 100vh;
   color: #e2e8f0;
+}
+
+/* Ensure background extends to full height */
+html, body {
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 30%, #16213e 70%, #0f0f23 100%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Main wrapper background */
+.main-wrapper {
+  background: transparent;
+  min-height: 100vh;
+}
+
+/* Ensure all containers have transparent background */
+.container {
+  background: transparent;
+}
+
+/* Fix any dark grey backgrounds */
+.theme-doc-markdown {
+  background: transparent;
 }
 
 /* Navbar styling */
@@ -179,29 +204,13 @@ table td {
   color: #e2e8f0;
 }
 
-/* Sidebar */
-.theme-doc-sidebar-container {
-  background: rgba(15, 15, 35, 0.8);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Sidebar - smaller fonts */
 .theme-doc-sidebar-item-link {
-  color: #cbd5e1;
-  transition: all 0.3s ease;
-  border-radius: 6px;
-  margin: 2px 0;
+  font-size: 0.85rem;
 }
 
-.theme-doc-sidebar-item-link:hover {
-  color: #e2e8f0;
-  background: rgba(102, 126, 234, 0.1);
-}
-
-.theme-doc-sidebar-item-link--active {
-  color: var(--ifm-color-primary);
-  background: rgba(102, 126, 234, 0.15);
-  font-weight: 600;
+.theme-doc-sidebar-item-category {
+  font-size: 0.8rem;
 }
 
 /* Breadcrumbs */
