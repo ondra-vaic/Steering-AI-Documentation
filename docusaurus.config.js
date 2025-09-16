@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SteeringAI Documentation',
-  tagline: 'Unity package for all kinds of steering and flocking behaviors built with ECS.',
+  title: 'SteeringAI',
+  tagline: 'Create intelligent, lifelike movement behaviors with Unity ECS. No coding required.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
