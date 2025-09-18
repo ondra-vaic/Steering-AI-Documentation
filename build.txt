@@ -1,1 +1,2 @@
 cmd /C "set GIT_USER=ondra-vaic&& yarn deploy"
+then add CNAME record in github
