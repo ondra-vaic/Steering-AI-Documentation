@@ -349,4 +349,44 @@ a:hover {
   .theme-doc-sidebar-container {
     background: rgba(15, 15, 35, 0.95);
   }
+  
+  /* Make the mobile navbar sidebar only as tall as needed (with sensible cap) */
+  .navbar-sidebar {
+    top: 0 !important;
+    bottom: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    background: #0f0f23 !important; /* opaque */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    border-right: 1px solid rgba(255,255,255,0.08) !important;
+  }
+
+  .navbar-sidebar__inner {
+    display: block;
+    height: auto;
+    max-height: none;
+  }
+
+  .navbar-sidebar__brand {
+    min-height: var(--ifm-navbar-height, 3.75rem);
+  }
+
+  .navbar-sidebar__items {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Improve menu item aesthetics */
+  .navbar-sidebar__items .menu__link {
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .navbar-sidebar__items .menu__link:hover,
+  .navbar-sidebar__items .menu__link--active {
+    background: rgba(255,255,255,0.06);
+    color: var(--ifm-color-primary);
+  }
 }
