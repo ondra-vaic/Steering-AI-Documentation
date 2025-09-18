@@ -5,6 +5,19 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+function AssetStoreBanner() {
+  return (
+    <div className={styles.assetStoreBanner}>
+      <div className="container">
+        <div className={styles.bannerContent}>
+          <span className={styles.bannerIcon}>🎮</span>
+          <span className={styles.bannerText}>Coming Soon to Unity Asset Store</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function VideoSection() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -80,6 +93,7 @@ export default function Home() {
       title={`${siteConfig.title}`}
       description="Framework for Steering and Flocking Behaviors, written in Unity ECS.">
       <main>
+        <AssetStoreBanner />
         <VideoSection />
       </main>
     </Layout>
