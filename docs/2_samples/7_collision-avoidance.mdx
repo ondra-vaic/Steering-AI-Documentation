@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 *Three different entities use [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance), [`AvoidVerticalWallsJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls) and [`AvoidGroundJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground) respectively to avoid collisions with [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s. The green and red arrows show the raycasts done by the [Ray Queries](/docs/documentation-core/queries/ray_queries/overview), the orange arrow shows the [desired direction](/docs/documentation-defaults/behaviors/VelocityResult).*
 
-This is the first sample where [*Ray Behaviors*](/docs/documentation-core/behaviors/ray-behaviors/overview) are used. In the sample, entities follow [paths](/docs/documentation-defaults/utilities/path) while avoiding their environment. There are three behaviors which serve to avoid collisions - [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance), [`AvoidGroundJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground) and [`AvoidVerticalWallsJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls). To learn more about the differences between them, visit their documentation. The behaviors use [*Ray Queries*](/docs/documentation-core/queries/ray_queries/overview) like [`ConeCreateRaysJobWrapper`](/docs/documentation-defaults/queries/ray-queries/cone-create-rays) to detect [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.
+This is the first sample where [*Ray Behaviors*](/docs/documentation-core/behaviors/ray-behaviors/overview) are used. In the sample, entities follow paths while avoiding their environment. There are three behaviors which serve to avoid collisions - [`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance), [`AvoidGroundJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground) and [`AvoidVerticalWallsJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls). To learn more about the differences between them, visit their documentation. The behaviors use [*Ray Queries*](/docs/documentation-core/queries/ray_queries/overview) like [`ConeCreateRaysJobWrapper`](/docs/documentation-defaults/queries/ray-queries/cone-create-rays) to detect [`Collider`](https://docs.unity3d.com/ScriptReference/Collider.html)s.
 
 ![Minimal Setup folder](/img/samples/collision_avoidance/Folder.png)
 
@@ -34,7 +34,7 @@ This is the first sample where [*Ray Behaviors*](/docs/documentation-core/behavi
 
     **CollisionAvoidanceSystemAsset**:
     - ***Main Tag*** - `_7_SampleTagComponent`
-    - ***Simple Behaviors*** - [[`FollowPathJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path)]
+    - ***Simple Behaviors*** - [[`FollowPathSplineJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path)]
     - ***Ray Behaviors*** - [[`EnvironmentAvoidanceJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance), [`AvoidVerticalWallsJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls), [`AvoidGroundJobWrapper`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground)]
     - ***Prefab*** - *CollisionAvoidanceEntity*
 
@@ -55,7 +55,7 @@ This is the first sample where [*Ray Behaviors*](/docs/documentation-core/behavi
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
+    - [`FollowPathSplineAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
     - [`EnvironmentAvoidanceAuthoring`](/docs/documentation-defaults/behaviors/ray-behaviors/envrionment-avoidance#environmentavoidancecomponent)
     - [`AvoidVerticalWallsAuthoring`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-vertical-walls#avoidverticalwallscomponent)
     - [`AvoidGroundAuthoring`](/docs/documentation-defaults/behaviors/ray-behaviors/avoid-ground#avoidgroundcomponent)

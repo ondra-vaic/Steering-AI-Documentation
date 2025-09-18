@@ -24,7 +24,7 @@ In the video, the yellow and green arrows show [`VelocityComponent`](/docs/docum
 <Tabs>
   <TabItem value="first" label="Scene"> 
 
-    There are multiple copies of the *Movement3DEntity* prefab in the scene. The entities have different combinations of `RotationOptions3D.RotationSpeed`, `RotationOptions3D.RollRotationSpeed` and `BankingGravity`. All entities also have reference to the [`PathPoints`](/docs/documentation-defaults/utilities/path#pathpoints) object *Path* in their [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent).
+    There are multiple copies of the *Movement3DEntity* prefab in the scene. The entities have different combinations of `RotationOptions3D.RotationSpeed`, `RotationOptions3D.RollRotationSpeed` and `BankingGravity`.
 
     <img src={useBaseUrl("/img/samples/3d/Scene.png")} alt="Description of the image"/>
 
@@ -34,7 +34,7 @@ In the video, the yellow and green arrows show [`VelocityComponent`](/docs/docum
 
     **Movement3DSteeringAsset**:
     - ***Main Tag*** - `_3_SampleTagComponent`
-    - ***Simple Behaviors*** - [[`FollowPathJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path)]
+    - ***Simple Behaviors*** - [[`FollowPathSplineJobWrapper`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path)]
     - ***Prefab*** - *Movement3DEntity*
 
     <img src={useBaseUrl("/img/samples/3d/Asset.png")} alt="Description of the image"/>
@@ -44,7 +44,7 @@ In the video, the yellow and green arrows show [`VelocityComponent`](/docs/docum
   <TabItem value="third" label="Prefab"> 
     
     **Behavior Components**:
-    - [`FollowPathAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
+    - [`FollowPathSplineAuthoring`](/docs/documentation-defaults/behaviors/simple-behaviors/follow-path#followpathcomponent)
 
     **Other Components**:
     - [`SteeringEntityAuthoring`](/docs/documentation-core/base-system/steering-entity)
