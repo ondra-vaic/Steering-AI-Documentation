@@ -6,19 +6,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Installation
 
-Steering AI is split into four main folders, shown when importing in the image below.
+Steering AI is split into four main folders. 
 
-- [**Runtime/Core**](/docs/category/documentation-core) - The core of the framework, it must always be imported. It is responsible for taking [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) prepared in the [editor](/docs/documentation-core/editor) and running it's [jobs](https://docs.unity3d.com/Manual/job-system.html). 
-- [**Runtime/Defaults**](/docs/category/documentation-defaults) - Contains implementation of several [behaviors](/docs/category/behaviors-1) as well as [movement systems](/docs/category/movement) and other [utilities](/docs/category/utilities). This will be most likely be useful to import into any project unless you want to create all your behaviors from scratch.
-- [**Editor**](/docs/documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) in editor. 
-- [**ECS-Steering-Samples**](/docs/category/samples) - Contains sample scenes which showcase the usage of the framework with behaviors and movement systems from [Runtime/Defaults](/docs/category/documentation-defaults).
+- [_Packages/SteeringAI/Runtime/**Core**_](/docs/category/documentation-core) - The core of the framework. It is responsible for taking [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) prepared in the [editor](/docs/documentation-core/editor) and running its [jobs](https://docs.unity3d.com/Manual/job-system.html). 
+- [_Packages/SteeringAI/Runtime/**Defaults**_](/docs/category/documentation-defaults) - Contains implementation of several [behaviors](/docs/category/behaviors-1) as well as [movement systems](/docs/category/movement) and other [utilities](/docs/category/utilities).
+- [_Packages/SteeringAI/**Editor**_](/docs/documentation-core/editor) - Handles editting of the [`SteeringSystemAsset`](/docs/documentation-core/base-system/SteeringSystemAsset) in editor. 
+- [_Assets/Samples/**SteeringAI**_](/docs/category/samples) - Contains sample scenes which showcase the usage of the framework with behaviors and movement systems from [_**Defaults**_](/docs/category/documentation-defaults).
 
-## 1) Import
+## 1) Importing Samples
 
-Import with [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) and select which parts you need. After getting familiar with the [samples](/docs/category/samples), feel free to remove them.
+The samples can be imported in the package manager as shown below. 
 
-<img src={useBaseUrl("/img/installation.png")} alt="Description of the image"/>
-*Importing the package into Unity.*
+<img src={useBaseUrl("/img/importSamples.png")} alt="Description of the image"/>
 
 ## 2) Add a STEERING_DEBUG symbol
 
@@ -63,5 +62,5 @@ The samples use [`com.unity.entities.graphics`](https://docs.unity3d.com/Package
 
 ## 5) Test
 
-Open the [sample scene](/docs/samples/minimal-set-up) at `ECS-Steering-Samples/1. Minimal Set Up/SampleScene.unity` and run it. The entities in the scene should start moving forward.
+Open the [sample scene](/docs/samples/minimal-set-up) at `Samples/SteeringAI/1.0.0/SteeringAI Samples/1. Minimal Set Up/SampleScene.unity` and run it. The entities in the scene should start moving forward.
 
