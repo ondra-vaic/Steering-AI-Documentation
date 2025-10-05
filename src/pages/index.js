@@ -11,7 +11,7 @@ function AssetStoreBanner() {
       <div className="container">
         <div className={styles.bannerContent}>
           <span className={styles.bannerIcon}>🎮</span>
-          <span className={styles.bannerText}>Coming Soon to Unity Asset Store</span>
+          <span className={styles.bannerText}>Currently in Review on Unity Asset Store</span>
         </div>
       </div>
     </div>
