@@ -5,21 +5,8 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
-function AssetStoreBanner() {
-  return (
-    <div className={styles.assetStoreBanner}>
-      <div className="container">
-        <div className={styles.bannerContent}>
-          <span className={styles.bannerIcon}>🎮</span>
-          <span className={styles.bannerText}>Currently in Review on Unity Asset Store</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function VideoSection() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <section className={styles.videoSection}>
       <div className="container">
@@ -30,12 +17,24 @@ function VideoSection() {
           <p className={styles.mainSubtitle}>{siteConfig.tagline}</p>
           <div className={styles.headerButton}>
             <Link
-              className={styles.primaryButton}
-              to="/docs/intro">
-              Get Started
+              className={clsx(styles.primaryButton, styles.buyButton)}
+              to="https://assetstore.unity.com/packages/tools/behavior-ai/steering-flocking-framework-ecs-333012"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GET NOW
+            </Link>
+            <Link
+              className={clsx(styles.primaryButton, styles.buyButton)}
+              to="https://steeringai.ondrejvaic.com/docs/intro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LEARN MORE
             </Link>
           </div>
         </div>
+
         <div className={styles.videoContainer}>
           <div className={styles.videoWrapper}>
             <iframe
@@ -49,11 +48,12 @@ function VideoSection() {
             ></iframe>
           </div>
         </div>
+
         <div className={styles.featuresGrid}>
           <div className={styles.feature}>
             <div className={styles.featureIcon}>🖥️</div>
             <h3>Visual Editor</h3>
-            <p>Design Flocking and Steering Systems through GUI, ng required.</p>
+            <p>Design Flocking and Steering Systems through GUI, no coding required.</p>
           </div>
           <div className={styles.feature}>
             <div className={styles.featureIcon}>⚡</div>
@@ -87,13 +87,14 @@ function VideoSection() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Framework for Steering and Flocking Behaviors, written in Unity ECS.">
+      description="Framework for Steering and Flocking Behaviors, written in Unity ECS."
+    >
       <main>
-        <AssetStoreBanner />
+        
         <VideoSection />
       </main>
     </Layout>

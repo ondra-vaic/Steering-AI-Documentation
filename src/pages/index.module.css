@@ -88,7 +88,18 @@
 }
 
 .headerButton {
+  display: flex;
+  justify-content: center; /* centers buttons horizontally */
+  align-items: center;     /* vertically aligns them */
+  gap: 12px;               /* adds space between buttons */
   animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.headerButton a {
+  flex: 1;                 /* equal width for both buttons */
+  max-width: 220px;        /* optional: set a max width */
+  text-align: center;      /* centers text inside each button */
+  white-space: nowrap;
 }
 
 @keyframes fadeInUp {
